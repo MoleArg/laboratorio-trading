@@ -182,7 +182,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 <header class="site-head">
   <div class="wrap">
     <h1>Laboratorio de Trading interactivo</h1>
-    <p>16 módulos con gráficos que puedes mover, reproducir y modificar: velas y patrones, estructura de mercado, líneas de tendencia, sesiones, volumen, medias móviles, RSI, estocástico, momentum y MACD, liquidez, Smart Money Concepts, CRT y SMT. Todos los datos de los gráficos son simulados con fines educativos.</p>
+    <p>19 módulos con gráficos que puedes mover, reproducir y modificar: velas y patrones, soportes, resistencias y figuras, estructura de mercado, líneas de tendencia, sesiones, volumen, medias móviles, RSI, estocástico, momentum y MACD, ATR y Bollinger, liquidez, Smart Money Concepts, CRT, SMT, órdenes y costos, y gestión del riesgo. Todos los datos de los gráficos son simulados con fines educativos.</p>
     <div class="prefs">
       <label><input type="checkbox" id="pref-hollow"> Velas huecas (más fáciles de distinguir con daltonismo)</label>
     </div>
@@ -193,24 +193,29 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
     <button data-group="fund">Fundamentos</button>
     <button data-group="ind">Indicadores</button>
     <button data-group="smc">Smart Money / ICT</button>
+    <button data-group="ges">Gestión y riesgo</button>
     <button data-group="prac">Práctica</button>
   </div>
   <div class="wrap mods">
     <a href="#velas" data-mod="velas" data-group="fund"><span class="num">1</span>Velas</a>
     <a href="#patrones" data-mod="patrones" data-group="fund"><span class="num">2</span>Patrones de velas</a>
-    <a href="#estructura" data-mod="estructura" data-group="fund"><span class="num">3</span>Estructura de mercado</a>
-    <a href="#trendlines" data-mod="trendlines" data-group="fund"><span class="num">4</span>Líneas de tendencia</a>
-    <a href="#sesiones" data-mod="sesiones" data-group="fund"><span class="num">5</span>Sesiones</a>
-    <a href="#volumen" data-mod="volumen" data-group="fund"><span class="num">6</span>Volumen</a>
-    <a href="#emas" data-mod="emas" data-group="ind"><span class="num">7</span>EMAs</a>
-    <a href="#rsi" data-mod="rsi" data-group="ind"><span class="num">8</span>RSI</a>
-    <a href="#estocastico" data-mod="estocastico" data-group="ind"><span class="num">9</span>Estocástico</a>
-    <a href="#momentum" data-mod="momentum" data-group="ind"><span class="num">10</span>Momentum y MACD</a>
-    <a href="#liquidez" data-mod="liquidez" data-group="smc"><span class="num">11</span>Liquidez</a>
-    <a href="#smc" data-mod="smc" data-group="smc"><span class="num">12</span>Smart Money Concepts</a>
-    <a href="#crt" data-mod="crt" data-group="smc"><span class="num">13</span>CRT</a>
-    <a href="#smt" data-mod="smt" data-group="smc"><span class="num">14</span>SMT</a>
-    <a href="#todo" data-mod="todo" data-group="prac"><span class="num">15</span>Todo junto</a>
+    <a href="#sr" data-mod="sr" data-group="fund"><span class="num">3</span>Soportes, resistencias y figuras</a>
+    <a href="#estructura" data-mod="estructura" data-group="fund"><span class="num">4</span>Estructura de mercado</a>
+    <a href="#trendlines" data-mod="trendlines" data-group="fund"><span class="num">5</span>Líneas de tendencia</a>
+    <a href="#sesiones" data-mod="sesiones" data-group="fund"><span class="num">6</span>Sesiones</a>
+    <a href="#volumen" data-mod="volumen" data-group="fund"><span class="num">7</span>Volumen</a>
+    <a href="#emas" data-mod="emas" data-group="ind"><span class="num">8</span>EMAs</a>
+    <a href="#rsi" data-mod="rsi" data-group="ind"><span class="num">9</span>RSI</a>
+    <a href="#estocastico" data-mod="estocastico" data-group="ind"><span class="num">10</span>Estocástico</a>
+    <a href="#momentum" data-mod="momentum" data-group="ind"><span class="num">11</span>Momentum y MACD</a>
+    <a href="#volat" data-mod="volat" data-group="ind"><span class="num">12</span>ATR y Bollinger</a>
+    <a href="#liquidez" data-mod="liquidez" data-group="smc"><span class="num">13</span>Liquidez</a>
+    <a href="#smc" data-mod="smc" data-group="smc"><span class="num">14</span>Smart Money Concepts</a>
+    <a href="#crt" data-mod="crt" data-group="smc"><span class="num">15</span>CRT</a>
+    <a href="#smt" data-mod="smt" data-group="smc"><span class="num">16</span>SMT</a>
+    <a href="#ordenes" data-mod="ordenes" data-group="ges"><span class="num">17</span>Órdenes y costos</a>
+    <a href="#riesgo" data-mod="riesgo" data-group="ges"><span class="num">18</span>Gestión del riesgo</a>
+    <a href="#todo" data-mod="todo" data-group="prac"><span class="num">19</span>Todo junto</a>
     <a href="#glosario" data-mod="glosario" data-group="prac"><span class="num">?</span>Glosario</a>
   </div>
 </nav>
@@ -317,14 +322,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-rsi" data-mod="rsi">
   <div class="mod-head">
-    <div class="kicker">Módulo 8 · Indicador de momentum</div>
+    <div class="kicker">Módulo 9 · Indicador de momentum</div>
     <h2>RSI — Índice de Fuerza Relativa</h2>
     <p class="lead">Creado por J. Welles Wilder Jr. y publicado en 1978 en <em>New Concepts in Technical Trading Systems</em>. Responde a una pregunta: en los últimos N periodos, ¿qué parte del movimiento fue de subida y qué parte de bajada?</p>
     <nav class="toc"><a href="#rsi-que">Qué mide</a><a href="#rsi-calculo">Cálculo paso a paso</a><a href="#rsi-lab">Laboratorio</a><a href="#rsi-niveles">Niveles y rangos</a><a href="#rsi-div">Divergencias</a><a href="#rsi-fs">Failure swing</a><a href="#rsi-params">Parámetros</a><a href="#rsi-errores">Errores comunes</a><a href="#rsi-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="rsi-que">
-    <h3><span class="ln">8.1</span>Qué mide: una balanza entre subidas y bajadas</h3>
+    <h3><span class="ln">9.1</span>Qué mide: una balanza entre subidas y bajadas</h3>
     <div class="prose">
       <p>El RSI promedia el tamaño de las <strong>subidas</strong> (ganancia media, GM) y de las <strong>bajadas</strong> (pérdida media, PM) de los últimos 14 periodos y lo convierte en un número de <strong>0 a 100</strong>:</p>
       <p style="font-family:var(--mono);font-size:1.05rem;color:#fff">RSI = 100 × GM / (GM + PM)</p>
@@ -344,7 +349,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-calculo">
-    <h3><span class="ln">8.2</span>Cálculo paso a paso (suavizado de Wilder)</h3>
+    <h3><span class="ln">9.2</span>Cálculo paso a paso (suavizado de Wilder)</h3>
     <div class="prose">
       <ol>
         <li><strong>Cambio</strong> = cierre de hoy − cierre de ayer.</li>
@@ -371,7 +376,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-lab">
-    <h3><span class="ln">8.3</span>Laboratorio: el RSI en movimiento</h3>
+    <h3><span class="ln">9.3</span>Laboratorio: el RSI en movimiento</h3>
     <div class="prose"><p>Arriba el precio, abajo su RSI calculado vela a vela. Cambia el escenario y el periodo, reproduce la serie y pasa el cursor para ver GM, PM, RS y RSI de cada vela.</p></div>
     <div class="fig">
       <div class="controls">
@@ -395,7 +400,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-niveles">
-    <h3><span class="ln">8.4</span>Niveles 70/30, la línea de 50 y los "rangos" del RSI</h3>
+    <h3><span class="ln">9.4</span>Niveles 70/30, la línea de 50 y los "rangos" del RSI</h3>
     <div class="prose">
       <ul>
         <li><strong>70 / 30</strong> (Wilder): por encima de 70 = sobrecompra, por debajo de 30 = sobreventa. Pero "sobrecompra" significa <em>fuerza</em>, no "vende ya". En el laboratorio, el escenario de tendencia alcista lo muestra: el RSI puede vivir sobre 70 mientras el precio sigue subiendo.</li>
@@ -414,7 +419,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-div">
-    <h3><span class="ln">8.5</span>Divergencias: cuando el precio y el RSI no cuentan lo mismo</h3>
+    <h3><span class="ln">9.5</span>Divergencias: cuando el precio y el RSI no cuentan lo mismo</h3>
     <div class="prose">
       <ul>
         <li><strong>Divergencia regular bajista:</strong> el precio hace un máximo más alto, el RSI un máximo más bajo → el impulso alcista se debilita.</li>
@@ -431,7 +436,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-fs">
-    <h3><span class="ln">8.6</span>Failure swing: la señal favorita de Wilder</h3>
+    <h3><span class="ln">9.6</span>Failure swing: la señal favorita de Wilder</h3>
     <div class="prose">
       <p>Se mira solo el RSI, sin comparar con el precio. <strong>Failure swing de techo:</strong> el RSI supera 70, retrocede formando un valle, vuelve a subir <em>sin superar</em> su pico anterior y luego rompe por debajo del valle → señal bajista. <strong>De suelo:</strong> lo mismo al revés desde debajo de 30; la ruptura del pico intermedio (el "punto de fallo") es la señal alcista.</p>
     </div>
@@ -443,7 +448,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-params">
-    <h3><span class="ln">8.7</span>Parámetros y variantes</h3>
+    <h3><span class="ln">9.7</span>Parámetros y variantes</h3>
     <div class="prose">
       <p>En el laboratorio, cambia el periodo y compara: <strong>periodos cortos</strong> (2–9) hacen un RSI nervioso que toca extremos a menudo (por eso se usan niveles más amplios, como 80/20 o 90/10); <strong>periodos largos</strong> (21–25) lo suavizan y casi nunca llega a 70/30.</p>
       <ul>
@@ -455,7 +460,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="rsi-errores">
-    <h3><span class="ln">8.8</span>Errores comunes</h3>
+    <h3><span class="ln">9.8</span>Errores comunes</h3>
     <div class="callout err"><h5>Vender solo porque el RSI está sobre 70</h5>En tendencias fuertes la sobrecompra puede durar semanas. Usa el contexto (estructura, liquidez) antes de ir en contra.</div>
     <div class="callout err"><h5>Ver divergencias en cada ondulación</h5>Compara solo máximos/mínimos claros y relevantes de la misma temporalidad.</div>
     <div class="callout err"><h5>Sobreoptimizar el periodo</h5>Cambiar parámetros hasta que "funcione" en el pasado garantiza que no funcione en el futuro.</div>
@@ -467,14 +472,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-liquidez" data-mod="liquidez">
   <div class="mod-head">
-    <div class="kicker">Módulo 11 · Price action / ICT</div>
+    <div class="kicker">Módulo 13 · Price action / ICT</div>
     <h2>Teoría de liquidez</h2>
     <p class="lead">El precio no se mueve al azar entre niveles: tiende a viajar hacia donde hay <strong>órdenes esperando</strong>. Entender dónde están esas órdenes (y por qué) es la base de la CRT y de la SMT.</p>
     <nav class="toc"><a href="#liq-que">Qué es</a><a href="#liq-barrido">Por qué el precio la busca</a><a href="#liq-pools">Dónde se acumula</a><a href="#liq-svb">Barrido vs ruptura</a><a href="#liq-fvg">Desplazamiento y FVG</a><a href="#liq-ob">Order block y estructura</a><a href="#liq-pd">Premium / descuento</a><a href="#liq-errores">Errores comunes</a><a href="#liq-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="liq-que">
-    <h3><span class="ln">11.1</span>Qué es la liquidez (y dónde está)</h3>
+    <h3><span class="ln">13.1</span>Qué es la liquidez (y dónde está)</h3>
     <div class="prose">
       <p>"Liquidez" tiene dos significados en trading:</p>
       <ul>
@@ -502,7 +507,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-barrido">
-    <h3><span class="ln">11.2</span>Por qué el precio "va a buscar" la liquidez</h3>
+    <h3><span class="ln">13.2</span>Por qué el precio "va a buscar" la liquidez</h3>
     <div class="prose">
       <p>Un participante grande que quiere <strong>comprar</strong> mucha cantidad necesita que alguien le <strong>venda</strong> esa cantidad. Debajo de un mínimo obvio hay muchos stops de venta: cuando el precio llega ahí, se convierten en ventas a mercado y le dan la contrapartida que necesita. Por eso es tan común ver: <strong>barrido del mínimo → giro al alza</strong>. Para vender en grande pasa lo contrario: necesita compradores, y los encuentra en los buy stops sobre los máximos.</p>
       <p>No hace falta creer en conspiraciones: es pura mecánica de órdenes. Donde hay órdenes acumuladas hay volumen disponible, y el volumen atrae al precio. El recorrido típico es <strong>de liquidez a liquidez</strong>.</p>
@@ -520,7 +525,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-pools">
-    <h3><span class="ln">11.3</span>Dónde se acumula: los "pools" de liquidez</h3>
+    <h3><span class="ln">13.3</span>Dónde se acumula: los "pools" de liquidez</h3>
     <div class="prose">
       <ul>
         <li><strong>Máximos/mínimos iguales (EQH / EQL):</strong> el típico "doble techo/doble suelo". Para muchos es resistencia/soporte, así que ponen sus stops justo detrás.</li>
@@ -545,7 +550,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-svb">
-    <h3><span class="ln">11.4</span>Barrido vs ruptura: la diferencia está en el cierre</h3>
+    <h3><span class="ln">13.4</span>Barrido vs ruptura: la diferencia está en el cierre</h3>
     <div class="prose">
       <ul>
         <li><strong>Barrido</strong> (sweep, raid, "stop hunt", <em>turtle soup</em>): el precio supera el nivel con la <strong>mecha</strong> y <strong>cierra de vuelta dentro</strong>. El mercado rechazó esos precios: la liquidez se usó para girar.</li>
@@ -563,7 +568,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-fvg">
-    <h3><span class="ln">11.5</span>Desplazamiento y Fair Value Gap (FVG)</h3>
+    <h3><span class="ln">13.5</span>Desplazamiento y Fair Value Gap (FVG)</h3>
     <div class="prose">
       <p><strong>Desplazamiento:</strong> una o varias velas grandes, de cuerpo amplio y pocas mechas, que muestran intención (alguien entró con tamaño).</p>
       <p><strong>Fair Value Gap</strong> (brecha de valor razonable, "ineficiencia" o "imbalance"): patrón de <strong>3 velas</strong>. En un FVG alcista, el <strong>mínimo de la vela 3 queda por encima del máximo de la vela 1</strong>: en ese tramo solo hubo compras agresivas (la vela 2) y el precio no se negoció en ambas direcciones. En uno bajista, el máximo de la vela 3 queda por debajo del mínimo de la vela 1.</p>
@@ -582,7 +587,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-ob">
-    <h3><span class="ln">11.6</span>Order block y cambio de estructura</h3>
+    <h3><span class="ln">13.6</span>Order block y cambio de estructura</h3>
     <div class="prose">
       <ul>
         <li><strong>Order block alcista (definición ICT):</strong> la <strong>última vela bajista</strong> antes de un movimiento impulsivo alcista que rompe estructura. El bajista es la última vela alcista antes de una caída impulsiva. La idea: ahí se colocaron las órdenes que iniciaron el movimiento. Su 50% se llama <em>mean threshold</em>.</li>
@@ -599,7 +604,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-pd">
-    <h3><span class="ln">11.7</span>Premium, descuento y liquidez interna / externa</h3>
+    <h3><span class="ln">13.7</span>Premium, descuento y liquidez interna / externa</h3>
     <div class="prose">
       <ul>
         <li>Toma un <strong>rango de negociación</strong> (de un mínimo relevante a un máximo relevante). Su 50% es el <strong>equilibrio</strong>. La mitad superior es <strong>premium</strong> (caro) y la inferior <strong>descuento</strong> (barato). Con sesgo alcista se buscan compras en descuento; con sesgo bajista, ventas en premium.</li>
@@ -615,7 +620,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="liq-errores">
-    <h3><span class="ln">11.8</span>Errores comunes</h3>
+    <h3><span class="ln">13.8</span>Errores comunes</h3>
     <div class="callout err"><h5>Ver liquidez en todas partes</h5>A posteriori, cualquier nivel "era liquidez". Prioriza los niveles obvios y de temporalidad alta (PDH/PDL, máximos iguales, extremos de sesión).</div>
     <div class="callout err"><h5>Operar en contra solo porque "barrió"</h5>Muchos barridos terminan siendo rupturas. Espera el cierre de vuelta dentro del rango y una confirmación (MSS / CISD) antes de actuar.</div>
     <div class="callout err"><h5>Poner tu stop justo en el nivel obvio</h5>Ahí está la liquidez que otros van a buscar. Colócalo con lógica (más allá del barrido) y ajusta el tamaño de la posición.</div>
@@ -627,14 +632,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-crt" data-mod="crt">
   <div class="mod-head">
-    <div class="kicker">Módulo 13 · Price action / ICT</div>
+    <div class="kicker">Módulo 15 · Price action / ICT</div>
     <h2>CRT — Candle Range Theory (Teoría del Rango de la Vela)</h2>
     <p class="lead">Idea central: <strong>cada vela, en cualquier temporalidad, es un rango</strong> con un máximo y un mínimo llenos de liquidez. La CRT busca el momento en que una vela <strong>barre un extremo</strong> de la vela anterior, <strong>cierra de vuelta dentro</strong> de su rango y entonces viaja hacia el <strong>extremo opuesto</strong>.</p>
     <nav class="toc"><a href="#crt-idea">La idea</a><a href="#crt-modelo">Modelo de 3 velas</a><a href="#crt-reglas">Reglas y ejercicio</a><a href="#crt-mtf">Multi-temporalidad</a><a href="#crt-entradas">Tipos de entrada</a><a href="#crt-tf">Temporalidades y horarios</a><a href="#crt-calidad">Calidad y errores</a><a href="#crt-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="crt-idea">
-    <h3><span class="ln">13.1</span>La idea: rango, manipulación y expansión</h3>
+    <h3><span class="ln">15.1</span>La idea: rango, manipulación y expansión</h3>
     <div class="prose">
       <p>La CRT se difundió en la comunidad de price action (ICT / Smart Money) y está muy ligada al concepto de <strong>"Power of 3" o AMD</strong>: Acumulación → Manipulación → Distribución. Lleva esa idea al nivel de una sola vela:</p>
       <ul>
@@ -647,7 +652,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-modelo">
-    <h3><span class="ln">13.2</span>El modelo de 3 velas, paso a paso</h3>
+    <h3><span class="ln">15.2</span>El modelo de 3 velas, paso a paso</h3>
     <div class="fig">
       <div class="controls">
         <div class="seg" data-key="dir"><button class="on" data-v="bull">CRT alcista</button><button data-v="bear">CRT bajista</button></div>
@@ -662,7 +667,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-reglas">
-    <h3><span class="ln">13.3</span>Reglas de validez y ejercicio</h3>
+    <h3><span class="ln">15.3</span>Reglas de validez y ejercicio</h3>
     <div class="prose">
       <ol>
         <li>Marca el <strong>máximo y el mínimo de la vela 1</strong> (con mechas). Ese es el rango CRT.</li>
@@ -682,7 +687,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-mtf">
-    <h3><span class="ln">13.4</span>Multi-temporalidad: el mapa en 4H, la entrada en 15 minutos</h3>
+    <h3><span class="ln">15.4</span>Multi-temporalidad: el mapa en 4H, la entrada en 15 minutos</h3>
     <div class="prose">
       <p>La vela de temporalidad alta (HTF) te da el <strong>mapa</strong>: rango, barrido y objetivo. La <strong>entrada</strong> se busca en una temporalidad baja (LTF) mientras se forma la vela 2 o al inicio de la vela 3. Reproduce la simulación: a la izquierda las velas de 4H se van formando con los mismos datos que ves a la derecha en 15 minutos (16 velas de 15m = 1 vela de 4H).</p>
     </div>
@@ -703,7 +708,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-entradas">
-    <h3><span class="ln">13.5</span>Tres formas de entrar (de más agresiva a más conservadora)</h3>
+    <h3><span class="ln">15.5</span>Tres formas de entrar (de más agresiva a más conservadora)</h3>
     <div class="table-wrap" style="overflow-x:auto">
       <table class="t wide">
         <thead><tr><th>Entrada</th><th>Cuándo</th><th>Ventaja</th><th>Inconveniente</th></tr></thead>
@@ -718,7 +723,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-tf">
-    <h3><span class="ln">13.6</span>Alineación de temporalidades y horarios clave</h3>
+    <h3><span class="ln">15.6</span>Alineación de temporalidades y horarios clave</h3>
     <div class="prose"><p>Una referencia habitual (ajústala a tu estilo) es buscar la entrada en una temporalidad unas 8–16 veces menor que la del rango:</p></div>
     <div style="overflow-x:auto">
       <table class="t wide">
@@ -739,12 +744,12 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="crt-calidad">
-    <h3><span class="ln">13.7</span>Qué hace a un CRT de calidad (y errores comunes)</h3>
+    <h3><span class="ln">15.7</span>Qué hace a un CRT de calidad (y errores comunes)</h3>
     <div class="cols">
       <div class="callout tip-c"><h5>Suma puntos</h5><ul style="margin-left:18px">
         <li>El barrido llega a una <strong>zona clave de temporalidad mayor</strong> (FVG, order block, máximo/mínimo previo).</li>
         <li>El <strong>sesgo de temporalidad mayor</strong> va a favor (p. ej. diario alcista y CRT alcista en 4H).</li>
-        <li>Hay <strong>divergencia SMT</strong> en el barrido (módulo 14).</li>
+        <li>Hay <strong>divergencia SMT</strong> en el barrido (módulo 16).</li>
         <li>El rango de la vela 1 es <strong>amplio</strong>: deja buen riesgo/beneficio.</li>
         <li>Ocurre en <strong>horario con volumen</strong> y lejos de noticias de alto impacto.</li>
       </ul></div>
@@ -763,14 +768,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-smt" data-mod="smt">
   <div class="mod-head">
-    <div class="kicker">Módulo 14 · ICT</div>
+    <div class="kicker">Módulo 16 · ICT</div>
     <h2>SMT — Divergencia entre activos correlacionados</h2>
     <p class="lead"><strong>SMT</strong> (Smart Money Technique) compara dos activos que normalmente se mueven juntos. Si en un punto clave uno hace un nuevo extremo y el otro <strong>no lo confirma</strong>, aparece una "grieta en la correlación": el barrido de liquidez del primero no está respaldado y el movimiento puede girar.</p>
     <nav class="toc"><a href="#smt-que">Cómo se ve</a><a href="#smt-tipos">Tipos y pares</a><a href="#smt-reglas">Reglas de uso</a><a href="#smt-crt">SMT + CRT</a><a href="#smt-errores">Errores comunes</a><a href="#smt-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="smt-que">
-    <h3><span class="ln">14.1</span>Cómo se ve una divergencia SMT</h3>
+    <h3><span class="ln">16.1</span>Cómo se ve una divergencia SMT</h3>
     <div class="prose">
       <p>A diferencia de la divergencia del RSI (precio contra indicador), la SMT compara <strong>precio contra precio</strong> de otro activo. Ejemplo alcista con EUR/USD y GBP/USD: ambos bajan juntos, pero en el último mínimo el EUR/USD hace un <strong>mínimo más bajo</strong> (barre la liquidez) mientras el GBP/USD hace un <strong>mínimo más alto</strong>. La caída del euro no fue confirmada: señal de fuerza oculta.</p>
     </div>
@@ -788,7 +793,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smt-tipos">
-    <h3><span class="ln">14.2</span>Tipos y pares habituales</h3>
+    <h3><span class="ln">16.2</span>Tipos y pares habituales</h3>
     <div class="prose">
       <ul>
         <li><strong>SMT alcista</strong> (en mínimos): A hace un mínimo más bajo, B un mínimo más alto.</li>
@@ -811,7 +816,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smt-reglas">
-    <h3><span class="ln">14.3</span>Reglas de uso</h3>
+    <h3><span class="ln">16.3</span>Reglas de uso</h3>
     <div class="prose">
       <ol>
         <li><strong>Mismo momento y misma temporalidad:</strong> compara los extremos que se formaron en las mismas velas (los activos correlacionados pueden girar con unos minutos de diferencia).</li>
@@ -826,7 +831,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smt-crt">
-    <h3><span class="ln">14.4</span>SMT + CRT: la combinación más usada</h3>
+    <h3><span class="ln">16.4</span>SMT + CRT: la combinación más usada</h3>
     <div class="prose"><p>Aplica la CRT a los dos activos a la vez. Si la vela 2 del EUR/USD barre su CRT Low pero la vela 2 del GBP/USD <strong>no</strong> barre el suyo, tienes un CRT alcista confirmado por una SMT alcista: dos señales independientes que cuentan lo mismo.</p></div>
     <div class="fig">
       <div class="controls"><div class="seg" data-key="sc"><button class="on" data-v="bull">Alcista</button><button data-v="bear">Bajista</button></div></div>
@@ -836,7 +841,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smt-errores">
-    <h3><span class="ln">14.5</span>Errores comunes</h3>
+    <h3><span class="ln">16.5</span>Errores comunes</h3>
     <div class="callout err"><h5>Buscar SMT en temporalidades muy bajas sin contexto</h5>En 1 minuto siempre aparece alguna "divergencia". Úsala en niveles relevantes.</div>
     <div class="callout err"><h5>Comparar extremos de momentos distintos</h5>Un mínimo del lunes en un activo contra uno del martes en el otro no es una SMT.</div>
     <div class="callout err"><h5>Entrar solo por la SMT</h5>Es una confirmación, no un gatillo: espera estructura (MSS / CISD) y define stop y objetivo.</div>
@@ -847,14 +852,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-todo" data-mod="todo">
   <div class="mod-head">
-    <div class="kicker">Módulo 15 · Integración</div>
+    <div class="kicker">Módulo 19 · Integración</div>
     <h2>Todo junto: un escenario completo, paso a paso</h2>
     <p class="lead">Cada herramienta responde una pregunta distinta. <strong>Liquidez:</strong> ¿hacia dónde quiere ir el precio? <strong>CRT:</strong> ¿cuál es el rango y qué extremo se barrió? <strong>SMT:</strong> ¿el barrido está confirmado por el activo correlacionado? <strong>RSI:</strong> ¿el impulso acompaña o se agota? <strong>Estructura (CISD/FVG):</strong> ¿dónde entro exactamente?</p>
     <nav class="toc"><a href="#todo-sim">Simulación guiada</a><a href="#todo-check">Checklist</a><a href="#todo-riesgo">Gestión del riesgo</a></nav>
   </div>
 
   <article class="lesson" id="todo-sim">
-    <h3><span class="ln">15.1</span>Simulación guiada: CRT alcista en EUR/USD con SMT y RSI</h3>
+    <h3><span class="ln">19.1</span>Simulación guiada: CRT alcista en EUR/USD con SMT y RSI</h3>
     <div class="fig">
       <div class="steps-nav"><button class="btn" id="todo-prev">◀ Anterior</button><div class="dots" id="todo-dots"></div><button class="btn primary" id="todo-next">Siguiente ▶</button><button class="btn" id="todo-new">Nuevo escenario</button></div>
       <div class="step-box" id="todo-step"></div>
@@ -865,7 +870,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="todo-check">
-    <h3><span class="ln">15.2</span>Checklist antes de entrar</h3>
+    <h3><span class="ln">19.2</span>Checklist antes de entrar</h3>
     <div class="prose"><p>Marca lo que cumple tu operación. No es una probabilidad: es una herramienta de <strong>disciplina</strong> para no operar por impulso. Si faltan los puntos obligatorios (★), no hay operación.</p></div>
     <div class="checklist" id="checklist"></div>
     <div class="meter"><div id="check-meter"></div></div>
@@ -873,7 +878,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="todo-riesgo">
-    <h3><span class="ln">15.3</span>Gestión del riesgo: tamaño de posición</h3>
+    <h3><span class="ln">19.3</span>Gestión del riesgo: tamaño de posición</h3>
     <div class="prose"><p>Ningún modelo acierta siempre. Lo que te mantiene en el juego es arriesgar una fracción pequeña y fija de la cuenta por operación (muchos usan 0,5–1%) y exigir un riesgo/beneficio razonable.</p></div>
     <div class="fig">
       <div class="controls">
@@ -964,21 +969,21 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-estructura" data-mod="estructura">
   <div class="mod-head">
-    <div class="kicker">Módulo 3 · Fundamentos</div>
+    <div class="kicker">Módulo 4 · Fundamentos</div>
     <h2>Estructura de mercado</h2>
     <p class="lead">La forma más objetiva de saber si hay tendencia: mirar la secuencia de <strong>máximos y mínimos</strong>. Es la base de todo el análisis de price action y de Smart Money (BOS, CHoCH, order blocks…).</p>
     <nav class="toc"><a href="#est-swings">Swings</a><a href="#est-tendencia">Tendencia por estructura</a><a href="#est-bos">BOS y CHoCH</a><a href="#est-lab">Laboratorio</a><a href="#est-fuerte">Fuertes y débiles</a><a href="#est-errores">Errores comunes</a><a href="#estructura-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="est-swings">
-    <h3><span class="ln">3.1</span>Swings: los puntos de giro</h3>
+    <h3><span class="ln">4.1</span>Swings: los puntos de giro</h3>
     <div class="prose">
       <p>Un <strong>swing high</strong> (máximo oscilante) es una vela cuyo máximo es mayor que el de las N velas a cada lado. Un <strong>swing low</strong>, al revés. N es la <em>sensibilidad</em>: con N pequeño verás muchos giros (estructura interna, el "ruido"); con N grande, solo los importantes (estructura principal). No hay un N correcto: depende de la temporalidad y de lo que quieras operar.</p>
     </div>
   </article>
 
   <article class="lesson" id="est-tendencia">
-    <h3><span class="ln">3.2</span>Tendencia según la estructura</h3>
+    <h3><span class="ln">4.2</span>Tendencia según la estructura</h3>
     <div class="cols">
       <div class="callout tip-c"><h5>Alcista</h5>Máximos más altos (<strong>HH</strong>, higher high) y mínimos más altos (<strong>HL</strong>, higher low).</div>
       <div class="callout err"><h5>Bajista</h5>Máximos más bajos (<strong>LH</strong>, lower high) y mínimos más bajos (<strong>LL</strong>, lower low).</div>
@@ -987,7 +992,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="est-bos">
-    <h3><span class="ln">3.3</span>BOS y CHoCH</h3>
+    <h3><span class="ln">4.3</span>BOS y CHoCH</h3>
     <div class="prose">
       <ul>
         <li><strong>BOS (Break of Structure, ruptura de estructura):</strong> el precio <em>cierra</em> más allá del último swing <strong>a favor</strong> de la tendencia (supera el último máximo en alcista). Confirma que la tendencia continúa.</li>
@@ -998,7 +1003,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="est-lab">
-    <h3><span class="ln">3.4</span>Laboratorio de estructura</h3>
+    <h3><span class="ln">4.4</span>Laboratorio de estructura</h3>
     <div class="fig">
       <div class="controls">
         <div class="grp"><span class="lbl">Sensibilidad (N velas a cada lado)</span><input type="range" id="est-n" min="2" max="8" value="3"><span class="val" id="est-n-v">3</span></div>
@@ -1019,7 +1024,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="est-fuerte">
-    <h3><span class="ln">3.5</span>Máximos y mínimos fuertes y débiles</h3>
+    <h3><span class="ln">4.5</span>Máximos y mínimos fuertes y débiles</h3>
     <div class="prose">
       <ul>
         <li><strong>Mínimo fuerte</strong> (en tendencia alcista): el mínimo desde el que salió el impulso que rompió el máximo (BOS). Es el nivel que "protege" la tendencia: si cae, hay CHoCH.</li>
@@ -1031,7 +1036,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="est-errores">
-    <h3><span class="ln">3.6</span>Errores comunes</h3>
+    <h3><span class="ln">4.6</span>Errores comunes</h3>
     <div class="callout err"><h5>Mezclar temporalidades</h5>Un "CHoCH" en 1 minuto suele ser solo un retroceso dentro de la tendencia de 4H. Define en qué temporalidad lees la estructura principal.</div>
     <div class="callout err"><h5>Contar mechas como rupturas</h5>Una mecha que supera un máximo y cierra dentro es un barrido (liquidez), no un BOS.</div>
     <div class="callout err"><h5>Ver tendencia en un rango</h5>Si los máximos y mínimos se solapan, no fuerces una lectura: el mercado está lateral.</div>
@@ -1042,14 +1047,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-trendlines" data-mod="trendlines">
   <div class="mod-head">
-    <div class="kicker">Módulo 4 · Fundamentos</div>
+    <div class="kicker">Módulo 5 · Fundamentos</div>
     <h2>Líneas de tendencia</h2>
     <p class="lead">Una línea que une los mínimos crecientes (o los máximos decrecientes) muestra la dirección y el "ritmo" de una tendencia. Es una de las herramientas más antiguas del análisis técnico… y también uno de los lugares donde más stops se acumulan.</p>
     <nav class="toc"><a href="#tl-trazar">Cómo trazarlas</a><a href="#tl-dibuja">Dibuja tu línea</a><a href="#tl-ruptura">Ruptura, retesteo y canal</a><a href="#tl-liquidez">Como liquidez</a><a href="#tl-errores">Errores comunes</a><a href="#trendlines-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="tl-trazar">
-    <h3><span class="ln">4.1</span>Cómo trazar una línea de tendencia</h3>
+    <h3><span class="ln">5.1</span>Cómo trazar una línea de tendencia</h3>
     <div class="prose">
       <ul>
         <li><strong>Alcista:</strong> une al menos dos <strong>mínimos crecientes</strong>; la línea queda por debajo del precio. <strong>Bajista:</strong> une <strong>máximos decrecientes</strong>; queda por encima.</li>
@@ -1062,7 +1067,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="tl-dibuja">
-    <h3><span class="ln">4.2</span>Dibuja tu línea</h3>
+    <h3><span class="ln">5.2</span>Dibuja tu línea</h3>
     <div class="prose"><p><strong>Arrastra los dos puntos blancos</strong> hasta los mínimos (o máximos) que quieras unir: se "imantan" a las mechas cercanas. La página cuenta los toques y detecta la ruptura y el retesteo. Usa "Línea sugerida" para ver la que propone el algoritmo.</p></div>
     <div class="fig">
       <div class="controls">
@@ -1079,7 +1084,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="tl-ruptura">
-    <h3><span class="ln">4.3</span>Ruptura, retesteo y canal</h3>
+    <h3><span class="ln">5.3</span>Ruptura, retesteo y canal</h3>
     <div class="prose">
       <ul>
         <li><strong>Ruptura:</strong> un cierre claro al otro lado de la línea. Indica que el ritmo de la tendencia cambió, <em>no</em> necesariamente que la tendencia terminó: la confirmación llega con la estructura (CHoCH).</li>
@@ -1090,7 +1095,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="tl-liquidez">
-    <h3><span class="ln">4.4</span>Líneas de tendencia como liquidez</h3>
+    <h3><span class="ln">5.4</span>Líneas de tendencia como liquidez</h3>
     <div class="prose">
       <p>Cada vez que el precio toca la línea, muchos compran ahí y ponen el stop justo debajo. Después de 3 o 4 toques hay una "escalera" de stops bajo la línea: <strong>liquidez de línea de tendencia</strong> (concepto muy usado en ICT). Por eso es frecuente ver que el precio rompe la línea con fuerza, activa esos stops… y a veces gira después, ya con la liquidez tomada. Activa "Liquidez (stops)" en el laboratorio para verla.</p>
       <p>Moraleja: una línea con muchos toques es a la vez <strong>soporte</strong> y <strong>objetivo de liquidez</strong>. No pongas tu stop donde lo pone todo el mundo.</p>
@@ -1098,7 +1103,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="tl-errores">
-    <h3><span class="ln">4.5</span>Errores comunes</h3>
+    <h3><span class="ln">5.5</span>Errores comunes</h3>
     <div class="callout err"><h5>Forzar la línea</h5>Si tienes que atravesar velas para que "encaje", no es una línea válida.</div>
     <div class="callout err"><h5>Operar cada ruptura</h5>Muchas rupturas de línea son solo barridos o cambios de ritmo. Espera estructura (cierre y CHoCH) o el retesteo.</div>
     <div class="callout err"><h5>Usar la escala equivocada</h5>La inclinación visual cambia con la escala del gráfico: no te guíes por "grados", sino por los toques y la estructura.</div>
@@ -1109,14 +1114,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-sesiones" data-mod="sesiones">
   <div class="mod-head">
-    <div class="kicker">Módulo 5 · Fundamentos</div>
+    <div class="kicker">Módulo 6 · Fundamentos</div>
     <h2>Sesiones de mercado</h2>
     <p class="lead">El mercado de divisas opera 24 horas de lunes a viernes, pero no siempre con la misma intensidad. Saber <strong>qué sesión está abierta</strong> explica por qué a ciertas horas el precio "duerme" y a otras barre niveles y se expande.</p>
     <nav class="toc"><a href="#ses-reloj">Reloj en vivo</a><a href="#ses-tabla">Sesiones y solapamientos</a><a href="#ses-dia">Un día típico</a><a href="#ses-kz">Killzones</a><a href="#ses-noticias">Noticias</a><a href="#sesiones-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="ses-reloj">
-    <h3><span class="ln">5.1</span>Reloj de sesiones en vivo</h3>
+    <h3><span class="ln">6.1</span>Reloj de sesiones en vivo</h3>
     <div class="prose"><p>Las barras muestran el horario de cada plaza (de 8 a 17 h aprox. en su hora local), convertido a la zona que elijas. El horario de verano de cada ciudad se calcula automáticamente para hoy. La línea vertical es <strong>ahora</strong>.</p></div>
     <div class="fig">
       <div class="controls">
@@ -1130,7 +1135,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ses-tabla">
-    <h3><span class="ln">5.2</span>Sesiones y solapamientos</h3>
+    <h3><span class="ln">6.2</span>Sesiones y solapamientos</h3>
     <div style="overflow-x:auto">
       <table class="t wide">
         <thead><tr><th>Sesión</th><th>Horario local aprox.</th><th>En hora de Nueva York (aprox.)</th><th>Carácter</th></tr></thead>
@@ -1152,7 +1157,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ses-dia">
-    <h3><span class="ln">5.3</span>Un día típico: Asia acumula, Londres manipula, Nueva York expande</h3>
+    <h3><span class="ln">6.3</span>Un día típico: Asia acumula, Londres manipula, Nueva York expande</h3>
     <div class="prose"><p>Es un patrón <strong>frecuente</strong>, no una regla: Asia forma un rango estrecho; Londres barre uno de sus extremos (el famoso "Judas swing") y luego gira; Nueva York continúa la expansión hacia la liquidez opuesta. Es la misma idea del Power of 3 (AMD) que verás en Smart Money y CRT.</p></div>
     <div class="fig">
       <div class="controls">
@@ -1166,7 +1171,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ses-kz">
-    <h3><span class="ln">5.4</span>Killzones (ICT)</h3>
+    <h3><span class="ln">6.4</span>Killzones (ICT)</h3>
     <div class="prose"><p>ICT llama <strong>killzones</strong> a las ventanas donde suelen aparecer los movimientos con intención (barridos, desplazamientos). Las horas varían según el autor; estas son las más citadas (hora de Nueva York):</p></div>
     <div style="overflow-x:auto">
       <table class="t wide">
@@ -1182,7 +1187,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ses-noticias">
-    <h3><span class="ln">5.5</span>Noticias que mueven el mercado</h3>
+    <h3><span class="ln">6.5</span>Noticias que mueven el mercado</h3>
     <div class="prose">
       <ul>
         <li><strong>EE. UU.:</strong> la mayoría de datos se publican a las <strong>8:30</strong> (NY): empleo (NFP, primer viernes de mes), inflación (CPI)… y otros a las 10:00. Las decisiones de la Fed (FOMC) salen a las <strong>14:00</strong> (NY).</li>
@@ -1197,14 +1202,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-volumen" data-mod="volumen">
   <div class="mod-head">
-    <div class="kicker">Módulo 6 · Fundamentos</div>
+    <div class="kicker">Módulo 7 · Fundamentos</div>
     <h2>Volumen</h2>
     <p class="lead">El precio dice <em>qué</em> pasó; el volumen dice <strong>con cuánta participación</strong> pasó. Un movimiento con mucho volumen tiene "convicción"; uno sin volumen es sospechoso.</p>
     <nav class="toc"><a href="#vol-que">Qué es</a><a href="#vol-lab">Laboratorio</a><a href="#vol-leer">Cómo leerlo</a><a href="#vol-obv">OBV</a><a href="#vol-vwap">VWAP</a><a href="#vol-perfil">Perfil de volumen</a><a href="#volumen-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="vol-que">
-    <h3><span class="ln">6.1</span>Qué es el volumen</h3>
+    <h3><span class="ln">7.1</span>Qué es el volumen</h3>
     <div class="prose">
       <p>Es la cantidad negociada en cada vela: acciones, contratos o lotes. Se dibuja como barras debajo del gráfico.</p>
       <p><strong>En forex spot no hay un volumen centralizado</strong> (no existe una única bolsa). Las plataformas muestran el <strong>volumen de ticks</strong>: cuántas veces cambió el precio en la vela. Es una aproximación de la actividad que suele moverse en línea con el volumen real. Para volumen real de divisas se usan los futuros (por ejemplo, el futuro del euro en el CME).</p>
@@ -1212,7 +1217,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="vol-lab">
-    <h3><span class="ln">6.2</span>Laboratorio de volumen</h3>
+    <h3><span class="ln">7.2</span>Laboratorio de volumen</h3>
     <div class="fig">
       <div class="controls">
         <span class="lbl">Escenario</span>
@@ -1234,7 +1239,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="vol-leer">
-    <h3><span class="ln">6.3</span>Cómo leer el volumen</h3>
+    <h3><span class="ln">7.3</span>Cómo leer el volumen</h3>
     <div class="prose">
       <ul>
         <li><strong>Confirmación de rupturas:</strong> una ruptura con volumen muy por encima de su media suele tener continuidad; sin volumen, a menudo falla (prueba los dos primeros escenarios).</li>
@@ -1246,21 +1251,21 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="vol-obv">
-    <h3><span class="ln">6.4</span>OBV (On-Balance Volume)</h3>
+    <h3><span class="ln">7.4</span>OBV (On-Balance Volume)</h3>
     <div class="prose">
       <p>Popularizado por Joseph Granville (1963). Es un total acumulado: si la vela cierra por encima del cierre anterior se <strong>suma</strong> su volumen; si cierra por debajo, se <strong>resta</strong>. La idea: el volumen precede al precio. Se usa para confirmar tendencias (OBV y precio subiendo juntos) y detectar divergencias (precio con máximo más alto y OBV sin superarlo). Actívalo en el laboratorio.</p>
     </div>
   </article>
 
   <article class="lesson" id="vol-vwap">
-    <h3><span class="ln">6.5</span>VWAP (precio medio ponderado por volumen)</h3>
+    <h3><span class="ln">7.5</span>VWAP (precio medio ponderado por volumen)</h3>
     <div class="prose">
       <p><span class="mono">VWAP = Σ(precio típico × volumen) / Σ volumen</span>, con precio típico = (máximo + mínimo + cierre) / 3, acumulado desde el inicio de la sesión (o desde una vela elegida: <strong>VWAP anclado</strong>). Es el "precio justo" del día para muchos institucionales: precio por encima del VWAP = compradores en control; por debajo = vendedores. Las bandas (desviaciones) marcan zonas estiradas.</p>
     </div>
   </article>
 
   <article class="lesson" id="vol-perfil">
-    <h3><span class="ln">6.6</span>Perfil de volumen: POC y área de valor</h3>
+    <h3><span class="ln">7.6</span>Perfil de volumen: POC y área de valor</h3>
     <div class="prose">
       <ul>
         <li>El perfil reparte el volumen <strong>por niveles de precio</strong> (barras horizontales) en lugar de por tiempo.</li>
@@ -1277,14 +1282,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-emas" data-mod="emas">
   <div class="mod-head">
-    <div class="kicker">Módulo 7 · Indicadores</div>
+    <div class="kicker">Módulo 8 · Indicadores</div>
     <h2>Medias móviles: SMA y EMA</h2>
     <p class="lead">Una media móvil "suaviza" el precio para ver su dirección. La <strong>EMA</strong> (exponencial) da más peso a las velas recientes que la <strong>SMA</strong> (simple), así que reacciona antes. Son la base de muchos otros indicadores, como el MACD.</p>
     <nav class="toc"><a href="#ema-formula">SMA vs EMA</a><a href="#ema-lab">Laboratorio</a><a href="#ema-usos">Cómo se usan</a><a href="#ema-periodos">Periodos populares</a><a href="#ema-errores">Errores comunes</a><a href="#emas-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="ema-formula">
-    <h3><span class="ln">7.1</span>SMA vs EMA: ¿cuánto pesa cada vela?</h3>
+    <h3><span class="ln">8.1</span>SMA vs EMA: ¿cuánto pesa cada vela?</h3>
     <div class="prose">
       <ul>
         <li><strong>SMA(N)</strong> = suma de los últimos N cierres / N. Todas las velas pesan igual (1/N) y la vela N+1 deja de contar de golpe.</li>
@@ -1301,7 +1306,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ema-lab">
-    <h3><span class="ln">7.2</span>Laboratorio de medias</h3>
+    <h3><span class="ln">8.2</span>Laboratorio de medias</h3>
     <div class="fig">
       <div class="controls">
         <span class="lbl">Escenario</span>
@@ -1323,7 +1328,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ema-usos">
-    <h3><span class="ln">7.3</span>Cómo se usan</h3>
+    <h3><span class="ln">8.3</span>Cómo se usan</h3>
     <div class="prose">
       <ul>
         <li><strong>Dirección de la tendencia:</strong> precio por encima de una media larga (50 o 200) y la media con pendiente positiva = sesgo alcista.</li>
@@ -1335,7 +1340,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ema-periodos">
-    <h3><span class="ln">7.4</span>Periodos populares</h3>
+    <h3><span class="ln">8.4</span>Periodos populares</h3>
     <div style="overflow-x:auto">
       <table class="t wide">
         <thead><tr><th>Periodos</th><th>Uso habitual</th></tr></thead>
@@ -1350,7 +1355,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="ema-errores">
-    <h3><span class="ln">7.5</span>Errores comunes</h3>
+    <h3><span class="ln">8.5</span>Errores comunes</h3>
     <div class="callout err"><h5>Operar cruces en rangos</h5>En mercados laterales las medias se entrelazan y cada cruce es una señal falsa.</div>
     <div class="callout err"><h5>Esperar que la media "prediga"</h5>Una media resume el pasado. Confirma la tendencia; no anticipa giros.</div>
     <div class="callout err"><h5>Acumular demasiadas medias</h5>Cinco medias distintas no dan cinco veces más información: dan más ruido visual.</div>
@@ -1361,14 +1366,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-estocastico" data-mod="estocastico">
   <div class="mod-head">
-    <div class="kicker">Módulo 9 · Indicadores</div>
+    <div class="kicker">Módulo 10 · Indicadores</div>
     <h2>Oscilador estocástico</h2>
     <p class="lead">Creado por George Lane a finales de los años 50. Responde a una pregunta muy simple: <strong>¿dónde cerró el precio dentro del rango de las últimas N velas?</strong> Cerca del máximo del rango → lectura alta; cerca del mínimo → lectura baja.</p>
     <nav class="toc"><a href="#sto-que">Qué mide</a><a href="#sto-tipos">Rápido, lento y completo</a><a href="#sto-lab">Laboratorio</a><a href="#sto-senales">Señales</a><a href="#sto-rsi">Estocástico vs RSI</a><a href="#estocastico-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="sto-que">
-    <h3><span class="ln">9.1</span>Qué mide: la posición del cierre en el rango</h3>
+    <h3><span class="ln">10.1</span>Qué mide: la posición del cierre en el rango</h3>
     <div class="prose">
       <p style="font-family:var(--mono);color:#fff">%K = 100 × (Cierre − Mínimo de N) / (Máximo de N − Mínimo de N)</p>
       <p>Con N = 14: si el cierre está justo en el máximo de las últimas 14 velas, %K = 100; si está en el mínimo, %K = 0; a mitad del rango, 50. La idea de Lane: en tendencias alcistas los cierres tienden a quedar cerca de la parte alta del rango, y en bajistas cerca de la parte baja.</p>
@@ -1381,7 +1386,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="sto-tipos">
-    <h3><span class="ln">9.2</span>Rápido, lento y completo</h3>
+    <h3><span class="ln">10.2</span>Rápido, lento y completo</h3>
     <div style="overflow-x:auto">
       <table class="t wide">
         <thead><tr><th>Versión</th><th>%K</th><th>%D</th><th>Notación típica</th></tr></thead>
@@ -1396,7 +1401,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="sto-lab">
-    <h3><span class="ln">9.3</span>Laboratorio del estocástico</h3>
+    <h3><span class="ln">10.3</span>Laboratorio del estocástico</h3>
     <div class="fig">
       <div class="controls">
         <span class="lbl">Escenario</span>
@@ -1418,7 +1423,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="sto-senales">
-    <h3><span class="ln">9.4</span>Señales</h3>
+    <h3><span class="ln">10.4</span>Señales</h3>
     <div class="prose">
       <ul>
         <li><strong>Zonas 80 / 20:</strong> convención habitual de sobrecompra y sobreventa (cierre en el 20% superior o inferior del rango).</li>
@@ -1430,7 +1435,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="sto-rsi">
-    <h3><span class="ln">9.5</span>Estocástico vs RSI</h3>
+    <h3><span class="ln">10.5</span>Estocástico vs RSI</h3>
     <div style="overflow-x:auto">
       <table class="t wide">
         <thead><tr><th></th><th>Estocástico</th><th>RSI</th></tr></thead>
@@ -1449,14 +1454,14 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-momentum" data-mod="momentum">
   <div class="mod-head">
-    <div class="kicker">Módulo 10 · Indicadores</div>
+    <div class="kicker">Módulo 11 · Indicadores</div>
     <h2>Momentum, ROC y MACD</h2>
     <p class="lead">El momentum mide la <strong>velocidad</strong> del precio. Un precio que sigue subiendo pero cada vez más despacio está perdiendo momentum: es la primera pista de que el movimiento se agota, antes de que el precio gire.</p>
     <nav class="toc"><a href="#mom-que">Qué es</a><a href="#mom-lab">Laboratorio</a><a href="#mom-macd">MACD</a><a href="#mom-uso">Momentum y tendencia</a><a href="#momentum-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="mom-que">
-    <h3><span class="ln">10.1</span>Qué es el momentum: posición, velocidad y aceleración</h3>
+    <h3><span class="ln">11.1</span>Qué es el momentum: posición, velocidad y aceleración</h3>
     <div class="prose">
       <ul>
         <li><strong>Momentum (N)</strong> = cierre actual − cierre de hace N velas. Positivo: el precio está más alto que hace N velas.</li>
@@ -1472,7 +1477,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="mom-lab">
-    <h3><span class="ln">10.2</span>Laboratorio de momentum</h3>
+    <h3><span class="ln">11.2</span>Laboratorio de momentum</h3>
     <div class="fig">
       <div class="controls">
         <span class="lbl">Escenario</span>
@@ -1490,7 +1495,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="mom-macd">
-    <h3><span class="ln">10.3</span>MACD (Gerald Appel)</h3>
+    <h3><span class="ln">11.3</span>MACD (Gerald Appel)</h3>
     <div class="prose">
       <ul>
         <li><strong>Línea MACD</strong> = EMA 12 − EMA 26 del cierre. Mide si la media rápida se separa de la lenta (momentum de la tendencia).</li>
@@ -1503,7 +1508,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="mom-uso">
-    <h3><span class="ln">10.4</span>Momentum y tendencia: cómo combinarlos</h3>
+    <h3><span class="ln">11.4</span>Momentum y tendencia: cómo combinarlos</h3>
     <div class="prose">
       <ul>
         <li>El momentum <strong>se adelanta</strong>: se frena antes de que el precio gire. Eso da avisos tempranos… y también falsos.</li>
@@ -1518,34 +1523,34 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
 </section>
 <section class="module" id="m-smc" data-mod="smc">
   <div class="mod-head">
-    <div class="kicker">Módulo 12 · Smart Money / ICT</div>
+    <div class="kicker">Módulo 14 · Smart Money / ICT</div>
     <h2>Smart Money Concepts (SMC)</h2>
     <p class="lead">SMC es un marco de lectura del precio, popularizado por ICT (Michael Huddleston) y su comunidad, que interpreta el gráfico como la huella de las órdenes de los grandes participantes: <strong>estructura, liquidez, zonas de interés (POI), premium/descuento y tiempo</strong>. Aquí se juntan todas las piezas.</p>
     <nav class="toc"><a href="#smc-que">Qué es</a><a href="#smc-flujo">El flujo de análisis</a><a href="#smc-ind">Inducement</a><a href="#smc-bk">Breaker y mitigation</a><a href="#smc-ote">OTE (Fibonacci)</a><a href="#smc-po3">Power of 3</a><a href="#smc-errores">Errores comunes</a><a href="#smc-quiz">Práctica</a></nav>
   </div>
 
   <article class="lesson" id="smc-que">
-    <h3><span class="ln">12.1</span>Qué es SMC (y qué no es)</h3>
+    <h3><span class="ln">14.1</span>Qué es SMC (y qué no es)</h3>
     <div class="prose">
       <ul>
-        <li><strong>Estructura:</strong> swings, BOS y CHoCH (módulo 3).</li>
-        <li><strong>Liquidez:</strong> BSL, SSL, barridos, inducement (módulo 11 y abajo).</li>
+        <li><strong>Estructura:</strong> swings, BOS y CHoCH (módulo 4).</li>
+        <li><strong>Liquidez:</strong> BSL, SSL, barridos, inducement (módulo 13 y abajo).</li>
         <li><strong>Zonas de interés (POI):</strong> order blocks, FVG, breakers, mitigation blocks.</li>
         <li><strong>Ubicación:</strong> premium / descuento y OTE.</li>
-        <li><strong>Tiempo:</strong> sesiones y killzones (módulo 5), Power of 3.</li>
+        <li><strong>Tiempo:</strong> sesiones y killzones (módulo 6), Power of 3.</li>
       </ul>
       <p>Ventajas: da una narrativa coherente (¿de dónde viene el precio y a qué liquidez va?). Límites: muchas de sus explicaciones ("el institucional hace X") son <strong>interpretaciones, no hechos comprobados</strong>, y la terminología varía entre autores. Úsalo como un mapa que hay que validar con tu propio backtest.</p>
     </div>
   </article>
 
   <article class="lesson" id="smc-flujo">
-    <h3><span class="ln">12.2</span>El flujo de análisis (de arriba hacia abajo)</h3>
+    <h3><span class="ln">14.2</span>El flujo de análisis (de arriba hacia abajo)</h3>
     <div class="prose"><p>Haz clic en cada paso para ir al módulo que lo explica.</p></div>
     <div class="fig"><div class="chart-host" id="fig-smc-flow"></div></div>
   </article>
 
   <article class="lesson" id="smc-ind">
-    <h3><span class="ln">12.3</span>Inducement: el cebo antes de la zona real</h3>
+    <h3><span class="ln">14.3</span>Inducement: el cebo antes de la zona real</h3>
     <div class="prose"><p>Un <strong>inducement</strong> es un mínimo (o máximo) menor y muy evidente que aparece <em>antes</em> de la zona de interés real. Muchos traders entran ahí y dejan sus stops justo detrás: esa liquidez es lo que el precio va a buscar antes de llegar al POI verdadero. Regla práctica: <strong>espera a que el inducement sea barrido</strong> antes de confiar en el POI.</p></div>
     <div class="fig">
       <div class="steps-nav"><button class="btn" id="ind-prev">◀ Anterior</button><div class="dots" id="ind-dots"></div><button class="btn primary" id="ind-next">Siguiente ▶</button></div>
@@ -1555,7 +1560,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smc-bk">
-    <h3><span class="ln">12.4</span>Breaker block y mitigation block</h3>
+    <h3><span class="ln">14.4</span>Breaker block y mitigation block</h3>
     <div class="prose">
       <ul>
         <li><strong>Breaker block (alcista):</strong> el precio hace un mínimo, rebota (las últimas velas alcistas de ese rebote forman una zona), cae a un <strong>mínimo más bajo que barre la liquidez</strong> y luego sube con fuerza rompiendo por encima de esa zona. La zona "fallida" cambia de papel y se convierte en soporte: el retesteo es la entrada.</li>
@@ -1571,7 +1576,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smc-ote">
-    <h3><span class="ln">12.5</span>OTE: la entrada óptima con Fibonacci</h3>
+    <h3><span class="ln">14.5</span>OTE: la entrada óptima con Fibonacci</h3>
     <div class="prose"><p>Tras un desplazamiento que rompe estructura, se traza Fibonacci del inicio al final del impulso. La <strong>OTE</strong> (optimal trade entry) es la zona de retroceso entre el <strong>62% y el 79%</strong>, con el 70,5% como punto medio. Está en descuento (bajo el 50%), ofrece buen riesgo/beneficio con el stop bajo el inicio del impulso, y el objetivo es la liquidez sobre el máximo (algunos usan extensiones como −0,27).</p></div>
     <div class="fig">
       <div class="controls">
@@ -1585,7 +1590,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smc-po3">
-    <h3><span class="ln">12.6</span>Power of 3 (AMD) en la vela diaria</h3>
+    <h3><span class="ln">14.6</span>Power of 3 (AMD) en la vela diaria</h3>
     <div class="prose"><p>La vela del día se construye en tres actos: <strong>Acumulación</strong> (Asia, rango cerca de la apertura), <strong>Manipulación</strong> (Londres mueve el precio <em>en contra</em> de la dirección del día, barriendo liquidez: la mecha) y <strong>Distribución</strong> (Nueva York expande en la dirección real: el cuerpo). Es la base de la CRT.</p></div>
     <div class="fig">
       <div class="controls">
@@ -1598,7 +1603,7 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <article class="lesson" id="smc-errores">
-    <h3><span class="ln">12.7</span>Errores comunes</h3>
+    <h3><span class="ln">14.7</span>Errores comunes</h3>
     <div class="callout err"><h5>Ver order blocks en cada vela</h5>Un POI válido nace de un desplazamiento que rompe estructura, idealmente tras un barrido. Sin eso, es solo una vela.</div>
     <div class="callout err"><h5>Ignorar premium y descuento</h5>Comprar un "order block" en premium dentro de un rango alcista suele salir caro.</div>
     <div class="callout err"><h5>Entrar en el inducement</h5>El primer retroceso obvio suele ser el cebo. Espera el barrido y la zona real.</div>
@@ -1606,6 +1611,391 @@ footer{border-top:1px solid var(--border);color:var(--muted);font-size:.85rem;pa
   </article>
 
   <div id="smc-quiz"></div>
+  <div class="next"></div>
+</section>
+<section class="module" id="m-sr" data-mod="sr">
+  <div class="mod-head">
+    <div class="kicker">Módulo 3 · Fundamentos</div>
+    <h2>Soportes, resistencias y figuras chartistas</h2>
+    <p class="lead">Los niveles donde el precio ya reaccionó antes tienden a volver a importar. Un <strong>soporte</strong> es una zona donde la caída se frenó; una <strong>resistencia</strong>, donde la subida se frenó. Las <strong>figuras chartistas</strong> (doble techo, hombro-cabeza-hombro, triángulos…) son la forma que toma el precio alrededor de esos niveles.</p>
+    <nav class="toc"><a href="#sr-que">Qué son</a><a href="#sr-zonas">Detector de zonas</a><a href="#sr-polaridad">Cambio de polaridad</a><a href="#sr-figuras">Figuras chartistas</a><a href="#sr-errores">Errores comunes</a><a href="#sr-quiz">Práctica</a></nav>
+  </div>
+
+  <article class="lesson" id="sr-que">
+    <h3><span class="ln">3.1</span>Qué son y por qué funcionan</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Son zonas, no líneas exactas:</strong> el precio reacciona en un área, con mechas que la atraviesan un poco.</li>
+        <li><strong>Memoria del mercado:</strong> en esos precios quedaron órdenes pendientes, traders atrapados que quieren salir "en cero" y participantes que esperan volver a comprar o vender ahí.</li>
+        <li><strong>Más toques = nivel más visible…</strong> y también más stops acumulados detrás (liquidez). Por eso un nivel muy obvio puede frenar el precio o ser barrido.</li>
+        <li><strong>Números redondos</strong> (1.1000, 100, 50 000) y máximos/mínimos de días y semanas anteriores son niveles naturales.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="lesson" id="sr-zonas">
+    <h3><span class="ln">3.2</span>Detector de zonas</h3>
+    <div class="prose"><p>El detector agrupa los puntos de giro (swings) que quedan a precios parecidos y dibuja una zona cuando hay suficientes toques. Ajusta la sensibilidad y el ancho de zona para ver cómo cambia el mapa.</p></div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Sensibilidad de swings</span><input type="range" id="sr-n" min="2" max="6" value="3" style="width:100px"><span class="val" id="sr-n-v">3</span></div>
+        <div class="grp"><span class="lbl">Ancho de zona</span><input type="range" id="sr-tol" min="2" max="12" value="6" style="width:100px"><span class="val" id="sr-tol-v"></span></div>
+        <div class="grp"><span class="lbl">Toques mínimos</span><input type="range" id="sr-min" min="2" max="4" value="2" style="width:80px"><span class="val" id="sr-min-v">2</span></div>
+        <button class="btn" id="sr-new">Nuevo ejemplo</button>
+      </div>
+      <div class="chart-host" id="fig-sr"></div>
+      <div class="legend"><span><i class="box" style="background:var(--c-up)"></i>Soporte (bajo el precio actual)</span><span><i class="box" style="background:var(--c-down)"></i>Resistencia (sobre el precio actual)</span><span>S↔R = la zona cambió de papel</span></div>
+      <div class="readout" id="sr-stats"></div>
+      <div class="explain" id="sr-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="sr-polaridad">
+    <h3><span class="ln">3.3</span>Cambio de polaridad: la resistencia rota se vuelve soporte</h3>
+    <div class="prose">
+      <p>Cuando el precio rompe una resistencia con un cierre claro, quienes vendieron ahí quedan atrapados y quienes se perdieron la ruptura esperan un retroceso para comprar. Por eso, al volver al nivel, este suele actuar como <strong>soporte</strong> (y al revés con los soportes rotos). En el detector, las zonas marcadas con <strong>S↔R</strong> funcionaron de las dos formas.</p>
+      <p>Es la misma idea del <strong>retesteo</strong> de las líneas de tendencia y del cambio de papel de los breaker blocks en Smart Money.</p>
+    </div>
+  </article>
+
+  <article class="lesson" id="sr-figuras">
+    <h3><span class="ln">3.4</span>Figuras chartistas</h3>
+    <div class="prose"><p>Elige una figura para ver cómo se forma, dónde se confirma (ruptura), cómo se calcula el objetivo por proyección y dónde queda invalidada. Los objetivos por proyección son <strong>orientativos</strong>, no promesas.</p></div>
+    <div class="fig">
+      <div class="controls" id="cp-list"></div>
+      <div class="chart-host" id="fig-cp"></div>
+      <div class="cols" style="margin-top:10px">
+        <div class="explain" id="cp-info"></div>
+        <div class="explain" id="cp-rules"></div>
+      </div>
+    </div>
+  </article>
+
+  <article class="lesson" id="sr-errores">
+    <h3><span class="ln">3.5</span>Errores comunes</h3>
+    <div class="callout err"><h5>Dibujar líneas exactas</h5>Los niveles son zonas. Si exiges que el precio toque al pip, verás "rupturas" que solo son mechas.</div>
+    <div class="callout err"><h5>Llenar el gráfico de niveles</h5>Quédate con los más claros y recientes, y con los de temporalidad mayor.</div>
+    <div class="callout err"><h5>Anticipar la ruptura de la figura</h5>Un doble techo no existe hasta que se rompe la línea de cuello. Antes es solo un rango.</div>
+    <div class="callout warn"><h5>Piensa en la liquidez</h5>Un doble techo son máximos iguales: encima hay stops (BSL). A menudo el precio barre ese nivel antes de caer… o lo rompe de verdad.</div>
+  </article>
+
+  <div id="sr-quiz"></div>
+  <div class="next"></div>
+</section>
+<section class="module" id="m-volat" data-mod="volat">
+  <div class="mod-head">
+    <div class="kicker">Módulo 12 · Indicadores</div>
+    <h2>Volatilidad: ATR y Bandas de Bollinger</h2>
+    <p class="lead">La volatilidad dice <strong>cuánto</strong> se mueve el precio, no hacia dónde. Es clave para algo muy práctico: dónde poner el stop y cuánto comprar o vender.</p>
+    <nav class="toc"><a href="#vo-tr">True Range</a><a href="#vo-atr">Laboratorio ATR</a><a href="#vo-stops">Stops y tamaño con ATR</a><a href="#vo-bb">Bandas de Bollinger</a><a href="#vo-uso">Cómo usarlas</a><a href="#volat-quiz">Práctica</a></nav>
+  </div>
+
+  <article class="lesson" id="vo-tr">
+    <h3><span class="ln">12.1</span>True Range: el rango "verdadero" de una vela</h3>
+    <div class="prose">
+      <p>J. Welles Wilder (el mismo autor del RSI, 1978) definió el <strong>True Range</strong> para no ignorar los huecos entre velas:</p>
+      <p style="font-family:var(--mono);color:#fff">TR = el mayor de: (Máximo − Mínimo), |Máximo − Cierre anterior|, |Mínimo − Cierre anterior|</p>
+      <p>El <strong>ATR</strong> (Average True Range) es la media del TR con el suavizado de Wilder, normalmente de 14 periodos. Se mide en unidades de precio (pips, puntos, dólares).</p>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Cierre anterior</span><input type="range" id="tr-pc" min="0" max="100" value="45" style="width:140px"></div>
+        <div class="grp"><span class="lbl">Máximo actual</span><input type="range" id="tr-h" min="0" max="100" value="80" style="width:140px"></div>
+        <div class="grp"><span class="lbl">Mínimo actual</span><input type="range" id="tr-l" min="0" max="100" value="55" style="width:140px"></div>
+      </div>
+      <div class="chart-host" id="fig-tr"></div>
+      <div class="explain" id="tr-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="vo-atr">
+    <h3><span class="ln">12.2</span>Laboratorio de ATR</h3>
+    <div class="fig">
+      <div class="controls">
+        <span class="lbl">Escenario</span>
+        <div class="seg" data-key="sc"><button class="on" data-v="squeeze">Calma → expansión</button><button data-v="trend">Tendencia</button><button data-v="news">Noticia</button></div>
+        <div class="grp"><span class="lbl">Periodo</span><input type="range" id="atr-n" min="5" max="30" value="14" style="width:110px"><span class="val" id="atr-n-v">14</span></div>
+        <button class="btn" id="atr-new">Nuevo ejemplo</button>
+      </div>
+      <div class="chart-host" id="fig-atr"></div>
+      <div class="legend"><span><i class="box" style="background:var(--text-2)"></i>True Range de cada vela</span><span><i style="background:var(--c-range)"></i>ATR</span></div>
+      <div class="explain" id="atr-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="vo-stops">
+    <h3><span class="ln">12.3</span>Stops y tamaño de posición con ATR</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Stop por volatilidad:</strong> en lugar de un número fijo, el stop se pone a k × ATR de la entrada (k entre 1,5 y 3 es habitual). En un mercado nervioso el stop se aleja; en uno tranquilo, se acerca.</li>
+        <li><strong>Tamaño:</strong> unidades = dinero arriesgado / (k × ATR). Así cada operación arriesga lo mismo aunque la volatilidad cambie.</li>
+        <li><strong>Chandelier exit</strong> (stop dinámico de Chuck LeBeau): máximo más alto desde la entrada − m × ATR (m ≈ 3). Acompaña la tendencia y te saca cuando el retroceso supera lo "normal".</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Vela de entrada</span><input type="range" id="as-e" min="2" max="40" value="6" style="width:120px"><span class="val" id="as-e-v"></span></div>
+        <div class="grp"><span class="lbl">Stop inicial (k × ATR)</span><input type="range" id="as-k" min="10" max="40" value="20" style="width:110px"><span class="val" id="as-k-v"></span></div>
+        <div class="grp"><span class="lbl">Chandelier (m × ATR)</span><input type="range" id="as-m" min="10" max="50" value="30" style="width:110px"><span class="val" id="as-m-v"></span></div>
+        <div class="grp"><span class="lbl">Riesgo ($)</span><input type="number" id="as-r" value="100" min="1" style="width:90px"></div>
+      </div>
+      <div class="chart-host" id="fig-atr-stop"></div>
+      <div class="readout" id="as-stats"></div>
+      <div class="explain" id="as-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="vo-bb">
+    <h3><span class="ln">12.4</span>Bandas de Bollinger</h3>
+    <div class="prose">
+      <p>Creadas por John Bollinger en los años 80: una media simple de 20 periodos (banda media) y dos bandas a ±2 desviaciones estándar. Se ensanchan cuando sube la volatilidad y se estrechan cuando baja. Dos lecturas derivadas: <strong>%B</strong> (dónde está el cierre respecto a las bandas: 1 = en la superior, 0 = en la inferior) y el <strong>ancho de banda</strong> ((superior − inferior) / media).</p>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <span class="lbl">Escenario</span>
+        <div class="seg" data-key="sc"><button class="on" data-v="squeeze">Squeeze → ruptura</button><button data-v="trend">Tendencia</button><button data-v="range">Rango</button></div>
+        <div class="grp"><span class="lbl">Periodo</span><input type="range" id="bb-n" min="10" max="50" value="20" style="width:100px"><span class="val" id="bb-n-v">20</span></div>
+        <div class="grp"><span class="lbl">Desviaciones</span><input type="range" id="bb-k" min="10" max="30" value="20" style="width:90px"><span class="val" id="bb-k-v">2.0</span></div>
+        <label class="grp"><input type="checkbox" id="bb-pb" checked> %B</label>
+        <label class="grp"><input type="checkbox" id="bb-bw" checked> Ancho de banda</label>
+      </div>
+      <div class="chart-host" id="fig-bb"></div>
+      <div class="legend"><span><i style="background:var(--c-range)"></i>Bandas superior e inferior</span><span><i class="dash" style="border-color:var(--text-2)"></i>Media (banda central)</span><span>● Cierre fuera de las bandas</span></div>
+      <div class="readout" id="bb-stats"></div>
+      <div class="explain" id="bb-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="vo-uso">
+    <h3><span class="ln">12.5</span>Cómo usarlas (y errores comunes)</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Squeeze:</strong> bandas muy estrechas (ancho de banda mínimo) = volatilidad comprimida. Suele preceder a una expansión, pero <em>no dice la dirección</em>: espera la ruptura.</li>
+        <li><strong>Tendencia:</strong> el precio puede "caminar" por la banda superior durante muchas velas. Cerrar fuera de la banda no es, por sí solo, señal de giro.</li>
+        <li><strong>Rango:</strong> los toques de las bandas tienden a volver hacia la media: es donde funciona la lectura de "reversión".</li>
+        <li><strong>ATR:</strong> úsalo para dimensionar, no para predecir. Un ATR alto exige stops más amplios y posiciones más pequeñas.</li>
+      </ul>
+    </div>
+    <div class="callout err"><h5>Error típico</h5>Vender cada toque de la banda superior en una tendencia alcista. Primero identifica si estás en tendencia o en rango (estructura de mercado).</div>
+  </article>
+
+  <div id="volat-quiz"></div>
+  <div class="next"></div>
+</section>
+<section class="module" id="m-ordenes" data-mod="ordenes">
+  <div class="mod-head">
+    <div class="kicker">Módulo 17 · Gestión y riesgo</div>
+    <h2>Órdenes, spread, lotes, apalancamiento y costos</h2>
+    <p class="lead">Antes de cualquier estrategia: cómo se ejecuta realmente una operación, cuánto vale cada movimiento y cuánto cuesta operar. Aquí se pierde mucho dinero por desconocimiento, no por mal análisis.</p>
+    <nav class="toc"><a href="#ord-tipos">Tipos de órdenes</a><a href="#ord-spread">Bid, ask y spread</a><a href="#ord-pips">Pips y lotes</a><a href="#ord-lev">Apalancamiento y margen</a><a href="#ord-costos">Costos</a><a href="#ordenes-quiz">Práctica</a></nav>
+  </div>
+
+  <article class="lesson" id="ord-tipos">
+    <h3><span class="ln">17.1</span>Tipos de órdenes</h3>
+    <div style="overflow-x:auto">
+      <table class="t wide">
+        <thead><tr><th>Orden</th><th>Dónde se coloca</th><th>Cuándo se ejecuta</th><th>Uso típico</th></tr></thead>
+        <tbody>
+          <tr><td><strong>A mercado</strong></td><td>—</td><td>Al instante, al mejor precio disponible</td><td>Entrar o salir ya (aceptas el precio que haya)</td></tr>
+          <tr><td><strong>Buy limit</strong></td><td>Por debajo del precio actual</td><td>Si el precio baja hasta el nivel (o mejor)</td><td>Comprar un retroceso (FVG, soporte)</td></tr>
+          <tr><td><strong>Sell limit</strong></td><td>Por encima del precio actual</td><td>Si el precio sube hasta el nivel (o mejor)</td><td>Vender en una resistencia / zona premium</td></tr>
+          <tr><td><strong>Buy stop</strong></td><td>Por encima del precio actual</td><td>Si el precio sube hasta el nivel; se convierte en orden a mercado</td><td>Comprar una ruptura; stop loss de un corto</td></tr>
+          <tr><td><strong>Sell stop</strong></td><td>Por debajo del precio actual</td><td>Si el precio baja hasta el nivel; se convierte en orden a mercado</td><td>Vender una ruptura; stop loss de un largo</td></tr>
+          <tr><td><strong>Stop-limit</strong></td><td>Precio de activación + precio límite</td><td>Se activa como stop pero solo ejecuta hasta el límite</td><td>Evitar deslizamientos grandes (a cambio, puede no ejecutarse)</td></tr>
+          <tr><td><strong>OCO</strong></td><td>Dos órdenes ligadas</td><td>Si se ejecuta una, se cancela la otra</td><td>Take profit + stop loss; rupturas a ambos lados</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="prose"><p>Fíjate en la conexión con la liquidez: los <strong>stops</strong> y las órdenes de ruptura son exactamente las órdenes que se acumulan encima de los máximos (buy stops) y debajo de los mínimos (sell stops).</p></div>
+    <div class="fig">
+      <div class="fig-title">Simulador de órdenes</div>
+      <div class="controls">
+        <div class="seg" data-key="ot"><button data-v="mkt">Compra a mercado</button><button class="on" data-v="bl">Buy limit</button><button data-v="bs">Buy stop</button><button data-v="sl">Sell limit</button><button data-v="ss">Sell stop</button></div>
+      </div>
+      <div class="controls">
+        <div class="grp"><span class="lbl">Precio de la orden</span><input type="range" id="ord-lvl" min="-30" max="30" value="-12" style="width:220px"><span class="val" id="ord-lvl-v"></span></div>
+        <label class="grp"><input type="checkbox" id="ord-fast"> Mercado rápido (deslizamiento en órdenes stop)</label>
+        <button class="btn primary" id="ord-play">▶ Simular</button>
+      </div>
+      <div class="chart-host" id="fig-ord"></div>
+      <div class="explain" id="ord-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="ord-spread">
+    <h3><span class="ln">17.2</span>Bid, ask y spread</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Bid</strong>: el precio al que puedes <em>vender</em>. <strong>Ask</strong>: el precio al que puedes <em>comprar</em>. La diferencia es el <strong>spread</strong>, el primer costo de cada operación.</li>
+        <li>Los gráficos suelen mostrar el bid. Una compra entra al ask y se valora al bid: <strong>empiezas perdiendo el spread</strong>.</li>
+        <li>Un stop de una venta en corto se activa con el <strong>ask</strong>: si el spread se abre (noticias, cambio de día), puede saltar aunque el gráfico "no lo toque".</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Spread normal (pips)</span><input type="range" id="sp-s" min="1" max="30" value="8" style="width:160px"><span class="val" id="sp-s-v"></span></div>
+        <label class="grp"><input type="checkbox" id="sp-news" checked> Noticia: el spread se abre</label>
+      </div>
+      <div class="chart-host" id="fig-spread"></div>
+      <div class="explain" id="sp-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="ord-pips">
+    <h3><span class="ln">17.3</span>Pips, lotes y valor del pip</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Pip</strong>: en la mayoría de pares es el 4.º decimal (0,0001); en los pares con yen, el 2.º decimal (0,01).</li>
+        <li><strong>Lote estándar</strong> = 100 000 unidades de la divisa base; mini = 10 000; micro = 1 000.</li>
+        <li>En pares XXX/USD (EUR/USD, GBP/USD), 1 pip con 1 lote estándar vale <strong>10 USD</strong>.</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Par</span><select id="pip-pair" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border-2);border-radius:8px;padding:6px"><option value="xusd">EUR/USD (XXX/USD)</option><option value="usdx">USD/CAD (USD/XXX)</option><option value="usdjpy">USD/JPY</option><option value="xjpy">EUR/JPY (cruce con yen)</option></select></div>
+        <div class="grp"><span class="lbl">Precio</span><input type="number" id="pip-price" value="1.0850" step="0.0001" style="width:100px"></div>
+        <div class="grp"><span class="lbl">USD/JPY</span><input type="number" id="pip-jpy" value="150" step="0.1" style="width:80px"></div>
+        <div class="grp"><span class="lbl">Lotes</span><input type="number" id="pip-lots" value="1" step="0.01" min="0.01" style="width:80px"></div>
+        <div class="grp"><span class="lbl">Movimiento (pips)</span><input type="number" id="pip-move" value="20" step="1" style="width:80px"></div>
+      </div>
+      <div class="readout" id="pip-out"></div>
+      <div class="explain" id="pip-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="ord-lev">
+    <h3><span class="ln">17.4</span>Apalancamiento y margen</h3>
+    <div class="prose">
+      <ul>
+        <li>El <strong>apalancamiento</strong> te deja controlar una posición mayor que tu capital. El <strong>margen</strong> es la parte de tu capital que el broker "bloquea" como garantía: margen = valor de la posición / apalancamiento.</li>
+        <li>El apalancamiento <strong>no cambia cuánto ganas o pierdes por pip</strong>: eso lo decide el tamaño. Lo que hace es permitirte abrir posiciones demasiado grandes.</li>
+        <li>Si las pérdidas comen tu margen, llega el <strong>margin call</strong> y luego el <strong>stop out</strong> (cierre forzado). Para minoristas, la UE limita los pares principales a 30:1 y EE. UU. a 50:1.</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Capital ($)</span><input type="number" id="lv-cap" value="1000" min="1" style="width:100px"></div>
+        <div class="grp"><span class="lbl">Apalancamiento</span><select id="lv-lev" style="background:var(--surface-2);color:var(--text);border:1px solid var(--border-2);border-radius:8px;padding:6px"><option value="10">1:10</option><option value="30" selected>1:30</option><option value="50">1:50</option><option value="100">1:100</option><option value="500">1:500</option></select></div>
+        <div class="grp"><span class="lbl">Lotes EUR/USD</span><input type="number" id="lv-lots" value="0.2" step="0.01" min="0.01" style="width:80px"></div>
+        <div class="grp"><span class="lbl">Precio</span><input type="number" id="lv-price" value="1.0850" step="0.0001" style="width:100px"></div>
+      </div>
+      <div class="chart-host" id="fig-lev"></div>
+      <div class="readout" id="lv-out"></div>
+      <div class="explain" id="lv-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="ord-costos">
+    <h3><span class="ln">17.5</span>Costos: spread, comisión, swap y deslizamiento</h3>
+    <div class="prose">
+      <ul>
+        <li><strong>Spread</strong>: se paga al entrar. <strong>Comisión</strong>: en cuentas tipo ECN/raw, por lote (ida y vuelta). <strong>Swap</strong>: financiación por mantener la posición de un día para otro (puede cobrar o pagar). <strong>Deslizamiento</strong>: diferencia entre el precio esperado y el ejecutado, sobre todo en órdenes stop y en noticias.</li>
+        <li>Parecen pequeños, pero se acumulan: con muchas operaciones al mes pueden comerse buena parte de tu ventaja.</li>
+      </ul>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">Spread (pips)</span><input type="number" id="ct-sp" value="1" step="0.1" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Comisión ($/lote ida y vuelta)</span><input type="number" id="ct-com" value="7" step="0.5" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Swap ($/lote/noche)</span><input type="number" id="ct-sw" value="-3" step="0.5" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Noches por operación</span><input type="number" id="ct-n" value="0.5" step="0.5" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Lotes por operación</span><input type="number" id="ct-lots" value="0.5" step="0.01" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Operaciones al mes</span><input type="number" id="ct-tr" value="40" step="1" style="width:70px"></div>
+        <div class="grp"><span class="lbl">Capital ($)</span><input type="number" id="ct-cap" value="10000" step="100" style="width:90px"></div>
+      </div>
+      <div class="readout" id="ct-out"></div>
+      <div class="explain" id="ct-explain"></div>
+    </div>
+  </article>
+
+  <div id="ordenes-quiz"></div>
+  <div class="next"></div>
+</section>
+<section class="module" id="m-riesgo" data-mod="riesgo">
+  <div class="mod-head">
+    <div class="kicker">Módulo 18 · Gestión y riesgo</div>
+    <h2>Gestión del riesgo y estadística del trading</h2>
+    <p class="lead">Ninguna estrategia gana siempre. Lo que decide si sobrevives es la combinación de <strong>expectativa</strong> (cuánto ganas de media por operación) y <strong>tamaño del riesgo</strong> (cuánto arriesgas en cada una). Este módulo te deja ver los números en vez de imaginarlos.</p>
+    <nav class="toc"><a href="#rg-exp">Expectativa</a><a href="#rg-mc">Simulador de rachas</a><a href="#rg-dd">Drawdown y recuperación</a><a href="#rg-rachas">Rachas perdedoras</a><a href="#rg-reglas">Reglas prácticas</a><a href="#riesgo-quiz">Práctica</a></nav>
+  </div>
+
+  <article class="lesson" id="rg-exp">
+    <h3><span class="ln">18.1</span>Expectativa matemática</h3>
+    <div class="prose">
+      <p>Midiendo en <strong>R</strong> (1R = lo que arriesgas por operación):</p>
+      <p style="font-family:var(--mono);color:#fff">Expectativa = % de acierto × R:B − % de fallo × 1</p>
+      <p>Ejemplo: aciertas el 40% con un R:B de 1:2 → 0,4 × 2 − 0,6 × 1 = <strong>+0,2R</strong> por operación. Se puede ganar acertando menos de la mitad… si las ganancias son más grandes que las pérdidas. Y se puede perder acertando el 70% si las pérdidas son enormes.</p>
+    </div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">% de acierto</span><input type="range" id="ex-wr" min="10" max="90" value="40" style="width:160px"><span class="val" id="ex-wr-v"></span></div>
+        <div class="grp"><span class="lbl">R:B (ganancia / riesgo)</span><input type="range" id="ex-rr" min="2" max="20" value="8" style="width:160px"><span class="val" id="ex-rr-v"></span></div>
+      </div>
+      <div class="cols">
+        <div class="chart-host" id="fig-ex"></div>
+        <div>
+          <div class="readout" id="ex-out"></div>
+          <div class="explain" id="ex-explain"></div>
+          <div class="legend"><span><i class="box" style="background:#e66767"></i>Expectativa negativa</span><span><i class="box" style="background:#383835"></i>≈ 0</span><span><i class="box" style="background:#3987e5"></i>Expectativa positiva</span><span><i class="dash" style="border-color:#fff"></i>Punto de equilibrio</span></div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <article class="lesson" id="rg-mc">
+    <h3><span class="ln">18.2</span>Simulador de rachas (Monte Carlo)</h3>
+    <div class="prose"><p>Simula 1 000 cuentas que operan la misma estrategia con el orden de aciertos y fallos al azar. Mismo sistema, resultados muy distintos: así es la varianza. Compara arriesgar el 1% con arriesgar el 5% por operación.</p></div>
+    <div class="fig">
+      <div class="controls">
+        <div class="grp"><span class="lbl">% de acierto</span><input type="range" id="mc-wr" min="20" max="80" value="45" style="width:120px"><span class="val" id="mc-wr-v"></span></div>
+        <div class="grp"><span class="lbl">R:B</span><input type="range" id="mc-rr" min="5" max="40" value="15" style="width:110px"><span class="val" id="mc-rr-v"></span></div>
+        <div class="grp"><span class="lbl">Riesgo por operación</span><input type="range" id="mc-risk" min="1" max="40" value="4" style="width:120px"><span class="val" id="mc-risk-v"></span></div>
+        <div class="grp"><span class="lbl">Operaciones</span><input type="range" id="mc-n" min="50" max="500" step="10" value="200" style="width:120px"><span class="val" id="mc-n-v"></span></div>
+        <button class="btn primary" id="mc-new">Nueva simulación</button>
+      </div>
+      <div class="chart-host" id="fig-mc"></div>
+      <div class="legend"><span><i style="background:var(--text-2)"></i>40 cuentas de ejemplo</span><span><i style="background:#fff"></i>Mediana (cuenta típica)</span><span><i class="dash" style="border-color:var(--c-down)"></i>Peor 5%</span><span><i class="dash" style="border-color:var(--c-up)"></i>Mejor 5%</span></div>
+      <div class="readout" id="mc-out"></div>
+      <div class="explain" id="mc-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="rg-dd">
+    <h3><span class="ln">18.3</span>Drawdown y recuperación: la asimetría que duele</h3>
+    <div class="prose"><p>Si pierdes un X% de la cuenta, necesitas ganar <span class="mono">X / (100 − X)</span> para volver al punto de partida. Perder el 50% exige un +100%. Por eso proteger el capital pesa más que maximizar ganancias.</p></div>
+    <div class="fig">
+      <div class="controls"><div class="grp"><span class="lbl">Pérdida</span><input type="range" id="dd-l" min="5" max="90" value="30" style="width:220px"><span class="val" id="dd-l-v"></span></div></div>
+      <div class="chart-host" id="fig-dd"></div>
+      <div class="explain" id="dd-explain"></div>
+    </div>
+  </article>
+
+  <article class="lesson" id="rg-rachas">
+    <h3><span class="ln">18.4</span>Rachas perdedoras: más largas de lo que crees</h3>
+    <div class="prose"><p>Racha perdedora más larga <strong>típica</strong> (mediana de 400 simulaciones) según tu % de acierto y el número de operaciones. Úsala para dimensionar el riesgo: tu cuenta debe aguantar estas rachas sin daño grave.</p></div>
+    <div class="fig"><div id="rg-table" style="overflow-x:auto"></div><div class="explain" id="rg-tbl-explain"></div></div>
+  </article>
+
+  <article class="lesson" id="rg-reglas">
+    <h3><span class="ln">18.5</span>Reglas prácticas</h3>
+    <div class="cols">
+      <div class="callout tip-c"><h5>Haz</h5><ul style="margin-left:18px">
+        <li>Arriesga una fracción <strong>fija y pequeña</strong> por operación (0,5–1% es lo habitual).</li>
+        <li>Define un <strong>límite de pérdida diario/semanal</strong> y respétalo.</li>
+        <li>Reduce el tamaño durante los drawdowns; vuelve a subirlo al recuperar.</li>
+        <li>Lleva un <strong>diario</strong> con cada operación (setup, R, emociones).</li>
+        <li>Valida la estrategia con <strong>backtest</strong> y en demo antes de usar dinero real.</li>
+      </ul></div>
+      <div class="callout err"><h5>Evita</h5><ul style="margin-left:18px">
+        <li><strong>Martingala</strong> (doblar tras perder): acelera la ruina.</li>
+        <li>Mover el stop "para darle aire" cuando el precio va en contra.</li>
+        <li>Operar para "recuperar" tras una pérdida (revenge trading).</li>
+        <li>Juzgar una estrategia por 10 operaciones: la varianza manda en muestras pequeñas.</li>
+      </ul></div>
+    </div>
+  </article>
+
+  <div id="riesgo-quiz"></div>
   <div class="next"></div>
 </section>
 </main>
@@ -3378,7 +3768,35 @@ const GLOSS = [
   ['Inducement', '', 'Mínimo o máximo menor y evidente, previo al POI real, cuya liquidez suele ser barrida antes de la reacción.'],
   ['Breaker block', '', 'Zona que falló tras un barrido y una ruptura de estructura; se retestea con la función invertida.'],
   ['Mitigation block', '', 'Como el breaker, pero sin barrido previo: el precio falla en hacer un nuevo extremo.'],
-  ['OTE', 'Optimal trade entry', 'Retroceso del 62–79% (70,5% como centro) de un impulso: zona de entrada preferida en ICT.']
+  ['OTE', 'Optimal trade entry', 'Retroceso del 62–79% (70,5% como centro) de un impulso: zona de entrada preferida en ICT.'],
+  ['Soporte / resistencia', 'Support / resistance', 'Zonas donde el precio frenó antes su caída (soporte) o su subida (resistencia).'],
+  ['Cambio de polaridad', 'Role reversal', 'Una resistencia rota pasa a actuar como soporte, o al revés.'],
+  ['Línea de cuello', 'Neckline', 'Nivel que confirma figuras como el doble techo o el hombro-cabeza-hombro al romperse.'],
+  ['Objetivo por proyección', 'Measured move', 'Altura de una figura proyectada desde su ruptura; es orientativo.'],
+  ['Triángulo / bandera / cuña', '', 'Figuras de compresión o pausa; la ruptura con cierre indica la dirección.'],
+  ['True Range', 'TR', 'El mayor entre (máximo − mínimo), |máximo − cierre anterior| y |mínimo − cierre anterior|.'],
+  ['ATR', 'Average True Range', 'Media de Wilder del True Range (normalmente 14): mide la volatilidad, no la dirección.'],
+  ['Chandelier exit', '', 'Stop dinámico: máximo más alto desde la entrada − m × ATR (Chuck LeBeau).'],
+  ['Bandas de Bollinger', '', 'Media de 20 ± 2 desviaciones estándar (John Bollinger); se ensanchan con la volatilidad.'],
+  ['%B / ancho de banda', '%B / bandwidth', 'Posición del cierre respecto a las bandas (0–1) y separación entre bandas relativa a la media.'],
+  ['Squeeze', '', 'Bandas muy estrechas: volatilidad comprimida que suele preceder a una expansión.'],
+  ['Orden límite', 'Limit order', 'Compra por debajo o vende por encima del precio actual, a tu precio o mejor.'],
+  ['Orden stop', 'Stop order', 'Se activa al alcanzar un nivel y se ejecuta a mercado (puede tener deslizamiento).'],
+  ['OCO', 'One cancels the other', 'Dos órdenes ligadas: si se ejecuta una, se cancela la otra.'],
+  ['Bid / ask', '', 'Precio de venta (bid) y de compra (ask). Su diferencia es el spread.'],
+  ['Spread', '', 'Diferencia entre ask y bid: el primer costo de cada operación.'],
+  ['Pip', '', 'Unidad mínima habitual de variación: 0,0001 en la mayoría de pares; 0,01 en pares con yen.'],
+  ['Lote', 'Lot', 'Tamaño estándar: 100 000 unidades (mini 10 000, micro 1 000).'],
+  ['Apalancamiento / margen', 'Leverage / margin', 'Permite abrir posiciones mayores que el capital; el margen es la garantía bloqueada.'],
+  ['Margin call / stop out', '', 'Avisos y cierre forzado cuando las pérdidas consumen el margen.'],
+  ['Swap', 'Rollover', 'Costo o ingreso por mantener una posición abierta de un día para otro.'],
+  ['Deslizamiento', 'Slippage', 'Diferencia entre el precio esperado y el ejecutado.'],
+  ['R (múltiplo de riesgo)', '', '1R = lo que arriesgas en una operación; resultados medidos en R.'],
+  ['Expectativa', 'Expectancy', '% de acierto × R:B − % de fallo: ganancia media por operación en R.'],
+  ['Drawdown', '', 'Caída desde el máximo de la cuenta hasta un mínimo posterior.'],
+  ['Riesgo de ruina', 'Risk of ruin', 'Probabilidad de perder una parte inaceptable de la cuenta (p. ej. el 50%).'],
+  ['Monte Carlo', '', 'Simulación de muchas secuencias aleatorias para ver la dispersión posible de resultados.'],
+  ['Martingala', '', 'Doblar el tamaño tras cada pérdida: acelera la ruina en una racha perdedora.']
 ];
 function renderGloss() {
   const q = ($('#gloss-q').value || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
@@ -4528,6 +4946,629 @@ function initSMC() {
   ]);
 }
 /* =====================================================================
+   MÓDULO 3 · SOPORTES, RESISTENCIAS Y FIGURAS CHARTISTAS
+   ===================================================================== */
+const srS = { seed: 31, cs: null };
+function buildSR() {
+  const r = mulberry32(srS.seed), per = 5;
+  const W = [[0, 101], [6, 104.0], [11, 100.1], [17, 103.9], [23, 100.2], [29, 104.1], [33, 102.6], [38, 105.6], [42, 104.15], [48, 107.2], [52, 106.1], [58, 108.6], [62, 107.4], [66, 108.4], [72, 105.0]];
+  srS.cs = candlesFromPath(bridgePath(W.map(([b, p]) => ({ t: b * per, p: p + (b ? gauss(r) * 0.12 : 0) })), r, 0.13), per);
+}
+function srZones(cs, N, tol, minT) {
+  const H = cs.map(c => c.h), L = cs.map(c => c.l);
+  const pts = pivots(H, 'high', N, N).map(i => ({ i, p: H[i], t: 'H' })).concat(pivots(L, 'low', N, N).map(i => ({ i, p: L[i], t: 'L' }))).sort((a, b) => a.p - b.p);
+  const cl = [];
+  pts.forEach(pt => {
+    const c = cl[cl.length - 1];
+    if (c && Math.abs(pt.p - c.sum / c.pts.length) <= tol) { c.pts.push(pt); c.sum += pt.p; }
+    else cl.push({ pts: [pt], sum: pt.p });
+  });
+  const mk = pts => {
+    const ps = pts.map(x => x.p), mid = ps.reduce((s, x) => s + x, 0) / ps.length;
+    return { mid, lo: Math.min(...ps) - tol * 0.2, hi: Math.max(...ps) + tol * 0.2, pts, first: Math.min(...pts.map(x => x.i)), flip: pts.some(x => x.t === 'H') && pts.some(x => x.t === 'L') };
+  };
+  const zs = cl.filter(c => c.pts.length >= minT).map(c => mk(c.pts)), out = [];
+  zs.forEach(z => { const p = out[out.length - 1]; if (p && z.lo <= p.hi) out[out.length - 1] = mk(p.pts.concat(z.pts)); else out.push(z); });
+  return out;
+}
+const renderSR = fig(function () {
+  const host = $('#fig-sr'); if (!host) return;
+  if (!srS.cs) buildSR();
+  const cs = srS.cs, n = cs.length, ar = cs.reduce((s, c) => s + c.h - c.l, 0) / n;
+  const N = +$('#sr-n').value, tol = +$('#sr-tol').value / 10 * ar, minT = +$('#sr-min').value;
+  $('#sr-n-v').textContent = N; $('#sr-min-v').textContent = minT; $('#sr-tol-v').textContent = '±' + tol.toFixed(2);
+  const zones = srZones(cs, N, tol, minT), last = cs[n - 1].c;
+  const [lo, hi] = extent(cs);
+  const C = chart(host, { n: n + 10, panels: [{ h: 340, yMin: lo, yMax: hi, dec: 0 }], aria: 'Zonas de soporte y resistencia' });
+  const P = C.panels[0];
+  zones.forEach(z => {
+    const sup = z.mid < last, col = sup ? COL.up : COL.down;
+    zone(C, P, z.lo, z.hi, { x1: z.first, x2: n + 9, color: col, op: 0.14 });
+    tag(P.g.lab, C.x(n + 9) + C.step / 2 - 2, P.y(z.mid), (sup ? 'Soporte' : 'Resistencia') + ' · ' + z.pts.length + (z.flip ? ' · S↔R' : ''), col, 'end');
+  });
+  drawCandles(C, P, cs);
+  zones.forEach(z => z.pts.forEach(pt => el('circle', { cx: C.x(pt.i), cy: P.y(pt.p), r: 3.5, fill: COL.text, stroke: COL.surface, 'stroke-width': 1.5 }, P.g.ann)));
+  hover(C, i => i < n ? [['#', 'Vela ' + (i + 1)]].concat(ohlcRows(cs[i], 2)) : null);
+  const best = zones.slice().sort((a, b) => b.pts.length - a.pts.length)[0], flips = zones.filter(z => z.flip).length;
+  $('#sr-stats').innerHTML = [['Zonas', zones.length], ['Zona más tocada', best ? best.pts.length + ' toques' : '—'], ['Cambios de polaridad', flips]]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#sr-explain').innerHTML = zones.length
+    ? `Se detectan <strong>${zones.length}</strong> zonas con al menos ${minT} toques. ` + (flips ? `${flips} de ellas cambiaron de papel (S↔R): por ejemplo, la antigua resistencia del rango funciona como soporte tras la ruptura. ` : '') + 'Prueba un ancho de zona mayor: verás cómo varios niveles "casi iguales" se funden en una sola zona.'
+    : 'Con estos ajustes no hay zonas con suficientes toques: baja los toques mínimos o aumenta el ancho de zona.';
+});
+/* --- figuras chartistas --- */
+const CP_BASE = [
+  { id: 'dt', n: 'Doble techo', t: 'bear', k: 'Reversión bajista', w: [[0, 100], [10, 106], [15, 103.6], [21, 106.05], [27, 103.1], [29, 103.7], [37, 101.0], [42, 100.6]],
+    lines: [{ a: [15, 103.6], b: [29, 103.6], to: 42, lb: 'Línea de cuello' }], tops: [[10, 'Techo 1', 'H'], [21, 'Techo 2', 'H']], bl: 0, dir: -1, from: 22, h: 2.45, hb: [21, 106.05, 103.6], inv: 106.5,
+    r: ['Dos máximos parecidos tras una subida.', 'Entre ambos, un mínimo: la línea de cuello.', 'Se confirma con un cierre por debajo de la línea de cuello.'],
+    m: 'Objetivo: la altura (techo − cuello) proyectada hacia abajo desde la ruptura. Invalidación: por encima de los techos.',
+    note: 'Los dos techos son máximos iguales: encima hay liquidez (BSL). Es habitual que el precio barra el segundo techo antes de caer.' },
+  { id: 'hch', n: 'Hombro-cabeza-hombro', t: 'bear', k: 'Reversión bajista', w: [[0, 100], [8, 104], [12, 102.4], [18, 106.5], [23, 102.6], [29, 104.1], [34, 101.9], [36, 102.6], [44, 98.6], [46, 98.9]],
+    lines: [{ a: [12, 102.4], b: [23, 102.6], to: 46, lb: 'Línea de cuello' }], tops: [[8, 'Hombro izq.', 'H'], [18, 'Cabeza', 'H'], [29, 'Hombro der.', 'H']], bl: 0, dir: -1, from: 30, h: 3.99, hb: [18, 106.5, 102.5], inv: 104.7,
+    r: ['Tres máximos: el central (cabeza) más alto que los laterales (hombros).', 'La línea de cuello une los dos mínimos intermedios.', 'Se confirma con el cierre bajo la línea de cuello; a menudo hay retesteo.'],
+    m: 'Objetivo: la distancia de la cabeza a la línea de cuello, proyectada desde la ruptura. Invalidación: por encima del hombro derecho.',
+    note: 'El hombro derecho más bajo que la cabeza es un máximo más bajo (LH): la estructura ya está girando.' },
+  { id: 'ta', n: 'Triángulo ascendente', t: 'bull', k: 'Continuación alcista (habitual)', w: [[0, 100], [6, 105], [11, 101.6], [17, 105], [22, 102.8], [27, 105], [31, 103.9], [34, 105.9], [42, 108.6], [45, 108.3]],
+    lines: [{ a: [6, 105], b: [27, 105], to: 34, lb: 'Resistencia plana' }, { a: [11, 101.6], b: [22, 102.8], to: 33, lb: 'Mínimos crecientes' }], tops: [], bl: 0, dir: 1, from: 28, h: 3.4, hb: [11, 105, 101.6], inv: 103.6,
+    r: ['Techo plano que rechaza varias veces.', 'Mínimos cada vez más altos: los compradores entran antes.', 'Se confirma con el cierre por encima del techo.'],
+    m: 'Objetivo: la altura de la base del triángulo proyectada desde la ruptura. Invalidación: por debajo del último mínimo.',
+    note: 'Un techo tocado muchas veces acumula buy stops encima (BSL): la ruptura suele ser rápida.' },
+  { id: 'ts', n: 'Triángulo simétrico', t: 'bull', k: 'Continuación (por lo general, en la dirección previa)', w: [[0, 98], [6, 106], [11, 101], [16, 105], [21, 102], [25, 104.2], [28, 102.9], [31, 103.6], [34, 105.6], [42, 108.9], [45, 108.6]],
+    lines: [{ a: [6, 106], b: [16, 105], to: 33, lb: 'Máximos decrecientes' }, { a: [11, 101], b: [21, 102], to: 33, lb: 'Mínimos crecientes' }], tops: [], bl: 0, dir: 1, from: 27, h: 5, hb: [8, 105.8, 101.0], inv: 102.6,
+    r: ['Máximos decrecientes y mínimos crecientes que convergen.', 'Compresión: la volatilidad se reduce.', 'La ruptura (con cierre) indica la dirección.'],
+    m: 'Objetivo: la altura de la parte más ancha proyectada desde la ruptura. Invalidación: vuelta al interior y ruptura del lado contrario.',
+    note: 'No asumas la dirección antes de la ruptura: la compresión acumula liquidez a ambos lados.' },
+  { id: 'ba', n: 'Bandera alcista', t: 'bull', k: 'Continuación alcista', w: [[0, 100], [6, 106], [9, 105.2], [11, 105.8], [14, 104.8], [16, 105.3], [19, 104.4], [22, 106.3], [30, 111.6], [33, 111.3]],
+    lines: [{ a: [0, 100], b: [6, 106], to: 6, lb: 'Mástil' }, { a: [6, 106], b: [16, 105.3], to: 21, lb: '' }, { a: [9, 105.2], b: [19, 104.4], to: 21, lb: 'Bandera' }], tops: [], bl: 1, dir: 1, from: 17, h: 6, hb: [3, 106, 100], inv: 104.1,
+    r: ['Impulso fuerte (mástil).', 'Retroceso ordenado y estrecho en un canal contrario (bandera).', 'Ruptura del canal en la dirección del mástil.'],
+    m: 'Objetivo: la longitud del mástil proyectada desde la ruptura. Invalidación: por debajo del mínimo de la bandera.',
+    note: 'La bandera es un retroceso con poco volumen: el mercado "respira" antes de continuar.' },
+  { id: 'ca', n: 'Cuña ascendente', t: 'bear', k: 'Reversión bajista (habitual)', w: [[0, 100], [5, 103], [8, 101.5], [13, 104.2], [16, 103.0], [20, 104.9], [23, 104.1], [26, 105.3], [28, 104.4], [30, 103.6], [38, 100.6], [41, 100.9]],
+    lines: [{ a: [5, 103], b: [20, 104.9], to: 28, lb: 'Cuña ascendente' }, { a: [8, 101.5], b: [23, 104.1], to: 30, lb: '' }], tops: [], bl: 1, dir: -1, from: 24, tgt: 101.0, hb: null, inv: 105.7,
+    r: ['Máximos y mínimos crecientes, pero convergentes.', 'Cada impulso avanza menos: pérdida de momentum.', 'Se confirma al cerrar por debajo de la línea inferior.'],
+    m: 'Objetivo habitual: el origen de la cuña. Invalidación: por encima del último máximo.',
+    note: 'Suele coincidir con divergencias bajistas en RSI o MACD.' },
+  { id: 'rc', n: 'Rectángulo', t: 'bull', k: 'Continuación o reversión (manda la ruptura)', w: [[0, 98], [4, 103], [9, 100.2], [14, 103], [19, 100.2], [24, 103], [28, 101.8], [30, 103.8], [38, 106.6], [41, 106.3]],
+    lines: [{ a: [4, 103], b: [24, 103], to: 30, lb: 'Techo del rango' }, { a: [9, 100.2], b: [19, 100.2], to: 30, lb: 'Suelo del rango' }], tops: [], bl: 0, dir: 1, from: 25, h: 2.8, hb: [14, 103, 100.2], inv: 101.5,
+    r: ['Precio atrapado entre un techo y un suelo horizontales.', 'Varios toques en ambos lados.', 'La ruptura con cierre (mejor con volumen) marca la dirección.'],
+    m: 'Objetivo: la altura del rango proyectada desde la ruptura. Invalidación: vuelta al interior del rango.',
+    note: 'Encima del techo hay BSL y debajo del suelo SSL: los barridos falsos son frecuentes. Espera el cierre.' }
+];
+function mirrorCP(s, id, n, k, labels, txt2) {
+  const M = p => 206 - p;
+  return Object.assign({}, s, {
+    id, n, k, t: s.t === 'bull' ? 'bear' : 'bull', dir: -s.dir, w: s.w.map(([b, p]) => [b, M(p)]),
+    lines: s.lines.map(l => ({ a: [l.a[0], M(l.a[1])], b: [l.b[0], M(l.b[1])], to: l.to, lb: (labels && labels[l.lb]) || l.lb })),
+    tops: s.tops.map(([b, lb, ty], i) => [b, (labels && labels['top' + i]) || lb, ty === 'H' ? 'L' : 'H']),
+    hb: s.hb ? [s.hb[0], M(s.hb[1]), M(s.hb[2])] : null, inv: M(s.inv), tgt: s.tgt != null ? M(s.tgt) : undefined
+  }, txt2);
+}
+const CP = [CP_BASE[0],
+  mirrorCP(CP_BASE[0], 'ds', 'Doble suelo', 'Reversión alcista', { top0: 'Suelo 1', top1: 'Suelo 2' }, { r: ['Dos mínimos parecidos tras una caída.', 'Entre ambos, un máximo: la línea de cuello.', 'Se confirma con un cierre por encima de la línea de cuello.'], m: 'Objetivo: la altura (cuello − suelo) proyectada hacia arriba desde la ruptura. Invalidación: por debajo de los suelos.', note: 'Los dos suelos son mínimos iguales: debajo hay SSL. Es habitual un barrido del segundo suelo antes de subir.' }),
+  CP_BASE[1],
+  mirrorCP(CP_BASE[1], 'hchi', 'HCH invertido', 'Reversión alcista', { top0: 'Hombro izq.', top1: 'Cabeza', top2: 'Hombro der.' }, { r: ['Tres mínimos: el central (cabeza) más bajo que los laterales.', 'La línea de cuello une los dos máximos intermedios.', 'Se confirma con el cierre por encima de la línea de cuello.'], m: 'Objetivo: la distancia de la cabeza a la línea de cuello, proyectada hacia arriba desde la ruptura. Invalidación: por debajo del hombro derecho.', note: 'El hombro derecho más alto que la cabeza es un mínimo más alto (HL): la estructura ya gira al alza.' }),
+  CP_BASE[2],
+  mirrorCP(CP_BASE[2], 'td', 'Triángulo descendente', 'Continuación bajista (habitual)', { 'Resistencia plana': 'Soporte plano', 'Mínimos crecientes': 'Máximos decrecientes' }, { r: ['Suelo plano que aguanta varias veces.', 'Máximos cada vez más bajos: los vendedores entran antes.', 'Se confirma con el cierre por debajo del suelo.'], m: 'Objetivo: la altura de la base proyectada hacia abajo desde la ruptura. Invalidación: por encima del último máximo.', note: 'Un suelo tocado muchas veces acumula sell stops debajo (SSL).' }),
+  CP_BASE[3],
+  CP_BASE[4],
+  mirrorCP(CP_BASE[4], 'bb', 'Bandera bajista', 'Continuación bajista', null, { r: ['Caída fuerte (mástil).', 'Rebote ordenado y estrecho en un canal contrario.', 'Ruptura del canal en la dirección del mástil.'], m: 'Objetivo: la longitud del mástil proyectada hacia abajo desde la ruptura. Invalidación: por encima del máximo de la bandera.', note: 'El rebote suele tener poco volumen.' }),
+  CP_BASE[5],
+  mirrorCP(CP_BASE[5], 'cd', 'Cuña descendente', 'Reversión alcista (habitual)', { 'Cuña ascendente': 'Cuña descendente' }, { r: ['Máximos y mínimos decrecientes, pero convergentes.', 'Cada caída avanza menos: la venta se agota.', 'Se confirma al cerrar por encima de la línea superior.'], m: 'Objetivo habitual: el origen de la cuña. Invalidación: por debajo del último mínimo.', note: 'Suele coincidir con divergencias alcistas.' }),
+  CP_BASE[6]
+];
+let cpSel = 'dt';
+const renderCP = fig(function () {
+  const host = $('#fig-cp'); if (!host) return;
+  const S = CP.find(x => x.id === cpSel), per = 4;
+  const cs = candlesFromPath(bridgePath(S.w.map(([b, p]) => ({ t: b * per, p })), mulberry32(5), 0.07), per), n = cs.length;
+  const lineAt = (l, x) => l.a[1] + (l.b[1] - l.a[1]) / (l.b[0] - l.a[0]) * (x - l.a[0]);
+  const bl = S.lines[S.bl];
+  let brk = -1; for (let i = S.from; i < n; i++) if (S.dir < 0 ? cs[i].c < lineAt(bl, i) : cs[i].c > lineAt(bl, i)) { brk = i; break; }
+  if (brk < 0) brk = Math.min(n - 1, S.from + 3);
+  const tgt = S.tgt != null ? S.tgt : lineAt(bl, brk) + S.dir * S.h;
+  const [lo, hi] = extent(cs, [tgt, S.inv]);
+  const C = chart(host, { n: n + 4, panels: [{ h: 320, yMin: lo, yMax: hi, dec: 0 }], aria: 'Figura chartista: ' + S.n });
+  const P = C.panels[0];
+  S.lines.forEach(l => {
+    el('line', { x1: C.x(l.a[0]), y1: P.y(l.a[1]), x2: C.x(l.to), y2: P.y(lineAt(l, l.to)), stroke: COL.range, 'stroke-width': 2, 'stroke-linecap': 'round' }, P.g.ann);
+    if (l.lb) tag(P.g.lab, C.x((l.a[0] + l.to) / 2), P.y(lineAt(l, (l.a[0] + l.to) / 2)) + (S.dir < 0 ? 16 : -16) * (l === bl ? 1 : -1), l.lb, COL.range, 'middle');
+  });
+  hline(C, P, tgt, { x1: brk, x2: n + 3, color: COL.liq, width: 1.6, label: 'Objetivo (proyección)', side: 'right', below: S.dir < 0 });
+  hline(C, P, S.inv, { x1: brk, x2: n + 3, color: COL.down, width: 1.4, dash: '3 3', label: 'Invalidación', side: 'right', below: S.dir > 0 });
+  drawCandles(C, P, cs);
+  S.tops.forEach(([b, lb, ty]) => { const c = cs[Math.min(b, n - 1)]; marker(C, P, b, ty === 'H' ? c.h : c.l, { color: COL.text, size: 5, label: lb, dy: ty === 'H' ? -16 : 16 }); });
+  marker(C, P, brk, S.dir > 0 ? cs[brk].l : cs[brk].h, { shape: S.dir > 0 ? 'up' : 'down', color: S.dir > 0 ? COL.up : COL.down, size: 6, label: 'Ruptura', dy: S.dir > 0 ? 22 : -22 });
+  const arrow = (x, y1, y2, lb) => { el('line', { x1: x, x2: x, y1: P.y(y1), y2: P.y(y2), stroke: COL.liq, 'stroke-width': 1.6, 'stroke-dasharray': '2 3' }, P.g.ann); tag(P.g.lab, x + 6, P.y((y1 + y2) / 2), lb, COL.liq, 'start'); };
+  if (S.hb) { arrow(C.x(S.hb[0]), S.hb[1], S.hb[2], 'Altura'); arrow(C.x(Math.min(n + 1, brk + 2)), lineAt(bl, brk), tgt, 'Misma altura'); }
+  hover(C, i => i < n ? [['#', 'Vela ' + (i + 1)]].concat(ohlcRows(cs[i], 2)) : null);
+  $('#cp-info').className = 'explain ' + (S.t === 'bull' ? 'good' : 'bad');
+  $('#cp-info').innerHTML = `<strong>${S.n}</strong> — ${S.k}<br>${S.note}`;
+  $('#cp-rules').innerHTML = '<strong>Reglas</strong><ul style="margin:4px 0 4px 18px">' + S.r.map(x => `<li>${x}</li>`).join('') + '</ul>' + S.m;
+  $$('#cp-list button').forEach(b => b.classList.toggle('on', b.dataset.cp === cpSel));
+});
+function initSR() {
+  ['#sr-n', '#sr-tol', '#sr-min'].forEach(s => $(s).addEventListener('input', renderSR));
+  $('#sr-new').addEventListener('click', () => { srS.seed = newSeed(); buildSR(); renderSR(); });
+  renderSR();
+  const list = $('#cp-list');
+  [['bear', 'Bajistas'], ['bull', 'Alcistas']].forEach(([t, lb]) => {
+    const g = document.createElement('div'); g.className = 'grp';
+    const s = document.createElement('span'); s.className = 'lbl'; s.textContent = lb; g.appendChild(s);
+    CP.filter(x => x.t === t).forEach(x => { const b = document.createElement('button'); b.className = 'btn'; b.dataset.cp = x.id; b.textContent = x.n; b.addEventListener('click', () => { cpSel = x.id; renderCP(); }); g.appendChild(b); });
+    list.appendChild(g);
+  });
+  renderCP();
+  quiz($('#sr-quiz'), 'Práctica: soportes, resistencias y figuras', [
+    { q: 'Los soportes y resistencias se entienden mejor como…', o: ['Líneas exactas al pip', 'Zonas donde el precio reaccionó antes', 'Medias móviles'], a: 1, why: 'El precio reacciona en áreas; las mechas suelen atravesarlas un poco.' },
+    { q: 'El precio rompe una resistencia, vuelve a ella desde arriba y rebota. ¿Qué pasó?', o: ['Cambio de polaridad: la resistencia ahora actúa como soporte', 'Nada', 'Un doble techo'], a: 0, why: 'Es el retesteo clásico tras una ruptura.' },
+    { q: '¿Cuándo se confirma un doble techo?', o: ['Al formarse el segundo techo', 'Con un cierre por debajo de la línea de cuello', 'Cuando el RSI marca 70'], a: 1, why: 'Antes de romper el cuello, es solo un rango.' },
+    { q: 'En un hombro-cabeza-hombro, el objetivo por proyección es…', o: ['La distancia de la cabeza a la línea de cuello, proyectada desde la ruptura', 'El doble del hombro derecho', 'El máximo de la cabeza'], a: 0, why: 'Se proyecta la altura de la figura desde el punto de ruptura (orientativo).' },
+    { q: 'Un nivel con muchos toques…', o: ['Es imposible de romper', 'Es más visible, pero también acumula stops y puede ser barrido', 'No tiene importancia'], a: 1, why: 'Visibilidad y liquidez van juntas: soporte y objetivo a la vez.' }
+  ]);
+}
+/* =====================================================================
+   MÓDULO 12 · VOLATILIDAD: ATR Y BOLLINGER
+   ===================================================================== */
+function trArr(cs) { return cs.map((c, i) => i ? Math.max(c.h - c.l, Math.abs(c.h - cs[i - 1].c), Math.abs(c.l - cs[i - 1].c)) : c.h - c.l); }
+function atrArr(cs, n) {
+  const tr = trArr(cs), out = Array(cs.length).fill(null); let a = 0;
+  for (let i = 1; i < cs.length; i++) {
+    if (i <= n) { a += tr[i]; if (i === n) { a /= n; out[i] = a; } }
+    else { a = (a * (n - 1) + tr[i]) / n; out[i] = a; }
+  }
+  return out;
+}
+function bollinger(cl, n, k) {
+  const mid = smaArr(cl, n), up = [], lo = [], pb = [], bw = [];
+  cl.forEach((c, i) => {
+    if (mid[i] == null) { up.push(null); lo.push(null); pb.push(null); bw.push(null); return; }
+    let v = 0; for (let j = i - n + 1; j <= i; j++) v += (cl[j] - mid[i]) ** 2;
+    const sd = Math.sqrt(v / n), u = mid[i] + k * sd, l = mid[i] - k * sd;
+    up.push(u); lo.push(l); pb.push(u === l ? 0.5 : (c - l) / (u - l)); bw.push((u - l) / mid[i] * 100);
+  });
+  return { mid, up, lo, pb, bw };
+}
+const VO_SC = {
+  squeeze: [[0, 100, .18], [6, 103, .18], [12, 98.5, .16], [18, 102.2, .14], [24, 99.2, .12], [30, 101.4, .09], [36, 99.9, .06], [42, 100.9, .05], [48, 100.2, .05], [52, 100.6, .2], [55, 103.0, .22], [60, 105.5, .2], [66, 104.8, .2], [72, 107.6, .2], [80, 108.4]],
+  trend: [[0, 100, .14], [8, 103.5, .14], [11, 102.8, .14], [20, 107, .14], [23, 106.2, .14], [32, 110.6, .14], [35, 109.8, .14], [44, 114.2, .14], [47, 113.4, .14], [56, 117.8, .14], [60, 117, .14], [70, 121, .14], [80, 122.5]],
+  news: [[0, 100, .08], [10, 101, .08], [20, 99.5, .08], [30, 100.5, .08], [38, 100, .5], [40, 103.8, .4], [42, 101.5, .12], [50, 102.4, .1], [60, 101.8, .1], [70, 102.6, .1], [80, 102.2]],
+  range: [[0, 100, .15], [7, 103, .15], [14, 97.5, .15], [21, 102.6, .15], [28, 97.8, .15], [35, 102.8, .15], [42, 98, .15], [49, 102.4, .15], [56, 97.6, .15], [63, 102.6, .15], [70, 98.4, .15], [80, 100]]
+};
+const VO_W = 40;
+function genVO(sc, seed) {
+  const r = mulberry32(seed), per = 6, wps = [{ t: 0, p: 100, n: 0.14 }];
+  let p = 100; for (let b = 10; b < VO_W; b += 10) { p += gauss(r) * 1; wps.push({ t: b * per, p, n: 0.14 }); }
+  VO_SC[sc].forEach(([b, pr, nz]) => wps.push({ t: (VO_W + b) * per, p: pr, n: nz }));
+  return candlesFromPath(bridgePath(wps, r, 0.14), per);
+}
+
+/* --- True Range --- */
+const renderTR = fig(function () {
+  const host = $('#fig-tr'); if (!host) return;
+  const P = v => 100 + v * 0.1;
+  let H = +$('#tr-h').value, L = +$('#tr-l').value; if (L > H) { const t = H; H = L; L = t; }
+  const pc = +$('#tr-pc').value, prev = { o: P(pc) + 0.4, c: P(pc), h: P(pc) + 0.6, l: P(pc) - 0.3 };
+  const cur = { o: P(L + 0.3 * (H - L)), c: P(L + 0.7 * (H - L)), h: P(H), l: P(L) };
+  const comps = [['Máximo − Mínimo', cur.h - cur.l], ['|Máximo − Cierre ant.|', Math.abs(cur.h - prev.c)], ['|Mínimo − Cierre ant.|', Math.abs(cur.l - prev.c)]];
+  const tr = Math.max(...comps.map(c => c[1])), win = comps.findIndex(c => c[1] === tr);
+  host.querySelectorAll('svg').forEach(s => s.remove());
+  const svg = el('svg', { viewBox: '0 0 900 260', role: 'img', 'aria-label': 'Cálculo del True Range' });
+  host.insertBefore(svg, host.firstChild);
+  const y = v => 240 - (v - 99.5) / 11 * 225;
+  for (let v = 100; v <= 110; v += 2) { el('line', { x1: 40, x2: 470, y1: y(v), y2: y(v), stroke: COL.grid }, svg); txt(svg, 476, y(v) + 4, v.toFixed(0), { fill: COL.muted, 'font-size': 10.5 }); }
+  drawCandleRaw(el('g', {}, svg), 140, 46, y(prev.o), y(prev.h), y(prev.l), y(prev.c), prev.c >= prev.o, { ww: 2.5 });
+  drawCandleRaw(el('g', {}, svg), 330, 46, y(cur.o), y(cur.h), y(cur.l), y(cur.c), cur.c >= cur.o, { ww: 2.5 });
+  txt(svg, 140, 256, 'Vela anterior', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 }); txt(svg, 330, 256, 'Vela actual', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 });
+  el('line', { x1: 140, x2: 420, y1: y(prev.c), y2: y(prev.c), stroke: COL.text2, 'stroke-dasharray': '4 4' }, svg);
+  tag(svg, 168, y(prev.c) - 12, 'Cierre anterior', COL.text2, 'start');
+  const bx = [550, 660, 770];
+  comps.forEach(([lb, v], i) => {
+    const top = i === 2 ? Math.max(cur.l, prev.c) : i === 1 ? Math.max(cur.h, prev.c) : cur.h, bot = top - v;
+    el('rect', { x: bx[i] - 14, y: y(top), width: 28, height: Math.max(2, y(bot) - y(top)), rx: 4, fill: i === win ? COL.range : COL.text2, 'fill-opacity': i === win ? 0.85 : 0.35 }, svg);
+    txt(svg, bx[i], 18, v.toFixed(2), { 'text-anchor': 'middle', 'font-weight': 700, 'font-size': 13 });
+    txt(svg, bx[i], 252, ['H − L', '|H − Cant|', '|L − Cant|'][i], { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 });
+  });
+  $('#tr-explain').innerHTML = `TR = el mayor de ${comps.map(c => c[1].toFixed(2)).join(', ')} = <strong>${tr.toFixed(2)}</strong> (${comps[win][0]}). ` +
+    (win === 0 ? 'Sin hueco relevante: el TR es simplemente el rango de la vela.' : 'El cierre anterior queda fuera del rango actual (hubo un hueco): el TR lo incluye para no subestimar la volatilidad.');
+});
+
+/* --- laboratorio ATR --- */
+const atrL = { sc: 'squeeze', seed: 33, cs: null };
+const renderATR = fig(function () {
+  const host = $('#fig-atr'); if (!host) return;
+  if (!atrL.cs) atrL.cs = genVO(atrL.sc, atrL.seed);
+  const n0 = +$('#atr-n').value; $('#atr-n-v').textContent = n0;
+  const all = atrL.cs, tr = trArr(all), at = atrArr(all, n0), cs = all.slice(VO_W), T = tr.slice(VO_W), A = at.slice(VO_W), n = cs.length;
+  const [lo, hi] = extent(cs), amax = Math.max(...T) * 1.1;
+  const C = chart(host, { n, panels: [{ h: 250, yMin: lo, yMax: hi, dec: 0, title: 'Precio' }, { h: 130, yMin: 0, yMax: amax, ticks: 3, dec: 1, title: 'True Range y ATR ' + n0 }], aria: 'Precio y ATR' });
+  const [P1, P2] = C.panels;
+  drawCandles(C, P1, cs);
+  T.forEach((v, i) => el('rect', { x: C.x(i) - C.bw / 2, y: P2.y(v), width: C.bw, height: Math.max(1, P2.y(0) - P2.y(v)), fill: COL.text2, 'fill-opacity': 0.3 }, P2.g.data));
+  lineSeries(C, P2, A, { color: COL.range, width: 2.2 });
+  hover(C, i => { const gi = i + VO_W, c = all[gi], p = all[gi - 1]; return [['#', 'Vela ' + (i + 1)], ['H − L', fmt(c.h - c.l)], ['|H − Cant|', fmt(Math.abs(c.h - p.c))], ['|L − Cant|', fmt(Math.abs(c.l - p.c))], ['TR', fmt(T[i])], ['ATR', fmt(A[i])]]; });
+  const av = A.filter(x => x != null), mn = Math.min(...av), mx = Math.max(...av);
+  const Tx = { squeeze: 'La volatilidad se comprime (ATR mínimo) y luego se expande con la ruptura: el ATR sube con retraso, siguiendo al movimiento.', trend: 'En tendencia el ATR se mantiene relativamente estable: las velas tienen un tamaño "normal" constante.', news: 'Una noticia dispara el TR de unas pocas velas. El ATR sube de golpe y tarda varias velas en "olvidar" el pico.' };
+  $('#atr-explain').innerHTML = Tx[atrL.sc] + ` En este gráfico el ATR va de <strong>${mn.toFixed(2)}</strong> a <strong>${mx.toFixed(2)}</strong> (×${(mx / mn).toFixed(1)}): un stop fijo sería demasiado estrecho en unos momentos y demasiado amplio en otros.`;
+});
+
+/* --- stops con ATR --- */
+const asL = { cs: null };
+const renderAS = fig(function () {
+  const host = $('#fig-atr-stop'); if (!host) return;
+  if (!asL.cs) asL.cs = genVO('trend', 52);
+  const e = +$('#as-e').value, k = +$('#as-k').value / 10, m = +$('#as-m').value / 10, risk = Math.max(1, +$('#as-r').value || 100);
+  $('#as-e-v').textContent = e + 1; $('#as-k-v').textContent = k.toFixed(1); $('#as-m-v').textContent = m.toFixed(1);
+  const all = asL.cs, atr = atrArr(all, 14), cs = all.slice(VO_W), A = atr.slice(VO_W), n = cs.length;
+  const entry = cs[e].c, a0 = A[e], stop0 = entry - k * a0, units = risk / (k * a0);
+  const trail = Array(n).fill(null); let hh = cs[e].h, stp = stop0, exit = -1, exitP = null;
+  for (let t = e + 1; t < n; t++) {
+    if (cs[t].l <= stp) { exit = t; exitP = Math.min(stp, cs[t].o); break; }
+    hh = Math.max(hh, cs[t].h); stp = Math.max(stp, hh - m * A[t]); trail[t] = stp;
+  }
+  trail[e] = stop0;
+  const [lo, hi] = extent(cs, [stop0]);
+  const C = chart(host, { n, panels: [{ h: 300, yMin: lo, yMax: hi, dec: 0 }], aria: 'Stops con ATR' });
+  const P = C.panels[0];
+  drawCandles(C, P, cs);
+  hline(C, P, stop0, { x1: e, x2: Math.min(n - 1, e + 6), color: COL.down, width: 1.6, dash: false, label: 'Stop inicial', side: 'right', below: true });
+  let d = ''; trail.forEach((v, t) => { if (v == null || (exit > 0 && t > exit)) return; d += (d ? 'L' : 'M') + C.x(t).toFixed(1) + ' ' + P.y(v).toFixed(1) + ' '; });
+  el('path', { d, fill: 'none', stroke: COL.liq, 'stroke-width': 2, 'stroke-dasharray': '5 3' }, P.g.ann);
+  marker(C, P, e, entry, { shape: 'up', color: COL.text, size: 6, label: 'Entrada', dy: -18 });
+  if (exit > 0) marker(C, P, exit, exitP, { shape: 'down', color: COL.liq, size: 6, label: 'Salida (chandelier)', dy: 22 });
+  hover(C, i => [['#', 'Vela ' + (i + 1)], ['Cierre', fmt(cs[i].c)], ['ATR 14', fmt(A[i])], ['Stop dinámico', fmt(trail[i])]]);
+  const outP = exit > 0 ? exitP : cs[n - 1].c, R = (outP - entry) / (entry - stop0);
+  $('#as-stats').innerHTML = [['ATR en la entrada', a0.toFixed(2)], ['Distancia al stop', (k * a0).toFixed(2)], ['Tamaño', units.toFixed(1) + ' unidades'], ['Resultado', (R >= 0 ? '+' : '') + R.toFixed(1) + ' R (' + (R * risk >= 0 ? '+' : '−') + '$' + Math.abs(R * risk).toFixed(0) + ')']]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#as-explain').innerHTML = `Entrada en la vela ${e + 1} a ${entry.toFixed(2)}. Stop = entrada − ${k.toFixed(1)} × ATR = ${stop0.toFixed(2)}. Con $${risk} de riesgo, el tamaño es ${risk} / ${(k * a0).toFixed(2)} = <strong>${units.toFixed(1)} unidades</strong>. ` +
+    (exit > 0 ? `El chandelier (${m.toFixed(1)} × ATR bajo el máximo) cerró la operación en la vela ${exit + 1}.` : 'El chandelier sigue acompañando la tendencia hasta el final del gráfico.') +
+    ' Prueba un m pequeño: te saca antes, con más operaciones cortadas en retrocesos normales.';
+});
+
+/* --- Bollinger --- */
+const bbL = { sc: 'squeeze', seed: 35, cs: null };
+const renderBB = fig(function () {
+  const host = $('#fig-bb'); if (!host) return;
+  if (!bbL.cs) bbL.cs = genVO(bbL.sc, bbL.seed);
+  const N = +$('#bb-n').value, K = +$('#bb-k').value / 10;
+  $('#bb-n-v').textContent = N; $('#bb-k-v').textContent = K.toFixed(1);
+  const all = bbL.cs, B = bollinger(all.map(c => c.c), N, K), cs = all.slice(VO_W), n = cs.length, sl = a => a.slice(VO_W);
+  const mid = sl(B.mid), up = sl(B.up), lo2 = sl(B.lo), pb = sl(B.pb), bw = sl(B.bw);
+  const [lo, hi] = extent(cs, up.concat(lo2).filter(x => x != null));
+  const panels = [{ h: 270, yMin: lo, yMax: hi, dec: 0, title: 'Precio y bandas' }];
+  if ($('#bb-pb').checked) panels.push({ h: 90, yMin: -0.3, yMax: 1.3, grid: false, title: '%B' });
+  if ($('#bb-bw').checked) { const v = bw.filter(x => x != null); panels.push({ h: 90, yMin: 0, yMax: Math.max(...v) * 1.15, ticks: 3, dec: 1, title: 'Ancho de banda (%)' }); }
+  const C = chart(host, { n, panels, aria: 'Bandas de Bollinger' });
+  const P = C.panels[0];
+  const sq = argExt(bw.map(x => x == null ? Infinity : x), 0, n - 1, 'min');
+  vband(C, Math.max(0, sq - 2), Math.min(n - 1, sq + 2), { color: COL.liq, op: 0.1 });
+  tag(P.g.lab, C.x(sq), P.top + 14, 'Squeeze (ancho mínimo)', COL.liq, 'middle');
+  let area = '';
+  for (let i = 0; i < n; i++) if (up[i] != null) area += (area ? 'L' : 'M') + C.x(i).toFixed(1) + ' ' + P.y(up[i]).toFixed(1);
+  for (let i = n - 1; i >= 0; i--) if (lo2[i] != null) area += 'L' + C.x(i).toFixed(1) + ' ' + P.y(lo2[i]).toFixed(1);
+  el('path', { d: area + 'Z', fill: COL.range, 'fill-opacity': 0.07, stroke: 'none' }, P.g.zone);
+  lineSeries(C, P, up, { color: COL.range, width: 1.6 }); lineSeries(C, P, lo2, { color: COL.range, width: 1.6 });
+  lineSeries(C, P, mid, { color: COL.text2, width: 1.2 }).setAttribute('stroke-dasharray', '4 4');
+  drawCandles(C, P, cs);
+  let outU = 0, outL = 0;
+  cs.forEach((c, i) => { if (up[i] == null) return; if (c.c > up[i]) { outU++; el('circle', { cx: C.x(i), cy: P.y(c.h) - 8, r: 3, fill: COL.liq }, P.g.ann); } if (c.c < lo2[i]) { outL++; el('circle', { cx: C.x(i), cy: P.y(c.l) + 8, r: 3, fill: COL.liq }, P.g.ann); } });
+  let pi = 1;
+  if ($('#bb-pb').checked) { const PB = C.panels[pi++]; [1, 0.5, 0].forEach(v => { hline(C, PB, v, { color: COL.muted, width: 1, dash: v === 0.5 ? '2 4' : '5 4' }); txt(PB.g.lab, C.w - C.padR + 6, PB.y(v) + 4, String(v), { fill: COL.muted, 'font-size': 10.5 }); }); lineSeries(C, PB, pb, { color: COL.rsi, width: 1.8 }); }
+  if ($('#bb-bw').checked) { const PW = C.panels[pi++]; lineSeries(C, PW, bw, { color: COL.liq, width: 1.8 }); marker(C, PW, sq, bw[sq], { color: COL.liq, size: 5 }); }
+  hover(C, i => [['#', 'Vela ' + (i + 1)], ['Cierre', fmt(cs[i].c)], ['Banda sup.', fmt(up[i])], ['Media', fmt(mid[i])], ['Banda inf.', fmt(lo2[i])], ['%B', fmt(pb[i], 2)], ['Ancho', fmt(bw[i], 2) + '%']]);
+  $('#bb-stats').innerHTML = [['Cierres sobre la banda sup.', outU], ['Cierres bajo la banda inf.', outL], ['%B actual', fmt(pb[n - 1], 2)]]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  const Tx = { squeeze: 'Las bandas se estrechan al máximo (squeeze) y luego se abren con la ruptura. El squeeze avisó de la expansión, pero no de su dirección.', trend: `El precio "camina" por la banda superior: ${outU} cierres por encima y la tendencia sigue. En tendencia, tocar la banda es fuerza, no una señal de venta.`, range: 'En rango, los toques de las bandas vuelven hacia la media: aquí sí funciona la lectura de reversión.' };
+  $('#bb-explain').innerHTML = Tx[bbL.sc];
+});
+function initVolat() {
+  ['#tr-pc', '#tr-h', '#tr-l'].forEach(s => $(s).addEventListener('input', renderTR)); renderTR();
+  segBind($('#vo-atr'), (k, v) => { atrL.sc = v; atrL.cs = genVO(v, atrL.seed); renderATR(); });
+  $('#atr-n').addEventListener('input', renderATR);
+  $('#atr-new').addEventListener('click', () => { atrL.seed = newSeed(); atrL.cs = genVO(atrL.sc, atrL.seed); renderATR(); });
+  renderATR();
+  ['#as-e', '#as-k', '#as-m', '#as-r'].forEach(s => $(s).addEventListener('input', renderAS)); renderAS();
+  segBind($('#vo-bb'), (k, v) => { bbL.sc = v; bbL.cs = genVO(v, bbL.seed); renderBB(); });
+  ['#bb-n', '#bb-k'].forEach(s => $(s).addEventListener('input', renderBB));
+  ['#bb-pb', '#bb-bw'].forEach(s => $(s).addEventListener('change', renderBB));
+  renderBB();
+  quiz($('#volat-quiz'), 'Práctica: volatilidad', [
+    { q: 'El True Range de una vela es…', o: ['Siempre el máximo menos el mínimo', 'El mayor entre (H − L), |H − cierre anterior| y |L − cierre anterior|', 'El cierre menos la apertura'], a: 1, why: 'Así no se ignoran los huecos entre velas.' },
+    { q: 'Un ATR alto significa que…', o: ['El precio va a subir', 'Las velas se están moviendo mucho: más volatilidad, sin indicar dirección', 'Hay que comprar'], a: 1, why: 'El ATR mide amplitud, no dirección.' },
+    { q: 'Con $100 de riesgo y un stop de 2 × ATR, con ATR = 1,25, el tamaño es…', o: ['40 unidades', '80 unidades', '250 unidades'], a: 0, why: '100 / (2 × 1,25) = 100 / 2,5 = 40.' },
+    { q: 'Un "squeeze" de Bollinger indica…', o: ['Que el precio subirá', 'Volatilidad comprimida que suele preceder a una expansión, sin indicar la dirección', 'Sobrecompra'], a: 1, why: 'Espera la ruptura para conocer la dirección.' },
+    { q: 'En una tendencia alcista fuerte, varios cierres por encima de la banda superior…', o: ['Son una señal segura de venta', 'Son normales: el precio puede "caminar" por la banda', 'Invalidan las bandas'], a: 1, why: 'Primero determina si hay tendencia o rango.' }
+  ]);
+}
+/* =====================================================================
+   MÓDULO 17 · ÓRDENES Y COSTOS
+   ===================================================================== */
+const ordS = { t: 'bl', k: 19, cs: null };
+function buildOrd() {
+  const r = mulberry32(61), per = 5;
+  const W = [[0, 101.2], [6, 100.4], [10, 101.4], [15, 99.8], [20, 100.0], [23, 99.2], [25, 98.6], [28, 100.3], [31, 101.8], [33, 102.8], [36, 101.6], [40, 103.0]];
+  ordS.cs = candlesFromPath(bridgePath(W.map(([b, p]) => ({ t: b * per, p })), r, 0.08), per);
+}
+const ORD_N = { mkt: 'Compra a mercado', bl: 'Buy limit', bs: 'Buy stop', sl: 'Sell limit', ss: 'Sell stop' };
+function ordFill(cs, t, lvl, slip) {
+  for (let i = 20; i < cs.length; i++) {
+    const c = cs[i];
+    if (t === 'mkt') return { i, p: c.o };
+    if (t === 'bl' && c.l <= lvl) return { i, p: Math.min(c.o, lvl) };
+    if (t === 'bs' && c.h >= lvl) return { i, p: Math.max(c.o, lvl) + slip };
+    if (t === 'sl' && c.h >= lvl) return { i, p: Math.max(c.o, lvl) };
+    if (t === 'ss' && c.l <= lvl) return { i, p: Math.min(c.o, lvl) - slip };
+  }
+  return null;
+}
+const renderOrd = fig(function () {
+  const host = $('#fig-ord'); if (!host) return;
+  if (!ordS.cs) buildOrd();
+  const cs = ordS.cs, n = cs.length, cur = cs[19].c, t = ordS.t, k = ordS.k;
+  const lvl = cur + (+$('#ord-lvl').value) * 0.1, slip = $('#ord-fast').checked ? 0.25 : 0;
+  $('#ord-lvl-v').textContent = t === 'mkt' ? '—' : lvl.toFixed(2);
+  const buy = t === 'mkt' || t === 'bl' || t === 'bs';
+  const wrong = (t === 'bl' || t === 'ss') ? lvl >= cur : (t === 'bs' || t === 'sl') ? lvl <= cur : false;
+  const fill = wrong ? null : ordFill(cs, t, lvl, slip), done = fill && k >= fill.i;
+  const [lo, hi] = extent(cs, [lvl]);
+  const C = chart(host, { n: n + 2, panels: [{ h: 300, yMin: lo, yMax: hi, dec: 0 }], aria: 'Simulador de órdenes' });
+  const P = C.panels[0];
+  vband(C, 20, n - 1, { op: 0.03, label: 'Futuro (se revela al simular)' });
+  vline(C, 19.5, { color: COL.text2, dash: '0' });
+  tag(P.g.lab, C.x(19.5), P.top + 12, 'Ahora ' + cur.toFixed(2), COL.text2, 'middle');
+  if (t !== 'mkt') hline(C, P, lvl, { x1: 19, x2: n + 1, color: buy ? COL.up : COL.down, width: 1.8, label: ORD_N[t] + ' ' + lvl.toFixed(2), side: 'right', below: lvl < cur });
+  drawCandles(C, P, cs.map((c, j) => j <= Math.max(19, k) ? c : null));
+  if (done) marker(C, P, fill.i, fill.p, { shape: buy ? 'up' : 'down', color: buy ? COL.up : COL.down, size: 7, label: 'Ejecutada a ' + fill.p.toFixed(2), dy: buy ? 24 : -24 });
+  hover(C, j => j < n && j <= Math.max(19, k) ? [['#', 'Vela ' + (j + 1)]].concat(ohlcRows(cs[j], 2)) : null);
+  let tx;
+  if (wrong) tx = `<strong>Nivel en el lado equivocado:</strong> un ${ORD_N[t]} debe ir ${t === 'bl' || t === 'ss' ? 'por debajo' : 'por encima'} del precio actual. Si no, se ejecutaría al instante como orden a mercado (o la plataforma la rechaza).`;
+  else if (k < 20) tx = 'Pulsa <strong>Simular</strong> para ver cómo se mueve el precio y si tu orden se ejecuta.';
+  else if (!fill || !done) tx = k >= n - 1 ? '<strong>No se ejecutó:</strong> el precio nunca llegó a tu nivel. La orden sigue pendiente (y no tienes posición).' : 'Esperando a que el precio llegue al nivel…';
+  else {
+    const pnl = (cs[n - 1].c - fill.p) * (buy ? 1 : -1);
+    const why = {
+      mkt: 'Se ejecutó al instante, en la apertura de la vela siguiente: rapidez a cambio de aceptar el precio que haya.',
+      bl: 'La orden límite compró en el retroceso, a tu precio o mejor. Ventaja: buen precio. Riesgo: si el precio no llega, te quedas fuera.',
+      bs: `La orden stop se activó al superar el nivel y compró a mercado${slip ? ' (con deslizamiento: precio peor que el nivel)' : ''}. Entra a favor del movimiento, pero a peor precio.`,
+      sl: 'La orden límite vendió cuando el precio subió hasta tu nivel (o mejor).',
+      ss: `La orden stop vendió al perforar el nivel${slip ? ' (con deslizamiento)' : ''}… ¿y después? Si el precio gira, tu orden fue la liquidez que otro usó: así funcionan los barridos.`
+    }[t];
+    tx = why + ` Resultado al final del gráfico: <strong>${pnl >= 0 ? '+' : ''}${pnl.toFixed(2)}</strong> por unidad.`;
+  }
+  $('#ord-explain').innerHTML = tx;
+});
+
+/* --- bid / ask --- */
+let spBid = null;
+const renderSpread = fig(function () {
+  const host = $('#fig-spread'); if (!host) return;
+  if (!spBid) spBid = bridgePath([[0, 1.0850], [10, 1.0858], [20, 1.0846], [24, 1.0852], [30, 1.0855], [40, 1.0849]].map(([b, p]) => ({ t: b, p })), mulberry32(71), 0.00012);
+  const sp = +$('#sp-s').value / 10, news = $('#sp-news').checked, pip = 0.0001;
+  $('#sp-s-v').textContent = sp.toFixed(1);
+  const sprd = spBid.map((_, i) => (news && i >= 23 && i <= 26 ? sp * 8 : sp) * pip), ask = spBid.map((b, i) => b + sprd[i]);
+  const bmaxN = Math.max(...spBid.slice(21, 29)), stopLvl = bmaxN + Math.max(sp * pip * 2.5, 2.2 * pip);
+  const hitI = ask.findIndex((a, i) => i >= 21 && a >= stopLvl);
+  const all = spBid.concat(ask, [stopLvl]), lo = Math.min(...all) - 2 * pip, hi = Math.max(...all) + 3 * pip;
+  const C = chart(host, { n: spBid.length, panels: [{ h: 260, yMin: lo, yMax: hi, dec: 4, ticks: 4 }], aria: 'Bid, ask y spread' });
+  const P = C.panels[0];
+  let d = ''; spBid.forEach((b, i) => d += (i ? 'L' : 'M') + C.x(i).toFixed(1) + ' ' + P.y(ask[i]).toFixed(1));
+  for (let i = spBid.length - 1; i >= 0; i--) d += 'L' + C.x(i).toFixed(1) + ' ' + P.y(spBid[i]).toFixed(1);
+  el('path', { d: d + 'Z', fill: COL.liq, 'fill-opacity': 0.18 }, P.g.zone);
+  lineSeries(C, P, spBid, { color: COL.text2, width: 2 }); lineSeries(C, P, ask, { color: COL.range, width: 2 });
+  tag(P.g.lab, C.x(spBid.length - 1), P.y(spBid[spBid.length - 1]) + 12, 'Bid (gráfico)', COL.text2, 'end');
+  tag(P.g.lab, C.x(spBid.length - 1), P.y(ask[ask.length - 1]) - 12, 'Ask', COL.range, 'end');
+  marker(C, P, 8, ask[8], { shape: 'up', color: COL.up, size: 6, label: 'Compra al ask', dy: -18 });
+  marker(C, P, 8, spBid[8], { color: COL.text2, size: 5, label: 'Valor al bid', dy: 18 });
+  hline(C, P, stopLvl, { x1: 18, color: COL.down, width: 1.5, label: 'Stop de un corto', side: 'left' });
+  if (hitI >= 0) marker(C, P, hitI, ask[hitI], { shape: 'down', color: COL.down, size: 6, label: 'El ask toca el stop', dy: -18 });
+  hover(C, i => [['#', 'Tick ' + (i + 1)], ['Bid', spBid[i].toFixed(5)], ['Ask', ask[i].toFixed(5)], ['Spread', (sprd[i] / pip).toFixed(1) + ' pips']]);
+  $('#sp-explain').innerHTML = `Spread de ${sp.toFixed(1)} pips = <strong>$${(sp * 10).toFixed(2)} por lote estándar</strong>: es lo que pierdes nada más comprar (compras al ask, tu posición vale al bid). ` +
+    (hitI >= 0 ? 'En la noticia el spread se abre: el <strong>ask</strong> toca el stop del corto aunque la línea del gráfico (bid) nunca llegue ahí.' : 'Sin noticia, el spread es estable y el stop del corto no se toca.');
+});
+
+/* --- calculadoras --- */
+const PIP_DEF = { xusd: 1.0850, usdx: 1.3650, usdjpy: 150.00, xjpy: 162.50 };
+function renderPip() {
+  const pair = $('#pip-pair').value, price = +$('#pip-price').value, jpy = +$('#pip-jpy').value, lots = +$('#pip-lots').value, mv = +$('#pip-move').value;
+  const pipSize = pair === 'usdjpy' || pair === 'xjpy' ? 0.01 : 0.0001, units = lots * 100000;
+  const pv = pair === 'xusd' ? units * pipSize : pair === 'usdx' ? units * pipSize / price : pair === 'usdjpy' ? units * pipSize / price : units * pipSize / jpy;
+  $('#pip-out').innerHTML = [['Tamaño del pip', String(pipSize)], ['Unidades', Math.round(units).toLocaleString('es')], ['Valor del pip', '$' + (isFinite(pv) ? pv.toFixed(2) : '—')], [mv + ' pips', '$' + (isFinite(pv) ? (pv * mv).toFixed(2) : '—')]]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  const f = { xusd: 'unidades × 0,0001 (la cotizada ya es USD)', usdx: 'unidades × 0,0001 / precio (se convierte de la divisa cotizada a USD)', usdjpy: 'unidades × 0,01 / precio', xjpy: 'unidades × 0,01 / USDJPY (el valor está en yenes y se pasa a USD)' }[pair];
+  $('#pip-explain').innerHTML = `Valor del pip = ${f}. Recuerda: el resultado depende del <strong>tamaño</strong> (lotes), no del apalancamiento.`;
+}
+const renderLev = fig(function () {
+  const host = $('#fig-lev'); if (!host) return;
+  const cap = Math.max(1, +$('#lv-cap').value || 1), lev = +$('#lv-lev').value, lots = Math.max(0.01, +$('#lv-lots').value || 0.01), price = +$('#lv-price').value || 1;
+  const notional = lots * 100000 * price, margin = notional / lev, free = cap - margin, lvl = cap / margin * 100, eff = notional / cap, pv = lots * 10;
+  const lossSO = cap - 0.5 * margin, pipsSO = lossSO / pv;
+  host.querySelectorAll('svg').forEach(s => s.remove());
+  const svg = el('svg', { viewBox: '0 0 900 90', role: 'img', 'aria-label': 'Uso del margen' });
+  host.insertBefore(svg, host.firstChild);
+  const W = 860, x0 = 20, mW = Math.min(1, margin / cap) * W;
+  el('rect', { x: x0, y: 30, width: W, height: 26, rx: 5, fill: COL.surface3 }, svg);
+  el('rect', { x: x0, y: 30, width: Math.max(2, mW), height: 26, rx: 5, fill: margin > cap ? COL.down : COL.range }, svg);
+  txt(svg, x0, 22, 'Capital $' + cap.toLocaleString('es'), { fill: COL.muted, 'font-size': 11 });
+  txt(svg, x0 + 6, 48, 'Margen usado $' + margin.toFixed(0), { fill: '#fff', 'font-size': 11, 'font-weight': 700 });
+  if (margin < cap) txt(svg, x0 + W - 6, 48, 'Libre $' + free.toFixed(0), { fill: COL.text, 'font-size': 11, 'text-anchor': 'end' });
+  txt(svg, x0, 80, `Valor de la posición: $${Math.round(notional).toLocaleString('es')} · apalancamiento efectivo ${eff.toFixed(1)}:1`, { fill: COL.text2, 'font-size': 11.5 });
+  $('#lv-out').innerHTML = [['Margen requerido', '$' + margin.toFixed(2)], ['Nivel de margen', isFinite(lvl) ? lvl.toFixed(0) + '%' : '—'], ['Valor del pip', '$' + pv.toFixed(2)], ['1% de movimiento', '$' + (notional * 0.01).toFixed(0) + ' (' + (notional * 0.01 / cap * 100).toFixed(1) + '% de la cuenta)'], ['Pips hasta stop out (50%)', margin > cap ? '—' : pipsSO.toFixed(0)]]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#lv-explain').className = 'explain ' + (margin > cap || eff > 10 ? 'bad' : 'good');
+  $('#lv-explain').innerHTML = margin > cap ? '<strong>No alcanza el margen:</strong> esta posición necesita más capital del que tienes con este apalancamiento.'
+    : `Con apalancamiento efectivo de ${eff.toFixed(1)}:1, un movimiento del 1% en el precio equivale a un <strong>${(eff).toFixed(1)}%</strong> de tu cuenta. ` + (eff > 10 ? 'Es mucho: unas pocas operaciones malas pueden vaciar la cuenta.' : 'Es un nivel prudente.') + ' Cambia el apalancamiento máximo: el margen cambia, pero el valor del pip y el riesgo real no.';
+});
+function renderCost() {
+  const sp = +$('#ct-sp').value, com = +$('#ct-com').value, sw = +$('#ct-sw').value, nights = +$('#ct-n').value, lots = +$('#ct-lots').value, tr = +$('#ct-tr').value, cap = Math.max(1, +$('#ct-cap').value);
+  const cSp = sp * 10 * lots, cCom = com * lots, cSw = -sw * lots * nights, per = cSp + cCom + cSw, month = per * tr, pipsNeed = per / (lots * 10);
+  $('#ct-out').innerHTML = [['Spread por operación', '$' + cSp.toFixed(2)], ['Comisión por operación', '$' + cCom.toFixed(2)], ['Swap por operación', (cSw >= 0 ? '$' : '−$') + Math.abs(cSw).toFixed(2)], ['Costo total al mes', '$' + month.toFixed(0) + ' (' + (month / cap * 100).toFixed(1) + '% del capital)'], ['Pips para cubrir costos', pipsNeed.toFixed(1) + ' por operación']]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#ct-explain').innerHTML = `Cada operación necesita moverse <strong>${pipsNeed.toFixed(1)} pips</strong> a tu favor solo para quedar en cero. Con ${tr} operaciones al mes eso son $${month.toFixed(0)}. Si tu estrategia busca pocos pips por operación, los costos pueden ser la diferencia entre ganar y perder.`;
+}
+function initOrdenes() {
+  const pl = new Player(k => { ordS.k = k; renderOrd(); }, 160);
+  segBind($('#ord-tipos'), (k, v) => { ordS.t = v; pl.stop(); ordS.k = 19; renderOrd(); });
+  ['#ord-lvl', '#ord-fast'].forEach(s => $(s).addEventListener('input', () => { pl.stop(); ordS.k = 19; renderOrd(); }));
+  $('#ord-play').addEventListener('click', () => pl.play(39, 19));
+  renderOrd();
+  ['#sp-s', '#sp-news'].forEach(s => $(s).addEventListener('input', renderSpread)); renderSpread();
+  $('#pip-pair').addEventListener('change', () => { $('#pip-price').value = PIP_DEF[$('#pip-pair').value]; renderPip(); });
+  ['#pip-price', '#pip-jpy', '#pip-lots', '#pip-move'].forEach(s => $(s).addEventListener('input', renderPip)); renderPip();
+  ['#lv-cap', '#lv-lots', '#lv-price'].forEach(s => $(s).addEventListener('input', renderLev)); $('#lv-lev').addEventListener('change', renderLev); renderLev();
+  ['#ct-sp', '#ct-com', '#ct-sw', '#ct-n', '#ct-lots', '#ct-tr', '#ct-cap'].forEach(s => $(s).addEventListener('input', renderCost)); renderCost();
+  quiz($('#ordenes-quiz'), 'Práctica: órdenes y costos', [
+    { q: 'Quieres comprar si el precio retrocede hasta un soporte por debajo del precio actual. Usas…', o: ['Buy stop', 'Buy limit', 'Sell stop'], a: 1, why: 'Las órdenes límite compran por debajo (o venden por encima) del precio actual.' },
+    { q: 'Un buy stop por encima de un máximo sirve para…', o: ['Comprar la ruptura, o como stop loss de una venta en corto', 'Comprar más barato', 'Cerrar una compra'], a: 0, why: 'Se activa al subir el precio: por eso se acumulan sobre los máximos (BSL).' },
+    { q: 'Compras EUR/USD con un spread de 1,2 pips. Nada más entrar…', o: ['Estás en cero', 'Vas perdiendo 1,2 pips', 'Vas ganando 1,2 pips'], a: 1, why: 'Compras al ask y tu posición se valora al bid.' },
+    { q: 'Con 0,5 lotes de EUR/USD, ¿cuánto vale 1 pip?', o: ['$0,50', '$5', '$50'], a: 1, why: '1 lote = $10 por pip en pares XXX/USD; 0,5 lotes = $5.' },
+    { q: '¿Qué cambia el apalancamiento?', o: ['El valor de cada pip para un tamaño dado', 'El margen bloqueado y el tamaño máximo que puedes abrir', 'El spread'], a: 1, why: 'El riesgo real lo decide el tamaño; el apalancamiento solo permite abrir posiciones más grandes.' }
+  ]);
+}
+/* =====================================================================
+   MÓDULO 18 · GESTIÓN DEL RIESGO
+   ===================================================================== */
+const hexRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const lerpHex = (a, b, t) => { const A = hexRgb(a), B = hexRgb(b); return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(',') + ')'; };
+const DIV = { neg: '#e66767', mid: '#383835', pos: '#3987e5' };
+const expColor = e => { const t = clamp(e / 1.5, -1, 1); return t >= 0 ? lerpHex(DIV.mid, DIV.pos, t) : lerpHex(DIV.mid, DIV.neg, -t); };
+const renderEx = fig(function () {
+  const host = $('#fig-ex'); if (!host) return;
+  const wr = +$('#ex-wr').value / 100, rr = +$('#ex-rr').value / 4, E = wr * rr - (1 - wr);
+  $('#ex-wr-v').textContent = Math.round(wr * 100) + '%'; $('#ex-rr-v').textContent = '1 : ' + rr.toFixed(2);
+  host.querySelectorAll('svg').forEach(s => s.remove());
+  const W = 460, H = 370, L = 46, B = 40, T = 22, R = 8, svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Mapa de expectativa' });
+  host.insertBefore(svg, host.firstChild);
+  const wrs = [], rrs = []; for (let w = 10; w <= 90; w += 5) wrs.push(w / 100); for (let x = 0.5; x <= 5.001; x += 0.25) rrs.push(x);
+  const cw = (W - L - R) / wrs.length, ch = (H - T - B) / rrs.length;
+  const X = w => L + (w - 0.075) / (0.925 - 0.075) * (W - L - R), Y = x => H - B - (x - 0.375) / (5.125 - 0.375) * (H - T - B);
+  wrs.forEach((w, i) => rrs.forEach((x, j) => {
+    const e = w * x - (1 - w), rc = el('rect', { x: L + i * cw, y: H - B - (j + 1) * ch, width: cw - 1, height: ch - 1, fill: expColor(e), style: 'cursor:pointer' }, svg);
+    const t = document.createElementNS(NS, 'title'); t.textContent = `Acierto ${Math.round(w * 100)}% · R:B ${x.toFixed(2)} → ${e >= 0 ? '+' : ''}${e.toFixed(2)}R`; rc.appendChild(t);
+    rc.addEventListener('click', () => { $('#ex-wr').value = Math.round(w * 100); $('#ex-rr').value = Math.round(x * 4); renderEx(); });
+  }));
+  let d = ''; for (let x = 0.5; x <= 5.001; x += 0.05) { const w = 1 / (1 + x); if (w < 0.075 || w > 0.925) continue; d += (d ? 'L' : 'M') + X(w).toFixed(1) + ' ' + Y(x).toFixed(1); }
+  el('path', { d, fill: 'none', stroke: '#fff', 'stroke-width': 2, 'stroke-dasharray': '5 4' }, svg);
+  [10, 30, 50, 70, 90].forEach(v => txt(svg, X(v / 100), H - B + 16, v + '%', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 10.5 }));
+  [0.5, 1, 2, 3, 4, 5].forEach(v => txt(svg, L - 6, Y(v) + 4, v.toFixed(1), { 'text-anchor': 'end', fill: COL.muted, 'font-size': 10.5 }));
+  txt(svg, (W + L) / 2, H - 4, '% de acierto', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 });
+  txt(svg, L, 12, 'R:B ↑', { fill: COL.muted, 'font-size': 11 });
+  el('circle', { cx: X(wr), cy: Y(rr), r: 8, fill: 'none', stroke: '#fff', 'stroke-width': 3 }, svg);
+  el('circle', { cx: X(wr), cy: Y(rr), r: 8, fill: 'none', stroke: COL.surface, 'stroke-width': 1 }, svg);
+  const be = 1 / (1 + rr);
+  $('#ex-out').innerHTML = [['Expectativa por operación', (E >= 0 ? '+' : '') + E.toFixed(2) + 'R'], ['En 100 operaciones', (E >= 0 ? '+' : '') + (E * 100).toFixed(0) + 'R'], ['Acierto mínimo con este R:B', (be * 100).toFixed(1) + '%']]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#ex-explain').className = 'explain ' + (E > 0 ? 'good' : 'bad');
+  $('#ex-explain').innerHTML = E > 0 ? `Con un ${Math.round(wr * 100)}% de acierto y R:B 1:${rr.toFixed(2)}, cada operación aporta de media <strong>${E.toFixed(2)}R</strong>. Arriesgando 1% por operación, eso es ~${(E * 100).toFixed(0)}% cada 100 operaciones (antes de costos).`
+    : `Expectativa <strong>negativa</strong>: con este R:B necesitas acertar más del ${(be * 100).toFixed(1)}%. Ningún tamaño de posición arregla una expectativa negativa. Haz clic en cualquier celda del mapa para probarla.`;
+});
+
+/* --- Monte Carlo --- */
+const mcS = { seed: 101 };
+const pct = (sorted, p) => sorted[Math.min(sorted.length - 1, Math.max(0, Math.round(p * (sorted.length - 1))))];
+function simulate(wr, rr, risk, n, seed, S) {
+  const r = mulberry32(seed), eqAll = new Float64Array(S * (n + 1)), finals = [], mdds = [], streaks = []; let ruin = 0;
+  for (let s = 0; s < S; s++) {
+    let eq = 1, peak = 1, mdd = 0, cur = 0, ls = 0, mn = 1; eqAll[s * (n + 1)] = 1;
+    for (let t = 1; t <= n; t++) {
+      const win = r() < wr;
+      eq *= win ? 1 + risk * rr : 1 - risk;
+      if (win) cur = 0; else { cur++; if (cur > ls) ls = cur; }
+      if (eq > peak) peak = eq; const dd = 1 - eq / peak; if (dd > mdd) mdd = dd; if (eq < mn) mn = eq;
+      eqAll[s * (n + 1) + t] = eq;
+    }
+    finals.push(eq); mdds.push(mdd); streaks.push(ls); if (mn <= 0.5) ruin++;
+  }
+  const bands = { p5: [], p50: [], p95: [] }, tmp = new Float64Array(S);
+  for (let t = 0; t <= n; t++) {
+    for (let s = 0; s < S; s++) tmp[s] = eqAll[s * (n + 1) + t];
+    const so = Array.from(tmp).sort((a, b) => a - b);
+    bands.p5.push(pct(so, 0.05)); bands.p50.push(pct(so, 0.5)); bands.p95.push(pct(so, 0.95));
+  }
+  const paths = []; for (let s = 0; s < 40; s++) paths.push(Array.from(eqAll.subarray(s * (n + 1), (s + 1) * (n + 1))));
+  const srt = a => a.slice().sort((x, y) => x - y);
+  return { paths, bands, finals: srt(finals), mdds: srt(mdds), streaks: srt(streaks), ruin: ruin / S, S };
+}
+const renderMC = fig(function () {
+  const host = $('#fig-mc'); if (!host) return;
+  const wr = +$('#mc-wr').value / 100, rr = +$('#mc-rr').value / 10, risk = +$('#mc-risk').value / 4 / 100, n = +$('#mc-n').value;
+  $('#mc-wr-v').textContent = Math.round(wr * 100) + '%'; $('#mc-rr-v').textContent = '1 : ' + rr.toFixed(1); $('#mc-risk-v').textContent = (risk * 100).toFixed(2).replace(/\.?0+$/, '') + '%'; $('#mc-n-v').textContent = n;
+  const R = simulate(wr, rr, risk, n, mcS.seed, 1000), cap = 10000;
+  const yMax = Math.min(Math.max(1.6, Math.max(...R.bands.p95) * 1.08), 12);
+  const C = chart(host, { n: n + 1, panels: [{ h: 320, yMin: 0, yMax, fmt: v => '$' + (v * cap / 1000).toFixed(0) + 'k', ticks: 5 }], aria: 'Simulación Monte Carlo de la cuenta' });
+  const P = C.panels[0];
+  const clip = el('clipPath', { id: 'mc-clip' }, el('defs', {}, C.svg)); el('rect', { x: C.padL, y: P.top, width: C.iw, height: P.h }, clip);
+  const g = el('g', { 'clip-path': 'url(#mc-clip)' }, P.g.data);
+  const pathD = arr => arr.map((v, t) => (t ? 'L' : 'M') + C.x(t).toFixed(1) + ' ' + P.y(v).toFixed(1)).join('');
+  R.paths.forEach(p => el('path', { d: pathD(p), fill: 'none', stroke: COL.text2, 'stroke-opacity': 0.22, 'stroke-width': 1 }, g));
+  el('path', { d: pathD(R.bands.p5), fill: 'none', stroke: COL.down, 'stroke-width': 2, 'stroke-dasharray': '6 4' }, g);
+  el('path', { d: pathD(R.bands.p95), fill: 'none', stroke: COL.up, 'stroke-width': 2, 'stroke-dasharray': '6 4' }, g);
+  el('path', { d: pathD(R.bands.p50), fill: 'none', stroke: '#ffffff', 'stroke-width': 2.5 }, g);
+  hline(C, P, 1, { color: COL.muted, width: 1, dash: '2 4', label: 'Capital inicial', side: 'left' });
+  hline(C, P, 0.5, { color: COL.down, width: 1, dash: '2 4', label: '−50%', side: 'left', below: true });
+  hover(C, t => [['#', 'Operación ' + t], ['Mediana', '$' + Math.round(R.bands.p50[t] * cap).toLocaleString('es')], ['Peor 5%', '$' + Math.round(R.bands.p5[t] * cap).toLocaleString('es')], ['Mejor 5%', '$' + Math.round(R.bands.p95[t] * cap).toLocaleString('es')]]);
+  const E = wr * rr - (1 - wr), loseP = R.finals.filter(v => v < 1).length / R.S;
+  $('#mc-out').innerHTML = [['Cuenta mediana al final', '$' + Math.round(pct(R.finals, 0.5) * cap).toLocaleString('es')], ['Prob. de terminar en pérdida', (loseP * 100).toFixed(0) + '%'], ['Drawdown máximo típico', (pct(R.mdds, 0.5) * 100).toFixed(0) + '%'], ['Drawdown en el peor 5%', (pct(R.mdds, 0.95) * 100).toFixed(0) + '%'], ['Racha perdedora típica', pct(R.streaks, 0.5) + ' seguidas'], ['Prob. de caer un 50%', (R.ruin * 100).toFixed(1) + '%']]
+    .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
+  $('#mc-explain').innerHTML = `Expectativa: <strong>${E >= 0 ? '+' : ''}${E.toFixed(2)}R</strong> por operación. ` +
+    (E <= 0 ? 'Con expectativa negativa, todas las cuentas tienden a perder; el tamaño solo decide la velocidad.' :
+      `El sistema es ganador, pero fíjate en la dispersión: misma estrategia, finales muy distintos. Arriesgando ${(risk * 100).toFixed(2).replace(/\.?0+$/, '')}% el drawdown típico es del ${(pct(R.mdds, 0.5) * 100).toFixed(0)}%` + (R.ruin > 0.05 ? ' y <strong>más de 1 de cada 20 cuentas pierde la mitad</strong>: demasiado riesgo para la misma ventaja.' : '. Prueba a subir el riesgo al 5% o más y mira cómo se dispara el peor caso.'));
+});
+
+/* --- drawdown --- */
+const renderDD = fig(function () {
+  const host = $('#fig-dd'); if (!host) return;
+  const lossP = +$('#dd-l').value, need = lossP / (100 - lossP) * 100;
+  $('#dd-l-v').textContent = '−' + lossP + '%';
+  host.querySelectorAll('svg').forEach(s => s.remove());
+  const W = 900, H = 240, L = 50, B = 30, T = 14, svg = el('svg', { viewBox: `0 0 ${W} ${H}`, role: 'img', 'aria-label': 'Ganancia necesaria para recuperar una pérdida' });
+  host.insertBefore(svg, host.firstChild);
+  const cats = [10, 20, 30, 40, 50, 60, 70, 80, 90], ymax = Math.max(400, need) * 1.08, bw = (W - L - 20) / cats.length;
+  const Y = v => H - B - Math.min(v, ymax) / ymax * (H - B - T);
+  [0, 100, 200, 300, 400].filter(v => v <= ymax).forEach(v => { el('line', { x1: L, x2: W - 20, y1: Y(v), y2: Y(v), stroke: COL.grid }, svg); txt(svg, L - 6, Y(v) + 4, '+' + v + '%', { 'text-anchor': 'end', fill: COL.muted, 'font-size': 10.5 }); });
+  cats.forEach((c, i) => {
+    const g2 = c / (100 - c) * 100, x = L + i * bw + bw * 0.2, w = Math.min(24, bw * 0.6), sel = Math.abs(c - lossP) < 5;
+    el('rect', { x: x + (bw * 0.6 - w) / 2, y: Y(g2), width: w, height: H - B - Y(g2), rx: 4, fill: sel ? COL.liq : COL.range, 'fill-opacity': sel ? 1 : 0.55 }, svg);
+    txt(svg, x + bw * 0.3, H - B + 16, '−' + c + '%', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 });
+    txt(svg, x + bw * 0.3, Math.max(T + 10, Y(g2) - 6), '+' + (g2 > 999 ? '∞' : g2.toFixed(0)) + '%', { 'text-anchor': 'middle', fill: COL.text, 'font-size': 10.5, 'font-weight': 600 });
+  });
+  $('#dd-explain').innerHTML = `Tras perder un <strong>${lossP}%</strong>, necesitas ganar un <strong>${need.toFixed(1)}%</strong> para recuperarte. ` + (lossP >= 50 ? 'A partir de aquí la recuperación es casi imposible en la práctica.' : lossP >= 25 ? 'Ya exige un rendimiento muy superior a la pérdida.' : 'Todavía manejable: por eso conviene cortar los drawdowns pronto.');
+});
+
+function streakTable() {
+  const wrs = [30, 40, 50, 60, 70], ns = [50, 100, 250, 500], r = mulberry32(909), res = {};
+  wrs.forEach(w => ns.forEach(n => {
+    const arr = [];
+    for (let s = 0; s < 400; s++) { let cur = 0, ls = 0; for (let t = 0; t < n; t++) { if (r() < w / 100) cur = 0; else { cur++; if (cur > ls) ls = cur; } } arr.push(ls); }
+    arr.sort((a, b) => a - b); res[w + '_' + n] = arr[200];
+  }));
+  const t = document.createElement('table'); t.className = 't';
+  const hr = t.createTHead().insertRow(); ['% de acierto'].concat(ns.map(n => n + ' operaciones')).forEach(h => { const th = document.createElement('th'); th.textContent = h; hr.appendChild(th); });
+  const tb = t.createTBody();
+  wrs.forEach(w => { const tr = tb.insertRow(); [w + '%'].concat(ns.map(n => res[w + '_' + n] + ' pérdidas')).forEach(v => { const td = tr.insertCell(); td.textContent = v; }); });
+  $('#rg-table').replaceChildren(t);
+  const L5 = res['50_250'];
+  $('#rg-tbl-explain').innerHTML = `Con un 50% de acierto, en 250 operaciones lo normal es encadenar <strong>${L5} pérdidas seguidas</strong>. Arriesgando 1% por operación eso es un ${((1 - Math.pow(0.99, L5)) * 100).toFixed(1)}% de caída; arriesgando 5%, un <strong>${((1 - Math.pow(0.95, L5)) * 100).toFixed(1)}%</strong>. La racha no significa que la estrategia dejó de funcionar: es estadística.`;
+}
+
+function initRiesgo() {
+  ['#ex-wr', '#ex-rr'].forEach(s => $(s).addEventListener('input', renderEx)); renderEx();
+  ['#mc-wr', '#mc-rr', '#mc-risk', '#mc-n'].forEach(s => $(s).addEventListener('change', renderMC));
+  ['#mc-wr', '#mc-rr', '#mc-risk', '#mc-n'].forEach(s => $(s).addEventListener('input', () => {
+    $('#mc-wr-v').textContent = $('#mc-wr').value + '%'; $('#mc-rr-v').textContent = '1 : ' + (+$('#mc-rr').value / 10).toFixed(1);
+    $('#mc-risk-v').textContent = (+$('#mc-risk').value / 4).toFixed(2).replace(/\.?0+$/, '') + '%'; $('#mc-n-v').textContent = $('#mc-n').value;
+  }));
+  $('#mc-new').addEventListener('click', () => { mcS.seed = newSeed(); renderMC(); });
+  renderMC();
+  $('#dd-l').addEventListener('input', renderDD); renderDD();
+  streakTable();
+  quiz($('#riesgo-quiz'), 'Práctica: gestión del riesgo', [
+    { q: 'Aciertas el 40% con un R:B de 1:2. ¿Cuál es la expectativa por operación?', o: ['−0,2R', '+0,2R', '+0,8R'], a: 1, why: '0,4 × 2 − 0,6 × 1 = 0,8 − 0,6 = +0,2R.' },
+    { q: 'Con R:B 1:1 (sin costos), ¿qué porcentaje de acierto necesitas para no perder?', o: ['Más del 33%', 'Más del 50%', 'Más del 66%'], a: 1, why: 'Acierto mínimo = 1 / (1 + R:B) = 1/2.' },
+    { q: 'Si pierdes el 50% de la cuenta, ¿cuánto necesitas ganar para recuperarte?', o: ['+50%', '+100%', '+75%'], a: 1, why: 'De 50 a 100 hay que duplicar: +100%.' },
+    { q: '¿Por qué conviene arriesgar el 1% y no el 10% por operación, aunque la estrategia sea ganadora?', o: ['Porque con 10% la expectativa baja', 'Porque las rachas perdedoras normales provocarían drawdowns enormes y riesgo de ruina', 'No hay diferencia'], a: 1, why: 'El tamaño no cambia la expectativa en R; amplifica la varianza.' },
+    { q: 'La martingala (doblar el tamaño tras cada pérdida)…', o: ['Garantiza ganancias', 'Acelera la ruina en una racha perdedora', 'Reduce el riesgo'], a: 1, why: 'Una racha normal de pérdidas con tamaño creciente vacía la cuenta.' }
+  ]);
+}
+/* =====================================================================
    NAVEGACIÓN E INICIO
    ===================================================================== */
 const MODS = $$('.tabs .mods a').map(a => a.dataset.mod);
@@ -4565,9 +5606,9 @@ MODS.forEach((m, i) => {
 });
 function rerenderAll() { refreshColors(); FIGS.forEach(f => safe('render', f)); }
 $('#pref-hollow').addEventListener('change', e => { document.body.classList.toggle('hollow', e.target.checked); rerenderAll(); });
-[['velas', 'initVelas'], ['patrones', 'initPatrones'], ['estructura', 'initEstructura'], ['trendlines', 'initTrendlines'], ['sesiones', 'initSesiones'], ['volumen', 'initVolumen'],
- ['emas', 'initEMAs'], ['rsi', 'initRSI'], ['estocastico', 'initEstocastico'], ['momentum', 'initMomentum'],
- ['liquidez', 'initLiq'], ['smc', 'initSMC'], ['crt', 'initCRT'], ['smt', 'initSMT'], ['todo', 'initTodo'], ['glosario', 'initGlosario']]
+[['velas', 'initVelas'], ['patrones', 'initPatrones'], ['sr', 'initSR'], ['estructura', 'initEstructura'], ['trendlines', 'initTrendlines'], ['sesiones', 'initSesiones'], ['volumen', 'initVolumen'],
+ ['emas', 'initEMAs'], ['rsi', 'initRSI'], ['estocastico', 'initEstocastico'], ['momentum', 'initMomentum'], ['volat', 'initVolat'],
+ ['liquidez', 'initLiq'], ['smc', 'initSMC'], ['crt', 'initCRT'], ['smt', 'initSMT'], ['ordenes', 'initOrdenes'], ['riesgo', 'initRiesgo'], ['todo', 'initTodo'], ['glosario', 'initGlosario']]
   .forEach(([name, fn]) => { if (typeof window[fn] === 'function') safe(name, window[fn]); });
 route();
 </script>
