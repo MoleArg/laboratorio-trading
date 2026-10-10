@@ -1,0 +1,6 @@
+/* Ajustes del shell en React sobre los estilos heredados (globals.css). */
+.tags a{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:6px;padding:3px 8px;font-size:.76rem;text-decoration:none}
+.tags a:hover{border-color:var(--accent);color:var(--strong)}
+.course .art{height:118px}
+.qcard small .sess-chip{white-space:normal;flex-wrap:wrap;border-radius:10px;max-width:100%}
+.mod-head .lead{margin-top:10px}
