@@ -1,0 +1,2265 @@
+{
+ "modules": [
+  {
+   "id": "mercados",
+   "name": "Mercados",
+   "num": "0",
+   "group": "fund",
+   "title": "Los mercados financieros",
+   "lead": "Velas, liquidez o RSI funcionan en casi cualquier gráfico, pero cada mercado tiene sus reglas: <strong>qué se negocia, dónde, a qué hora, con cuánto apalancamiento y cuánto se mueve</strong>. Conocerlas evita sorpresas caras.",
+   "leadText": "Velas, liquidez o RSI funcionan en casi cualquier gráfico, pero cada mercado tiene sus reglas: qué se negocia, dónde, a qué hora, con cuánto apalancamiento y cuánto se mueve. Conocerlas evita sorpresas caras.",
+   "toc": [
+    {
+     "id": "mk-que",
+     "label": "Qué es un mercado"
+    },
+    {
+     "id": "mk-mapa",
+     "label": "Mapa de mercados"
+    },
+    {
+     "id": "mk-tipos",
+     "label": "Spot, derivados, OTC y bolsa"
+    },
+    {
+     "id": "mk-libro",
+     "label": "Libro de órdenes"
+    },
+    {
+     "id": "mk-horarios",
+     "label": "Horarios"
+    },
+    {
+     "id": "mk-vol",
+     "label": "Volatilidad comparada"
+    },
+    {
+     "id": "mk-futuros",
+     "label": "Contratos de futuros"
+    },
+    {
+     "id": "mk-relacion",
+     "label": "Cómo se relacionan"
+    },
+    {
+     "id": "mercados-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "mk-que",
+     "t": "Qué es un mercado y quién participa"
+    },
+    {
+     "id": "mk-mapa",
+     "t": "Mapa de mercados"
+    },
+    {
+     "id": "mk-tipos",
+     "t": "Spot y derivados, OTC y bolsa"
+    },
+    {
+     "id": "mk-libro",
+     "t": "Libro de órdenes: qué significa \"un mercado líquido\""
+    },
+    {
+     "id": "mk-horarios",
+     "t": "¿Cuándo está abierto cada mercado?"
+    },
+    {
+     "id": "mk-vol",
+     "t": "Volatilidad comparada: no todo se mueve igual"
+    },
+    {
+     "id": "mk-futuros",
+     "t": "Contratos de futuros: cuánto vale cada movimiento"
+    },
+    {
+     "id": "mk-relacion",
+     "t": "Cómo se relacionan los mercados"
+    },
+    {
+     "id": "mk-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "mercados-quiz",
+   "qn": 6,
+   "min": 17,
+   "charts": 3,
+   "terms": [
+    "RSI",
+    "Liquidez",
+    "SMT",
+    "DXY",
+    "Volumen de ticks",
+    "SMC",
+    "Lote",
+    "Apalancamiento / margen",
+    "Deslizamiento",
+    "Spot (contado)",
+    "OTC",
+    "ECN / STP"
+   ]
+  },
+  {
+   "id": "velas",
+   "name": "Velas",
+   "num": "1",
+   "group": "fund",
+   "title": "Cómo leer una vela japonesa",
+   "lead": "Todo lo demás (RSI, liquidez, CRT, SMT) se apoya en esto. Una vela resume lo que hizo el precio durante un periodo: 1 minuto, 1 hora, 1 día… y lo cuenta con solo cuatro números.",
+   "leadText": "Todo lo demás (RSI, liquidez, CRT, SMT) se apoya en esto. Una vela resume lo que hizo el precio durante un periodo: 1 minuto, 1 hora, 1 día… y lo cuenta con solo cuatro números.",
+   "toc": [
+    {
+     "id": "velas-anatomia",
+     "label": "Anatomía"
+    },
+    {
+     "id": "velas-constructor",
+     "label": "Constructor de velas"
+    },
+    {
+     "id": "velas-formacion",
+     "label": "Cómo se forma"
+    },
+    {
+     "id": "velas-tf",
+     "label": "Temporalidades"
+    },
+    {
+     "id": "velas-galeria",
+     "label": "Formas comunes"
+    },
+    {
+     "id": "velas-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "velas-anatomia",
+     "t": "Anatomía: OHLC, cuerpo y mechas"
+    },
+    {
+     "id": "velas-constructor",
+     "t": "Constructor de velas"
+    },
+    {
+     "id": "velas-formacion",
+     "t": "Cómo se forma una vela, tick a tick"
+    },
+    {
+     "id": "velas-tf",
+     "t": "Temporalidades: una vela grande contiene muchas pequeñas"
+    },
+    {
+     "id": "velas-galeria",
+     "t": "Formas comunes (y qué cuentan)"
+    }
+   ],
+   "quizId": "velas-quiz",
+   "qn": 4,
+   "min": 9,
+   "charts": 4,
+   "terms": [
+    "OHLC",
+    "Mecha (sombra)",
+    "RSI",
+    "Liquidez",
+    "CRT",
+    "SMT",
+    "Tick / valor del tick"
+   ]
+  },
+  {
+   "id": "patrones",
+   "name": "Patrones de velas",
+   "num": "2",
+   "group": "fund",
+   "title": "Patrones de velas",
+   "lead": "Combinaciones de 1 a 5 velas que cuentan un cambio en la \"batalla\" entre compradores y vendedores. Se popularizaron en Occidente con el trabajo de Steve Nison sobre las velas japonesas. Su valor depende de tres cosas: <strong>contexto, confirmación e invalidación</strong>.",
+   "leadText": "Combinaciones de 1 a 5 velas que cuentan un cambio en la \"batalla\" entre compradores y vendedores. Se popularizaron en Occidente con el trabajo de Steve Nison sobre las velas japonesas. Su valor depende de tres cosas: contexto, confirmación e invalidación.",
+   "toc": [
+    {
+     "id": "pat-leer",
+     "label": "Cómo leerlos"
+    },
+    {
+     "id": "pat-explorador",
+     "label": "Explorador de patrones"
+    },
+    {
+     "id": "pat-escaner",
+     "label": "Escáner"
+    },
+    {
+     "id": "pat-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "patrones-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "pat-leer",
+     "t": "Cómo leer un patrón (sin memorizar)"
+    },
+    {
+     "id": "pat-explorador",
+     "t": "Explorador de patrones"
+    },
+    {
+     "id": "pat-escaner",
+     "t": "Escáner de patrones"
+    },
+    {
+     "id": "pat-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "patrones-quiz",
+   "qn": 5,
+   "min": 8,
+   "charts": 2,
+   "terms": [
+    "Mecha (sombra)",
+    "Liquidez",
+    "Barrido",
+    "FVG",
+    "Order block",
+    "Envolvente",
+    "Estrella de la mañana / de la tarde",
+    "Soporte / resistencia"
+   ]
+  },
+  {
+   "id": "sr",
+   "name": "Soportes, resistencias y figuras",
+   "num": "3",
+   "group": "fund",
+   "title": "Soportes, resistencias y figuras chartistas",
+   "lead": "Los niveles donde el precio ya reaccionó antes tienden a volver a importar. Un <strong>soporte</strong> es una zona donde la caída se frenó; una <strong>resistencia</strong>, donde la subida se frenó. Las <strong>figuras chartistas</strong> (doble techo, hombro-cabeza-hombro, triángulos…) son la forma que toma el precio alrededor de esos niveles.",
+   "leadText": "Los niveles donde el precio ya reaccionó antes tienden a volver a importar. Un soporte es una zona donde la caída se frenó; una resistencia, donde la subida se frenó. Las figuras chartistas (doble techo, hombro-cabeza-hombro, triángulos…) son la forma que toma el precio alrededor de esos niveles.",
+   "toc": [
+    {
+     "id": "sr-que",
+     "label": "Qué son"
+    },
+    {
+     "id": "sr-zonas",
+     "label": "Detector de zonas"
+    },
+    {
+     "id": "sr-polaridad",
+     "label": "Cambio de polaridad"
+    },
+    {
+     "id": "sr-figuras",
+     "label": "Figuras chartistas"
+    },
+    {
+     "id": "sr-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "sr-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "sr-que",
+     "t": "Qué son y por qué funcionan"
+    },
+    {
+     "id": "sr-zonas",
+     "t": "Detector de zonas"
+    },
+    {
+     "id": "sr-polaridad",
+     "t": "Cambio de polaridad: la resistencia rota se vuelve soporte"
+    },
+    {
+     "id": "sr-figuras",
+     "t": "Figuras chartistas"
+    },
+    {
+     "id": "sr-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "sr-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "BSL",
+    "Barrido",
+    "Retesteo",
+    "Soporte / resistencia",
+    "Línea de cuello",
+    "Objetivo por proyección",
+    "Pip"
+   ]
+  },
+  {
+   "id": "estructura",
+   "name": "Estructura de mercado",
+   "num": "4",
+   "group": "fund",
+   "title": "Estructura de mercado",
+   "lead": "La forma más objetiva de saber si hay tendencia: mirar la secuencia de <strong>máximos y mínimos</strong>. Es la base de todo el análisis de price action y de Smart Money (BOS, CHoCH, order blocks…).",
+   "leadText": "La forma más objetiva de saber si hay tendencia: mirar la secuencia de máximos y mínimos. Es la base de todo el análisis de price action y de Smart Money (BOS, CHoCH, order blocks…).",
+   "toc": [
+    {
+     "id": "est-swings",
+     "label": "Swings"
+    },
+    {
+     "id": "est-tendencia",
+     "label": "Tendencia por estructura"
+    },
+    {
+     "id": "est-bos",
+     "label": "BOS y CHoCH"
+    },
+    {
+     "id": "est-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "est-fuerte",
+     "label": "Fuertes y débiles"
+    },
+    {
+     "id": "est-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "estructura-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "est-swings",
+     "t": "Swings: los puntos de giro"
+    },
+    {
+     "id": "est-tendencia",
+     "t": "Tendencia según la estructura"
+    },
+    {
+     "id": "est-bos",
+     "t": "BOS y CHoCH"
+    },
+    {
+     "id": "est-lab",
+     "t": "Laboratorio de estructura"
+    },
+    {
+     "id": "est-fuerte",
+     "t": "Máximos y mínimos fuertes y débiles"
+    },
+    {
+     "id": "est-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "estructura-quiz",
+   "qn": 5,
+   "min": 11,
+   "charts": 1,
+   "terms": [
+    "Mecha (sombra)",
+    "Liquidez",
+    "BSL",
+    "Barrido",
+    "BOS",
+    "MSS / CHoCH",
+    "Swing high / swing low",
+    "Mínimo fuerte / máximo débil"
+   ]
+  },
+  {
+   "id": "trendlines",
+   "name": "Líneas de tendencia",
+   "num": "5",
+   "group": "fund",
+   "title": "Líneas de tendencia",
+   "lead": "Una línea que une los mínimos crecientes (o los máximos decrecientes) muestra la dirección y el \"ritmo\" de una tendencia. Es una de las herramientas más antiguas del análisis técnico… y también uno de los lugares donde más stops se acumulan.",
+   "leadText": "Una línea que une los mínimos crecientes (o los máximos decrecientes) muestra la dirección y el \"ritmo\" de una tendencia. Es una de las herramientas más antiguas del análisis técnico… y también uno de los lugares donde más stops se acumulan.",
+   "toc": [
+    {
+     "id": "tl-trazar",
+     "label": "Cómo trazarlas"
+    },
+    {
+     "id": "tl-dibuja",
+     "label": "Dibuja tu línea"
+    },
+    {
+     "id": "tl-ruptura",
+     "label": "Ruptura, retesteo y canal"
+    },
+    {
+     "id": "tl-liquidez",
+     "label": "Como liquidez"
+    },
+    {
+     "id": "tl-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "trendlines-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "tl-trazar",
+     "t": "Cómo trazar una línea de tendencia"
+    },
+    {
+     "id": "tl-dibuja",
+     "t": "Dibuja tu línea"
+    },
+    {
+     "id": "tl-ruptura",
+     "t": "Ruptura, retesteo y canal"
+    },
+    {
+     "id": "tl-liquidez",
+     "t": "Líneas de tendencia como liquidez"
+    },
+    {
+     "id": "tl-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "trendlines-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 1,
+   "terms": [
+    "Liquidez",
+    "Línea de tendencia",
+    "Canal",
+    "Retesteo",
+    "Soporte / resistencia"
+   ]
+  },
+  {
+   "id": "fibo",
+   "name": "Fibonacci",
+   "num": "6",
+   "group": "fund",
+   "title": "Fibonacci: retrocesos y extensiones",
+   "lead": "Después de un impulso, el precio casi nunca sigue en línea recta: <strong>retrocede</strong> una parte del movimiento antes de continuar (o de girar). Fibonacci es una regla para medir ese retroceso en <strong>proporciones</strong> del impulso, y para proyectar <strong>objetivos</strong> más allá de él. No predice nada por sí solo: marca zonas donde conviene prestar atención.",
+   "leadText": "Después de un impulso, el precio casi nunca sigue en línea recta: retrocede una parte del movimiento antes de continuar (o de girar). Fibonacci es una regla para medir ese retroceso en proporciones del impulso, y para proyectar objetivos más allá de él. No predice nada por sí solo: marca zonas donde conviene prestar atención.",
+   "toc": [
+    {
+     "id": "fb-que",
+     "label": "Qué es"
+    },
+    {
+     "id": "fb-trazar",
+     "label": "Cómo se traza"
+    },
+    {
+     "id": "fb-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "fb-ext",
+     "label": "Extensiones y objetivos"
+    },
+    {
+     "id": "fb-conf",
+     "label": "Confluencia"
+    },
+    {
+     "id": "fb-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "fibo-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "fb-que",
+     "t": "De dónde salen los niveles"
+    },
+    {
+     "id": "fb-trazar",
+     "t": "Cómo se traza"
+    },
+    {
+     "id": "fb-lab",
+     "t": "Laboratorio: traza tu Fibonacci"
+    },
+    {
+     "id": "fb-ext",
+     "t": "Extensiones: dónde tomar ganancias"
+    },
+    {
+     "id": "fb-conf",
+     "t": "Confluencia: Fibonacci nunca va solo"
+    },
+    {
+     "id": "fb-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "fibo-quiz",
+   "qn": 6,
+   "min": 12,
+   "charts": 3,
+   "terms": [
+    "Liquidez",
+    "Barrido",
+    "FVG",
+    "Order block",
+    "BOS",
+    "Premium / descuento",
+    "R:B",
+    "Línea de tendencia",
+    "Canal",
+    "EMA",
+    "OTE",
+    "Soporte / resistencia"
+   ]
+  },
+  {
+   "id": "sesiones",
+   "name": "Sesiones",
+   "num": "7",
+   "group": "fund",
+   "title": "Sesiones de mercado",
+   "lead": "El mercado de divisas opera 24 horas de lunes a viernes, pero no siempre con la misma intensidad. Saber <strong>qué sesión está abierta</strong> explica por qué a ciertas horas el precio \"duerme\" y a otras barre niveles y se expande.",
+   "leadText": "El mercado de divisas opera 24 horas de lunes a viernes, pero no siempre con la misma intensidad. Saber qué sesión está abierta explica por qué a ciertas horas el precio \"duerme\" y a otras barre niveles y se expande.",
+   "toc": [
+    {
+     "id": "ses-reloj",
+     "label": "Reloj en vivo"
+    },
+    {
+     "id": "ses-tabla",
+     "label": "Sesiones y solapamientos"
+    },
+    {
+     "id": "ses-dia",
+     "label": "Un día típico"
+    },
+    {
+     "id": "ses-kz",
+     "label": "Killzones"
+    },
+    {
+     "id": "ses-noticias",
+     "label": "Noticias"
+    },
+    {
+     "id": "sesiones-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ses-reloj",
+     "t": "Reloj de sesiones en vivo"
+    },
+    {
+     "id": "ses-tabla",
+     "t": "Sesiones y solapamientos"
+    },
+    {
+     "id": "ses-dia",
+     "t": "Un día típico: Asia acumula, Londres manipula, Nueva York expande"
+    },
+    {
+     "id": "ses-kz",
+     "t": "Killzones (ICT)"
+    },
+    {
+     "id": "ses-noticias",
+     "t": "Noticias que mueven el mercado"
+    }
+   ],
+   "quizId": "sesiones-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "Barrido",
+    "Power of 3 (AMD)",
+    "CRT",
+    "Sesión",
+    "Judas swing",
+    "Spread"
+   ]
+  },
+  {
+   "id": "volumen",
+   "name": "Volumen",
+   "num": "8",
+   "group": "fund",
+   "title": "Volumen",
+   "lead": "El precio dice <em>qué</em> pasó; el volumen dice <strong>con cuánta participación</strong> pasó. Un movimiento con mucho volumen tiene \"convicción\"; uno sin volumen es sospechoso.",
+   "leadText": "El precio dice qué pasó; el volumen dice con cuánta participación pasó. Un movimiento con mucho volumen tiene \"convicción\"; uno sin volumen es sospechoso.",
+   "toc": [
+    {
+     "id": "vol-que",
+     "label": "Qué es"
+    },
+    {
+     "id": "vol-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "vol-leer",
+     "label": "Cómo leerlo"
+    },
+    {
+     "id": "vol-obv",
+     "label": "OBV"
+    },
+    {
+     "id": "vol-vwap",
+     "label": "VWAP"
+    },
+    {
+     "id": "vol-perfil",
+     "label": "Perfil de volumen"
+    },
+    {
+     "id": "volumen-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "vol-que",
+     "t": "Qué es el volumen"
+    },
+    {
+     "id": "vol-lab",
+     "t": "Laboratorio de volumen"
+    },
+    {
+     "id": "vol-leer",
+     "t": "Cómo leer el volumen"
+    },
+    {
+     "id": "vol-obv",
+     "t": "OBV (On-Balance Volume)"
+    },
+    {
+     "id": "vol-vwap",
+     "t": "VWAP (precio medio ponderado por volumen)"
+    },
+    {
+     "id": "vol-perfil",
+     "t": "Perfil de volumen: POC y área de valor"
+    }
+   ],
+   "quizId": "volumen-quiz",
+   "qn": 5,
+   "min": 11,
+   "charts": 1,
+   "terms": [
+    "Mecha (sombra)",
+    "Liquidez",
+    "Sesión",
+    "Volumen de ticks",
+    "OBV",
+    "VWAP",
+    "POC",
+    "Área de valor",
+    "Spot (contado)",
+    "Futuro"
+   ]
+  },
+  {
+   "id": "emas",
+   "name": "EMAs",
+   "num": "9",
+   "group": "ind",
+   "title": "Medias móviles: SMA y EMA",
+   "lead": "Una media móvil \"suaviza\" el precio para ver su dirección. La <strong>EMA</strong> (exponencial) da más peso a las velas recientes que la <strong>SMA</strong> (simple), así que reacciona antes. Son la base de muchos otros indicadores, como el MACD.",
+   "leadText": "Una media móvil \"suaviza\" el precio para ver su dirección. La EMA (exponencial) da más peso a las velas recientes que la SMA (simple), así que reacciona antes. Son la base de muchos otros indicadores, como el MACD.",
+   "toc": [
+    {
+     "id": "ema-formula",
+     "label": "SMA vs EMA"
+    },
+    {
+     "id": "ema-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "ema-usos",
+     "label": "Cómo se usan"
+    },
+    {
+     "id": "ema-periodos",
+     "label": "Periodos populares"
+    },
+    {
+     "id": "ema-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "emas-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ema-formula",
+     "t": "SMA vs EMA: ¿cuánto pesa cada vela?"
+    },
+    {
+     "id": "ema-lab",
+     "t": "Laboratorio de medias"
+    },
+    {
+     "id": "ema-usos",
+     "t": "Cómo se usan"
+    },
+    {
+     "id": "ema-periodos",
+     "t": "Periodos populares"
+    },
+    {
+     "id": "ema-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "emas-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 2,
+   "terms": [
+    "Sesgo",
+    "SMA",
+    "EMA",
+    "Cruce dorado / de la muerte",
+    "MACD",
+    "Soporte / resistencia"
+   ]
+  },
+  {
+   "id": "rsi",
+   "name": "RSI",
+   "num": "10",
+   "group": "ind",
+   "title": "RSI — Índice de Fuerza Relativa",
+   "lead": "Creado por J. Welles Wilder Jr. y publicado en 1978 en <em>New Concepts in Technical Trading Systems</em>. Responde a una pregunta: en los últimos N periodos, ¿qué parte del movimiento fue de subida y qué parte de bajada?",
+   "leadText": "Creado por J. Welles Wilder Jr. y publicado en 1978 en New Concepts in Technical Trading Systems. Responde a una pregunta: en los últimos N periodos, ¿qué parte del movimiento fue de subida y qué parte de bajada?",
+   "toc": [
+    {
+     "id": "rsi-que",
+     "label": "Qué mide"
+    },
+    {
+     "id": "rsi-calculo",
+     "label": "Cálculo paso a paso"
+    },
+    {
+     "id": "rsi-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "rsi-niveles",
+     "label": "Niveles y rangos"
+    },
+    {
+     "id": "rsi-div",
+     "label": "Divergencias"
+    },
+    {
+     "id": "rsi-fs",
+     "label": "Failure swing"
+    },
+    {
+     "id": "rsi-params",
+     "label": "Parámetros"
+    },
+    {
+     "id": "rsi-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "rsi-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "rsi-que",
+     "t": "Qué mide: una balanza entre subidas y bajadas"
+    },
+    {
+     "id": "rsi-calculo",
+     "t": "Cálculo paso a paso (suavizado de Wilder)"
+    },
+    {
+     "id": "rsi-lab",
+     "t": "Laboratorio: el RSI en movimiento"
+    },
+    {
+     "id": "rsi-niveles",
+     "t": "Niveles 70/30, la línea de 50 y los \"rangos\" del RSI"
+    },
+    {
+     "id": "rsi-div",
+     "t": "Divergencias: cuando el precio y el RSI no cuentan lo mismo"
+    },
+    {
+     "id": "rsi-fs",
+     "t": "Failure swing: la señal favorita de Wilder"
+    },
+    {
+     "id": "rsi-params",
+     "t": "Parámetros y variantes"
+    },
+    {
+     "id": "rsi-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "rsi-quiz",
+   "qn": 6,
+   "min": 16,
+   "charts": 6,
+   "terms": [
+    "RSI",
+    "Sobrecompra / sobreventa",
+    "Suavizado de Wilder",
+    "Divergencia regular",
+    "Divergencia oculta",
+    "Failure swing",
+    "Liquidez",
+    "Sesgo",
+    "Momentum",
+    "Soporte / resistencia",
+    "Futuro"
+   ]
+  },
+  {
+   "id": "estocastico",
+   "name": "Estocástico",
+   "num": "11",
+   "group": "ind",
+   "title": "Oscilador estocástico",
+   "lead": "Creado por George Lane a finales de los años 50. Responde a una pregunta muy simple: <strong>¿dónde cerró el precio dentro del rango de las últimas N velas?</strong> Cerca del máximo del rango → lectura alta; cerca del mínimo → lectura baja.",
+   "leadText": "Creado por George Lane a finales de los años 50. Responde a una pregunta muy simple: ¿dónde cerró el precio dentro del rango de las últimas N velas? Cerca del máximo del rango → lectura alta; cerca del mínimo → lectura baja.",
+   "toc": [
+    {
+     "id": "sto-que",
+     "label": "Qué mide"
+    },
+    {
+     "id": "sto-tipos",
+     "label": "Rápido, lento y completo"
+    },
+    {
+     "id": "sto-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "sto-senales",
+     "label": "Señales"
+    },
+    {
+     "id": "sto-rsi",
+     "label": "Estocástico vs RSI"
+    },
+    {
+     "id": "estocastico-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "sto-que",
+     "t": "Qué mide: la posición del cierre en el rango"
+    },
+    {
+     "id": "sto-tipos",
+     "t": "Rápido, lento y completo"
+    },
+    {
+     "id": "sto-lab",
+     "t": "Laboratorio del estocástico"
+    },
+    {
+     "id": "sto-senales",
+     "t": "Señales"
+    },
+    {
+     "id": "sto-rsi",
+     "t": "Estocástico vs RSI"
+    }
+   ],
+   "quizId": "estocastico-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 2,
+   "terms": [
+    "RSI",
+    "Sobrecompra / sobreventa",
+    "Estocástico"
+   ]
+  },
+  {
+   "id": "momentum",
+   "name": "Momentum y MACD",
+   "num": "12",
+   "group": "ind",
+   "title": "Momentum, ROC y MACD",
+   "lead": "El momentum mide la <strong>velocidad</strong> del precio. Un precio que sigue subiendo pero cada vez más despacio está perdiendo momentum: es la primera pista de que el movimiento se agota, antes de que el precio gire.",
+   "leadText": "El momentum mide la velocidad del precio. Un precio que sigue subiendo pero cada vez más despacio está perdiendo momentum: es la primera pista de que el movimiento se agota, antes de que el precio gire.",
+   "toc": [
+    {
+     "id": "mom-que",
+     "label": "Qué es"
+    },
+    {
+     "id": "mom-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "mom-macd",
+     "label": "MACD"
+    },
+    {
+     "id": "mom-uso",
+     "label": "Momentum y tendencia"
+    },
+    {
+     "id": "momentum-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "mom-que",
+     "t": "Qué es el momentum: posición, velocidad y aceleración"
+    },
+    {
+     "id": "mom-lab",
+     "t": "Laboratorio de momentum"
+    },
+    {
+     "id": "mom-macd",
+     "t": "MACD (Gerald Appel)"
+    },
+    {
+     "id": "mom-uso",
+     "t": "Momentum y tendencia: cómo combinarlos"
+    }
+   ],
+   "quizId": "momentum-quiz",
+   "qn": 5,
+   "min": 7,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "EMA",
+    "Momentum",
+    "ROC",
+    "MACD"
+   ]
+  },
+  {
+   "id": "volat",
+   "name": "ATR y Bollinger",
+   "num": "13",
+   "group": "ind",
+   "title": "Volatilidad: ATR y Bandas de Bollinger",
+   "lead": "La volatilidad dice <strong>cuánto</strong> se mueve el precio, no hacia dónde. Es clave para algo muy práctico: dónde poner el stop y cuánto comprar o vender.",
+   "leadText": "La volatilidad dice cuánto se mueve el precio, no hacia dónde. Es clave para algo muy práctico: dónde poner el stop y cuánto comprar o vender.",
+   "toc": [
+    {
+     "id": "vo-tr",
+     "label": "True Range"
+    },
+    {
+     "id": "vo-atr",
+     "label": "Laboratorio ATR"
+    },
+    {
+     "id": "vo-stops",
+     "label": "Stops y tamaño con ATR"
+    },
+    {
+     "id": "vo-bb",
+     "label": "Bandas de Bollinger"
+    },
+    {
+     "id": "vo-uso",
+     "label": "Cómo usarlas"
+    },
+    {
+     "id": "volat-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "vo-tr",
+     "t": "True Range: el rango \"verdadero\" de una vela"
+    },
+    {
+     "id": "vo-atr",
+     "t": "Laboratorio de ATR"
+    },
+    {
+     "id": "vo-stops",
+     "t": "Stops y tamaño de posición con ATR"
+    },
+    {
+     "id": "vo-bb",
+     "t": "Bandas de Bollinger"
+    },
+    {
+     "id": "vo-uso",
+     "t": "Cómo usarlas (y errores comunes)"
+    }
+   ],
+   "quizId": "volat-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 4,
+   "terms": [
+    "RSI",
+    "Suavizado de Wilder",
+    "True Range",
+    "ATR",
+    "Chandelier exit",
+    "Bandas de Bollinger",
+    "Squeeze"
+   ]
+  },
+  {
+   "id": "liquidez",
+   "name": "Liquidez",
+   "num": "14",
+   "group": "smc",
+   "title": "Teoría de liquidez",
+   "lead": "El precio no se mueve al azar entre niveles: tiende a viajar hacia donde hay <strong>órdenes esperando</strong>. Entender dónde están esas órdenes (y por qué) es la base de la CRT y de la SMT.",
+   "leadText": "El precio no se mueve al azar entre niveles: tiende a viajar hacia donde hay órdenes esperando. Entender dónde están esas órdenes (y por qué) es la base de la CRT y de la SMT.",
+   "toc": [
+    {
+     "id": "liq-que",
+     "label": "Qué es"
+    },
+    {
+     "id": "liq-barrido",
+     "label": "Por qué el precio la busca"
+    },
+    {
+     "id": "liq-pools",
+     "label": "Dónde se acumula"
+    },
+    {
+     "id": "liq-svb",
+     "label": "Barrido vs ruptura"
+    },
+    {
+     "id": "liq-fvg",
+     "label": "Desplazamiento y FVG"
+    },
+    {
+     "id": "liq-ob",
+     "label": "Order block y estructura"
+    },
+    {
+     "id": "liq-pd",
+     "label": "Premium / descuento"
+    },
+    {
+     "id": "liq-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "liq-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "liq-que",
+     "t": "Qué es la liquidez (y dónde está)"
+    },
+    {
+     "id": "liq-barrido",
+     "t": "Por qué el precio \"va a buscar\" la liquidez"
+    },
+    {
+     "id": "liq-pools",
+     "t": "Dónde se acumula: los \"pools\" de liquidez"
+    },
+    {
+     "id": "liq-svb",
+     "t": "Barrido vs ruptura: la diferencia está en el cierre"
+    },
+    {
+     "id": "liq-fvg",
+     "t": "Desplazamiento y Fair Value Gap (FVG)"
+    },
+    {
+     "id": "liq-ob",
+     "t": "Order block y cambio de estructura"
+    },
+    {
+     "id": "liq-pd",
+     "t": "Premium, descuento y liquidez interna / externa"
+    },
+    {
+     "id": "liq-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "liquidez-quiz",
+   "qn": 5,
+   "min": 17,
+   "charts": 7,
+   "terms": [
+    "Mecha (sombra)",
+    "Liquidez",
+    "BSL",
+    "SSL",
+    "EQH / EQL",
+    "PDH / PDL",
+    "Barrido",
+    "Turtle soup",
+    "Desplazamiento",
+    "FVG",
+    "Order block",
+    "Mean threshold"
+   ]
+  },
+  {
+   "id": "smc",
+   "name": "Smart Money Concepts",
+   "num": "15",
+   "group": "smc",
+   "title": "Smart Money Concepts (SMC)",
+   "lead": "SMC es un marco de lectura del precio, popularizado por ICT (Michael Huddleston) y su comunidad, que interpreta el gráfico como la huella de las órdenes de los grandes participantes: <strong>estructura, liquidez, zonas de interés (POI), premium/descuento y tiempo</strong>. Aquí se juntan todas las piezas.",
+   "leadText": "SMC es un marco de lectura del precio, popularizado por ICT (Michael Huddleston) y su comunidad, que interpreta el gráfico como la huella de las órdenes de los grandes participantes: estructura, liquidez, zonas de interés (POI), premium/descuento y tiempo. Aquí se juntan todas las piezas.",
+   "toc": [
+    {
+     "id": "smc-que",
+     "label": "Qué es"
+    },
+    {
+     "id": "smc-flujo",
+     "label": "El flujo de análisis"
+    },
+    {
+     "id": "smc-ind",
+     "label": "Inducement"
+    },
+    {
+     "id": "smc-bk",
+     "label": "Breaker y mitigation"
+    },
+    {
+     "id": "smc-ote",
+     "label": "OTE (Fibonacci)"
+    },
+    {
+     "id": "smc-po3",
+     "label": "Power of 3"
+    },
+    {
+     "id": "smc-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "smc-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "smc-que",
+     "t": "Qué es SMC (y qué no es)"
+    },
+    {
+     "id": "smc-flujo",
+     "t": "El flujo de análisis (de arriba hacia abajo)"
+    },
+    {
+     "id": "smc-ind",
+     "t": "Inducement: el cebo antes de la zona real"
+    },
+    {
+     "id": "smc-bk",
+     "t": "Breaker block y mitigation block"
+    },
+    {
+     "id": "smc-ote",
+     "t": "OTE: la entrada óptima con Fibonacci"
+    },
+    {
+     "id": "smc-po3",
+     "t": "Power of 3 (AMD) en la vela diaria"
+    },
+    {
+     "id": "smc-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "smc-quiz",
+   "qn": 5,
+   "min": 13,
+   "charts": 5,
+   "terms": [
+    "Mecha (sombra)",
+    "Liquidez",
+    "BSL",
+    "SSL",
+    "Barrido",
+    "Desplazamiento",
+    "FVG",
+    "Order block",
+    "BOS",
+    "Premium / descuento",
+    "Power of 3 (AMD)",
+    "CRT"
+   ]
+  },
+  {
+   "id": "crt",
+   "name": "CRT",
+   "num": "16",
+   "group": "smc",
+   "title": "CRT — Candle Range Theory (Teoría del Rango de la Vela)",
+   "lead": "Idea central: <strong>cada vela, en cualquier temporalidad, es un rango</strong> con un máximo y un mínimo llenos de liquidez. La CRT busca el momento en que una vela <strong>barre un extremo</strong> de la vela anterior, <strong>cierra de vuelta dentro</strong> de su rango y entonces viaja hacia el <strong>extremo opuesto</strong>.",
+   "leadText": "Idea central: cada vela, en cualquier temporalidad, es un rango con un máximo y un mínimo llenos de liquidez. La CRT busca el momento en que una vela barre un extremo de la vela anterior, cierra de vuelta dentro de su rango y entonces viaja hacia el extremo opuesto.",
+   "toc": [
+    {
+     "id": "crt-idea",
+     "label": "La idea"
+    },
+    {
+     "id": "crt-modelo",
+     "label": "Modelo de 3 velas"
+    },
+    {
+     "id": "crt-reglas",
+     "label": "Reglas y ejercicio"
+    },
+    {
+     "id": "crt-mtf",
+     "label": "Multi-temporalidad"
+    },
+    {
+     "id": "crt-entradas",
+     "label": "Tipos de entrada"
+    },
+    {
+     "id": "crt-tf",
+     "label": "Temporalidades y horarios"
+    },
+    {
+     "id": "crt-calidad",
+     "label": "Calidad y errores"
+    },
+    {
+     "id": "crt-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "crt-idea",
+     "t": "La idea: rango, manipulación y expansión"
+    },
+    {
+     "id": "crt-modelo",
+     "t": "El modelo de 3 velas, paso a paso"
+    },
+    {
+     "id": "crt-reglas",
+     "t": "Reglas de validez y ejercicio"
+    },
+    {
+     "id": "crt-mtf",
+     "t": "Multi-temporalidad: el mapa en 4H, la entrada en 15 minutos"
+    },
+    {
+     "id": "crt-entradas",
+     "t": "Tres formas de entrar (de más agresiva a más conservadora)"
+    },
+    {
+     "id": "crt-tf",
+     "t": "Alineación de temporalidades y horarios clave"
+    },
+    {
+     "id": "crt-calidad",
+     "t": "Qué hace a un CRT de calidad (y errores comunes)"
+    }
+   ],
+   "quizId": "crt-quiz",
+   "qn": 6,
+   "min": 14,
+   "charts": 2,
+   "terms": [
+    "Mecha (sombra)",
+    "HTF / LTF",
+    "Liquidez",
+    "BSL",
+    "SSL",
+    "Barrido",
+    "Turtle soup",
+    "FVG",
+    "Order block",
+    "MSS / CHoCH",
+    "CISD",
+    "Power of 3 (AMD)"
+   ]
+  },
+  {
+   "id": "smt",
+   "name": "SMT",
+   "num": "17",
+   "group": "smc",
+   "title": "SMT — Divergencia entre activos correlacionados",
+   "lead": "<strong>SMT</strong> (Smart Money Technique) compara dos activos que normalmente se mueven juntos. Si en un punto clave uno hace un nuevo extremo y el otro <strong>no lo confirma</strong>, aparece una \"grieta en la correlación\": el barrido de liquidez del primero no está respaldado y el movimiento puede girar.",
+   "leadText": "SMT (Smart Money Technique) compara dos activos que normalmente se mueven juntos. Si en un punto clave uno hace un nuevo extremo y el otro no lo confirma, aparece una \"grieta en la correlación\": el barrido de liquidez del primero no está respaldado y el movimiento puede girar.",
+   "toc": [
+    {
+     "id": "smt-que",
+     "label": "Cómo se ve"
+    },
+    {
+     "id": "smt-tipos",
+     "label": "Tipos y pares"
+    },
+    {
+     "id": "smt-reglas",
+     "label": "Reglas de uso"
+    },
+    {
+     "id": "smt-crt",
+     "label": "SMT + CRT"
+    },
+    {
+     "id": "smt-errores",
+     "label": "Errores comunes"
+    },
+    {
+     "id": "smt-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "smt-que",
+     "t": "Cómo se ve una divergencia SMT"
+    },
+    {
+     "id": "smt-tipos",
+     "t": "Tipos y pares habituales"
+    },
+    {
+     "id": "smt-reglas",
+     "t": "Reglas de uso"
+    },
+    {
+     "id": "smt-crt",
+     "t": "SMT + CRT: la combinación más usada"
+    },
+    {
+     "id": "smt-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "smt-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 2,
+   "terms": [
+    "RSI",
+    "Liquidez",
+    "PDH / PDL",
+    "Barrido",
+    "MSS / CHoCH",
+    "CISD",
+    "CRT",
+    "CRT High / CRT Low",
+    "SMT",
+    "DXY",
+    "Sesión"
+   ]
+  },
+  {
+   "id": "ordenes",
+   "name": "Órdenes y costos",
+   "num": "18",
+   "group": "ges",
+   "title": "Órdenes, spread, lotes, apalancamiento y costos",
+   "lead": "Antes de cualquier estrategia: cómo se ejecuta realmente una operación, cuánto vale cada movimiento y cuánto cuesta operar. Aquí se pierde mucho dinero por desconocimiento, no por mal análisis.",
+   "leadText": "Antes de cualquier estrategia: cómo se ejecuta realmente una operación, cuánto vale cada movimiento y cuánto cuesta operar. Aquí se pierde mucho dinero por desconocimiento, no por mal análisis.",
+   "toc": [
+    {
+     "id": "ord-tipos",
+     "label": "Tipos de órdenes"
+    },
+    {
+     "id": "ord-spread",
+     "label": "Bid, ask y spread"
+    },
+    {
+     "id": "ord-pips",
+     "label": "Pips y lotes"
+    },
+    {
+     "id": "ord-lev",
+     "label": "Apalancamiento y margen"
+    },
+    {
+     "id": "ord-costos",
+     "label": "Costos"
+    },
+    {
+     "id": "ordenes-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ord-tipos",
+     "t": "Tipos de órdenes"
+    },
+    {
+     "id": "ord-spread",
+     "t": "Bid, ask y spread"
+    },
+    {
+     "id": "ord-pips",
+     "t": "Pips, lotes y valor del pip"
+    },
+    {
+     "id": "ord-lev",
+     "t": "Apalancamiento y margen"
+    },
+    {
+     "id": "ord-costos",
+     "t": "Costos: spread, comisión, swap y deslizamiento"
+    }
+   ],
+   "quizId": "ordenes-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 3,
+   "terms": [
+    "Liquidez",
+    "FVG",
+    "Premium / descuento",
+    "Soporte / resistencia",
+    "Bid / ask",
+    "Spread",
+    "Pip",
+    "Lote",
+    "Apalancamiento / margen",
+    "Margin call / stop out",
+    "Swap",
+    "Deslizamiento"
+   ]
+  },
+  {
+   "id": "riesgo",
+   "name": "Gestión del riesgo",
+   "num": "19",
+   "group": "ges",
+   "title": "Gestión del riesgo y estadística del trading",
+   "lead": "Ninguna estrategia gana siempre. Lo que decide si sobrevives es la combinación de <strong>expectativa</strong> (cuánto ganas de media por operación) y <strong>tamaño del riesgo</strong> (cuánto arriesgas en cada una). Este módulo te deja ver los números en vez de imaginarlos.",
+   "leadText": "Ninguna estrategia gana siempre. Lo que decide si sobrevives es la combinación de expectativa (cuánto ganas de media por operación) y tamaño del riesgo (cuánto arriesgas en cada una). Este módulo te deja ver los números en vez de imaginarlos.",
+   "toc": [
+    {
+     "id": "rg-exp",
+     "label": "Expectativa"
+    },
+    {
+     "id": "rg-mc",
+     "label": "Simulador de rachas"
+    },
+    {
+     "id": "rg-dd",
+     "label": "Drawdown y recuperación"
+    },
+    {
+     "id": "rg-rachas",
+     "label": "Rachas perdedoras"
+    },
+    {
+     "id": "rg-reglas",
+     "label": "Reglas prácticas"
+    },
+    {
+     "id": "riesgo-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "rg-exp",
+     "t": "Expectativa matemática"
+    },
+    {
+     "id": "rg-mc",
+     "t": "Simulador de rachas (Monte Carlo)"
+    },
+    {
+     "id": "rg-dd",
+     "t": "Drawdown y recuperación: la asimetría que duele"
+    },
+    {
+     "id": "rg-rachas",
+     "t": "Rachas perdedoras: más largas de lo que crees"
+    },
+    {
+     "id": "rg-reglas",
+     "t": "Reglas prácticas"
+    }
+   ],
+   "quizId": "riesgo-quiz",
+   "qn": 5,
+   "min": 9,
+   "charts": 3,
+   "terms": [
+    "R:B",
+    "Expectativa",
+    "Monte Carlo",
+    "Martingala"
+   ]
+  },
+  {
+   "id": "todo",
+   "name": "Todo junto",
+   "num": "20",
+   "group": "prac",
+   "title": "Todo junto: un escenario completo, paso a paso",
+   "lead": "Cada herramienta responde una pregunta distinta. <strong>Liquidez:</strong> ¿hacia dónde quiere ir el precio? <strong>CRT:</strong> ¿cuál es el rango y qué extremo se barrió? <strong>SMT:</strong> ¿el barrido está confirmado por el activo correlacionado? <strong>RSI:</strong> ¿el impulso acompaña o se agota? <strong>Estructura (CISD/FVG):</strong> ¿dónde entro exactamente?",
+   "leadText": "Cada herramienta responde una pregunta distinta. Liquidez: ¿hacia dónde quiere ir el precio? CRT: ¿cuál es el rango y qué extremo se barrió? SMT: ¿el barrido está confirmado por el activo correlacionado? RSI: ¿el impulso acompaña o se agota? Estructura (CISD/FVG): ¿dónde entro exactamente?",
+   "toc": [
+    {
+     "id": "todo-sim",
+     "label": "Simulación guiada"
+    },
+    {
+     "id": "todo-check",
+     "label": "Checklist"
+    },
+    {
+     "id": "todo-riesgo",
+     "label": "Gestión del riesgo"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "todo-sim",
+     "t": "Simulación guiada: CRT alcista en EUR/USD con SMT y RSI"
+    },
+    {
+     "id": "todo-check",
+     "t": "Checklist antes de entrar"
+    },
+    {
+     "id": "todo-riesgo",
+     "t": "Gestión del riesgo: tamaño de posición"
+    }
+   ],
+   "quizId": null,
+   "qn": 0,
+   "min": 5,
+   "charts": 1,
+   "terms": [
+    "RSI",
+    "Liquidez",
+    "Barrido",
+    "FVG",
+    "CISD",
+    "CRT",
+    "SMT"
+   ]
+  },
+  {
+   "id": "repaso",
+   "name": "Repaso rápido",
+   "num": "21",
+   "group": "prac",
+   "title": "Repaso rápido",
+   "lead": "Tarjetas de un minuto: un concepto, un gráfico y una pregunta. Ideal para repasar todos los días: cada respuesta correcta suma una <strong>estrella</strong>, las seguidas encadenan un <strong>combo</strong> y practicar a diario mantiene tu <strong>racha</strong>.",
+   "leadText": "Tarjetas de un minuto: un concepto, un gráfico y una pregunta. Ideal para repasar todos los días: cada respuesta correcta suma una estrella, las seguidas encadenan un combo y practicar a diario mantiene tu racha.",
+   "toc": [],
+   "lessons": [],
+   "quizId": null,
+   "qn": 0,
+   "min": 2,
+   "charts": 0,
+   "terms": []
+  },
+  {
+   "id": "replay",
+   "name": "Simulador",
+   "num": "22",
+   "group": "prac",
+   "title": "Simulador de trading: replay vela a vela",
+   "lead": "Leer sobre trading no alcanza: hay que decidir <strong>sin ver el futuro</strong>. Este simulador genera un mercado (con tendencias, rangos y cambios de volatilidad) y lo revela vela a vela. Tú abres y cierras operaciones con stop y objetivo, y la página lleva la contabilidad: balance, R, acierto, expectativa, drawdown y un diario de cada operación.",
+   "leadText": "Leer sobre trading no alcanza: hay que decidir sin ver el futuro. Este simulador genera un mercado (con tendencias, rangos y cambios de volatilidad) y lo revela vela a vela. Tú abres y cierras operaciones con stop y objetivo, y la página lleva la contabilidad: balance, R, acierto, expectativa, drawdown y un diario de cada operación.",
+   "toc": [
+    {
+     "id": "rp-como",
+     "label": "Cómo funciona"
+    },
+    {
+     "id": "rp-sim",
+     "label": "Simulador"
+    },
+    {
+     "id": "rp-diario",
+     "label": "Diario y análisis"
+    },
+    {
+     "id": "rp-sesiones",
+     "label": "Tus sesiones"
+    },
+    {
+     "id": "rp-consejos",
+     "label": "Cómo practicar"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "rp-como",
+     "t": "Cómo funciona"
+    },
+    {
+     "id": "rp-sim",
+     "t": "Simulador"
+    },
+    {
+     "id": "rp-diario",
+     "t": "Diario y análisis de la sesión"
+    },
+    {
+     "id": "rp-sesiones",
+     "t": "Tus sesiones"
+    },
+    {
+     "id": "rp-consejos",
+     "t": "Cómo practicar con el simulador"
+    }
+   ],
+   "quizId": null,
+   "qn": 0,
+   "min": 10,
+   "charts": 3,
+   "terms": [
+    "RSI",
+    "BOS",
+    "Sesión",
+    "EMA",
+    "ATR",
+    "Deslizamiento",
+    "Expectativa",
+    "Drawdown",
+    "Futuro",
+    "MFE",
+    "MAE",
+    "Replay"
+   ]
+  },
+  {
+   "id": "examen",
+   "name": "Examen final",
+   "num": "23",
+   "group": "prac",
+   "title": "Examen final",
+   "lead": "Preguntas al azar de <strong>todos los módulos</strong>, con las opciones mezcladas. Al terminar ves tu nota por módulo y un enlace para repasar lo que falló. Tu mejor resultado queda guardado en este navegador.",
+   "leadText": "Preguntas al azar de todos los módulos, con las opciones mezcladas. Al terminar ves tu nota por módulo y un enlace para repasar lo que falló. Tu mejor resultado queda guardado en este navegador.",
+   "toc": [],
+   "lessons": [],
+   "quizId": null,
+   "qn": 0,
+   "min": 2,
+   "charts": 0,
+   "terms": []
+  },
+  {
+   "id": "glosario",
+   "name": "Glosario",
+   "num": "?",
+   "group": "prac",
+   "title": "Glosario",
+   "lead": "Todos los términos y siglas de la guía en un solo lugar.",
+   "leadText": "Todos los términos y siglas de la guía en un solo lugar.",
+   "toc": [],
+   "lessons": [],
+   "quizId": null,
+   "qn": 0,
+   "min": 2,
+   "charts": 0,
+   "terms": []
+  }
+ ],
+ "ids": {
+  "n-mods": "inicio",
+  "home-stats": "inicio",
+  "home-cont": "inicio",
+  "home-courses": "inicio",
+  "home-path": "inicio",
+  "home-quick": "inicio",
+  "velas-anatomia": "velas",
+  "fig-anatomy": "velas",
+  "anatomy-explain": "velas",
+  "velas-constructor": "velas",
+  "builder-controls": "velas",
+  "b-o": "velas",
+  "b-o-v": "velas",
+  "b-h": "velas",
+  "b-h-v": "velas",
+  "b-l": "velas",
+  "b-l-v": "velas",
+  "b-c": "velas",
+  "b-c-v": "velas",
+  "fig-builder": "velas",
+  "builder-stats": "velas",
+  "builder-explain": "velas",
+  "velas-formacion": "velas",
+  "form-play": "velas",
+  "fig-form": "velas",
+  "form-explain": "velas",
+  "velas-tf": "velas",
+  "tf-new": "velas",
+  "fig-tf": "velas",
+  "tf-data": "velas",
+  "velas-galeria": "velas",
+  "gallery": "velas",
+  "velas-quiz": "velas",
+  "rsi-que": "rsi",
+  "bal-g": "rsi",
+  "bal-g-v": "rsi",
+  "bal-l": "rsi",
+  "bal-l-v": "rsi",
+  "fig-balance": "rsi",
+  "balance-explain": "rsi",
+  "rsi-calculo": "rsi",
+  "calc-in": "rsi",
+  "calc-n": "rsi",
+  "calc-go": "rsi",
+  "calc-explain": "rsi",
+  "fig-calc": "rsi",
+  "calc-table": "rsi",
+  "rsi-lab": "rsi",
+  "lab-n": "rsi",
+  "lab-n-v": "rsi",
+  "lab-sig": "rsi",
+  "lab-div": "rsi",
+  "lab-play": "rsi",
+  "lab-new": "rsi",
+  "fig-rsi-lab": "rsi",
+  "lab-stats": "rsi",
+  "lab-explain": "rsi",
+  "lab-data": "rsi",
+  "rsi-niveles": "rsi",
+  "fig-ranges": "rsi",
+  "ranges-new": "rsi",
+  "rsi-div": "rsi",
+  "fig-div": "rsi",
+  "div-explain": "rsi",
+  "rsi-fs": "rsi",
+  "fs-play": "rsi",
+  "fig-fs": "rsi",
+  "fs-explain": "rsi",
+  "rsi-params": "rsi",
+  "rsi-errores": "rsi",
+  "rsi-quiz": "rsi",
+  "liq-que": "liquidez",
+  "fig-stops": "liquidez",
+  "liq-barrido": "liquidez",
+  "sweep-play": "liquidez",
+  "sweep-new": "liquidez",
+  "fig-sweep": "liquidez",
+  "sweep-stats": "liquidez",
+  "sweep-explain": "liquidez",
+  "liq-pools": "liquidez",
+  "map-new": "liquidez",
+  "fig-map": "liquidez",
+  "liq-svb": "liquidez",
+  "svb-play": "liquidez",
+  "fig-svb": "liquidez",
+  "svb-explain": "liquidez",
+  "liq-fvg": "liquidez",
+  "fvg-force": "liquidez",
+  "fvg-ret": "liquidez",
+  "fvg-play": "liquidez",
+  "fig-fvg": "liquidez",
+  "fvg-explain": "liquidez",
+  "liq-ob": "liquidez",
+  "ob-prev": "liquidez",
+  "ob-dots": "liquidez",
+  "ob-next": "liquidez",
+  "fig-ob": "liquidez",
+  "ob-step": "liquidez",
+  "liq-pd": "liquidez",
+  "pd-p": "liquidez",
+  "pd-v": "liquidez",
+  "fig-pd": "liquidez",
+  "pd-explain": "liquidez",
+  "liq-errores": "liquidez",
+  "liq-quiz": "liquidez",
+  "crt-idea": "crt",
+  "crt-modelo": "crt",
+  "crt-depth": "crt",
+  "crt3-prev": "crt",
+  "crt3-dots": "crt",
+  "crt3-next": "crt",
+  "crt3-all": "crt",
+  "fig-crt3": "crt",
+  "crt3-stats": "crt",
+  "crt3-step": "crt",
+  "crt-reglas": "crt",
+  "crt-cases": "crt",
+  "crt-cases-score": "crt",
+  "crt-mtf": "crt",
+  "mtf-play": "crt",
+  "mtf-end": "crt",
+  "mtf-new": "crt",
+  "mtf-speed": "crt",
+  "fig-crt-mtf": "crt",
+  "mtf-stats": "crt",
+  "mtf-explain": "crt",
+  "mtf-data": "crt",
+  "crt-entradas": "crt",
+  "crt-tf": "crt",
+  "crt-calidad": "crt",
+  "crt-quiz": "crt",
+  "smt-que": "smt",
+  "smt-play": "smt",
+  "smt-new": "smt",
+  "fig-smt": "smt",
+  "smt-explain": "smt",
+  "smt-tipos": "smt",
+  "smt-reglas": "smt",
+  "smt-crt": "smt",
+  "fig-smt-crt": "smt",
+  "smt-crt-explain": "smt",
+  "smt-errores": "smt",
+  "smt-quiz": "smt",
+  "todo-sim": "todo",
+  "todo-prev": "todo",
+  "todo-dots": "todo",
+  "todo-next": "todo",
+  "todo-new": "todo",
+  "todo-step": "todo",
+  "fig-todo": "todo",
+  "todo-stats": "todo",
+  "todo-check": "todo",
+  "checklist": "todo",
+  "check-meter": "todo",
+  "check-explain": "todo",
+  "todo-riesgo": "todo",
+  "rk-cap": "todo",
+  "rk-pct": "todo",
+  "rk-entry": "todo",
+  "rk-stop": "todo",
+  "rk-tp": "todo",
+  "rk-out": "todo",
+  "rk-explain": "todo",
+  "mc-decks": "repaso",
+  "mc-stage": "repaso",
+  "rp-como": "replay",
+  "rp-sim": "replay",
+  "rp-fig": "replay",
+  "rp-new": "replay",
+  "rp-ema": "replay",
+  "rp-bb": "replay",
+  "rp-rsi": "replay",
+  "rp-vol": "replay",
+  "rp-reset": "replay",
+  "rp-play": "replay",
+  "rp-step": "replay",
+  "rp-speed": "replay",
+  "rp-skip": "replay",
+  "rp-clock": "replay",
+  "fig-rp": "replay",
+  "rp-risk": "replay",
+  "rp-sl": "replay",
+  "rp-sl-v": "replay",
+  "rp-tp": "replay",
+  "rp-tp-v": "replay",
+  "rp-buy": "replay",
+  "rp-sell": "replay",
+  "rp-be": "replay",
+  "rp-close": "replay",
+  "rp-stats": "replay",
+  "rp-explain": "replay",
+  "rp-diario": "replay",
+  "fig-rp-eq": "replay",
+  "fig-rp-dist": "replay",
+  "rp-analysis": "replay",
+  "rp-csv": "replay",
+  "rp-log": "replay",
+  "rp-sesiones": "replay",
+  "rp-hist": "replay",
+  "rp-hist-clear": "replay",
+  "rp-consejos": "replay",
+  "ex-config": "examen",
+  "ex-groups": "examen",
+  "ex-timer": "examen",
+  "ex-start": "examen",
+  "ex-best": "examen",
+  "ex-run": "examen",
+  "ex-count": "examen",
+  "ex-mod": "examen",
+  "ex-combo": "examen",
+  "ex-score": "examen",
+  "ex-meter": "examen",
+  "ex-tbar": "examen",
+  "ex-q": "examen",
+  "ex-quit": "examen",
+  "ex-next": "examen",
+  "ex-res": "examen",
+  "ex-res-stats": "examen",
+  "ex-res-explain": "examen",
+  "ex-res-table": "examen",
+  "ex-again": "examen",
+  "ex-wrong": "examen",
+  "gloss-q": "glosario",
+  "gloss": "glosario",
+  "pat-leer": "patrones",
+  "pat-explorador": "patrones",
+  "pat-list": "patrones",
+  "fig-pat": "patrones",
+  "pat-info": "patrones",
+  "pat-rules": "patrones",
+  "pat-escaner": "patrones",
+  "ps-ctx": "patrones",
+  "ps-new": "patrones",
+  "fig-pscan": "patrones",
+  "ps-stats": "patrones",
+  "ps-data": "patrones",
+  "pat-errores": "patrones",
+  "patrones-quiz": "patrones",
+  "est-swings": "estructura",
+  "est-tendencia": "estructura",
+  "est-bos": "estructura",
+  "est-lab": "estructura",
+  "est-n": "estructura",
+  "est-n-v": "estructura",
+  "est-new": "estructura",
+  "fig-est": "estructura",
+  "est-stats": "estructura",
+  "est-explain": "estructura",
+  "est-fuerte": "estructura",
+  "est-errores": "estructura",
+  "estructura-quiz": "estructura",
+  "tl-trazar": "trendlines",
+  "tl-dibuja": "trendlines",
+  "tl-auto": "trendlines",
+  "tl-ch": "trendlines",
+  "tl-liq": "trendlines",
+  "tl-new": "trendlines",
+  "fig-tl": "trendlines",
+  "tl-stats": "trendlines",
+  "tl-explain": "trendlines",
+  "tl-ruptura": "trendlines",
+  "tl-liquidez": "trendlines",
+  "tl-errores": "trendlines",
+  "trendlines-quiz": "trendlines",
+  "fb-que": "fibo",
+  "fig-fb-seq": "fibo",
+  "fb-trazar": "fibo",
+  "fb-lab": "fibo",
+  "fb-auto": "fibo",
+  "fb-fut": "fibo",
+  "fb-ext-on": "fibo",
+  "fb-new": "fibo",
+  "fig-fb": "fibo",
+  "fb-stats": "fibo",
+  "fb-explain": "fibo",
+  "fb-ext": "fibo",
+  "fx-r": "fibo",
+  "fx-r-v": "fibo",
+  "fx-s": "fibo",
+  "fx-s-v": "fibo",
+  "fig-fb-ext": "fibo",
+  "fx-table": "fibo",
+  "fx-explain": "fibo",
+  "fb-conf": "fibo",
+  "fb-errores": "fibo",
+  "fibo-quiz": "fibo",
+  "ses-reloj": "sesiones",
+  "ses-kz-on": "sesiones",
+  "fig-ses-clock": "sesiones",
+  "ses-now": "sesiones",
+  "ses-tabla": "sesiones",
+  "ses-dia": "sesiones",
+  "ses-play": "sesiones",
+  "ses-new": "sesiones",
+  "fig-ses-day": "sesiones",
+  "ses-day-explain": "sesiones",
+  "ses-kz": "sesiones",
+  "ses-noticias": "sesiones",
+  "sesiones-quiz": "sesiones",
+  "vol-que": "volumen",
+  "vol-lab": "volumen",
+  "vl-va": "volumen",
+  "vl-va-v": "volumen",
+  "vl-new": "volumen",
+  "fig-vol": "volumen",
+  "vol-explain": "volumen",
+  "vol-data": "volumen",
+  "vol-leer": "volumen",
+  "vol-obv": "volumen",
+  "vol-vwap": "volumen",
+  "vol-perfil": "volumen",
+  "volumen-quiz": "volumen",
+  "ema-formula": "emas",
+  "ew-n": "emas",
+  "ew-n-v": "emas",
+  "fig-ema-w": "emas",
+  "ew-explain": "emas",
+  "ema-lab": "emas",
+  "el-new": "emas",
+  "el-f-v": "emas",
+  "el-s-v": "emas",
+  "el-l-v": "emas",
+  "fig-ema-lab": "emas",
+  "el-legend": "emas",
+  "el-stats": "emas",
+  "el-explain": "emas",
+  "ema-usos": "emas",
+  "ema-periodos": "emas",
+  "ema-errores": "emas",
+  "emas-quiz": "emas",
+  "sto-que": "estocastico",
+  "sb-c": "estocastico",
+  "fig-sto-box": "estocastico",
+  "sb-explain": "estocastico",
+  "sto-tipos": "estocastico",
+  "sto-lab": "estocastico",
+  "sl-new": "estocastico",
+  "sl-n": "estocastico",
+  "sl-n-v": "estocastico",
+  "sl-k": "estocastico",
+  "sl-k-v": "estocastico",
+  "sl-d": "estocastico",
+  "sl-d-v": "estocastico",
+  "fig-sto-lab": "estocastico",
+  "sl-stats": "estocastico",
+  "sl-explain": "estocastico",
+  "sto-senales": "estocastico",
+  "sto-rsi": "estocastico",
+  "estocastico-quiz": "estocastico",
+  "mom-que": "momentum",
+  "mp-t": "momentum",
+  "fig-mom-phys": "momentum",
+  "mp-explain": "momentum",
+  "mom-lab": "momentum",
+  "ml-new": "momentum",
+  "ml-params": "momentum",
+  "fig-mom-lab": "momentum",
+  "ml-legend": "momentum",
+  "ml-stats": "momentum",
+  "ml-explain": "momentum",
+  "mom-macd": "momentum",
+  "mom-uso": "momentum",
+  "momentum-quiz": "momentum",
+  "smc-que": "smc",
+  "smc-flujo": "smc",
+  "fig-smc-flow": "smc",
+  "smc-ind": "smc",
+  "ind-prev": "smc",
+  "ind-dots": "smc",
+  "ind-next": "smc",
+  "fig-smc-ind": "smc",
+  "ind-step": "smc",
+  "smc-bk": "smc",
+  "fig-smc-bk": "smc",
+  "bk-explain": "smc",
+  "smc-ote": "smc",
+  "ote-r": "smc",
+  "ote-r-v": "smc",
+  "ote-cont": "smc",
+  "fig-smc-ote": "smc",
+  "ote-stats": "smc",
+  "ote-explain": "smc",
+  "smc-po3": "smc",
+  "po3-play": "smc",
+  "fig-smc-po3": "smc",
+  "po3-explain": "smc",
+  "smc-errores": "smc",
+  "smc-quiz": "smc",
+  "sr-que": "sr",
+  "sr-zonas": "sr",
+  "sr-n": "sr",
+  "sr-n-v": "sr",
+  "sr-tol": "sr",
+  "sr-tol-v": "sr",
+  "sr-min": "sr",
+  "sr-min-v": "sr",
+  "sr-new": "sr",
+  "fig-sr": "sr",
+  "sr-stats": "sr",
+  "sr-explain": "sr",
+  "sr-polaridad": "sr",
+  "sr-figuras": "sr",
+  "cp-list": "sr",
+  "fig-cp": "sr",
+  "cp-info": "sr",
+  "cp-rules": "sr",
+  "sr-errores": "sr",
+  "sr-quiz": "sr",
+  "vo-tr": "volat",
+  "tr-pc": "volat",
+  "tr-h": "volat",
+  "tr-l": "volat",
+  "fig-tr": "volat",
+  "tr-explain": "volat",
+  "vo-atr": "volat",
+  "atr-n": "volat",
+  "atr-n-v": "volat",
+  "atr-new": "volat",
+  "fig-atr": "volat",
+  "atr-explain": "volat",
+  "vo-stops": "volat",
+  "as-e": "volat",
+  "as-e-v": "volat",
+  "as-k": "volat",
+  "as-k-v": "volat",
+  "as-m": "volat",
+  "as-m-v": "volat",
+  "as-r": "volat",
+  "fig-atr-stop": "volat",
+  "as-stats": "volat",
+  "as-explain": "volat",
+  "vo-bb": "volat",
+  "bb-n": "volat",
+  "bb-n-v": "volat",
+  "bb-k": "volat",
+  "bb-k-v": "volat",
+  "bb-pb": "volat",
+  "bb-bw": "volat",
+  "fig-bb": "volat",
+  "bb-stats": "volat",
+  "bb-explain": "volat",
+  "vo-uso": "volat",
+  "volat-quiz": "volat",
+  "ord-tipos": "ordenes",
+  "ord-lvl": "ordenes",
+  "ord-lvl-v": "ordenes",
+  "ord-fast": "ordenes",
+  "ord-play": "ordenes",
+  "fig-ord": "ordenes",
+  "ord-explain": "ordenes",
+  "ord-spread": "ordenes",
+  "sp-s": "ordenes",
+  "sp-s-v": "ordenes",
+  "sp-news": "ordenes",
+  "fig-spread": "ordenes",
+  "sp-explain": "ordenes",
+  "ord-pips": "ordenes",
+  "pip-pair": "ordenes",
+  "pip-price": "ordenes",
+  "pip-jpy": "ordenes",
+  "pip-lots": "ordenes",
+  "pip-move": "ordenes",
+  "pip-out": "ordenes",
+  "pip-explain": "ordenes",
+  "ord-lev": "ordenes",
+  "lv-cap": "ordenes",
+  "lv-lev": "ordenes",
+  "lv-lots": "ordenes",
+  "lv-price": "ordenes",
+  "fig-lev": "ordenes",
+  "lv-out": "ordenes",
+  "lv-explain": "ordenes",
+  "ord-costos": "ordenes",
+  "ct-sp": "ordenes",
+  "ct-com": "ordenes",
+  "ct-sw": "ordenes",
+  "ct-n": "ordenes",
+  "ct-lots": "ordenes",
+  "ct-tr": "ordenes",
+  "ct-cap": "ordenes",
+  "ct-out": "ordenes",
+  "ct-explain": "ordenes",
+  "ordenes-quiz": "ordenes",
+  "rg-exp": "riesgo",
+  "ex-wr": "riesgo",
+  "ex-wr-v": "riesgo",
+  "ex-rr": "riesgo",
+  "ex-rr-v": "riesgo",
+  "fig-ex": "riesgo",
+  "ex-out": "riesgo",
+  "ex-explain": "riesgo",
+  "rg-mc": "riesgo",
+  "mc-wr": "riesgo",
+  "mc-wr-v": "riesgo",
+  "mc-rr": "riesgo",
+  "mc-rr-v": "riesgo",
+  "mc-risk": "riesgo",
+  "mc-risk-v": "riesgo",
+  "mc-n": "riesgo",
+  "mc-n-v": "riesgo",
+  "mc-new": "riesgo",
+  "fig-mc": "riesgo",
+  "mc-out": "riesgo",
+  "mc-explain": "riesgo",
+  "rg-dd": "riesgo",
+  "dd-l": "riesgo",
+  "dd-l-v": "riesgo",
+  "fig-dd": "riesgo",
+  "dd-explain": "riesgo",
+  "rg-rachas": "riesgo",
+  "rg-table": "riesgo",
+  "rg-tbl-explain": "riesgo",
+  "rg-reglas": "riesgo",
+  "riesgo-quiz": "riesgo",
+  "mk-que": "mercados",
+  "mk-mapa": "mercados",
+  "mk-cards": "mercados",
+  "mk-detail": "mercados",
+  "mk-tipos": "mercados",
+  "mk-libro": "mercados",
+  "lb-q": "mercados",
+  "lb-q-v": "mercados",
+  "fig-book": "mercados",
+  "lb-out": "mercados",
+  "lb-explain": "mercados",
+  "mk-horarios": "mercados",
+  "fig-mk-week": "mercados",
+  "mk-week-now": "mercados",
+  "mk-vol": "mercados",
+  "mk-vol-ctrl": "mercados",
+  "fig-mk-vol": "mercados",
+  "mk-vol-legend": "mercados",
+  "mk-vol-table": "mercados",
+  "mk-vol-new": "mercados",
+  "mk-futuros": "mercados",
+  "fu-c": "mercados",
+  "fu-mv": "mercados",
+  "fu-n": "mercados",
+  "fu-out": "mercados",
+  "mk-relacion": "mercados",
+  "mk-errores": "mercados",
+  "mercados-quiz": "mercados"
+ }
+}

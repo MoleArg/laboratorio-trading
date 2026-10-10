@@ -1,0 +1,607 @@
+[
+ {
+  "t": "OHLC",
+  "en": "Open, High, Low, Close",
+  "d": "Apertura, máximo, mínimo y cierre de una vela."
+ },
+ {
+  "t": "Mecha (sombra)",
+  "en": "Wick",
+  "d": "Parte de la vela fuera del cuerpo: precios que se visitaron y se rechazaron."
+ },
+ {
+  "t": "HTF / LTF",
+  "en": "Higher / lower timeframe",
+  "d": "Temporalidad alta (el mapa) y baja (la entrada)."
+ },
+ {
+  "t": "RSI",
+  "en": "Relative Strength Index",
+  "d": "Oscilador de momentum de Wilder (1978): 100 × GM / (GM + PM) sobre N periodos (14 por defecto)."
+ },
+ {
+  "t": "Sobrecompra / sobreventa",
+  "en": "Overbought / oversold",
+  "d": "RSI por encima de 70 / por debajo de 30. Describen fuerza o debilidad, no son órdenes por sí solas."
+ },
+ {
+  "t": "Suavizado de Wilder",
+  "en": "RMA / SMMA",
+  "d": "Media exponencial con α = 1/N: (anterior × (N−1) + dato actual) / N."
+ },
+ {
+  "t": "Divergencia regular",
+  "en": "Regular divergence",
+  "d": "Precio y RSI marcan extremos en sentido contrario: posible agotamiento del movimiento."
+ },
+ {
+  "t": "Divergencia oculta",
+  "en": "Hidden divergence",
+  "d": "Precio con mínimo más alto y RSI con mínimo más bajo (o al revés): señal de continuación."
+ },
+ {
+  "t": "Failure swing",
+  "en": "",
+  "d": "Señal de Wilder solo con el RSI: pico en extremo, valle, pico que no supera el anterior y ruptura del valle."
+ },
+ {
+  "t": "Rangos de Cardwell",
+  "en": "Range rules",
+  "d": "En tendencia alcista el RSI suele moverse entre ~40 y ~80; en bajista entre ~20 y ~60."
+ },
+ {
+  "t": "Liquidez",
+  "en": "Liquidity",
+  "d": "Órdenes pendientes acumuladas en niveles obvios (stops y entradas por ruptura)."
+ },
+ {
+  "t": "BSL",
+  "en": "Buy-side liquidity",
+  "d": "Órdenes de compra sobre máximos: stops de cortos y buy stops de ruptura."
+ },
+ {
+  "t": "SSL",
+  "en": "Sell-side liquidity",
+  "d": "Órdenes de venta bajo mínimos: stops de largos y sell stops de ruptura."
+ },
+ {
+  "t": "EQH / EQL",
+  "en": "Equal highs / lows",
+  "d": "Máximos o mínimos iguales: acumulan muchos stops."
+ },
+ {
+  "t": "PDH / PDL",
+  "en": "Previous day high / low",
+  "d": "Máximo y mínimo del día anterior (PWH/PWL para la semana)."
+ },
+ {
+  "t": "Barrido",
+  "en": "Sweep / raid / stop hunt",
+  "d": "El precio supera un nivel con la mecha y cierra de vuelta dentro: rechazo."
+ },
+ {
+  "t": "Turtle soup",
+  "en": "",
+  "d": "Patrón popularizado por Linda Raschke y Larry Connors: operar el fallo de una ruptura. En ICT, entrada agresiva tras un barrido."
+ },
+ {
+  "t": "Desplazamiento",
+  "en": "Displacement",
+  "d": "Velas grandes y decididas que muestran intención; suelen dejar FVG."
+ },
+ {
+  "t": "FVG",
+  "en": "Fair value gap",
+  "d": "Hueco de 3 velas entre el máximo de la vela 1 y el mínimo de la vela 3 (alcista) o al revés (bajista)."
+ },
+ {
+  "t": "CE",
+  "en": "Consequent encroachment",
+  "d": "El 50% de un FVG."
+ },
+ {
+  "t": "Order block",
+  "en": "OB",
+  "d": "Última vela opuesta antes de un desplazamiento que rompe estructura."
+ },
+ {
+  "t": "Mean threshold",
+  "en": "",
+  "d": "El 50% de un order block."
+ },
+ {
+  "t": "BOS",
+  "en": "Break of structure",
+  "d": "Ruptura de un máximo/mínimo a favor de la tendencia."
+ },
+ {
+  "t": "MSS / CHoCH",
+  "en": "Market structure shift / change of character",
+  "d": "Primera ruptura en contra de la tendencia previa, idealmente tras un barrido y con desplazamiento."
+ },
+ {
+  "t": "CISD",
+  "en": "Change in state of delivery",
+  "d": "Tras un barrido, cierre de cuerpo más allá de la apertura de la serie de velas que hizo el extremo."
+ },
+ {
+  "t": "Premium / descuento",
+  "en": "Premium / discount",
+  "d": "Mitad superior / inferior de un rango; el 50% es el equilibrio."
+ },
+ {
+  "t": "ERL / IRL",
+  "en": "External / internal range liquidity",
+  "d": "Liquidez en los extremos del rango / FVG dentro del rango."
+ },
+ {
+  "t": "Power of 3 (AMD)",
+  "en": "Accumulation, manipulation, distribution",
+  "d": "Acumulación → manipulación → distribución: base conceptual de la CRT."
+ },
+ {
+  "t": "CRT",
+  "en": "Candle Range Theory",
+  "d": "Cada vela es un rango; un barrido de un extremo con cierre dentro apunta al extremo opuesto."
+ },
+ {
+  "t": "CRT High / CRT Low",
+  "en": "",
+  "d": "Máximo y mínimo de la vela 1 (vela de rango)."
+ },
+ {
+  "t": "Purga / doble purga",
+  "en": "Purge",
+  "d": "Barrido de un extremo del rango CRT; la doble purga barre ambos (escenario ambiguo)."
+ },
+ {
+  "t": "Horarios clave",
+  "en": "Key times",
+  "d": "Velas de 4H que abren a la 1:00, 5:00 y 9:00 (hora de Nueva York), relevos de sesión."
+ },
+ {
+  "t": "SMT",
+  "en": "Smart Money Technique",
+  "d": "Divergencia entre activos correlacionados: uno hace un nuevo extremo y el otro no lo confirma."
+ },
+ {
+  "t": "Correlación positiva / inversa",
+  "en": "",
+  "d": "Activos que se mueven igual (EUR/USD y GBP/USD) o en espejo (EUR/USD y DXY)."
+ },
+ {
+  "t": "DXY",
+  "en": "US Dollar Index",
+  "d": "Índice del dólar frente a una cesta de seis divisas, con gran peso del euro."
+ },
+ {
+  "t": "R:B",
+  "en": "Riesgo : beneficio",
+  "d": "Cuánto puedes ganar por cada unidad que arriesgas."
+ },
+ {
+  "t": "Sesgo",
+  "en": "Bias",
+  "d": "Dirección esperada según la temporalidad mayor; filtra qué operaciones buscar."
+ },
+ {
+  "t": "Patrón de velas",
+  "en": "Candlestick pattern",
+  "d": "Combinación de 1 a 5 velas que describe un cambio en el control del precio; necesita contexto y confirmación."
+ },
+ {
+  "t": "Envolvente",
+  "en": "Engulfing",
+  "d": "Vela cuyo cuerpo cubre por completo el cuerpo de la anterior (alcista o bajista)."
+ },
+ {
+  "t": "Harami",
+  "en": "",
+  "d": "Vela pequeña cuyo cuerpo queda dentro del cuerpo de la anterior: pérdida de impulso."
+ },
+ {
+  "t": "Estrella de la mañana / de la tarde",
+  "en": "Morning / evening star",
+  "d": "Patrón de giro de 3 velas: impulso, indecisión y vela contraria que cierra más allá de la mitad de la primera."
+ },
+ {
+  "t": "Swing high / swing low",
+  "en": "",
+  "d": "Máximo o mínimo con N velas más bajas (o más altas) a cada lado: los puntos de giro de la estructura."
+ },
+ {
+  "t": "HH / HL / LH / LL",
+  "en": "Higher high, higher low, lower high, lower low",
+  "d": "HH + HL = tendencia alcista; LH + LL = tendencia bajista."
+ },
+ {
+  "t": "Mínimo fuerte / máximo débil",
+  "en": "Strong low / weak high",
+  "d": "En alcista: el mínimo que originó el BOS (protege la tendencia) y el máximo pendiente (objetivo de liquidez)."
+ },
+ {
+  "t": "Línea de tendencia",
+  "en": "Trendline",
+  "d": "Une mínimos crecientes (alcista) o máximos decrecientes (bajista); el tercer toque la valida."
+ },
+ {
+  "t": "Canal",
+  "en": "Channel",
+  "d": "Paralela a la línea de tendencia trazada por el extremo opuesto."
+ },
+ {
+  "t": "Retesteo",
+  "en": "Retest",
+  "d": "Vuelta del precio a un nivel roto desde el otro lado; el soporte pasa a ser resistencia o al revés."
+ },
+ {
+  "t": "Sesión",
+  "en": "Session",
+  "d": "Horario de actividad de una plaza financiera: Sídney, Tokio, Londres, Nueva York."
+ },
+ {
+  "t": "Killzone",
+  "en": "",
+  "d": "Ventana horaria (ICT) con movimientos más intencionales; p. ej. apertura de Londres 02:00–05:00 NY."
+ },
+ {
+  "t": "Judas swing",
+  "en": "",
+  "d": "Movimiento inicial falso de una sesión (a menudo Londres) que barre liquidez antes del movimiento real."
+ },
+ {
+  "t": "Volumen de ticks",
+  "en": "Tick volume",
+  "d": "Número de cambios de precio por vela; aproximación del volumen en forex spot."
+ },
+ {
+  "t": "OBV",
+  "en": "On-balance volume",
+  "d": "Volumen acumulado: suma en velas que cierran más arriba y resta en las que cierran más abajo (Granville)."
+ },
+ {
+  "t": "VWAP",
+  "en": "Volume-weighted average price",
+  "d": "Precio medio ponderado por volumen desde el inicio de la sesión o desde un ancla."
+ },
+ {
+  "t": "POC",
+  "en": "Point of control",
+  "d": "Nivel de precio con más volumen negociado en un perfil de volumen."
+ },
+ {
+  "t": "Área de valor",
+  "en": "Value area (VAH / VAL)",
+  "d": "Rango que concentra ~70% del volumen; sus bordes son VAH (arriba) y VAL (abajo)."
+ },
+ {
+  "t": "SMA",
+  "en": "Simple moving average",
+  "d": "Media aritmética de los últimos N cierres."
+ },
+ {
+  "t": "EMA",
+  "en": "Exponential moving average",
+  "d": "Media que pondera más lo reciente: α = 2 / (N + 1)."
+ },
+ {
+  "t": "Cruce dorado / de la muerte",
+  "en": "Golden / death cross",
+  "d": "La media de 50 cruza por encima / por debajo de la de 200."
+ },
+ {
+  "t": "Estocástico",
+  "en": "Stochastic oscillator",
+  "d": "Posición del cierre en el rango de N velas (George Lane): %K y su media %D."
+ },
+ {
+  "t": "%K / %D",
+  "en": "",
+  "d": "Líneas del estocástico: %K (principal) y %D (media del %K, línea de señal)."
+ },
+ {
+  "t": "Momentum",
+  "en": "",
+  "d": "Cierre actual − cierre de hace N velas: la velocidad del precio."
+ },
+ {
+  "t": "ROC",
+  "en": "Rate of change",
+  "d": "Variación porcentual del precio frente a hace N velas."
+ },
+ {
+  "t": "MACD",
+  "en": "Moving average convergence divergence",
+  "d": "EMA 12 − EMA 26, con línea de señal (EMA 9) e histograma (Gerald Appel)."
+ },
+ {
+  "t": "SMC",
+  "en": "Smart Money Concepts",
+  "d": "Marco de lectura del precio basado en estructura, liquidez, POI, premium/descuento y tiempo."
+ },
+ {
+  "t": "POI",
+  "en": "Point of interest",
+  "d": "Zona donde se espera una reacción: order block, FVG, breaker…"
+ },
+ {
+  "t": "Inducement",
+  "en": "",
+  "d": "Mínimo o máximo menor y evidente, previo al POI real, cuya liquidez suele ser barrida antes de la reacción."
+ },
+ {
+  "t": "Breaker block",
+  "en": "",
+  "d": "Zona que falló tras un barrido y una ruptura de estructura; se retestea con la función invertida."
+ },
+ {
+  "t": "Mitigation block",
+  "en": "",
+  "d": "Como el breaker, pero sin barrido previo: el precio falla en hacer un nuevo extremo."
+ },
+ {
+  "t": "OTE",
+  "en": "Optimal trade entry",
+  "d": "Retroceso del 62–79% (70,5% como centro) de un impulso: zona de entrada preferida en ICT."
+ },
+ {
+  "t": "Soporte / resistencia",
+  "en": "Support / resistance",
+  "d": "Zonas donde el precio frenó antes su caída (soporte) o su subida (resistencia)."
+ },
+ {
+  "t": "Cambio de polaridad",
+  "en": "Role reversal",
+  "d": "Una resistencia rota pasa a actuar como soporte, o al revés."
+ },
+ {
+  "t": "Línea de cuello",
+  "en": "Neckline",
+  "d": "Nivel que confirma figuras como el doble techo o el hombro-cabeza-hombro al romperse."
+ },
+ {
+  "t": "Objetivo por proyección",
+  "en": "Measured move",
+  "d": "Altura de una figura proyectada desde su ruptura; es orientativo."
+ },
+ {
+  "t": "Triángulo / bandera / cuña",
+  "en": "",
+  "d": "Figuras de compresión o pausa; la ruptura con cierre indica la dirección."
+ },
+ {
+  "t": "True Range",
+  "en": "TR",
+  "d": "El mayor entre (máximo − mínimo), |máximo − cierre anterior| y |mínimo − cierre anterior|."
+ },
+ {
+  "t": "ATR",
+  "en": "Average True Range",
+  "d": "Media de Wilder del True Range (normalmente 14): mide la volatilidad, no la dirección."
+ },
+ {
+  "t": "Chandelier exit",
+  "en": "",
+  "d": "Stop dinámico: máximo más alto desde la entrada − m × ATR (Chuck LeBeau)."
+ },
+ {
+  "t": "Bandas de Bollinger",
+  "en": "",
+  "d": "Media de 20 ± 2 desviaciones estándar (John Bollinger); se ensanchan con la volatilidad."
+ },
+ {
+  "t": "%B / ancho de banda",
+  "en": "%B / bandwidth",
+  "d": "Posición del cierre respecto a las bandas (0–1) y separación entre bandas relativa a la media."
+ },
+ {
+  "t": "Squeeze",
+  "en": "",
+  "d": "Bandas muy estrechas: volatilidad comprimida que suele preceder a una expansión."
+ },
+ {
+  "t": "Orden límite",
+  "en": "Limit order",
+  "d": "Compra por debajo o vende por encima del precio actual, a tu precio o mejor."
+ },
+ {
+  "t": "Orden stop",
+  "en": "Stop order",
+  "d": "Se activa al alcanzar un nivel y se ejecuta a mercado (puede tener deslizamiento)."
+ },
+ {
+  "t": "OCO",
+  "en": "One cancels the other",
+  "d": "Dos órdenes ligadas: si se ejecuta una, se cancela la otra."
+ },
+ {
+  "t": "Bid / ask",
+  "en": "",
+  "d": "Precio de venta (bid) y de compra (ask). Su diferencia es el spread."
+ },
+ {
+  "t": "Spread",
+  "en": "",
+  "d": "Diferencia entre ask y bid: el primer costo de cada operación."
+ },
+ {
+  "t": "Pip",
+  "en": "",
+  "d": "Unidad mínima habitual de variación: 0,0001 en la mayoría de pares; 0,01 en pares con yen."
+ },
+ {
+  "t": "Lote",
+  "en": "Lot",
+  "d": "Tamaño estándar: 100 000 unidades (mini 10 000, micro 1 000)."
+ },
+ {
+  "t": "Apalancamiento / margen",
+  "en": "Leverage / margin",
+  "d": "Permite abrir posiciones mayores que el capital; el margen es la garantía bloqueada."
+ },
+ {
+  "t": "Margin call / stop out",
+  "en": "",
+  "d": "Avisos y cierre forzado cuando las pérdidas consumen el margen."
+ },
+ {
+  "t": "Swap",
+  "en": "Rollover",
+  "d": "Costo o ingreso por mantener una posición abierta de un día para otro."
+ },
+ {
+  "t": "Deslizamiento",
+  "en": "Slippage",
+  "d": "Diferencia entre el precio esperado y el ejecutado."
+ },
+ {
+  "t": "R (múltiplo de riesgo)",
+  "en": "",
+  "d": "1R = lo que arriesgas en una operación; resultados medidos en R."
+ },
+ {
+  "t": "Expectativa",
+  "en": "Expectancy",
+  "d": "% de acierto × R:B − % de fallo: ganancia media por operación en R."
+ },
+ {
+  "t": "Drawdown",
+  "en": "",
+  "d": "Caída desde el máximo de la cuenta hasta un mínimo posterior."
+ },
+ {
+  "t": "Riesgo de ruina",
+  "en": "Risk of ruin",
+  "d": "Probabilidad de perder una parte inaceptable de la cuenta (p. ej. el 50%)."
+ },
+ {
+  "t": "Monte Carlo",
+  "en": "",
+  "d": "Simulación de muchas secuencias aleatorias para ver la dispersión posible de resultados."
+ },
+ {
+  "t": "Martingala",
+  "en": "",
+  "d": "Doblar el tamaño tras cada pérdida: acelera la ruina en una racha perdedora."
+ },
+ {
+  "t": "Spot (contado)",
+  "en": "",
+  "d": "Compra o venta del activo en sí, con entrega inmediata."
+ },
+ {
+  "t": "Derivado",
+  "en": "",
+  "d": "Contrato cuyo valor depende de otro activo (subyacente): futuros, opciones, CFD, perpetuos."
+ },
+ {
+  "t": "OTC",
+  "en": "Over the counter",
+  "d": "Mercado sin bolsa central: cada banco o broker da su precio (p. ej., forex al contado)."
+ },
+ {
+  "t": "ECN / STP",
+  "en": "",
+  "d": "Tipos de broker que envían tus órdenes a proveedores de liquidez; spreads variables y comisión."
+ },
+ {
+  "t": "Creador de mercado",
+  "en": "Market maker",
+  "d": "Quien da precios de compra y venta; en algunos brokers es tu contraparte."
+ },
+ {
+  "t": "Libro de órdenes",
+  "en": "Order book / DOM",
+  "d": "Lista de órdenes límite de compra (bids) y venta (asks) por nivel de precio; muestra la profundidad."
+ },
+ {
+  "t": "Futuro",
+  "en": "Futures",
+  "d": "Contrato estandarizado de bolsa para comprar o vender en una fecha futura a un precio pactado."
+ },
+ {
+  "t": "Tick / valor del tick",
+  "en": "",
+  "d": "Movimiento mínimo de precio de un contrato y cuánto dinero vale (p. ej., ES: 0,25 = $12,50)."
+ },
+ {
+  "t": "Vencimiento / rollover",
+  "en": "",
+  "d": "Fecha en que expira un futuro; pasar al contrato siguiente es el rollover."
+ },
+ {
+  "t": "ETF",
+  "en": "Exchange-traded fund",
+  "d": "Fondo que cotiza en bolsa como una acción (p. ej., SPY replica el S&P 500)."
+ },
+ {
+  "t": "Índice bursátil",
+  "en": "",
+  "d": "Número que resume una cesta de acciones: S&P 500, Nasdaq 100, Dow Jones, DAX…"
+ },
+ {
+  "t": "Rendimiento (yield)",
+  "en": "",
+  "d": "Interés que paga un bono según su precio: sube cuando el precio del bono baja."
+ },
+ {
+  "t": "Call / put",
+  "en": "",
+  "d": "Opción de compra (call) o de venta (put) a un precio (strike), pagando una prima."
+ },
+ {
+  "t": "Perpetuo / funding",
+  "en": "Perpetual swap",
+  "d": "Derivado cripto sin vencimiento; un pago periódico entre largos y cortos lo mantiene cerca del contado."
+ },
+ {
+  "t": "Stablecoin",
+  "en": "",
+  "d": "Criptomoneda diseñada para mantener un valor estable, normalmente 1 dólar."
+ },
+ {
+  "t": "Gap (hueco)",
+  "en": "",
+  "d": "Salto de precio entre el cierre de una vela y la apertura de la siguiente, típico en acciones."
+ },
+ {
+  "t": "Pre / post-mercado",
+  "en": "Pre-market / after-hours",
+  "d": "Horarios extendidos de las acciones de EE. UU. (4:00–9:30 y 16:00–20:00 NY), con menos liquidez."
+ },
+ {
+  "t": "Risk-on / risk-off",
+  "en": "",
+  "d": "Apetito o aversión al riesgo: con miedo se buscan refugios (USD, JPY, CHF, bonos, oro)."
+ },
+ {
+  "t": "Fibonacci (retroceso)",
+  "en": "Fibonacci retracement",
+  "d": "Niveles 23,6 / 38,2 / 50 / 61,8 / 78,6% de un impulso donde el precio suele reaccionar al retroceder."
+ },
+ {
+  "t": "Extensión de Fibonacci",
+  "en": "Fibonacci extension",
+  "d": "Proyección del impulso más allá de su final (127,2%, 161,8%, 200%), usada como objetivo."
+ },
+ {
+  "t": "MFE",
+  "en": "Maximum favorable excursion",
+  "d": "Lo máximo que una operación llegó a ir a favor (en R) antes de cerrarse."
+ },
+ {
+  "t": "MAE",
+  "en": "Maximum adverse excursion",
+  "d": "Lo máximo que una operación llegó a ir en contra (en R) antes de cerrarse."
+ },
+ {
+  "t": "Profit factor",
+  "en": "",
+  "d": "Suma de ganancias dividida por suma de pérdidas. Por encima de 1 el sistema gana dinero."
+ },
+ {
+  "t": "Replay",
+  "en": "Bar replay",
+  "d": "Práctica en la que el gráfico se revela vela a vela para decidir sin ver el futuro."
+ }
+]
