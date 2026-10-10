@@ -9,6 +9,7 @@
 <meta property="og:description" content="Price action, indicadores y Smart Money con gráficos que puedes mover, un simulador de trading y un examen final.">
 <meta property="og:type" content="website">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230b0e14'/%3E%3Cpath d='M9 7v18M23 9v16M16 4v22' stroke='%238a93a6' stroke-width='1.6'/%3E%3Crect x='6' y='11' width='6' height='9' rx='1' fill='%23ef5350'/%3E%3Crect x='13' y='8' width='6' height='12' rx='1' fill='%2326a69a'/%3E%3Crect x='20' y='12' width='6' height='9' rx='1' fill='%2326a69a'/%3E%3C/svg%3E">
+<script>try{var t=localStorage.getItem('lt.theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme='dark';}</script>
 <title>Laboratorio de Trading interactivo: price action, indicadores y Smart Money</title>
 <style>
 :root{
@@ -231,22 +232,329 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
 #ex-q p{font-size:1.08rem;margin-top:14px}
 #ex-q .fb a{margin-left:6px}
 @media (max-width:640px){ .search-btn{min-width:0;width:100%} .search-btn kbd{display:none} .rp-actions{margin-left:0} .rp-clock{margin-left:0} }
+
+/* =====================================================================
+   SHELL · academia (Magnific) + ficha (Perplexity)
+   ===================================================================== */
+:root{--strong:#ffffff;--link:#7fb3f5;--tip-bg:#0d1119;--side-bg:#0d1118;--heat-mid:#383835;--shadow:0 10px 30px rgba(0,0,0,.45);--top-h:56px;--side-w:276px}
+html[data-theme=light]{
+  color-scheme: light;
+  --bg:#f5f6f7; --card:#ffffff; --surface:#ffffff; --surface-2:#f3f4f6; --surface-3:#e6e8ec;
+  --border:rgba(16,22,34,.09); --border-2:rgba(16,22,34,.16);
+  --grid:#eceef2; --axis:#d3d7de;
+  --text:#16181d; --text-2:#4a5160; --muted:#737b8a; --strong:#0b0d12;
+  --c-up:#089981; --c-down:#e5484d; --c-range:#2f6fd6; --c-ob:#2f6fd6; --c-liq:#c48a00; --c-fvg:#7c5cf0; --c-rsi:#7c5cf0;
+  --c-div:#16181d; --c-entry:#16181d; --c-mid:#737b8a; --accent:#2f6fd6;
+  --link:#2459b8; --tip-bg:#ffffff; --side-bg:#fbfbfc; --heat-mid:#e4e4e0; --shadow:0 10px 30px rgba(16,22,34,.12);
+}
+a{color:var(--link)}
+strong,.val,.tip b,.stat .v,.pal-t{color:var(--strong)}
+.btn,.seg button.on,.toc a:hover,.linkish:hover,.search-btn:hover{color:var(--strong)}
+.btn.primary,.btn.rp-buy,.btn.rp-sell{color:#fff}
+.tip{background:var(--tip-bg);box-shadow:var(--shadow)}
+html[data-theme=light] .btn kbd{background:rgba(255,255,255,.3);border-color:rgba(0,0,0,.15)}
+html[data-theme=light] .pal-m{color:#1f56b0}html[data-theme=light] .pal-l{color:#08715f}html[data-theme=light] .pal-g{color:#5b3fd0}
+html[data-theme=light] #palette{background:rgba(30,35,45,.28)}
+body{transition:background-color .2s}
+.site-head,nav.tabs{display:none!important}
+
+/* ---------- estructura ---------- */
+.app{display:grid;grid-template-columns:var(--side-w) minmax(0,1fr);min-height:100vh}
+.page{min-width:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 288px;gap:32px;max-width:1340px;margin:0 auto;padding:0 28px 130px}
+.layout main.wrap{max-width:none;margin:0;padding:0;min-width:0}
+.layout.no-rail{grid-template-columns:minmax(0,1fr)}
+.layout.no-rail .rail{display:none}
+footer .wrap{max-width:1340px;padding:0 28px}
+footer{padding-bottom:110px}
+@media (max-width:1300px){.layout{grid-template-columns:minmax(0,1fr)}.rail{display:none}}
+
+/* ---------- barra lateral ---------- */
+.side{position:sticky;top:0;height:100vh;overflow-y:auto;background:var(--side-bg);border-right:1px solid var(--border);padding:14px 12px 16px;display:flex;flex-direction:column;gap:4px;scrollbar-width:thin;z-index:120}
+.side-brand{display:flex;align-items:center;gap:10px;padding:4px 8px 12px;color:var(--strong);text-decoration:none}
+.side-brand svg{width:30px;height:30px;flex:0 0 auto}
+.side-brand b{display:block;font-size:.98rem;line-height:1.15}
+.side-brand small{display:block;color:var(--muted);font-size:.75rem}
+.side-search{display:flex;align-items:center;gap:8px;width:100%;background:var(--surface-2);border:1px solid var(--border);border-radius:9px;padding:7px 10px;color:var(--muted);font:inherit;font-size:.86rem;cursor:pointer;margin-bottom:8px}
+.side-search:hover{border-color:var(--accent);color:var(--strong)}
+.side-search kbd{margin-left:auto}
+.side-link{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:8px;color:var(--text-2);text-decoration:none;font-size:.9rem;font-weight:500}
+.side-link:hover{background:var(--surface-2);color:var(--strong)}
+.side-link.on{background:var(--surface-3);color:var(--strong);font-weight:600}
+.side-link .ic{width:18px;text-align:center;opacity:.85}
+.side-link .badge{margin-left:auto;font-size:.72rem;color:var(--muted);font-family:var(--mono)}
+.side-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:14px 10px 4px;font-weight:600}
+.sg-head{display:flex;align-items:center;gap:8px;width:100%;background:none;border:0;padding:7px 10px;border-radius:8px;color:var(--text);font:inherit;font-size:.9rem;font-weight:600;cursor:pointer;text-align:left}
+.sg-head:hover{background:var(--surface-2)}
+.sg-head .chev{transition:transform .2s;color:var(--muted);font-size:.7rem;width:12px}
+.sg.open .sg-head .chev{transform:rotate(90deg)}
+.sg-head .cnt{margin-left:auto;font-size:.72rem;color:var(--muted);font-family:var(--mono);font-weight:500}
+.sg-body{display:none;padding:2px 0 6px 10px}
+.sg.open .sg-body{display:block}
+.sm{display:flex;align-items:center;gap:9px;padding:6px 10px;border-radius:8px;color:var(--text-2);text-decoration:none;font-size:.86rem;line-height:1.3}
+.sm:hover{background:var(--surface-2);color:var(--strong)}
+.sm.on{background:var(--surface-3);color:var(--strong);font-weight:600}
+.sm .no{margin-left:auto;font-size:.7rem;color:var(--muted);font-family:var(--mono)}
+.st{--p:0;flex:0 0 auto;width:15px;height:15px;border-radius:50%;background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--surface-3) 0);position:relative}
+.st::after{content:"";position:absolute;inset:2.5px;border-radius:50%;background:var(--side-bg)}
+.sm.on .st::after{background:var(--surface-3)}
+.st.done{background:var(--c-up)}
+.st.done::after{inset:0;background:none;content:"✓";color:#fff;font-size:10px;font-weight:800;display:flex;align-items:center;justify-content:center}
+.sl{margin:2px 0 6px 17px;border-left:1px solid var(--border-2);padding-left:8px}
+.sl a{display:flex;align-items:center;gap:8px;padding:4px 8px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:.8rem;line-height:1.3}
+.sl a:hover{color:var(--strong);background:var(--surface-2)}
+.sl a.cur{color:var(--strong);font-weight:600}
+.lst{flex:0 0 auto;width:11px;height:11px;border-radius:50%;border:1.5px solid var(--border-2)}
+.lst.read{background:var(--c-up);border-color:var(--c-up)}
+.sl a.cur .lst{border-color:var(--accent);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 25%,transparent)}
+.side-foot{margin-top:auto;padding:12px 8px 0;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:10px;font-size:.8rem;color:var(--muted)}
+.side-foot #prog{flex-direction:column;align-items:stretch;gap:6px}
+.side-foot .prog-bar{width:100%}
+.side-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.streak{display:inline-flex;align-items:center;gap:5px;font-weight:700;color:var(--strong)}
+.streak.off{color:var(--muted);font-weight:500;filter:grayscale(1)}
+.theme-btn{margin-left:auto;background:var(--surface-2);border:1px solid var(--border);color:var(--text);border-radius:999px;padding:4px 10px;font:inherit;font-size:.78rem;cursor:pointer}
+.theme-btn:hover{border-color:var(--accent)}
+.prefs{margin:0;font-size:.78rem}
+.scrim{display:none}
+
+/* ---------- barra superior ---------- */
+.topbar{position:sticky;top:0;z-index:90;height:var(--top-h);display:flex;align-items:center;gap:14px;padding:0 28px;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+.hamb{display:none;background:none;border:1px solid var(--border-2);color:var(--text);border-radius:8px;width:36px;height:34px;font-size:1.1rem;cursor:pointer}
+.crumbs{display:flex;align-items:center;gap:8px;font-size:.84rem;color:var(--muted);min-width:0;overflow:hidden;white-space:nowrap}
+.crumbs a{color:var(--muted);text-decoration:none}
+.crumbs a:hover{color:var(--strong)}
+.crumbs .sep{opacity:.5}
+.crumbs b{color:var(--strong);font-weight:600;overflow:hidden;text-overflow:ellipsis}
+.top-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.icon-btn{background:none;border:1px solid var(--border-2);color:var(--text-2);border-radius:8px;height:32px;min-width:32px;padding:0 8px;font:inherit;font-size:.85rem;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.icon-btn:hover{color:var(--strong);border-color:var(--accent)}
+.sess-chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border-2);border-radius:999px;padding:4px 12px 4px 10px;font-size:.8rem;color:var(--text);text-decoration:none;background:var(--card);white-space:nowrap}
+.sess-chip:hover{border-color:var(--accent)}
+.sess-chip .dot{width:8px;height:8px;border-radius:50%;background:var(--c-up);box-shadow:0 0 0 0 color-mix(in srgb,var(--c-up) 60%,transparent);animation:pulse 1.8s infinite}
+.sess-chip.closed .dot{background:var(--muted);animation:none}
+.sess-chip .cd{font-family:var(--mono);color:var(--muted);font-size:.76rem}
+@keyframes pulse{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--c-up) 55%,transparent)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
+
+/* ---------- módulo: ficha estilo Perplexity ---------- */
+.module{padding-top:6px}
+.mod-head{padding:26px 0 10px}
+.mod-head .kicker{display:flex;align-items:center;gap:8px;text-transform:none;letter-spacing:0;font-size:.82rem;color:var(--muted)}
+.mod-head .kicker .gchip{background:var(--surface-2);border:1px solid var(--border);border-radius:999px;padding:2px 10px;color:var(--text-2);font-weight:600}
+.mod-title{display:flex;align-items:center;gap:14px;margin-top:10px}
+.mod-icon{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;color:#fff;font-weight:800;font-size:1.05rem;font-family:var(--mono)}
+.mod-title h2{margin:0}
+.facts{display:none;flex-wrap:wrap;gap:6px 22px;margin-top:14px;font-size:.84rem;color:var(--muted)}
+.facts b{color:var(--strong);font-weight:600;margin-left:4px}
+@media (max-width:1300px){.facts{display:flex}}
+nav.toc.tabs-row{position:sticky;top:var(--top-h);z-index:40;display:flex;gap:0;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin:8px 0 6px;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav.toc.tabs-row::-webkit-scrollbar{display:none}
+nav.toc.tabs-row a{border:0;border-radius:0;background:none;padding:11px 13px;border-bottom:2px solid transparent;white-space:nowrap;color:var(--muted);font-size:.86rem;font-weight:500}
+nav.toc.tabs-row a:hover{color:var(--strong)}
+nav.toc.tabs-row a.on{color:var(--strong);border-bottom-color:var(--strong);font-weight:600}
+.lesson,.quiz{scroll-margin-top:118px}
+.next{border-top:1px solid var(--border);padding-top:18px}
+.next .btn{background:none;border:0;padding:6px 0;color:var(--text-2);font-size:.9rem}
+.next .btn:hover{color:var(--strong)}
+.next .btn.primary{background:none;color:var(--strong);font-weight:600}
+
+/* ---------- panel derecho ---------- */
+.rail{position:sticky;top:calc(var(--top-h) + 18px);align-self:start;display:flex;flex-direction:column;gap:14px;padding-top:26px;max-height:calc(100vh - var(--top-h) - 30px);overflow-y:auto;scrollbar-width:none}
+.rail-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px}
+.rc-title{font-size:.78rem;font-weight:700;color:var(--strong);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.rc-title .more{margin-left:auto;font-weight:500;color:var(--muted);font-size:.74rem;text-decoration:none}
+.kv{display:grid;grid-template-columns:1fr auto;gap:7px 10px;font-size:.84rem}
+.kv dt{color:var(--muted)}
+.kv dd{color:var(--strong);text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.consensus{display:flex;gap:3px;margin:8px 0 6px}
+.consensus span{flex:1;height:7px;border-radius:2px;background:var(--surface-3)}
+.consensus span.read{background:var(--c-up)}
+.consensus span.cur{background:var(--accent)}
+.consensus span.qz{background:var(--surface-3);outline:1px dashed var(--border-2);outline-offset:-1px}
+.consensus span.qz.ok{background:var(--c-liq);outline:0}
+.cons-legend{display:flex;justify-content:space-between;font-size:.74rem;color:var(--muted)}
+.cons-legend b{color:var(--strong)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags button{background:var(--surface-2);border:1px solid var(--border);color:var(--text-2);border-radius:6px;padding:3px 8px;font:inherit;font-size:.76rem;cursor:pointer}
+.tags button:hover{border-color:var(--accent);color:var(--strong)}
+.rail-next{display:block;text-decoration:none;color:inherit}
+.rail-next small{color:var(--muted);display:block;font-size:.74rem}
+.rail-next b{color:var(--strong);font-size:.9rem}
+.rail-next:hover b{text-decoration:underline}
+
+/* ---------- dock inferior (Perplexity "Ask" + barra de Turo) ---------- */
+.dock{position:fixed;bottom:16px;left:calc(var(--side-w) + (100vw - var(--side-w)) / 2);transform:translateX(-50%);width:min(780px,calc(100vw - var(--side-w) - 48px));z-index:80;background:var(--card);border:1px solid var(--border-2);border-radius:18px;box-shadow:var(--shadow);padding:8px 8px 8px 12px;display:flex;align-items:center;gap:10px;overflow:hidden}
+.dock-bar{position:absolute;left:0;right:0;top:0;height:3px;background:var(--surface-3)}
+.dock-bar div{height:100%;background:linear-gradient(90deg,var(--accent),var(--c-up));width:0;transition:width .4s}
+.dock-prog{display:flex;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);white-space:nowrap}
+.dock-prog .ring{--p:0;width:26px;height:26px;border-radius:50%;background:conic-gradient(var(--c-up) calc(var(--p)*1%),var(--surface-3) 0);display:flex;align-items:center;justify-content:center}
+.dock-prog .ring::after{content:"";width:18px;height:18px;border-radius:50%;background:var(--card)}
+.dock-prog b{color:var(--strong);font-family:var(--mono)}
+.dock-ask{flex:1;display:flex;align-items:center;gap:10px;min-width:0;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:9px 12px;color:var(--muted);font:inherit;font-size:.9rem;cursor:text;text-align:left}
+.dock-ask:hover{border-color:var(--accent)}
+.dock-ask .ic{flex:0 0 auto}
+.dock-ask span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dock-ask kbd{margin-left:auto}
+.dock-next{white-space:nowrap;border-radius:12px!important;padding:9px 14px!important;font-weight:600}
+.dock-next small{opacity:.8;font-weight:500}
+
+/* ---------- portada ---------- */
+#m-inicio .home-hero{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:22px;padding:30px 0 10px;align-items:stretch}
+.home-hero h2{font-size:2.15rem;line-height:1.15;letter-spacing:-.02em;margin:10px 0 12px}
+.home-hero .lead{font-size:1rem;color:var(--text-2)}
+.home-hero .kicker{color:var(--muted);font-size:.82rem}
+.cont-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;display:flex;flex-direction:column;gap:10px}
+.cont-card .art{border-radius:12px;height:120px;overflow:hidden}
+.cont-card .art svg{width:100%;height:100%;display:block}
+.cont-card small{color:var(--muted);font-size:.78rem}
+.cont-card b{font-size:1.05rem;color:var(--strong)}
+.cont-card .btn{justify-content:center;padding:10px 14px;font-weight:600;border-radius:10px}
+.bar{height:6px;background:var(--surface-3);border-radius:4px;overflow:hidden}
+.bar div{height:100%;background:var(--c-up);border-radius:4px;transition:width .4s}
+.home-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:14px;background:var(--card);margin:16px 0 8px;overflow:hidden}
+.home-stats div{padding:12px 16px;border-right:1px solid var(--border);border-bottom:1px solid var(--border)}
+.home-stats div:nth-child(3n){border-right:0}
+.home-stats div:nth-last-child(-n+3){border-bottom:0}
+.home-stats small{display:block;color:var(--muted);font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}
+.home-stats b{font-size:1.35rem;color:var(--strong);font-variant-numeric:tabular-nums}
+.home-h{display:flex;align-items:baseline;gap:10px;font-size:1.2rem;margin:30px 0 12px}
+.home-h small{color:var(--muted);font-size:.84rem;font-weight:500}
+.courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(196px,1fr));gap:14px}
+.course{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+.course:hover{transform:translateY(-2px);border-color:var(--border-2)}
+.course .art{height:118px;position:relative}
+.course .art svg{width:100%;height:100%;display:block}
+.course .lvl{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.45);color:#fff;border-radius:999px;padding:2px 9px;font-size:.72rem;font-weight:600;backdrop-filter:blur(4px)}
+.course .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:8px;flex:1}
+.course b{font-size:1.02rem;color:var(--strong)}
+.course p{font-size:.84rem;color:var(--text-2);line-height:1.45;flex:1}
+.course .meta{display:flex;justify-content:space-between;font-size:.76rem;color:var(--muted)}
+.path{position:relative;background:var(--card);border:1px solid var(--border);border-radius:18px;padding:18px 10px 26px;overflow:hidden}
+.path-sec{display:flex;justify-content:center;margin:18px 0 8px}
+.path-sec span{background:var(--surface-2);border:1px solid var(--border);border-radius:12px;padding:6px 14px;font-size:.8rem;font-weight:700;color:var(--strong)}
+.path-sec span small{color:var(--muted);font-weight:500;margin-left:6px}
+.pnode{position:relative;display:flex;align-items:center;gap:14px;width:max-content;margin:22px auto;text-decoration:none;color:inherit}
+.pnode .disc{--p:0;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:conic-gradient(var(--c-up) calc(var(--p)*1%),var(--surface-3) 0);transition:transform .15s}
+.pnode .disc i{font-style:normal;width:50px;height:50px;border-radius:50%;background:var(--surface-2);display:flex;align-items:center;justify-content:center;font-weight:800;font-family:var(--mono);color:var(--text-2);box-shadow:inset 0 -4px 0 rgba(0,0,0,.18)}
+.pnode.done .disc i{background:var(--c-up);color:#fff}
+.pnode.next .disc{animation:pulse2 2s infinite}
+.pnode.next .disc i{background:var(--accent);color:#fff}
+.pnode:hover .disc{transform:scale(1.06)}
+.pnode .lab{font-size:.86rem;color:var(--text-2);max-width:170px;line-height:1.3}
+.pnode .lab b{display:block;color:var(--strong);font-size:.9rem}
+.pnode.left{flex-direction:row-reverse;text-align:right}
+.pnode.left .pop{left:auto;right:31px;transform:translateX(50%)}
+.pnode .pop{position:absolute;bottom:72px;left:31px;transform:translateX(-50%);background:var(--accent);color:#fff;border-radius:10px;padding:6px 12px;font-size:.78rem;font-weight:700;white-space:nowrap;z-index:2}
+.pnode .pop::before{content:"";position:absolute;bottom:-5px;left:50%;transform:translateX(-50%) rotate(45deg);width:10px;height:10px;background:var(--accent)}
+@keyframes pulse2{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--accent) 50%,transparent)}70%{box-shadow:0 0 0 12px transparent}100%{box-shadow:0 0 0 0 transparent}}
+.quick{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.qcard{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:14px 16px;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:4px}
+.qcard:hover{border-color:var(--accent)}
+.qcard .ic{font-size:1.4rem}
+.qcard b{color:var(--strong)}
+.qcard small{color:var(--muted);font-size:.8rem}
+@media (max-width:900px){#m-inicio .home-hero{grid-template-columns:1fr}.home-hero h2{font-size:1.7rem}}
+
+/* ---------- repaso rápido (Nibble) ---------- */
+.mc-decks{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 14px}
+.mc-decks button{background:var(--card);border:1px solid var(--border-2);color:var(--text);border-radius:999px;padding:7px 14px;font:inherit;font-size:.86rem;cursor:pointer}
+.mc-decks button:hover{border-color:var(--accent)}
+.mc-decks button.on{background:var(--strong);color:var(--bg);border-color:var(--strong);font-weight:600}
+.mc-stage{max-width:620px;margin:0 auto}
+.mc-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.mc-segs{flex:1;display:flex;gap:4px}
+.mc-segs span{flex:1;height:6px;border-radius:4px;background:var(--surface-3)}
+.mc-segs span.ok{background:var(--c-up)}.mc-segs span.ko{background:var(--c-down)}.mc-segs span.cur{background:var(--accent)}
+.mc-stars{font-weight:700;color:var(--c-liq);font-family:var(--mono);white-space:nowrap}
+.mc-combo{font-size:.8rem;font-weight:700;color:var(--c-down);min-width:52px;text-align:right}
+.mc-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:22px 22px 18px;box-shadow:var(--shadow);animation:mcIn .28s ease}
+@keyframes mcIn{from{opacity:0;transform:translateY(10px) scale(.98)}to{opacity:1;transform:none}}
+.mc-card .kick{font-size:.74rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700}
+.mc-card h3{font-size:1.4rem;margin:4px 0 10px;letter-spacing:-.01em}
+.mc-viz{background:var(--surface-2);border-radius:14px;padding:6px;margin:10px 0 12px}
+.mc-viz svg{display:block;width:100%;height:auto}
+.mc-def{border-left:3px solid var(--c-fvg);background:color-mix(in srgb,var(--c-fvg) 9%,transparent);border-radius:6px;padding:9px 12px;margin:10px 0;font-size:.93rem}
+.mc-card p{color:var(--text-2);font-size:.95rem;margin:6px 0}
+.mc-q{margin-top:14px;border-top:1px dashed var(--border-2);padding-top:12px}
+.mc-q p{color:var(--strong);font-weight:600}
+.mc-opts{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+.mc-opts button{background:var(--surface-2);border:1.5px solid var(--border-2);border-radius:12px;padding:12px;font:inherit;font-size:.9rem;color:var(--text);cursor:pointer;text-align:left}
+.mc-opts button:hover{border-color:var(--accent)}
+.mc-opts button.right{border-color:var(--c-up);background:color-mix(in srgb,var(--c-up) 16%,transparent)}
+.mc-opts button.wrong{border-color:var(--c-down);background:color-mix(in srgb,var(--c-down) 14%,transparent)}
+.mc-opts button:disabled{cursor:default}
+.mc-why{font-size:.88rem;color:var(--text-2);margin-top:8px;display:none}
+.mc-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:16px}
+.mc-foot .btn.primary{padding:11px 22px;border-radius:12px;font-weight:700;font-size:.95rem}
+.mc-end{text-align:center;padding:30px 22px}
+.mc-end .big{font-size:3rem;line-height:1}
+.mc-end h3{margin:10px 0 4px}
+.mc-end .readout{justify-content:center}
+@media (max-width:560px){.mc-opts{grid-template-columns:1fr}}
+
+/* ---------- simulador: transporte estilo TradingView ---------- */
+.rp-transport.tv{gap:6px;align-items:center}
+.rp-transport.tv .btn.icon{width:38px;height:34px;justify-content:center;padding:0}
+.rp-transport.tv .btn.icon svg{width:16px;height:16px;fill:currentColor}
+#rp-speed{font-family:var(--mono);min-width:46px;justify-content:center}
+.rp-hint{font-size:.78rem;color:var(--muted)}
+
+/* ---------- examen: contra reloj ---------- */
+.ex-timer{height:4px;background:var(--surface-3);border-radius:3px;overflow:hidden;margin-top:6px}
+.ex-timer div{height:100%;background:var(--c-liq);width:100%}
+.ex-timer.low div{background:var(--c-down)}
+.ex-combo{font-weight:800;color:var(--c-down)}
+
+/* ---------- móvil ---------- */
+@media (max-width:980px){
+  .app{grid-template-columns:minmax(0,1fr)}
+  .side{position:fixed;left:0;top:0;width:min(300px,86vw);transform:translateX(-102%);transition:transform .22s ease;box-shadow:var(--shadow)}
+  .app.nav-open .side{transform:none}
+  .app.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:110}
+  .hamb{display:inline-block}
+  .topbar{padding:0 14px}
+  .layout{padding:0 16px 130px}
+  footer .wrap{padding:0 16px}
+  .dock{left:50%;width:calc(100vw - 20px);bottom:10px}
+  .sess-chip .cd,.top-actions .lbl-hide{display:none}
+  .sess-chip .sn{max-width:34vw;overflow:hidden;text-overflow:ellipsis}
+}
+@media (max-width:640px){
+  .dock-prog span,.dock-ask kbd{display:none}
+  .dock-next small{display:none}
+  .crumbs .c-grp,.crumbs .sep.s1{display:none}
+  .dock-ask span{display:none}
+  .dock-ask{flex:0 0 auto;width:44px;justify-content:center;padding:9px 0}
+  .dock-next{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+}
+.qcard .sess-chip{white-space:normal;flex-wrap:wrap;border-radius:10px;max-width:100%}
+.sm.on .st{background:conic-gradient(var(--accent) calc(var(--p)*1%),var(--border-2) 0)}
+.course .art{overflow:hidden}
 </style>
 </head>
 <body>
-<header class="site-head">
-  <div class="wrap">
-    <h1>Laboratorio de Trading interactivo</h1>
-    <p><span id="n-mods">24</span> módulos con gráficos que puedes mover, reproducir y modificar: los mercados financieros, velas y patrones, soportes, resistencias y figuras, estructura de mercado, líneas de tendencia, Fibonacci, sesiones, volumen, medias móviles, RSI, estocástico, momentum y MACD, ATR y Bollinger, liquidez, Smart Money Concepts, CRT, SMT, órdenes y costos, y gestión del riesgo. Al final, un <a href="#replay">simulador de trading vela a vela</a> y un <a href="#examen">examen final</a>. Todos los datos de los gráficos son simulados con fines educativos.</p>
-    <div class="head-row">
-      <button class="search-btn" id="open-search" type="button"><span>🔎 Buscar módulos, lecciones y términos…</span><kbd>Ctrl K</kbd></button>
-      <div id="prog"></div>
-    </div>
-    <div class="prefs">
-      <label><input type="checkbox" id="pref-hollow"> Velas huecas (más fáciles de distinguir con daltonismo)</label>
-    </div>
+<div class="app" id="app">
+<aside class="side" id="side" aria-label="Navegación de la academia">
+  <a class="side-brand" href="#inicio"><svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="8" fill="url(#lg-logo)"/><defs><linearGradient id="lg-logo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f6fd6"/><stop offset="1" stop-color="#1fa38a"/></linearGradient></defs><path d="M9 8v16M16 5v20M23 9v15" stroke="#fff" stroke-opacity=".6" stroke-width="1.5"/><rect x="6.5" y="12" width="5" height="8" rx="1" fill="#fff" fill-opacity=".55"/><rect x="13.5" y="9" width="5" height="11" rx="1" fill="#fff"/><rect x="20.5" y="12" width="5" height="8" rx="1" fill="#fff"/></svg><span><b>Laboratorio de Trading</b><small>Academia interactiva</small></span></a>
+  <button class="side-search" id="open-search" type="button">🔎 Buscar…<kbd>Ctrl K</kbd></button>
+  <nav id="side-nav"></nav>
+  <div class="side-foot">
+    <div id="prog"></div>
+    <div class="side-row"><span class="streak" id="streak"></span><button class="theme-btn js-theme" type="button"></button></div>
+    <div class="prefs"><label><input type="checkbox" id="pref-hollow"> Velas huecas (daltonismo)</label></div>
   </div>
-</header>
+</aside>
+<div class="scrim" id="scrim"></div>
+<div class="page">
+<div class="topbar">
+  <button class="hamb" id="hamb" type="button" aria-label="Abrir menú">☰</button>
+  <nav class="crumbs" id="crumbs" aria-label="Ruta"></nav>
+  <div class="top-actions">
+    <a class="sess-chip sess-live" href="#ses-reloj"></a>
+    <button class="icon-btn" id="top-search" type="button" aria-label="Buscar">🔎<span class="lbl-hide">Buscar</span></button>
+    <button class="icon-btn js-theme" type="button"></button>
+  </div>
+</div>
 <nav class="tabs" aria-label="Módulos">
   <div class="wrap groups" role="tablist">
     <button data-group="fund">Fundamentos</button>
@@ -256,6 +564,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <button data-group="prac">Práctica</button>
   </div>
   <div class="wrap mods">
+    <a href="#inicio" data-mod="inicio" data-group="home"><span class="num">⌂</span>Inicio</a>
     <a href="#mercados" data-mod="mercados" data-group="fund"><span class="num">0</span>Mercados</a>
     <a href="#velas" data-mod="velas" data-group="fund"><span class="num">1</span>Velas</a>
     <a href="#patrones" data-mod="patrones" data-group="fund"><span class="num">2</span>Patrones de velas</a>
@@ -277,12 +586,32 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <a href="#ordenes" data-mod="ordenes" data-group="ges"><span class="num">18</span>Órdenes y costos</a>
     <a href="#riesgo" data-mod="riesgo" data-group="ges"><span class="num">19</span>Gestión del riesgo</a>
     <a href="#todo" data-mod="todo" data-group="prac"><span class="num">20</span>Todo junto</a>
-    <a href="#replay" data-mod="replay" data-group="prac"><span class="num">21</span>Simulador</a>
-    <a href="#examen" data-mod="examen" data-group="prac"><span class="num">22</span>Examen final</a>
+    <a href="#repaso" data-mod="repaso" data-group="prac"><span class="num">21</span>Repaso rápido</a>
+    <a href="#replay" data-mod="replay" data-group="prac"><span class="num">22</span>Simulador</a>
+    <a href="#examen" data-mod="examen" data-group="prac"><span class="num">23</span>Examen final</a>
     <a href="#glosario" data-mod="glosario" data-group="prac"><span class="num">?</span>Glosario</a>
   </div>
 </nav>
-<main class="wrap">
+<div class="layout" id="layout"><main class="wrap">
+<section class="module" id="m-inicio" data-mod="inicio">
+  <div class="home-hero">
+    <div>
+      <div class="kicker">Academia · Laboratorio de Trading</div>
+      <h2>Aprende a leer el mercado con gráficos que puedes tocar.</h2>
+      <p class="lead"><span id="n-mods">24</span> módulos interactivos: mercados, velas, soportes, estructura, Fibonacci, sesiones, volumen, medias móviles, RSI, estocástico, MACD, ATR y Bollinger, liquidez, Smart Money, CRT, SMT, órdenes, costos y gestión del riesgo. Practica con tarjetas de repaso, un simulador vela a vela y un examen final. Todos los datos son simulados con fines educativos.</p>
+      <div class="home-stats" id="home-stats"></div>
+    </div>
+    <div class="cont-card" id="home-cont"></div>
+  </div>
+  <h3 class="home-h">Cursos <small>cinco recorridos, de lo básico a la práctica</small></h3>
+  <div class="courses" id="home-courses"></div>
+  <h3 class="home-h">Tu camino <small>el orden recomendado; el anillo muestra tu avance en cada módulo</small></h3>
+  <div class="path" id="home-path"></div>
+  <h3 class="home-h">Practica</h3>
+  <div class="quick" id="home-quick"></div>
+  <div class="callout warn" style="margin-top:24px"><h5>Aviso</h5>Contenido educativo, no es asesoramiento financiero. Ningún indicador ni modelo garantiza resultados: practica en demo, haz backtesting y gestiona el riesgo.</div>
+</section>
+
 <section class="module" id="m-velas" data-mod="velas">
   <div class="mod-head">
     <div class="kicker">Módulo 1 · Fundamentos</div>
@@ -395,7 +724,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <h3><span class="ln">10.1</span>Qué mide: una balanza entre subidas y bajadas</h3>
     <div class="prose">
       <p>El RSI promedia el tamaño de las <strong>subidas</strong> (ganancia media, GM) y de las <strong>bajadas</strong> (pérdida media, PM) de los últimos 14 periodos y lo convierte en un número de <strong>0 a 100</strong>:</p>
-      <p style="font-family:var(--mono);font-size:1.05rem;color:#fff">RSI = 100 × GM / (GM + PM)</p>
+      <p style="font-family:var(--mono);font-size:1.05rem;color:var(--strong)">RSI = 100 × GM / (GM + PM)</p>
       <p>Es exactamente lo mismo que la fórmula clásica <span class="mono">RSI = 100 − 100 / (1 + RS)</span> con <span class="mono">RS = GM / PM</span>. Dicho simple: <strong>el RSI es el porcentaje del movimiento reciente que fue alcista</strong>.</p>
     </div>
     <div class="fig">
@@ -958,16 +1287,26 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   <div class="next"></div>
 </section>
 
-<section class="module" id="m-replay" data-mod="replay">
+<section class="module" id="m-repaso" data-mod="repaso">
   <div class="mod-head">
     <div class="kicker">Módulo 21 · Práctica</div>
+    <h2>Repaso rápido</h2>
+    <p class="lead">Tarjetas de un minuto: un concepto, un gráfico y una pregunta. Ideal para repasar todos los días: cada respuesta correcta suma una <strong>estrella</strong>, las seguidas encadenan un <strong>combo</strong> y practicar a diario mantiene tu <strong>racha</strong>.</p>
+  </div>
+  <div class="mc-decks" id="mc-decks"></div>
+  <div class="mc-stage" id="mc-stage"></div>
+  <div class="next"></div>
+</section>
+<section class="module" id="m-replay" data-mod="replay">
+  <div class="mod-head">
+    <div class="kicker">Módulo 22 · Práctica</div>
     <h2>Simulador de trading: replay vela a vela</h2>
     <p class="lead">Leer sobre trading no alcanza: hay que decidir <strong>sin ver el futuro</strong>. Este simulador genera un mercado (con tendencias, rangos y cambios de volatilidad) y lo revela vela a vela. Tú abres y cierras operaciones con stop y objetivo, y la página lleva la contabilidad: balance, R, acierto, expectativa, drawdown y un diario de cada operación.</p>
     <nav class="toc"><a href="#rp-como">Cómo funciona</a><a href="#rp-sim">Simulador</a><a href="#rp-diario">Diario y análisis</a><a href="#rp-sesiones">Tus sesiones</a><a href="#rp-consejos">Cómo practicar</a></nav>
   </div>
 
   <article class="lesson" id="rp-como">
-    <h3><span class="ln">21.1</span>Cómo funciona</h3>
+    <h3><span class="ln">22.1</span>Cómo funciona</h3>
     <div class="prose">
       <ul>
         <li>Avanza con <kbd>→</kbd> (una vela) o <kbd>Espacio</kbd> (reproducir/pausar). Abre con <kbd>B</kbd> (comprar) o <kbd>S</kbd> (vender), cierra con <kbd>X</kbd> y mueve el stop a la entrada con <kbd>E</kbd>.</li>
@@ -980,7 +1319,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   </article>
 
   <article class="lesson" id="rp-sim">
-    <h3><span class="ln">21.2</span>Simulador</h3>
+    <h3><span class="ln">22.2</span>Simulador</h3>
     <div class="fig" id="rp-fig">
       <div class="controls">
         <div class="seg" data-key="mk"><button class="on" data-v="mix">Mercado mixto</button><button data-v="trend">Tendencial</button><button data-v="range">Lateral</button></div>
@@ -990,11 +1329,13 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
         <label class="grp"><input type="checkbox" id="rp-rsi"> RSI 14</label>
         <label class="grp"><input type="checkbox" id="rp-vol" checked> Volumen</label>
       </div>
-      <div class="controls rp-transport">
-        <button class="btn primary" id="rp-play" title="Espacio">▶ Reproducir</button>
-        <button class="btn" id="rp-step" title="Flecha derecha">Siguiente vela ▸</button>
-        <button class="btn" id="rp-skip">+10 velas ⏭</button>
-        <div class="grp"><span class="lbl">Velocidad</span><div class="seg" data-key="sp"><button data-v="700">Lenta</button><button class="on" data-v="300">Normal</button><button data-v="90">Rápida</button></div></div>
+      <div class="controls rp-transport tv">
+        <button class="btn icon" id="rp-reset" title="Reiniciar este mercado desde el principio" aria-label="Reiniciar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2h2v12H2zM14 2v12L5 8z"/></svg></button>
+        <button class="btn primary icon" id="rp-play" title="Reproducir / pausar (Espacio)" aria-label="Reproducir">▶</button>
+        <button class="btn icon" id="rp-step" title="Siguiente vela (→)" aria-label="Siguiente vela"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 2v12l9-6zM12 2h2v12h-2z"/></svg></button>
+        <button class="btn" id="rp-speed" title="Velocidad de reproducción">1x</button>
+        <button class="btn" id="rp-skip" title="Avanzar 10 velas">+10</button>
+        <span class="rp-hint">Pasa el cursor por Comprar o Vender para ver la orden en el gráfico; con una posición abierta, arrastra los puntos de stop y objetivo.</span>
         <span class="rp-clock mono" id="rp-clock"></span>
       </div>
       <div class="chart-host" id="fig-rp"></div>
@@ -1017,7 +1358,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   </article>
 
   <article class="lesson" id="rp-diario">
-    <h3><span class="ln">21.3</span>Diario y análisis de la sesión</h3>
+    <h3><span class="ln">22.3</span>Diario y análisis de la sesión</h3>
     <div class="prose"><p>Cada operación queda registrada con su resultado en R, cuánto llegó a ir a favor (<strong>MFE</strong>) y en contra (<strong>MAE</strong>), y si iba a favor o en contra de la tendencia (pendiente de la EMA 50). Así ves <em>qué</em> haces bien y mal, no solo cuánto ganaste.</p></div>
     <div class="cols">
       <div><div class="fig-title">Curva de capital</div><div class="chart-host" id="fig-rp-eq"></div></div>
@@ -1029,14 +1370,14 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   </article>
 
   <article class="lesson" id="rp-sesiones">
-    <h3><span class="ln">21.4</span>Tus sesiones</h3>
+    <h3><span class="ln">22.4</span>Tus sesiones</h3>
     <div class="prose"><p>Al terminar un mercado (o al empezar uno nuevo con operaciones hechas) la sesión se guarda en este navegador. Mira la evolución de tu expectativa, no de una sesión suelta: 10–20 operaciones son una muestra muy pequeña.</p></div>
     <div id="rp-hist" style="overflow-x:auto"></div>
     <div class="controls" style="margin-top:10px"><button class="btn" id="rp-hist-clear">Borrar historial</button></div>
   </article>
 
   <article class="lesson" id="rp-consejos">
-    <h3><span class="ln">21.5</span>Cómo practicar con el simulador</h3>
+    <h3><span class="ln">22.5</span>Cómo practicar con el simulador</h3>
     <div class="cols">
       <div class="callout tip-c"><h5>Haz</h5><ul style="margin-left:18px">
         <li>Escribe tu <strong>regla de entrada</strong> antes de empezar ("compro el primer retroceso al 50–62% tras un BOS alcista con la EMA 50 subiendo") y opera solo eso.</li>
@@ -1055,7 +1396,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
 </section>
 <section class="module" id="m-examen" data-mod="examen">
   <div class="mod-head">
-    <div class="kicker">Módulo 22 · Práctica</div>
+    <div class="kicker">Módulo 23 · Práctica</div>
     <h2>Examen final</h2>
     <p class="lead">Preguntas al azar de <strong>todos los módulos</strong>, con las opciones mezcladas. Al terminar ves tu nota por módulo y un enlace para repasar lo que falló. Tu mejor resultado queda guardado en este navegador.</p>
   </div>
@@ -1064,13 +1405,15 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <div class="controls">
       <div class="grp"><span class="lbl">Preguntas</span><div class="seg" data-key="exn"><button data-v="10">10</button><button class="on" data-v="20">20</button><button data-v="40">40</button><button data-v="999">Todas</button></div></div>
       <div class="grp" id="ex-groups"></div>
+      <label class="grp"><input type="checkbox" id="ex-timer"> ⏱ Contra reloj (20 s por pregunta)</label>
       <button class="btn primary" id="ex-start">Empezar examen</button>
     </div>
     <div class="readout" id="ex-best"></div>
   </article>
   <article class="lesson" id="ex-run" hidden>
-    <div class="ex-top"><span id="ex-count" class="mono"></span><span id="ex-mod" class="ex-tag"></span><span id="ex-score" class="mono"></span></div>
+    <div class="ex-top"><span id="ex-count" class="mono"></span><span id="ex-mod" class="ex-tag"></span><span id="ex-combo" class="ex-combo"></span><span id="ex-score" class="mono"></span></div>
     <div class="meter"><div id="ex-meter"></div></div>
+    <div class="ex-timer" id="ex-tbar" hidden><div></div></div>
     <div class="q" id="ex-q" style="border-top:0"></div>
     <div class="controls" style="justify-content:flex-end"><button class="btn" id="ex-quit">Abandonar</button><button class="btn primary" id="ex-next" disabled>Siguiente ▶</button></div>
   </article>
@@ -1657,7 +2000,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   <article class="lesson" id="sto-que">
     <h3><span class="ln">11.1</span>Qué mide: la posición del cierre en el rango</h3>
     <div class="prose">
-      <p style="font-family:var(--mono);color:#fff">%K = 100 × (Cierre − Mínimo de N) / (Máximo de N − Mínimo de N)</p>
+      <p style="font-family:var(--mono);color:var(--strong)">%K = 100 × (Cierre − Mínimo de N) / (Máximo de N − Mínimo de N)</p>
       <p>Con N = 14: si el cierre está justo en el máximo de las últimas 14 velas, %K = 100; si está en el mínimo, %K = 0; a mitad del rango, 50. La idea de Lane: en tendencias alcistas los cierres tienden a quedar cerca de la parte alta del rango, y en bajistas cerca de la parte baja.</p>
     </div>
     <div class="fig">
@@ -1976,7 +2319,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <h3><span class="ln">13.1</span>True Range: el rango "verdadero" de una vela</h3>
     <div class="prose">
       <p>J. Welles Wilder (el mismo autor del RSI, 1978) definió el <strong>True Range</strong> para no ignorar los huecos entre velas:</p>
-      <p style="font-family:var(--mono);color:#fff">TR = el mayor de: (Máximo − Mínimo), |Máximo − Cierre anterior|, |Mínimo − Cierre anterior|</p>
+      <p style="font-family:var(--mono);color:var(--strong)">TR = el mayor de: (Máximo − Mínimo), |Máximo − Cierre anterior|, |Mínimo − Cierre anterior|</p>
       <p>El <strong>ATR</strong> (Average True Range) es la media del TR con el suavizado de Wilder, normalmente de 14 periodos. Se mide en unidades de precio (pips, puntos, dólares).</p>
     </div>
     <div class="fig">
@@ -2205,7 +2548,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <h3><span class="ln">19.1</span>Expectativa matemática</h3>
     <div class="prose">
       <p>Midiendo en <strong>R</strong> (1R = lo que arriesgas por operación):</p>
-      <p style="font-family:var(--mono);color:#fff">Expectativa = % de acierto × R:B − % de fallo × 1</p>
+      <p style="font-family:var(--mono);color:var(--strong)">Expectativa = % de acierto × R:B − % de fallo × 1</p>
       <p>Ejemplo: aciertas el 40% con un R:B de 1:2 → 0,4 × 2 − 0,6 × 1 = <strong>+0,2R</strong> por operación. Se puede ganar acertando menos de la mitad… si las ganancias son más grandes que las pérdidas. Y se puede perder acertando el 70% si las pérdidas son enormes.</p>
     </div>
     <div class="fig">
@@ -2218,7 +2561,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
         <div>
           <div class="readout" id="ex-out"></div>
           <div class="explain" id="ex-explain"></div>
-          <div class="legend"><span><i class="box" style="background:#e66767"></i>Expectativa negativa</span><span><i class="box" style="background:#383835"></i>≈ 0</span><span><i class="box" style="background:#3987e5"></i>Expectativa positiva</span><span><i class="dash" style="border-color:#fff"></i>Punto de equilibrio</span></div>
+          <div class="legend"><span><i class="box" style="background:#e66767"></i>Expectativa negativa</span><span><i class="box" style="background:var(--heat-mid)"></i>≈ 0</span><span><i class="box" style="background:#3987e5"></i>Expectativa positiva</span><span><i class="dash" style="border-color:var(--strong)"></i>Punto de equilibrio</span></div>
         </div>
       </div>
     </div>
@@ -2236,7 +2579,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
         <button class="btn primary" id="mc-new">Nueva simulación</button>
       </div>
       <div class="chart-host" id="fig-mc"></div>
-      <div class="legend"><span><i style="background:var(--text-2)"></i>40 cuentas de ejemplo</span><span><i style="background:#fff"></i>Mediana (cuenta típica)</span><span><i class="dash" style="border-color:var(--c-down)"></i>Peor 5%</span><span><i class="dash" style="border-color:var(--c-up)"></i>Mejor 5%</span></div>
+      <div class="legend"><span><i style="background:var(--text-2)"></i>40 cuentas de ejemplo</span><span><i style="background:var(--strong)"></i>Mediana (cuenta típica)</span><span><i class="dash" style="border-color:var(--c-down)"></i>Peor 5%</span><span><i class="dash" style="border-color:var(--c-up)"></i>Mejor 5%</span></div>
       <div class="readout" id="mc-out"></div>
       <div class="explain" id="mc-explain"></div>
     </div>
@@ -2433,6 +2776,7 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
   <div class="next"></div>
 </section>
 </main>
+<aside class="rail" id="rail" aria-label="Detalles del módulo"></aside></div>
 <div id="palette" hidden role="dialog" aria-modal="true" aria-label="Buscador">
   <div class="pal-box">
     <input type="text" id="pal-q" placeholder="Busca un módulo, una lección o un término (ej. fibonacci, FVG, drawdown)…" autocomplete="off" aria-label="Buscar">
@@ -2445,6 +2789,8 @@ table.t tfoot td{border-top:2px solid var(--border-2);font-weight:600}
     <p><strong>Aviso:</strong> contenido educativo, no es asesoramiento financiero. Los gráficos usan datos simulados. Ningún indicador ni modelo garantiza resultados: practica en demo, haz backtesting y gestiona el riesgo.</p>
   </div>
 </footer>
+</div></div>
+<div class="dock" id="dock"><div class="dock-bar"><div></div></div><div class="dock-prog"></div><button class="dock-ask" id="dock-ask" type="button" aria-label="Buscar"><i class="ic">🔎</i><span>Pregunta o busca: un término, una lección, un módulo…</span><kbd>/</kbd></button><a class="btn primary dock-next" id="dock-next" href="#inicio">Continuar</a></div>
 <script>
 'use strict';
 /* =====================================================================
@@ -2469,7 +2815,7 @@ const COL = {};
 function refreshColors() {
   const cs = getComputedStyle(document.documentElement);
   ['up', 'down', 'range', 'ob', 'liq', 'fvg', 'rsi', 'div', 'entry', 'mid'].forEach(k => COL[k] = cs.getPropertyValue('--c-' + k).trim());
-  ['text', 'text-2', 'muted', 'grid', 'axis', 'surface', 'surface-2', 'surface-3', 'accent'].forEach(k => COL[k.replace('-', '')] = cs.getPropertyValue('--' + k).trim());
+  ['text', 'text-2', 'muted', 'grid', 'axis', 'surface', 'surface-2', 'surface-3', 'accent', 'strong'].forEach(k => COL[k.replace('-', '')] = cs.getPropertyValue('--' + k).trim());
 }
 refreshColors();
 const isHollow = () => document.body.classList.contains('hollow');
@@ -2674,7 +3020,7 @@ function marker(C, P, i, v, o) {
 function vband(C, i1, i2, o) {
   o = o || {};
   const x1 = C.x(i1) - C.step / 2, x2 = C.x(i2) + C.step / 2;
-  el('rect', { x: x1, y: C.padT, width: x2 - x1, height: C.h - C.padT - C.padB, fill: o.color || '#ffffff', 'fill-opacity': o.op != null ? o.op : 0.04 }, C.bg);
+  el('rect', { x: x1, y: C.padT, width: x2 - x1, height: C.h - C.padT - C.padB, fill: o.color || COL.strong, 'fill-opacity': o.op != null ? o.op : 0.04 }, C.bg);
   if (o.label) txt(C.bg, (x1 + x2) / 2, C.h - 2, o.label, { fill: COL.muted, 'font-size': 10.5, 'text-anchor': 'middle' });
 }
 function vline(C, i, o) {
@@ -2694,7 +3040,7 @@ function hover(C, rows) {
     const data = rows(i);
     if (!data) { tip.style.display = 'none'; return; }
     vl.setAttribute('x1', C.x(i)); vl.setAttribute('x2', C.x(i));
-    tip.innerHTML = data.map(([k, v]) => k === '#' ? `<div style="color:#fff;font-weight:700;margin-bottom:2px">${v}</div>` : `<div class="row"><b>${v}</b><span class="k">${k}</span></div>`).join('');
+    tip.innerHTML = data.map(([k, v]) => k === '#' ? `<div style="color:var(--strong);font-weight:700;margin-bottom:2px">${v}</div>` : `<div class="row"><b>${v}</b><span class="k">${k}</span></div>`).join('');
     tip.style.display = 'block';
     const hr = C.host.getBoundingClientRect();
     let left = e.clientX - hr.left + 14, topp = e.clientY - hr.top + 12;
@@ -5891,7 +6237,7 @@ function initOrdenes() {
    ===================================================================== */
 const hexRgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
 const lerpHex = (a, b, t) => { const A = hexRgb(a), B = hexRgb(b); return 'rgb(' + A.map((v, i) => Math.round(v + (B[i] - v) * t)).join(',') + ')'; };
-const DIV = { neg: '#e66767', mid: '#383835', pos: '#3987e5' };
+const DIV = { neg: '#e66767', get mid() { return document.documentElement.dataset.theme === 'light' ? '#e4e4e0' : '#383835'; }, pos: '#3987e5' };
 const expColor = e => { const t = clamp(e / 1.5, -1, 1); return t >= 0 ? lerpHex(DIV.mid, DIV.pos, t) : lerpHex(DIV.mid, DIV.neg, -t); };
 const renderEx = fig(function () {
   const host = $('#fig-ex'); if (!host) return;
@@ -5964,7 +6310,7 @@ const renderMC = fig(function () {
   R.paths.forEach(p => el('path', { d: pathD(p), fill: 'none', stroke: COL.text2, 'stroke-opacity': 0.22, 'stroke-width': 1 }, g));
   el('path', { d: pathD(R.bands.p5), fill: 'none', stroke: COL.down, 'stroke-width': 2, 'stroke-dasharray': '6 4' }, g);
   el('path', { d: pathD(R.bands.p95), fill: 'none', stroke: COL.up, 'stroke-width': 2, 'stroke-dasharray': '6 4' }, g);
-  el('path', { d: pathD(R.bands.p50), fill: 'none', stroke: '#ffffff', 'stroke-width': 2.5 }, g);
+  el('path', { d: pathD(R.bands.p50), fill: 'none', stroke: COL.strong, 'stroke-width': 2.5 }, g);
   hline(C, P, 1, { color: COL.muted, width: 1, dash: '2 4', label: 'Capital inicial', side: 'left' });
   hline(C, P, 0.5, { color: COL.down, width: 1, dash: '2 4', label: '−50%', side: 'left', below: true });
   hover(C, t => [['#', 'Operación ' + t], ['Mediana', '$' + Math.round(R.bands.p50[t] * cap).toLocaleString('es')], ['Peor 5%', '$' + Math.round(R.bands.p5[t] * cap).toLocaleString('es')], ['Mejor 5%', '$' + Math.round(R.bands.p95[t] * cap).toLocaleString('es')]]);
@@ -6415,7 +6761,8 @@ function initFibo() {
    MÓDULO · SIMULADOR DE TRADING (REPLAY)
    ===================================================================== */
 const RP_N = 420, RP_START = 80, RP_WIN = 100, RP_BAL = 10000, RP_KEY = 'lt.replay.sessions';
-const rp = { seed: 101, kind: 'mix', cs: null, vol: null, regs: null, k: RP_START - 1, pos: null, trades: [], bal: RP_BAL, timer: null, ended: false, saved: false, ind: null, msg: null };
+const RP_SPEEDS = [['1x', 500], ['2x', 250], ['5x', 100], ['10x', 45]];
+const rp = { speed: 0, preview: 0, lastPrev: 1, drag: null, dragExt: null, C: null, P: null, seed: 101, kind: 'mix', cs: null, vol: null, regs: null, k: RP_START - 1, pos: null, trades: [], bal: RP_BAL, timer: null, ended: false, saved: false, ind: null, msg: null };
 function genMarket(seed, kind) {
   const r = mulberry32(seed), per = 8, path = [100], regs = [];
   let p = 100, sig = 0.06, sigT = 0.06, left = 0, reg = null, mu = 0, center = 100, band = 1;
@@ -6460,6 +6807,7 @@ function rpOpen(side) {
   const k = rp.k, c = rp.cs[k].c, atr = rp.ind.atr[k], spr = rpSpread();
   const slA = +$('#rp-sl').value / 10, tpR = +$('#rp-tp').value / 10, riskPct = clamp(+$('#rp-risk').value || 1, 0.1, 10);
   const entry = c + side * spr / 2, dist = slA * atr, sl = entry - side * dist, tp = entry + side * tpR * dist;
+  PROG.act(); rp.preview = 0;
   rp.pos = { side, entry, sl, sl0: sl, tp, i0: k, risk$: rp.bal * riskPct / 100, riskPct, mfe: 0, mae: 0, with: rpTrendDir(k) === side, spr, be: false };
   rp.msg = { cls: '', html: `${side > 0 ? 'Compra' : 'Venta'} abierta en <b>${entry.toFixed(2)}</b>. Stop en ${sl.toFixed(2)} (${slA.toFixed(1)} ATR), objetivo en ${tp.toFixed(2)} (${tpR.toFixed(1)}R). Arriesgas $${rp.pos.risk$.toFixed(0)} (${riskPct}%).` +
     (rpTrendDir(k) === -side ? ' <span style="color:var(--warn)">Ojo: vas en contra de la pendiente de la EMA 50.</span>' : '') };
@@ -6509,11 +6857,10 @@ function rpEnd() {
 function rpPlay() {
   if (rp.timer) return rpStop();
   if (rp.ended) return;
-  const ms = +(segVal($('#rp-fig'), 'sp') || 300);
-  rp.timer = setInterval(rpStep, ms);
-  $('#rp-play').textContent = '⏸ Pausa';
+  rp.timer = setInterval(rpStep, RP_SPEEDS[rp.speed][1]);
+  $('#rp-play').textContent = '❚❚';
 }
-function rpStop() { if (rp.timer) clearInterval(rp.timer); rp.timer = null; const b = $('#rp-play'); if (b) b.textContent = '▶ Reproducir'; }
+function rpStop() { if (rp.timer) clearInterval(rp.timer); rp.timer = null; const b = $('#rp-play'); if (b) b.textContent = '▶'; }
 function rpStats() {
   const T = rp.trades, n = T.length, wins = T.filter(t => t.R > 0), loss = T.filter(t => t.R <= 0);
   const sumW = wins.reduce((s, t) => s + t.R, 0), sumL = -loss.reduce((s, t) => s + t.R, 0);
@@ -6531,7 +6878,10 @@ const renderRp = fig(function () {
   if (showE) for (let i = from; i <= last; i++) extra.push(I.e20[i], I.e50[i]);
   if (showB) for (let i = from; i <= last; i++) extra.push(I.bb.up[i], I.bb.lo[i]);
   if (rp.pos) extra.push(rp.pos.sl, rp.pos.tp);
-  const [lo, hi] = extent(cs, extra);
+  const pv = !rp.pos && rp.preview && !rp.ended ? rpPreview(rp.preview) : null;
+  if (pv) extra.push(pv.sl, pv.tp);
+  let [lo, hi] = extent(cs, extra);
+  if (rp.drag && rp.dragExt) [lo, hi] = rp.dragExt;
   const panels = [{ h: rp.ended ? 380 : 340, yMin: lo, yMax: hi, dec: 1 }];
   if (showV) panels.push({ h: 56, yMin: 0, yMax: Math.max(...rp.vol.slice(from, last + 1)) * 1.1, grid: false, title: 'Volumen' });
   if (showR) panels.push({ h: 90, yMin: 0, yMax: 100, step: 30, dec: 0, title: 'RSI 14' });
@@ -6555,6 +6905,20 @@ const renderRp = fig(function () {
   }
   if (showE) { lineSeries(C, P, I.e20.slice(from, last + 1), { color: COL.liq, width: 1.5 }); lineSeries(C, P, I.e50.slice(from, last + 1), { color: COL.fvg, width: 1.8 }); }
   drawCandles(C, P, cs);
+  if (!rp.ended) {
+    const x0 = C.x(X(k)) + C.step / 2, pat = el('pattern', { id: 'rp-hatch', width: 8, height: 8, patternUnits: 'userSpaceOnUse', patternTransform: 'rotate(45)' }, el('defs', {}, C.svg));
+    el('line', { x1: 0, y1: 0, x2: 0, y2: 8, stroke: COL.muted, 'stroke-width': 1, 'stroke-opacity': 0.28 }, pat);
+    el('rect', { x: x0, y: C.padT, width: C.padL + C.iw - x0, height: C.h - C.padT - C.padB, fill: 'url(#rp-hatch)' }, C.bg);
+    txt(C.bg, (x0 + C.padL + C.iw) / 2, C.padT + 14, 'Futuro', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11, 'font-weight': 600 });
+  }
+  if (pv) {
+    const x1 = X(k), x2 = n - 1, nm = rp.preview > 0 ? 'compra' : 'venta';
+    zone(C, P, pv.entry, pv.tp, { x1, x2, color: COL.up, op: 0.08, stroke: false }); zone(C, P, pv.entry, pv.sl, { x1, x2, color: COL.down, op: 0.08, stroke: false });
+    hline(C, P, pv.entry, { x1, x2, color: COL.entry, width: 1.2, dash: '3 3' });
+    hline(C, P, pv.sl, { x1, x2, color: COL.down, width: 1.2, dash: '3 3', label: 'Stop ' + pv.sl.toFixed(2), side: 'right', below: rp.preview > 0 });
+    hline(C, P, pv.tp, { x1, x2, color: COL.up, width: 1.2, dash: '3 3', label: 'Objetivo ' + pv.tp.toFixed(2), side: 'right', below: rp.preview < 0 });
+    tag(P.g.lab, C.x(x1) - 8, P.y(pv.entry), 'Vista previa: ' + nm, COL.text2, 'end');
+  }
   if (showV) { const V = C.panels[1]; for (let i = from; i <= last; i++) { const c = rp.cs[i]; el('rect', { x: C.x(X(i)) - C.bw / 2, y: V.y(rp.vol[i]), width: C.bw, height: V.bottom - V.y(rp.vol[i]), fill: c.c >= c.o ? COL.up : COL.down, opacity: 0.5 }, V.g.data); } }
   if (showR) {
     const Rp = C.panels[showV ? 2 : 1];
@@ -6580,7 +6944,15 @@ const renderRp = fig(function () {
     hline(C, P, pos.tp, { x1, x2, color: COL.up, width: 1.4, label: 'Objetivo', side: 'right', below: !tpAbove });
     tag(P.g.lab, C.x(x1) - 8, P.y(pos.entry), `${pos.side > 0 ? 'Compra' : 'Venta'} ${openR >= 0 ? '+' : ''}${openR.toFixed(2)}R`, openR >= 0 ? COL.up : COL.down, 'end');
     marker(C, P, x1, pos.entry, { shape: pos.side > 0 ? 'up' : 'down', color: pos.side > 0 ? COL.up : COL.down, size: 6 });
+    if (!rp.ended) ['sl', 'tp'].forEach(key => {
+      const col = key === 'sl' ? COL.down : COL.up, hg = el('g', { transform: `translate(${C.x(x2) - 4},${P.y(pos[key])})`, style: 'cursor:ns-resize;touch-action:none', tabindex: 0, role: 'slider', 'aria-label': key === 'sl' ? 'Arrastra para mover el stop' : 'Arrastra para mover el objetivo' }, C.svg);
+      el('circle', { r: 8, fill: COL.surface, stroke: col, 'stroke-width': 2.5 }, hg);
+      el('path', { d: 'M-3 -1.5 L0 -4.5 L3 -1.5 M-3 1.5 L0 4.5 L3 1.5', fill: 'none', stroke: col, 'stroke-width': 1.5 }, hg);
+      hg.addEventListener('pointerdown', e => { e.preventDefault(); rpStop(); rp.drag = key; rp.dragExt = [P.yMin, P.yMax]; });
+      hg.addEventListener('keydown', e => { const d = { ArrowUp: 1, ArrowDown: -1 }[e.key]; if (!d) return; e.preventDefault(); rpMoveLevel(key, pos[key] + d * 0.1 * rp.ind.atr[rp.k]); rpDragEnd(key); });
+    });
   }
+  rp.C = C; rp.P = P;
   if (!rp.ended) hline(C, P, rp.cs[k].c, { x1: X(k), x2: n - 1, color: COL.text2, width: 1, dash: '2 3' });
   hover(C, j => {
     const i = j + from; if (i > last) return null;
@@ -6592,6 +6964,34 @@ const renderRp = fig(function () {
   });
   host.scrollLeft = host.scrollWidth;
 });
+function rpPreview(side) {
+  const k = rp.k, c = rp.cs[k].c, atr = rp.ind.atr[k], spr = rpSpread(), slA = +$('#rp-sl').value / 10, tpR = +$('#rp-tp').value / 10;
+  const entry = c + side * spr / 2, dist = slA * atr;
+  return { entry, sl: entry - side * dist, tp: entry + side * tpR * dist };
+}
+function rpMoveLevel(key, price) {
+  const p = rp.pos; if (!p) return;
+  const c = rp.cs[rp.k].c, gap = 0.05 * rp.ind.atr[rp.k], sd = p.side;
+  if (rp.dragExt) price = clamp(price, rp.dragExt[0], rp.dragExt[1]);
+  if (key === 'sl') price = sd > 0 ? Math.min(price, c - gap) : Math.max(price, c + gap);
+  else price = sd > 0 ? Math.max(price, c + gap) : Math.min(price, c - gap);
+  p[key] = price; if (key === 'sl') p.be = Math.abs(price - p.entry) < gap;
+  renderRp(); rpUI();
+}
+function rpDragEnd(key) {
+  const p = rp.pos; rp.drag = null; rp.dragExt = null; if (!p) return;
+  const risk = Math.abs(p.entry - p.sl0), sd = p.side;
+  if (key === 'sl') {
+    const r = (p.sl - p.entry) * sd / risk;
+    rp.msg = (p.sl - p.sl0) * sd < -1e-9 ? { cls: 'bad', html: `<strong>Alejaste el stop</strong>: si salta, ahora pierdes <b>${(-r).toFixed(2)}R</b> en vez de 1R. "Darle aire" a una operación perdedora es uno de los errores del módulo de riesgo.` }
+      : r >= -0.02 ? { cls: 'good', html: `Stop en ${r > 0.02 ? 'beneficio: aseguras <b>+' + r.toFixed(2) + 'R</b>' : 'la entrada (break-even)'} pase lo que pase.` }
+        : { cls: '', html: `Stop acercado: el riesgo baja a <b>${(-r).toFixed(2)}R</b>. Ojo: demasiado cerca, el ruido normal lo puede saltar.` };
+  } else {
+    const r = (p.tp - p.entry) * sd / risk;
+    rp.msg = { cls: '', html: `Objetivo movido a <b>+${r.toFixed(2)}R</b>.` + (r < 1 ? ' Con un objetivo menor que el riesgo necesitas acertar mucho para ganar.' : '') };
+  }
+  renderRp(); rpUI();
+}
 function rpUI() {
   const s = rpStats(), pos = rp.pos, k = rp.k;
   $('#rp-sl-v').textContent = (+$('#rp-sl').value / 10).toFixed(1) + ' ATR';
@@ -6694,6 +7094,21 @@ function initReplay() {
   });
   $('#rp-new').addEventListener('click', () => { rpSaveSession(); rp.seed = newSeed(); rpBuild(); rpRender(); });
   $('#rp-play').addEventListener('click', rpPlay);
+  $('#rp-reset').addEventListener('click', () => { rpSaveSession(); rpBuild(); rpRender(); });
+  $('#rp-speed').addEventListener('click', () => { rp.speed = (rp.speed + 1) % RP_SPEEDS.length; $('#rp-speed').textContent = RP_SPEEDS[rp.speed][0]; if (rp.timer) { rpStop(); rpPlay(); } });
+  [['#rp-buy', 1], ['#rp-sell', -1]].forEach(([q, sd]) => {
+    const b = $(q), on = () => { if (rp.pos || rp.ended) return; rp.preview = sd; rp.lastPrev = sd; renderRp(); }, off = () => { if (!rp.preview) return; rp.preview = 0; renderRp(); };
+    b.addEventListener('pointerenter', on); b.addEventListener('focus', on); b.addEventListener('pointerleave', off); b.addEventListener('blur', off);
+  });
+  ['#rp-sl', '#rp-tp'].forEach(q => $(q).addEventListener('input', () => { if (!rp.pos && !rp.ended) { rp.preview = rp.lastPrev; renderRp(); } }));
+  $('.rp-ticket').addEventListener('pointerleave', () => { if (rp.preview) { rp.preview = 0; renderRp(); } });
+  window.addEventListener('pointermove', e => {
+    if (!rp.drag || !rp.C) return;
+    const svg = $('#fig-rp svg'); if (!svg) return;
+    const r = svg.getBoundingClientRect(), C = rp.C, P = rp.P, sy = (e.clientY - r.top) * C.h / r.height;
+    rpMoveLevel(rp.drag, P.yMax - (sy - P.top) / P.h * (P.yMax - P.yMin));
+  });
+  window.addEventListener('pointerup', () => { if (rp.drag) rpDragEnd(rp.drag); });
   $('#rp-step').addEventListener('click', () => { rpStop(); rpStep(); });
   $('#rp-skip').addEventListener('click', () => { rpStop(); for (let q = 0; q < 10 && !rp.ended; q++) rpStep(); });
   $('#rp-buy').addEventListener('click', () => rpOpen(1));
@@ -6719,7 +7134,9 @@ function initReplay() {
    ===================================================================== */
 const shuffle = (a, r) => { r = r || Math.random; a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 const GROUP_NAME = { fund: 'Fundamentos', ind: 'Indicadores', smc: 'Smart Money / ICT', ges: 'Gestión y riesgo', prac: 'Práctica' };
-const exm = { qs: [], i: 0, ans: [], lastWrong: [] };
+const exm = { qs: [], i: 0, ans: [], lastWrong: [], timerOn: false, tick: null, combo: 0, best: 0 };
+const EX_T = 20000;
+const exClear = () => { if (exm.tick) clearInterval(exm.tick); exm.tick = null; };
 function exGroupsOf() { return Object.fromEntries($$('.tabs .mods a').map(a => [a.dataset.mod, a.dataset.group])); }
 function exBest() {
   const b = PROG.get().exam;
@@ -6739,7 +7156,7 @@ function exStart(pool) {
     pool = shuffle(out);
   }
   exm.qs = pool.map(q => { const ord = shuffle(q.o.map((_, i) => i)); return Object.assign({}, q, { o: ord.map(i => q.o[i]), a: ord.indexOf(q.a), src: q }); });
-  exm.i = 0; exm.ans = [];
+  exm.i = 0; exm.ans = []; exm.combo = 0; exm.best = 0; exm.timerOn = $('#ex-timer').checked;
   $('#ex-config').hidden = true; $('#ex-res').hidden = true; $('#ex-run').hidden = false;
   exShow();
   $('#ex-run').scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -6759,7 +7176,9 @@ function exShow() {
     const b = document.createElement('button'); b.className = 'opt'; b.textContent = `${'ABCDE'[oi]}. ${t}`;
     b.addEventListener('click', () => {
       if (exm.ans.length > exm.i) return;
-      const ok = oi === q.a; exm.ans.push(ok);
+      const ok = oi === q.a; exm.ans.push(ok); exClear();
+      exm.combo = ok ? exm.combo + 1 : 0; exm.best = Math.max(exm.best, exm.combo);
+      $('#ex-combo').textContent = exm.combo >= 2 ? '🔥 ' + exm.combo + ' seguidas' : '';
       b.classList.add(ok ? 'right' : 'wrong'); if (!ok) opts.children[q.a].classList.add('right');
       fb.innerHTML = (ok ? '✔ Correcto. ' : '✘ No. ') + q.why + ` <a href="#${q.mod}-quiz">Repasar ${MOD_NAME[q.mod] || q.mod} →</a>`;
       fb.style.display = 'block';
@@ -6769,8 +7188,23 @@ function exShow() {
     opts.appendChild(b);
   });
   box.appendChild(fb);
+  exClear(); $('#ex-combo').textContent = exm.combo >= 2 ? '🔥 ' + exm.combo + ' seguidas' : '';
+  const tb = $('#ex-tbar'); tb.hidden = !exm.timerOn;
+  if (exm.timerOn) {
+    const t0 = Date.now(), bar = $('div', tb);
+    exm.tick = setInterval(() => {
+      const rem = EX_T - (Date.now() - t0); bar.style.width = Math.max(0, rem / EX_T * 100) + '%'; tb.classList.toggle('low', rem < 5000);
+      if (rem > 0) return;
+      exClear(); if (exm.ans.length > exm.i) return;
+      exm.ans.push(false); exm.combo = 0; $('#ex-combo').textContent = '';
+      opts.children[q.a].classList.add('right'); fb.innerHTML = '⏱ Se acabó el tiempo. ' + q.why; fb.style.display = 'block';
+      $('#ex-score').textContent = `${exm.ans.filter(Boolean).length} / ${exm.ans.length} correctas`;
+      $('#ex-next').disabled = false; $('#ex-next').focus();
+    }, 100);
+  }
 }
 function exFinish() {
+  exClear();
   const N = exm.qs.length, right = exm.ans.filter(Boolean).length, pct = right / N;
   $('#ex-run').hidden = true; $('#ex-res').hidden = false; $('#ex-config').hidden = false;
   PROG.exam(pct, N);
@@ -6778,7 +7212,7 @@ function exFinish() {
   const per = {};
   exm.qs.forEach((q, i) => { const m = per[q.mod] = per[q.mod] || { r: 0, n: 0 }; m.n++; if (exm.ans[i]) m.r++; });
   const grade = pct >= 0.9 ? 'Excelente' : pct >= 0.75 ? 'Muy bien' : pct >= 0.6 ? 'Aprobado' : 'A repasar';
-  $('#ex-res-stats').innerHTML = [['Nota', Math.round(pct * 100) + '%'], ['Correctas', `${right} / ${N}`], ['Calificación', grade], ['Mejor nota', Math.round(PROG.get().exam.pct * 100) + '%']]
+  $('#ex-res-stats').innerHTML = [['Nota', Math.round(pct * 100) + '%'], ['Correctas', `${right} / ${N}`], ['Calificación', grade], ['Mejor racha', '🔥 ' + exm.best], ['Mejor nota', Math.round(PROG.get().exam.pct * 100) + '%']]
     .map(([a, b]) => `<div class="stat"><div class="k">${a}</div><div class="v">${b}</div></div>`).join('');
   const weak = Object.entries(per).filter(([, v]) => v.r / v.n < 0.6).map(([m]) => `<a href="#${m}">${MOD_NAME[m] || m}</a>`);
   $('#ex-res-explain').className = 'explain ' + (pct >= 0.75 ? 'good' : pct < 0.6 ? 'bad' : '');
@@ -6801,7 +7235,7 @@ function initExamen() {
   $('#ex-again').addEventListener('click', () => exStart());
   $('#ex-wrong').addEventListener('click', () => { if (exm.lastWrong.length) exStart(shuffle(exm.lastWrong)); });
   $('#ex-next').addEventListener('click', () => { if (exm.i < exm.qs.length - 1) { exm.i++; exShow(); } else exFinish(); });
-  $('#ex-quit').addEventListener('click', () => { $('#ex-run').hidden = true; $('#ex-config').hidden = false; });
+  $('#ex-quit').addEventListener('click', () => { exClear(); $('#ex-run').hidden = true; $('#ex-config').hidden = false; });
   document.addEventListener('keydown', e => {
     if ($('#ex-run').hidden || !$('#m-examen').classList.contains('active') || e.ctrlKey || e.metaKey || e.altKey) return;
     const k = e.key.toLowerCase(), idx = 'abcde'.indexOf(k) >= 0 ? 'abcde'.indexOf(k) : '12345'.indexOf(k);
@@ -6817,10 +7251,11 @@ function initExamen() {
 const PROG = (() => {
   const KEY = 'lt.progress';
   let st; try { st = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { st = {}; }
-  st.visited = st.visited || {}; st.quiz = st.quiz || {};
+  st.visited = st.visited || {}; st.quiz = st.quiz || {}; st.lessons = st.lessons || {}; st.days = st.days || []; st.micro = st.micro || { stars: 0, decks: 0, wrong: [] };
+  const dayKey = d => { d = d || new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); };
   const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* almacenamiento no disponible */ } paint(); };
   function paint() {
-    const mods = MODS.filter(m => m !== 'glosario');
+    const mods = MODS.filter(m => m !== 'glosario' && m !== 'inicio');
     const seen = mods.filter(m => st.visited[m]).length;
     const qmods = [...new Set(QUIZ_BANK.map(q => q.mod))], passed = qmods.filter(m => st.quiz[m] && st.quiz[m].best >= 0.8).length;
     $$('.tabs .mods a').forEach(a => {
@@ -6832,13 +7267,18 @@ const PROG = (() => {
     box.innerHTML = `<div class="prog-bar"><div style="width:${(pct * 100).toFixed(1)}%"></div></div>` +
       `<span>${seen}/${mods.length} módulos vistos · ${passed}/${qmods.length} quizzes aprobados (≥80%)` + (st.exam ? ` · examen: mejor ${Math.round(st.exam.pct * 100)}%` : '') + '</span>' +
       `<button class="linkish" id="prog-reset" type="button">Reiniciar</button>`;
-    $('#prog-reset').addEventListener('click', () => { if (confirm('¿Borrar tu progreso (módulos vistos, quizzes y examen)?')) { st = { visited: {}, quiz: {} }; save(); } });
+    $('#prog-reset').addEventListener('click', () => { if (confirm('¿Borrar tu progreso (módulos vistos, lecciones, quizzes, racha y examen)?')) { st = { visited: {}, quiz: {}, lessons: {}, days: [], micro: { stars: 0, decks: 0, wrong: [] } }; save(); } });
+    if (typeof shellPaint === 'function') shellPaint();
   }
   return {
     get: () => st, paint,
-    visit(m) { if (!st.visited[m]) { st.visited[m] = Date.now(); save(); } },
-    quiz(m, right, total) { const p = right / total, q = st.quiz[m]; if (!q || p > q.best) { st.quiz[m] = { best: p, at: Date.now() }; save(); } },
-    exam(p, n) { const e = st.exam || { pct: 0, count: 0 }; st.exam = { pct: Math.max(e.pct, p), count: e.count + 1, last: p, n }; save(); }
+    visit(m) { st.visited[m] = Date.now(); try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* sin almacenamiento */ } },
+    lesson(id) { if (id && !st.lessons[id]) { st.lessons[id] = Date.now(); this.act(true); save(); } },
+    act(quiet) { const d = dayKey(); if (!st.days.includes(d)) { st.days.push(d); st.days = st.days.slice(-400); if (!quiet) save(); } },
+    streak() { const has = new Set(st.days); const d = new Date(); if (!has.has(dayKey(d))) d.setDate(d.getDate() - 1); let n = 0; while (has.has(dayKey(d))) { n++; d.setDate(d.getDate() - 1); } return n; },
+    micro(fn) { fn(st.micro); this.act(true); save(); },
+    quiz(m, right, total) { const p = right / total, q = st.quiz[m]; this.act(true); if (!q || p > q.best) st.quiz[m] = { best: p, at: Date.now() }; save(); },
+    exam(p, n) { this.act(true); const e = st.exam || { pct: 0, count: 0 }; st.exam = { pct: Math.max(e.pct, p), count: e.count + 1, last: p, n }; save(); }
   };
 })();
 
@@ -6926,6 +7366,580 @@ GLOSS.push(
   ['Replay', 'Bar replay', 'Práctica en la que el gráfico se revela vela a vela para decidir sin ver el futuro.']
 );
 /* =====================================================================
+   MÓDULO · REPASO RÁPIDO (tarjetas tipo Nibble)
+   ===================================================================== */
+const mvPath = (seed, W, per, noise) => candlesFromPath(bridgePath(W.map(([b, p]) => ({ t: b * per, p })), mulberry32(seed), noise), per);
+function mvBase(host, cs, o) {
+  o = o || {};
+  const [lo, hi] = extent(cs, o.extra);
+  const C = chart(host, { n: o.n || cs.length + 1, w: 560, padL: 12, padR: o.padR || 14, padT: 12, padB: o.padB || 12, panels: [{ h: o.h || 190, yMin: lo, yMax: hi, grid: false }].concat(o.panels || []), aria: o.aria || 'Ilustración' });
+  const P = C.panels[0]; if (!o.noCandles) drawCandles(C, P, cs, o.dc);
+  return { C, P };
+}
+function mvSvg(host, w, h) { host.querySelectorAll('svg').forEach(s => s.remove()); const svg = el('svg', { viewBox: `0 0 ${w} ${h}`, role: 'img', 'aria-label': 'Ilustración' }); host.appendChild(svg); return svg; }
+const MV = {
+  vela(host) {
+    const svg = mvSvg(host, 560, 200), cx = 200, o = 140, c = 70, hi = 30, lo = 180;
+    el('line', { x1: cx, x2: cx, y1: hi, y2: lo, stroke: COL.up, 'stroke-width': 3 }, svg);
+    el('rect', { x: cx - 30, y: c, width: 60, height: o - c, rx: 4, fill: COL.up }, svg);
+    [[hi, 'Máximo'], [c, 'Cierre'], [o, 'Apertura'], [lo, 'Mínimo']].forEach(([y, t]) => { el('line', { x1: cx + 40, x2: cx + 120, y1: y, y2: y, stroke: COL.muted, 'stroke-dasharray': '3 3' }, svg); txt(svg, cx + 128, y + 4, t, { fill: COL.text, 'font-size': 13, 'font-weight': 600 }); });
+    txt(svg, cx - 120, 52, 'mecha', { fill: COL.muted, 'font-size': 12 }); txt(svg, cx - 120, 110, 'cuerpo', { fill: COL.muted, 'font-size': 12 });
+  },
+  martillo(host) {
+    const cs = mvPath(4, [[0, 108], [3, 106], [6, 103.5], [9, 101.5], [11, 100.6]], 5, 0.14);
+    cs.push({ o: 100.5, h: 100.8, l: 98.2, c: 100.7 }, { o: 100.7, h: 102, l: 100.5, c: 101.8 });
+    const { C, P } = mvBase(host, cs, { extra: [97.8] });
+    hline(C, P, 98.9, { x1: 0, color: COL.liq, width: 1.2, label: 'Soporte', side: 'left', below: true });
+    marker(C, P, cs.length - 2, 98.2, { shape: 'up', color: COL.up, size: 6, label: 'Martillo', dy: 18 });
+  },
+  envolvente(host) {
+    const cs = mvPath(9, [[0, 106], [4, 104], [7, 102.5], [9, 101.8]], 5, 0.12);
+    cs.push({ o: 101.6, h: 101.8, l: 100.8, c: 101.0 }, { o: 100.8, h: 102.9, l: 100.6, c: 102.7 });
+    const { C, P } = mvBase(host, cs);
+    zone(C, P, 100.8, 102.7, { x1: cs.length - 2, x2: cs.length - 1, color: COL.up, op: 0.1, label: 'Envolvente alcista', labelBelow: true });
+  },
+  soporte(host) {
+    const cs = mvPath(12, [[0, 104], [3, 100.2], [6, 103.2], [9, 100.1], [12, 103.5], [15, 100.2], [18, 102], [21, 99.2], [23, 98.4], [25, 99.8], [27, 98.6]], 4, 0.1);
+    const { C, P } = mvBase(host, cs);
+    zone(C, P, 99.85, 100.35, { x1: 0, x2: 19, color: COL.up, op: 0.15, label: 'Soporte', labelBelow: true });
+    hline(C, P, 100.1, { x1: 20, color: COL.down, width: 1.4, label: 'ahora resistencia', side: 'right' });
+  },
+  estructura(host) {
+    const cs = mvPath(3, [[0, 100], [4, 103], [7, 101.4], [11, 105], [14, 103.2], [18, 107], [21, 105.3], [24, 108.5]], 4, 0.1);
+    const { C, P } = mvBase(host, cs);
+    const key = cs.map(c => c.h), lows = cs.map(c => c.l);
+    [[4, 'HH', 'h'], [11, 'HH', 'h'], [18, 'HH', 'h'], [7, 'HL', 'l'], [14, 'HL', 'l'], [21, 'HL', 'l']].forEach(([b, t, k]) => {
+      const i = Math.min(cs.length - 1, Math.round(b * 4 / 4)); const j = argExt(k === 'h' ? key : lows, Math.max(0, i - 2), Math.min(cs.length - 1, i + 2), k === 'h' ? 'max' : 'min');
+      marker(C, P, j, k === 'h' ? cs[j].h : cs[j].l, { color: k === 'h' ? COL.up : COL.range, size: 4, label: t, dy: k === 'h' ? -14 : 16 });
+    });
+  },
+  choch(host) {
+    const cs = mvPath(21, [[0, 100], [4, 103], [7, 101.5], [11, 105], [14, 103.3], [18, 106.2], [22, 102.2], [25, 103.4], [28, 100.5]], 4, 0.1);
+    const { C, P } = mvBase(host, cs);
+    const j = argExt(cs.map(c => c.l), 12, 16, 'min'), v = cs[j].l;
+    hline(C, P, v, { x1: j, color: COL.down, width: 1.5, label: 'último HL', side: 'left', below: true });
+    const b = cs.findIndex((c, i) => i > j + 3 && c.c < v);
+    if (b > 0) marker(C, P, b, cs[b].l, { shape: 'down', color: COL.down, size: 6, label: 'CHoCH', dy: 18 });
+  },
+  trendline(host) {
+    const cs = mvPath(31, [[0, 100], [3, 102.4], [5, 101.2], [8, 104], [10, 102.4], [13, 105.6], [15, 103.6], [18, 106.6], [20, 105]], 4, 0.08);
+    const { C, P } = mvBase(host, cs);
+    const t = [argExt(cs.map(c => c.l), 3, 7, 'min'), argExt(cs.map(c => c.l), 8, 12, 'min'), argExt(cs.map(c => c.l), 13, 17, 'min')];
+    const a = cs[t[0]].l, b = cs[t[1]].l, s = (b - a) / (t[1] - t[0]);
+    seg(C, P, 0, a - s * t[0], cs.length, a + s * (cs.length - t[0]), { color: COL.range, width: 2 });
+    t.forEach((i, k) => marker(C, P, i, a + s * (i - t[0]), { color: COL.range, size: 4, label: (k + 1) + '.º', dy: 16 }));
+  },
+  fibo(host) {
+    const cs = mvPath(7, [[0, 101], [2, 100], [10, 110], [16, 103.8], [20, 107]], 5, 0.12);
+    const { C, P } = mvBase(host, cs, { extra: [99, 111] });
+    const lv = x => 110 - x * 10;
+    zone(C, P, lv(0.618), lv(0.786), { x1: 10, color: COL.fvg, op: 0.18 });
+    [[0, '0'], [0.382, '0,382'], [0.5, '0,5'], [0.618, '0,618'], [1, '1']].forEach(([x, t]) => hline(C, P, lv(x), { x1: 2, color: x === 0.618 ? COL.liq : COL.muted, width: x === 0.618 ? 1.6 : 1, label: t, side: 'right', below: x === 1 }));
+  },
+  sesiones(host) {
+    const svg = mvSvg(host, 560, 190), L = 90, W = 450, X = h => L + h / 24 * W;
+    const rows = [['Sídney', 17, 26, '#3987e5'], ['Tokio', 19, 28, '#d95926'], ['Londres', 3, 12, '#199e70'], ['Nueva York', 8, 17, '#c98500']];
+    el('rect', { x: X(8), y: 10, width: X(12) - X(8), height: 150, fill: COL.liq, 'fill-opacity': 0.13 }, svg);
+    txt(svg, X(10), 176, 'solapamiento', { 'text-anchor': 'middle', fill: COL.liq, 'font-size': 11, 'font-weight': 700 });
+    rows.forEach(([n, a, b, col], i) => {
+      const y = 20 + i * 34; txt(svg, L - 8, y + 15, n, { 'text-anchor': 'end', fill: COL.text, 'font-size': 12 });
+      const seg2 = (s, e) => el('rect', { x: X(s), y, width: X(e) - X(s), height: 20, rx: 4, fill: col, opacity: 0.85 }, svg);
+      if (b > 24) { seg2(a, 24); seg2(0, b - 24); } else seg2(a, b);
+    });
+    [0, 6, 12, 18, 24].forEach(h => txt(svg, X(h), 160, String(h).padStart(2, '0') + ':00', { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 10 }));
+  },
+  volumen(host) {
+    const cs = mvPath(15, [[0, 100], [3, 101.2], [6, 100.1], [9, 101.3], [12, 100.2], [15, 101.1], [16, 103.4], [18, 103]], 4, 0.07);
+    const vol = cs.map((c, i) => (i >= 60 / 4 && i <= 64 / 4) ? 3.2 : 1 + ((i * 37) % 7) / 10);
+    const { C, P } = mvBase(host, cs, { panels: [{ h: 50, yMin: 0, yMax: 3.6, grid: false }], h: 150 });
+    hline(C, P, 101.35, { x1: 0, x2: 15, color: COL.liq, width: 1.2, label: 'resistencia', side: 'left' });
+    const V = C.panels[1]; vol.forEach((v, i) => el('rect', { x: C.x(i) - C.bw / 2, y: V.y(v), width: C.bw, height: V.bottom - V.y(v), fill: v > 2 ? COL.up : COL.muted, opacity: 0.7 }, V.g.data));
+  },
+  emas(host) {
+    const cs = mvPath(44, [[0, 106], [8, 101], [14, 100.5], [20, 104], [30, 109]], 4, 0.15), cl = cs.map(c => c.c);
+    const { C, P } = mvBase(host, cs);
+    lineSeries(C, P, emaArr(cl, 5), { color: COL.liq, width: 2 }); lineSeries(C, P, emaArr(cl, 14), { color: COL.fvg, width: 2 });
+    tag(P.g.lab, C.x(cs.length - 1), P.y(cl[cl.length - 1]) - 18, 'EMA rápida', COL.liq, 'end');
+  },
+  rsi(host) {
+    const cs = mvPath(52, [[0, 100], [10, 101], [22, 108], [28, 107.5]], 4, 0.1), r = rsiCalc(cs.map(c => c.c), 14).rsi;
+    const { C } = mvBase(host, cs, { h: 120, panels: [{ h: 70, yMin: 0, yMax: 100, grid: false }] });
+    const R = C.panels[1]; zone(C, R, 70, 100, { color: COL.down, op: 0.12, stroke: false }); zone(C, R, 0, 30, { color: COL.up, op: 0.12, stroke: false });
+    hline(C, R, 70, { color: COL.down, width: 1, label: '70', side: 'left' }); lineSeries(C, R, r, { color: COL.rsi, width: 2 });
+  },
+  divergencia(host) {
+    const cs = mvPath(61, [[0, 100], [5, 104.5], [8, 102.5], [12, 105.2], [15, 103]], 5, 0.09), r = rsiCalc(cs.map(c => c.c), 6).rsi;
+    const { C, P } = mvBase(host, cs, { h: 120, panels: [{ h: 70, yMin: 0, yMax: 100, grid: false }] });
+    const a = argExt(cs.map(c => c.h), 3, 7, 'max'), b = argExt(cs.map(c => c.h), 10, 14, 'max');
+    seg(C, P, a, cs[a].h, b, cs[b].h, { color: COL.text, width: 2 });
+    const R = C.panels[1]; lineSeries(C, R, r, { color: COL.rsi, width: 2 }); seg(C, R, a, r[a], b, r[b], { color: COL.down, width: 2 });
+    tag(P.g.lab, C.x(b), P.y(cs[b].h) - 14, 'HH', COL.text, 'middle'); tag(R.g.lab, C.x(b), R.y(r[b]) - 12, 'LH', COL.down, 'middle');
+  },
+  bollinger(host) {
+    const cs = mvPath(73, [[0, 100], [3, 103], [5, 99], [8, 102.4], [12, 100.6], [16, 101.5], [20, 101], [22, 101.3], [25, 105.5], [28, 107]], 4, 0.1), cl = cs.map(c => c.c), b = bollinger(cl, 10, 2);
+    const { C, P } = mvBase(host, cs, { extra: b.up.concat(b.lo).filter(v => v != null) });
+    lineSeries(C, P, b.up, { color: COL.range, width: 1.4 }); lineSeries(C, P, b.lo, { color: COL.range, width: 1.4 });
+    const sq = argExt(b.bw.map(v => v == null ? 99 : v), 10, 24, 'min'); vband(C, sq - 2, sq + 2, { color: COL.liq, op: 0.12 });
+    tag(P.g.lab, C.x(sq), P.top + 12, 'Squeeze', COL.liq, 'middle');
+  },
+  atr(host) {
+    const cs = mvPath(85, [[0, 100], [6, 102], [10, 101.2], [14, 103.5]], 4, 0.12), a = atrArr(cs, 10), k = cs.length - 1, e = cs[k].c, s = e - 1.5 * a[k];
+    const { C, P } = mvBase(host, cs, { extra: [s - 0.4], n: cs.length + 6 });
+    zone(C, P, e, s, { x1: k, x2: k + 5, color: COL.down, op: 0.16, label: 'stop = 1,5 × ATR', labelBelow: true });
+    hline(C, P, e, { x1: k, x2: k + 5, color: COL.entry, width: 1.4, dash: false });
+  },
+  barrido(host) {
+    const cs = mvPath(91, [[0, 100], [4, 103], [7, 101.2], [11, 103.02], [14, 101], [17, 102.4]], 4, 0.07);
+    cs.push({ o: 102.4, h: 103.8, l: 102.2, c: 102.6 }, { o: 102.6, h: 102.7, l: 100.6, c: 100.8 });
+    const { C, P } = mvBase(host, cs);
+    hline(C, P, 103.05, { x1: 3, x2: cs.length - 1, color: COL.liq, width: 1.4, label: 'BSL (máximos iguales)', side: 'left' });
+    marker(C, P, cs.length - 2, 103.8, { shape: 'down', color: COL.down, size: 6, label: 'Barrido', dy: -16 });
+  },
+  fvg(host) {
+    const cs = [{ o: 100, h: 100.9, l: 99.6, c: 100.6 }, { o: 100.6, h: 100.8, l: 100.1, c: 100.4 }, { o: 100.4, h: 102.9, l: 100.3, c: 102.7 }, { o: 102.7, h: 103.4, l: 101.8, c: 103.1 }, { o: 103.1, h: 103.6, l: 102.6, c: 103.3 }];
+    const { C, P } = mvBase(host, cs, { n: 8 });
+    zone(C, P, cs[1].h, cs[3].l, { x1: 1, x2: 7, color: COL.fvg, op: 0.22, label: 'FVG', labelX: C.x(5) });
+    [1, 2, 3].forEach((i, k) => txt(C.bg, C.x(i), C.h - 2, String(k + 1), { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 }));
+  },
+  ob(host) {
+    const cs = mvPath(97, [[0, 104], [4, 102.5], [7, 101.2]], 4, 0.1);
+    cs.push({ o: 101.3, h: 101.4, l: 100.4, c: 100.6 }, { o: 100.6, h: 102.6, l: 100.5, c: 102.4 }, { o: 102.4, h: 104.4, l: 102.2, c: 104.1 }, { o: 104.1, h: 104.5, l: 103, c: 103.2 }, { o: 103.2, h: 103.4, l: 101.2, c: 101.6 }, { o: 101.6, h: 103.8, l: 101.1, c: 103.6 }, { o: 103.6, h: 105.5, l: 103.4, c: 105.2 });
+    const { C, P } = mvBase(host, cs), i = cs.length - 8;
+    zone(C, P, cs[i].h, cs[i].l, { x1: i, x2: cs.length - 1, color: COL.ob, op: 0.2, label: 'Order block', labelBelow: true });
+  },
+  crt(host) {
+    const cs = [{ o: 101, h: 104, l: 100, c: 103.2 }, { o: 103.2, h: 103.6, l: 99.1, c: 101.2 }, { o: 101.2, h: 104.8, l: 101, c: 104.5 }];
+    const { C, P } = mvBase(host, cs, { n: 5, dc: { bw: 34 }, extra: [98.6] });
+    hline(C, P, 104, { x1: 0, x2: 4, color: COL.range, label: 'CRT High', side: 'right' }); hline(C, P, 100, { x1: 0, x2: 4, color: COL.range, label: 'CRT Low', side: 'right', below: true });
+    marker(C, P, 1, 99.1, { shape: 'up', color: COL.liq, size: 6, label: 'barrido', dy: 18 });
+    ['Rango', 'Manipulación', 'Expansión'].forEach((t, k) => txt(C.bg, C.x(k), P.top + 10, t, { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 }));
+  },
+  smt(host) {
+    const a = mvPath(5, [[0, 102], [5, 100], [9, 101.6], [14, 99.2], [18, 101.8]], 4, 0.06).map(c => c.c), b = mvPath(6, [[0, 102], [5, 100], [9, 101.7], [14, 100.6], [18, 102.3]], 4, 0.06).map(c => c.c);
+    host.querySelectorAll('svg').forEach(s => s.remove());
+    const C = chart(host, { n: a.length, w: 560, padL: 12, padR: 90, padT: 12, padB: 12, panels: [{ h: 90, yMin: Math.min(...a) - 0.3, yMax: Math.max(...a) + 0.3, grid: false }, { h: 90, yMin: Math.min(...b) - 0.3, yMax: Math.max(...b) + 0.3, grid: false }], gap: 10, aria: 'SMT' });
+    const [A, B] = C.panels; lineSeries(C, A, a, { color: COL.range, width: 2 }); lineSeries(C, B, b, { color: COL.liq, width: 2 });
+    const i1 = argExt(a, 3, 7, 'min'), i2 = argExt(a, 11, 15, 'min');
+    seg(C, A, i1, a[i1], i2, a[i2], { color: COL.down, width: 2 }); seg(C, B, i1, b[i1], i2, b[i2], { color: COL.up, width: 2 });
+    txt(A.g.lab, C.padL + C.iw + 8, A.top + 50, 'EUR/USD LL', { fill: COL.down, 'font-size': 11, 'font-weight': 700 }); txt(B.g.lab, C.padL + C.iw + 8, B.top + 50, 'GBP/USD HL', { fill: COL.up, 'font-size': 11, 'font-weight': 700 });
+  },
+  spread(host) {
+    const mid = mvPath(8, [[0, 100], [6, 100.6], [12, 100.2], [18, 100.9]], 4, 0.05).map(c => c.c);
+    host.querySelectorAll('svg').forEach(s => s.remove());
+    const C = chart(host, { n: mid.length, w: 560, padL: 12, padR: 60, padT: 12, padB: 12, panels: [{ h: 180, yMin: Math.min(...mid) - 0.3, yMax: Math.max(...mid) + 0.3, grid: false }], aria: 'Spread' }), P = C.panels[0];
+    const ask = mid.map(v => v + 0.09), bid = mid.map(v => v - 0.09);
+    let d = ''; ask.forEach((v, i) => d += (i ? 'L' : 'M') + C.x(i) + ' ' + P.y(v)); for (let i = bid.length - 1; i >= 0; i--) d += 'L' + C.x(i) + ' ' + P.y(bid[i]);
+    el('path', { d: d + 'Z', fill: COL.liq, 'fill-opacity': 0.18 }, P.g.zone);
+    lineSeries(C, P, ask, { color: COL.down, width: 2 }); lineSeries(C, P, bid, { color: COL.up, width: 2 });
+    txt(P.g.lab, C.padL + C.iw + 6, P.y(ask[ask.length - 1]) + 4, 'Ask', { fill: COL.down, 'font-size': 12, 'font-weight': 700 });
+    txt(P.g.lab, C.padL + C.iw + 6, P.y(bid[bid.length - 1]) + 4, 'Bid', { fill: COL.up, 'font-size': 12, 'font-weight': 700 });
+  },
+  rr(host) {
+    const cs = mvPath(17, [[0, 101], [5, 99.6], [8, 100.4]], 4, 0.08), k = cs.length - 1, e = cs[k].c;
+    const { C, P } = mvBase(host, cs, { n: cs.length + 10, extra: [e - 1, e + 2] });
+    zone(C, P, e, e + 2, { x1: k, x2: k + 9, color: COL.up, op: 0.16, label: 'Beneficio 2R' }); zone(C, P, e, e - 1, { x1: k, x2: k + 9, color: COL.down, op: 0.16, label: 'Riesgo 1R', labelBelow: true });
+    hline(C, P, e, { x1: k, x2: k + 9, color: COL.entry, width: 1.5, dash: false });
+  },
+  drawdown(host) {
+    const svg = mvSvg(host, 560, 200), data = [[10, 11], [25, 33], [50, 100], [75, 300]], Y = v => 170 - Math.min(150, v / 300 * 150);
+    data.forEach(([l, g], i) => {
+      const x = 60 + i * 125;
+      el('rect', { x, y: Y(l), width: 40, height: 170 - Y(l), rx: 4, fill: COL.down, opacity: 0.85 }, svg);
+      el('rect', { x: x + 46, y: Y(g), width: 40, height: 170 - Y(g), rx: 4, fill: COL.up, opacity: 0.85 }, svg);
+      txt(svg, x + 20, Y(l) - 5, '−' + l + '%', { 'text-anchor': 'middle', fill: COL.down, 'font-size': 11, 'font-weight': 700 });
+      txt(svg, x + 66, Y(g) - 5, '+' + g + '%', { 'text-anchor': 'middle', fill: COL.up, 'font-size': 11, 'font-weight': 700 });
+    });
+    el('line', { x1: 40, x2: 540, y1: 170, y2: 170, stroke: COL.axis }, svg);
+    txt(svg, 40, 192, 'Pérdida (rojo) y ganancia necesaria para recuperar (verde)', { fill: COL.muted, 'font-size': 11 });
+  },
+  sizing(host) {
+    const svg = mvSvg(host, 560, 150), box = (x, w, t1, t2, col) => { el('rect', { x, y: 40, width: w, height: 70, rx: 10, fill: COL.surface, stroke: col, 'stroke-width': 2 }, svg); txt(svg, x + w / 2, 68, t1, { 'text-anchor': 'middle', fill: COL.muted, 'font-size': 11 }); txt(svg, x + w / 2, 94, t2, { 'text-anchor': 'middle', fill: COL.text, 'font-size': 17, 'font-weight': 700 }); };
+    box(20, 150, 'Riesgo (1% de $10 000)', '$100', COL.down); txt(svg, 190, 82, '÷', { fill: COL.text, 'font-size': 24, 'text-anchor': 'middle' });
+    box(210, 160, 'Stop × valor del pip', '50 × $10', COL.liq); txt(svg, 390, 82, '=', { fill: COL.text, 'font-size': 24, 'text-anchor': 'middle' });
+    box(410, 130, 'Tamaño', '0,2 lotes', COL.up);
+  }
+};
+const MICRO = [
+  { id: 'vela', g: 'fund', mod: 'velas', t: 'Una vela, cuatro precios', def: 'Cada vela resume un periodo con su apertura, máximo, mínimo y cierre (OHLC).', x: 'El <strong>cuerpo</strong> va de la apertura al cierre; las <strong>mechas</strong>, hasta los extremos que el precio visitó y rechazó.', q: { q: 'Si el cierre queda por encima de la apertura, la vela es…', o: ['Alcista', 'Bajista'], a: 0, why: 'Cerró más arriba de donde abrió: ganaron los compradores en ese periodo.' } },
+  { id: 'martillo', g: 'fund', mod: 'patrones', t: 'El martillo', def: 'Cuerpo pequeño arriba y mecha inferior larga: el precio cayó y fue rechazado.', x: 'Solo significa algo <strong>en contexto</strong>: tras una caída y sobre un soporte.', q: { q: '¿Dónde tiene sentido un martillo?', o: ['Tras una caída, sobre un soporte', 'En medio de un rango, sin contexto'], a: 0, why: 'Sin una caída previa ni una zona relevante, la forma sola no dice nada.' } },
+  { id: 'envolvente', g: 'fund', mod: 'patrones', t: 'Envolvente alcista', def: 'Una vela alcista cuyo cuerpo cubre todo el cuerpo bajista anterior.', x: 'Muestra un cambio de control: los compradores absorbieron toda la presión de la vela previa.', q: { q: 'En una envolvente alcista, el cuerpo verde…', o: ['Cubre todo el cuerpo rojo anterior', 'Es más pequeño que el rojo'], a: 0, why: '"Envuelve" el cuerpo anterior completo.' } },
+  { id: 'soporte', g: 'fund', mod: 'sr', t: 'Soporte y cambio de polaridad', def: 'Una zona donde la demanda frenó caídas varias veces.', x: 'Cuando se rompe con un cierre claro, muchas veces el <strong>antiguo soporte pasa a ser resistencia</strong>.', q: { q: 'Un soporte roto con un cierre claro suele…', o: ['Convertirse en resistencia', 'Dejar de importar'], a: 0, why: 'Es el cambio de polaridad: quienes compraron ahí quieren salir "sin perder".' } },
+  { id: 'estructura', g: 'fund', mod: 'estructura', t: 'HH y HL', def: 'Tendencia alcista = máximos más altos (HH) y mínimos más altos (HL).', x: 'La estructura se lee en los <strong>swings</strong>, no en el color de las velas.', q: { q: 'Una tendencia alcista por estructura es…', o: ['Máximos y mínimos crecientes', 'Muchas velas verdes seguidas'], a: 0, why: 'La secuencia de swings define la tendencia.' } },
+  { id: 'choch', g: 'fund', mod: 'estructura', t: 'CHoCH: primer aviso', def: 'Change of character: romper el último mínimo creciente en una tendencia alcista.', x: 'Es la primera señal de que la estructura <strong>podría</strong> estar cambiando. El BOS, en cambio, rompe a favor de la tendencia.', q: { q: 'Romper el último HL en una tendencia alcista es…', o: ['Un CHoCH', 'Un BOS a favor'], a: 0, why: 'Rompe en contra de la tendencia: cambio de carácter.' } },
+  { id: 'trendline', g: 'fund', mod: 'trendlines', t: 'El tercer toque', def: 'Dos puntos definen una línea; el tercer toque la valida.', x: 'Cuantos más toques, más relevante… y más stops acumula debajo.', q: { q: '¿Cuántos toques validan una línea de tendencia?', o: ['Tres', 'Uno'], a: 0, why: 'Con dos siempre se puede trazar una línea; el tercero demuestra que el mercado la respeta.' } },
+  { id: 'fibo', g: 'fund', mod: 'fibo', t: 'Fibonacci: dónde retrocede', def: 'Los niveles miden el retroceso como proporción del impulso: 38,2 / 50 / 61,8 / 78,6%.', x: 'Por debajo del 50% estás en <strong>descuento</strong>; la zona 62–79% es la OTE de ICT.', q: { q: 'Un retroceso del 30% en un impulso alcista: comprar ahí es comprar en…', o: ['Premium', 'Descuento'], a: 0, why: 'Está por encima de la mitad del impulso: caro, con el stop lejos.' } },
+  { id: 'sesiones', g: 'fund', mod: 'sesiones', t: 'El solapamiento', def: 'Entre las 8:00 y las 12:00 de Nueva York están abiertas Londres y Nueva York a la vez.', x: 'Es la franja con más volumen y movimientos más limpios del día en forex.', q: { q: 'La mayor liquidez del día en forex suele estar en…', o: ['El solapamiento Londres–Nueva York', 'La mitad de la sesión de Asia'], a: 0, why: 'Coinciden los dos centros financieros más grandes.' } },
+  { id: 'volumen', g: 'fund', mod: 'volumen', t: 'Volumen que confirma', def: 'Una ruptura con volumen alto muestra participación real.', x: 'Si el precio rompe pero el volumen no acompaña, sospecha: puede ser un barrido.', q: { q: 'Una ruptura con volumen bajo es…', o: ['Sospechosa', 'Más fiable'], a: 0, why: 'Sin participación, la ruptura tiene menos "combustible".' } },
+  { id: 'emas', g: 'ind', mod: 'emas', t: 'EMA rápida y lenta', def: 'La EMA pondera más los precios recientes que la SMA.', x: 'La rápida cruza a la lenta cuando el impulso cambia; en rangos, esos cruces dan muchas señales falsas.', q: { q: 'La EMA reacciona antes que la SMA porque…', o: ['Pondera más los precios recientes', 'Usa más datos'], a: 0, why: 'El peso decrece exponencialmente hacia atrás.' } },
+  { id: 'rsi', g: 'ind', mod: 'rsi', t: 'RSI en sobrecompra', def: 'RSI > 70 indica que las subidas recientes dominan a las bajadas.', x: 'En una tendencia fuerte el RSI puede quedarse arriba mucho tiempo: <strong>no es una señal de venta</strong> por sí solo.', q: { q: 'RSI en 80 durante una tendencia fuerte significa…', o: ['Momentum fuerte, no venta automática', 'Hay que vender ya'], a: 0, why: 'Sobrecompra describe fuerza, no un techo.' } },
+  { id: 'divergencia', g: 'ind', mod: 'rsi', t: 'Divergencia bajista', def: 'El precio marca un máximo más alto y el RSI uno más bajo.', x: 'El impulso se debilita aunque el precio suba. Necesita confirmación (estructura) para operar.', q: { q: 'Precio HH y RSI LH es…', o: ['Divergencia bajista', 'Confirmación alcista'], a: 0, why: 'El oscilador no acompaña al nuevo máximo.' } },
+  { id: 'bollinger', g: 'ind', mod: 'volat', t: 'El squeeze', def: 'Bandas de Bollinger muy estrechas = volatilidad comprimida.', x: 'La compresión suele preceder a una expansión, pero <strong>no dice la dirección</strong>.', q: { q: 'Un squeeze anticipa…', o: ['Una expansión de volatilidad', 'Una subida'], a: 0, why: 'Indica que se viene movimiento, no hacia dónde.' } },
+  { id: 'atr', g: 'ind', mod: 'volat', t: 'Stop con ATR', def: 'El ATR mide el rango medio de las velas: la volatilidad "normal".', x: 'Un stop a 1,5–2 ATR queda fuera del ruido habitual. Si el ATR sube, el stop se aleja y el <strong>tamaño baja</strong>.', q: { q: 'Si el ATR se duplica y arriesgas los mismos $, tu tamaño…', o: ['Se reduce a la mitad', 'Se duplica'], a: 0, why: 'Stop el doble de lejos con el mismo riesgo = la mitad de tamaño.' } },
+  { id: 'barrido', g: 'smc', mod: 'liquidez', t: 'Barrido de máximos iguales', def: 'Sobre máximos iguales se acumulan stops (BSL).', x: 'El precio sube a tomarlos con una mecha y <strong>cierra de vuelta dentro</strong>: rechazo, no ruptura.', q: { q: 'Mecha por encima y cierre por debajo del máximo es…', o: ['Un barrido', 'Una ruptura aceptada'], a: 0, why: 'La clave es el cierre: el mercado rechazó esos precios.' } },
+  { id: 'fvg', g: 'smc', mod: 'liquidez', t: 'Fair value gap', def: 'Un hueco entre la mecha de la vela 1 y la de la vela 3, dejado por una vela 2 de desplazamiento.', x: 'El precio suele volver a "rellenarlo" parcialmente antes de continuar.', q: { q: 'Un FVG alcista es el hueco entre…', o: ['El máximo de la vela 1 y el mínimo de la vela 3', 'La apertura y el cierre de una vela'], a: 0, why: 'Es la zona que la vela 2 atravesó sin solaparse.' } },
+  { id: 'ob', g: 'smc', mod: 'smc', t: 'Order block', def: 'La última vela bajista antes de un desplazamiento alcista que rompe estructura.', x: 'Se espera que el precio vuelva a esa zona y reaccione (mitigación).', q: { q: 'Un order block alcista es…', o: ['La última vela bajista antes del desplazamiento alcista', 'Cualquier vela grande'], a: 0, why: 'Marca donde entraron las órdenes que generaron el impulso.' } },
+  { id: 'crt', g: 'smc', mod: 'crt', t: 'Modelo CRT', def: 'Vela 1 define el rango; vela 2 barre un extremo y cierra dentro; vela 3 expande hacia el otro.', x: 'Es el patrón de "manipulación y distribución" leído en tres velas de temporalidad alta.', q: { q: 'En la CRT, la vela 2 debe…', o: ['Barrer un extremo y cerrar dentro del rango', 'Cerrar fuera del rango'], a: 0, why: 'Si cierra fuera, es una ruptura, no una purga.' } },
+  { id: 'smt', g: 'smc', mod: 'smt', t: 'Divergencia SMT', def: 'Dos activos correlacionados no confirman el mismo extremo.', x: 'EUR/USD hace un mínimo más bajo y GBP/USD no: señal de fuerza oculta en el barrido.', q: { q: 'Un activo hace mínimo más bajo y su correlacionado no. Es…', o: ['SMT', 'Confirmación de tendencia'], a: 0, why: 'La falta de confirmación es la divergencia.' } },
+  { id: 'spread', g: 'ges', mod: 'ordenes', t: 'Bid, ask y spread', def: 'Compras al ask, vendes al bid. La diferencia es el spread.', x: 'Cada operación empieza perdiendo el spread: importa más cuanto más corto es tu objetivo.', q: { q: 'Cuando compras a mercado, pagas el…', o: ['Ask', 'Bid'], a: 0, why: 'El ask es el precio al que alguien está dispuesto a venderte.' } },
+  { id: 'rr', g: 'ges', mod: 'riesgo', t: 'Riesgo/beneficio 1:2', def: 'Arriesgas 1R para ganar 2R.', x: 'Con 1:2 te basta acertar <strong>un 33%</strong> para no perder dinero (sin contar costos).', q: { q: 'Con R:B 1:2, ¿qué acierto mínimo necesitas para empatar?', o: ['33%', '50%'], a: 0, why: '1 / (1 + 2) = 33%.' } },
+  { id: 'drawdown', g: 'ges', mod: 'riesgo', t: 'La asimetría del drawdown', def: 'Perder X% exige ganar X / (100 − X) para recuperarlo.', x: 'Un −50% exige un +100%. Por eso proteger el capital pesa más que maximizar ganancias.', q: { q: 'Perder el 50% de la cuenta exige ganar…', o: ['100%', '50%'], a: 0, why: 'La mitad que queda tiene que duplicarse.' } },
+  { id: 'sizing', g: 'ges', mod: 'riesgo', t: 'Tamaño de posición', def: 'Tamaño = riesgo en $ ÷ (distancia al stop × valor por unidad).', x: 'Primero decides cuánto arriesgar; el tamaño es la consecuencia, no al revés.', q: { q: 'Cuenta $10 000, riesgo 1%, stop de 50 pips a $10/pip por lote. ¿Tamaño?', o: ['0,2 lotes', '2 lotes'], a: 0, why: '$100 ÷ (50 × $10) = 0,2 lotes.' } }
+];
+const mc = { deck: 'dia', cards: [], i: 0, stars: 0, combo: 0, best: 0, res: [] };
+function mcDecks() {
+  const st = PROG.get().micro, wrong = (st.wrong || []).length;
+  const ds = [['dia', '📅 Mazo del día · 8'], ['fund', 'Fundamentos'], ['ind', 'Indicadores'], ['smc', 'Smart Money'], ['ges', 'Gestión'], ['todo', 'Todas · ' + MICRO.length]].concat(wrong ? [['fallos', '↺ Mis fallos · ' + wrong]] : []);
+  $('#mc-decks').innerHTML = ds.map(([k, t]) => `<button type="button" data-d="${k}" class="${k === mc.deck ? 'on' : ''}">${t}</button>`).join('');
+  $$('#mc-decks button').forEach(b => b.addEventListener('click', () => mcStart(b.dataset.d)));
+}
+function mcStart(deck) {
+  mc.deck = deck; const st = PROG.get().micro;
+  const day = new Date(), seed = day.getFullYear() * 1000 + day.getMonth() * 40 + day.getDate();
+  mc.cards = deck === 'dia' ? shuffle(MICRO, mulberry32(seed)).slice(0, 8) : deck === 'todo' ? shuffle(MICRO) : deck === 'fallos' ? shuffle(MICRO.filter(c => (st.wrong || []).includes(c.id))) : MICRO.filter(c => c.g === deck);
+  mc.i = 0; mc.stars = 0; mc.combo = 0; mc.best = 0; mc.res = [];
+  mcDecks(); mcShow();
+}
+function mcShow() {
+  const stage = $('#mc-stage'), c = mc.cards[mc.i]; if (!c) return mcEnd();
+  const segs = mc.cards.map((x, k) => `<span class="${k < mc.res.length ? (mc.res[k] ? 'ok' : 'ko') : k === mc.i ? 'cur' : ''}"></span>`).join('');
+  const ord = shuffle(c.q.o.map((_, k) => k));
+  stage.innerHTML = `<div class="mc-top"><div class="mc-segs">${segs}</div><span class="mc-combo">${mc.combo >= 2 ? '🔥 x' + mc.combo : ''}</span><span class="mc-stars">★ ${mc.stars}</span></div>
+    <div class="mc-card"><div class="kick">${GROUP_NAME[c.g]} · ${MOD_NAME[c.mod]}</div><h3>${c.t}</h3>
+    <div class="mc-viz"><div class="chart-host" id="mc-viz"></div></div>
+    <div class="mc-def">${c.def}</div><p>${c.x}</p>
+    <div class="mc-q"><p>${c.q.q}</p><div class="mc-opts">${ord.map(k => `<button type="button" data-k="${k}">${c.q.o[k]}</button>`).join('')}</div><div class="mc-why"></div></div>
+    <div class="mc-foot"><a href="#${c.mod}" class="rp-hint">Ver el módulo ${MOD_NAME[c.mod]} →</a><button class="btn primary" id="mc-next" disabled>${mc.i === mc.cards.length - 1 ? 'Terminar' : 'Continuar'}</button></div></div>`;
+  safe('mc-viz', () => MV[c.id]($('#mc-viz')));
+  $$('.mc-opts button', stage).forEach(b => b.addEventListener('click', () => mcAnswer(+b.dataset.k)));
+  $('#mc-next').addEventListener('click', () => { mc.i++; mcShow(); });
+}
+function mcAnswer(k) {
+  const c = mc.cards[mc.i]; if (mc.res.length > mc.i) return;
+  const ok = k === c.q.a; mc.res.push(ok);
+  if (ok) { mc.combo++; mc.best = Math.max(mc.best, mc.combo); mc.stars += mc.combo >= 3 ? 2 : 1; } else mc.combo = 0;
+  $$('.mc-opts button').forEach(b => { b.disabled = true; const kk = +b.dataset.k; if (kk === c.q.a) b.classList.add('right'); else if (kk === k) b.classList.add('wrong'); });
+  const w = $('.mc-why'); w.innerHTML = (ok ? '✔ ' : '✘ ') + c.q.why + (ok && mc.combo >= 3 ? ' <b>¡Combo! +2 ★</b>' : ''); w.style.display = 'block';
+  PROG.micro(s => { const set = new Set(s.wrong || []); ok ? set.delete(c.id) : set.add(c.id); s.wrong = [...set]; if (ok) s.stars = (s.stars || 0) + (mc.combo >= 3 ? 2 : 1); });
+  $('.mc-stars').textContent = '★ ' + mc.stars; $('.mc-combo').textContent = mc.combo >= 2 ? '🔥 x' + mc.combo : '';
+  $$('.mc-segs span')[mc.i].className = ok ? 'ok' : 'ko';
+  const nb = $('#mc-next'); nb.disabled = false; nb.focus();
+}
+function mcEnd() {
+  const ok = mc.res.filter(Boolean).length, n = mc.res.length;
+  PROG.micro(s => { s.decks = (s.decks || 0) + 1; });
+  const weak = {}; mc.cards.forEach((c, k) => { if (!mc.res[k]) weak[c.mod] = (weak[c.mod] || 0) + 1; });
+  const wk = Object.keys(weak).sort((a, b) => weak[b] - weak[a])[0];
+  $('#mc-stage').innerHTML = `<div class="mc-card mc-end"><div class="big">${ok === n ? '🏆' : ok >= n * 0.7 ? '⭐' : '💪'}</div><h3>${ok === n ? '¡Perfecto!' : ok >= n * 0.7 ? '¡Muy bien!' : 'Buen intento'}</h3>
+    <p>${ok} de ${n} correctas · mejor combo x${mc.best}</p>
+    <div class="readout"><div class="stat"><div class="k">Estrellas ganadas</div><div class="v">★ ${mc.stars}</div></div><div class="stat"><div class="k">Racha diaria</div><div class="v">🔥 ${PROG.streak()} d</div></div><div class="stat"><div class="k">Estrellas totales</div><div class="v">★ ${PROG.get().micro.stars}</div></div></div>
+    <div class="mc-foot" style="justify-content:center"><button class="btn primary" id="mc-again">Otro mazo</button>${wk ? `<a class="btn" href="#${wk}">Repasar ${MOD_NAME[wk]}</a>` : ''}</div></div>`;
+  $('#mc-again').addEventListener('click', () => mcStart(mc.deck === 'dia' ? 'todo' : mc.deck));
+}
+function initRepaso() {
+  mcStart('dia');
+  document.addEventListener('keydown', e => {
+    if (!$('#m-repaso').classList.contains('active') || e.ctrlKey || e.metaKey || e.altKey) return;
+    const tg = e.target; if (tg && (tg.tagName === 'INPUT' || tg.tagName === 'TEXTAREA')) return;
+    if (e.key === '1' || e.key === '2') { const b = $$('.mc-opts button')[+e.key - 1]; if (b && !b.disabled) { e.preventDefault(); b.click(); } }
+    else if (e.key === 'Enter' && $('#mc-next') && !$('#mc-next').disabled && document.activeElement !== $('#mc-next')) { e.preventDefault(); $('#mc-next').click(); }
+  });
+}
+/* =====================================================================
+   SHELL: barra lateral, migas, ficha del módulo, dock, sesión en vivo,
+   tema claro/oscuro y portada
+   ===================================================================== */
+GROUP_NAME.home = 'Inicio';
+const GROUP_META = {
+  fund: { lvl: 'Básico', col: ['#2f6fd6', '#1fa38a'], d: 'Mercados, velas, soportes, estructura, líneas de tendencia, Fibonacci, sesiones y volumen: aprender a leer un gráfico.' },
+  ind: { lvl: 'Intermedio', col: ['#7c5cf0', '#2f6fd6'], d: 'Medias móviles, RSI, estocástico, MACD, ATR y Bollinger: qué mide cada indicador y cuándo engaña.' },
+  smc: { lvl: 'Avanzado', col: ['#d18a00', '#e5484d'], d: 'Liquidez, order blocks, FVG, CRT y SMT: cómo se mueve el precio entre zonas de stops.' },
+  ges: { lvl: 'Esencial', col: ['#089981', '#2f6fd6'], d: 'Órdenes, costos, apalancamiento, expectativa y drawdown: lo que decide si sobrevives.' },
+  prac: { lvl: 'Aplicado', col: ['#e5484d', '#7c5cf0'], d: 'Escenario completo, repaso rápido, simulador vela a vela y examen final.' }
+};
+const ACADEMY = ['fund', 'ind', 'smc', 'ges', 'prac'];
+let MODINFO = {}, curMod = null, curLesson = null;
+const groupOf = m => { const a = $(`.tabs .mods a[data-mod="${m}"]`); return a ? a.dataset.group : null; };
+const numOf = m => { const a = $(`.tabs .mods a[data-mod="${m}"] .num`); return a ? a.textContent : ''; };
+
+function buildModInfo() {
+  MODINFO = {};
+  MODS.forEach(m => {
+    const sec = document.getElementById('m-' + m); if (!sec) return;
+    const lessons = m === 'examen' ? [] : $$('article.lesson[id]', sec).map(a => {
+      const h = a.querySelector('h3');
+      return { id: a.id, t: h ? h.textContent.replace(/^\s*[\d.]+\s*/, '').trim() : a.id };
+    });
+    const qn = QUIZ_BANK.filter(q => q.mod === m).length;
+    const words = $$('.prose, .lead, .callout, .step-box', sec).reduce((s, e) => s + e.textContent.split(/\s+/).length, 0);
+    MODINFO[m] = { lessons, qn, hasQuiz: qn > 0, quizId: qn ? m + '-quiz' : null, min: Math.max(2, Math.round(words / 190 + lessons.length * 1.5)), charts: $$('.chart-host', sec).length, g: groupOf(m), num: numOf(m) };
+  });
+}
+function modProg(m) {
+  const I = MODINFO[m], st = PROG.get(); if (!I) return { p: 0, done: 0, steps: 0 };
+  if (m === 'examen') return { p: st.exam ? 1 : 0, done: st.exam ? 1 : 0, steps: 1 };
+  if (m === 'repaso') { const d = Math.min(3, st.micro.decks || 0); return { p: d / 3, done: d, steps: 3 }; }
+  if (m === 'replay') { const n = rpLoadHist().length, d = I.lessons.filter(l => st.lessons[l.id]).length + (n ? 1 : 0); return { p: d / (I.lessons.length + 1), done: d, steps: I.lessons.length + 1 }; }
+  const read = I.lessons.filter(l => st.lessons[l.id]).length, q = st.quiz[m], qok = !!(q && q.best >= 0.8);
+  const steps = I.lessons.length + (I.hasQuiz ? 1 : 0), done = read + (qok ? 1 : 0);
+  return { p: steps ? done / steps : (st.visited[m] ? 1 : 0), done, steps, read, qok, q };
+}
+const academyMods = () => MODS.filter(m => ACADEMY.includes(groupOf(m)) && m !== 'glosario');
+function suggestNext() { return academyMods().find(m => modProg(m).p < 1) || 'examen'; }
+function lastVisited() {
+  const v = PROG.get().visited; let best = null;
+  academyMods().forEach(m => { if (v[m] && (!best || v[m] > v[best])) best = m; });
+  return best && modProg(best).p < 1 ? best : suggestNext();
+}
+
+/* ---------- barra lateral ---------- */
+const openGroups = new Set();
+function renderSide() {
+  const nav = $('#side-nav'); if (!nav) return;
+  const st = PROG.get();
+  let h = `<a class="side-link${curMod === 'inicio' ? ' on' : ''}" href="#inicio"><span class="ic">⌂</span>Inicio</a>` +
+    `<a class="side-link${curMod === 'repaso' ? ' on' : ''}" href="#repaso"><span class="ic">⚡</span>Repaso rápido<span class="badge">★ ${st.micro.stars || 0}</span></a>` +
+    `<a class="side-link${curMod === 'replay' ? ' on' : ''}" href="#replay"><span class="ic">▶</span>Simulador</a>` +
+    `<a class="side-link${curMod === 'glosario' ? ' on' : ''}" href="#glosario"><span class="ic">Aa</span>Glosario</a>` +
+    '<div class="side-label">Academia</div>';
+  ACADEMY.forEach(g => {
+    const mods = MODS.filter(m => groupOf(m) === g && m !== 'glosario'), done = mods.filter(m => modProg(m).p >= 1).length;
+    h += `<div class="sg${openGroups.has(g) ? ' open' : ''}" data-g="${g}"><button class="sg-head" type="button"><span class="chev">▶</span>${GROUP_NAME[g]}<span class="cnt">${done}/${mods.length}</span></button><div class="sg-body">`;
+    mods.forEach(m => {
+      const P = modProg(m), on = m === curMod;
+      h += `<a class="sm${on ? ' on' : ''}" href="#${m}"><span class="st${P.p >= 1 ? ' done' : ''}" style="--p:${Math.round(P.p * 100)}"></span><span>${MOD_NAME[m]}</span><span class="no">${MODINFO[m] ? MODINFO[m].num : ''}</span></a>`;
+      if (on && MODINFO[m] && (MODINFO[m].lessons.length || MODINFO[m].hasQuiz)) {
+        h += '<div class="sl">' + MODINFO[m].lessons.map(l => `<a href="#${l.id}" data-l="${l.id}" class="${l.id === curLesson ? 'cur' : ''}"><span class="lst${st.lessons[l.id] ? ' read' : ''}"></span>${l.t}</a>`).join('') +
+          (MODINFO[m].hasQuiz ? `<a href="#${MODINFO[m].quizId}" data-l="${MODINFO[m].quizId}" class="${MODINFO[m].quizId === curLesson ? 'cur' : ''}"><span class="lst${P.qok ? ' read' : ''}"></span>Práctica · ${MODINFO[m].qn} preguntas</a>` : '') + '</div>';
+      }
+    });
+    h += '</div></div>';
+  });
+  nav.innerHTML = h;
+  $$('.sg-head', nav).forEach(b => b.addEventListener('click', () => { const g = b.parentElement.dataset.g; openGroups.has(g) ? openGroups.delete(g) : openGroups.add(g); b.parentElement.classList.toggle('open'); }));
+  const s = PROG.streak(), sk = $('#streak');
+  sk.className = 'streak' + (s ? '' : ' off'); sk.textContent = `🔥 ${s} día${s === 1 ? '' : 's'} de racha`;
+}
+
+/* ---------- migas, ficha y dock ---------- */
+function renderCrumbs() {
+  const c = $('#crumbs'); if (!c) return;
+  if (curMod === 'inicio') { c.innerHTML = '<b>Inicio</b>'; return; }
+  const g = groupOf(curMod);
+  c.innerHTML = `<a href="#inicio">Inicio</a><span class="sep s1">/</span>` + (ACADEMY.includes(g) ? `<a class="c-grp" href="#${MODS.find(m => groupOf(m) === g)}">${GROUP_NAME[g]}</a><span class="sep">/</span>` : '') + `<b>${MOD_NAME[curMod]}</b>`;
+}
+function keyTerms(m) {
+  const sec = document.getElementById('m-' + m); if (!sec) return [];
+  const txt = norm(sec.textContent), out = [];
+  GLOSS.forEach(([t]) => {
+    const k = norm(t.split(/ \(| \/ |, /)[0]).trim();
+    if (k.length < 3) return;
+    const re = new RegExp('(^|[^a-z0-9])' + k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[^a-z0-9])');
+    if (re.test(txt)) out.push(t);
+  });
+  return out.slice(0, 12);
+}
+const termCache = {};
+function nextStep(m) {
+  const I = MODINFO[m], st = PROG.get();
+  if (I && I.lessons.length) { const l = I.lessons.find(x => !st.lessons[x.id]); if (l) return { href: '#' + l.id, t: l.t, k: 'Siguiente lección' }; }
+  if (I && I.hasQuiz && !modProg(m).qok) return { href: '#' + I.quizId, t: 'Práctica de ' + MOD_NAME[m], k: 'Falta la práctica' };
+  const i = MODS.indexOf(m), nx = MODS.slice(i + 1).find(x => x !== 'glosario') || 'examen';
+  return { href: '#' + nx, t: MOD_NAME[nx], k: 'Siguiente módulo' };
+}
+function renderRail() {
+  const rail = $('#rail'), lay = $('#layout'); if (!rail) return;
+  const m = curMod, I = MODINFO[m];
+  const none = !I || m === 'inicio' || m === 'glosario' || m === 'examen' || m === 'repaso';
+  lay.classList.toggle('no-rail', none);
+  if (none) { rail.innerHTML = ''; return; }
+  const P = modProg(m), st = PROG.get(), q = st.quiz[m], g = groupOf(m);
+  const lessonSegs = I.lessons.map(l => `<span class="${st.lessons[l.id] ? 'read' : l.id === curLesson ? 'cur' : ''}" title="${l.t}"></span>`).join('') + (I.hasQuiz ? `<span class="qz${P.qok ? ' ok' : ''}" title="Práctica"></span>` : '');
+  const terms = termCache[m] || (termCache[m] = keyTerms(m)), nx = nextStep(m);
+  rail.innerHTML = `
+    <div class="rail-card"><div class="rc-title">Detalles del módulo</div><dl class="kv">
+      <dt>Módulo</dt><dd>${I.num}</dd><dt>Curso</dt><dd>${GROUP_NAME[g] || '—'}</dd><dt>Nivel</dt><dd>${(GROUP_META[g] || {}).lvl || '—'}</dd>
+      <dt>Lecciones</dt><dd>${I.lessons.length}</dd><dt>Lectura</dt><dd>~${I.min} min</dd><dt>Gráficos interactivos</dt><dd>${I.charts}</dd>${I.hasQuiz ? `<dt>Preguntas</dt><dd>${I.qn}</dd>` : ''}</dl></div>
+    <div class="rail-card"><div class="rc-title">Tu progreso<span class="more">${Math.round(P.p * 100)}%</span></div>
+      <div class="consensus">${lessonSegs}</div>
+      <div class="cons-legend"><span><b>${P.read != null ? P.read : P.done}</b> de ${I.lessons.length} leídas</span><span>Quiz: <b>${q ? Math.round(q.best * 100) + '%' : '—'}</b></span></div></div>
+    <a class="rail-card rail-next" href="${nx.href}"><small>${nx.k}</small><b>${nx.t} →</b></a>
+    ${terms.length ? `<div class="rail-card"><div class="rc-title">Términos clave<a class="more" href="#glosario">Glosario</a></div><div class="tags">${terms.map(t => `<button type="button" data-t="${t.replace(/"/g, '&quot;')}">${t}</button>`).join('')}</div></div>` : ''}`;
+  $$('.tags button', rail).forEach(b => b.addEventListener('click', () => { location.hash = 'glosario'; const qi = $('#gloss-q'); qi.value = b.dataset.t.split(/ \(| \/ /)[0]; renderGloss(); }));
+  const f = document.querySelector(`#m-${m} .facts`);
+  if (f) f.innerHTML = `<span>Nivel<b>${(GROUP_META[g] || {}).lvl || '—'}</b></span><span>Lecciones<b>${I.lessons.length}</b></span><span>Lectura<b>~${I.min} min</b></span><span>Gráficos<b>${I.charts}</b></span><span>Progreso<b>${Math.round(P.p * 100)}%</b></span>`;
+}
+function renderDock() {
+  const d = $('#dock'); if (!d) return;
+  let p, lbl, nx;
+  if (curMod === 'inicio' || !MODINFO[curMod] || curMod === 'glosario') {
+    const am = academyMods(), tot = am.reduce((s, m) => s + modProg(m).p, 0) / am.length, c = lastVisited();
+    p = tot; lbl = `<b>${Math.round(tot * 100)}%</b> <span>de la academia</span>`; nx = { href: '#' + c, t: MOD_NAME[c], k: 'Continuar' };
+  } else {
+    const P = modProg(curMod); p = P.p; lbl = `<b>${P.done}/${P.steps}</b> <span>pasos</span>`; nx = nextStep(curMod);
+  }
+  $('.dock-bar div', d).style.width = (p * 100).toFixed(1) + '%';
+  $('.dock-prog', d).innerHTML = `<span class="ring" style="--p:${Math.round(p * 100)}"></span>${lbl}`;
+  const b = $('#dock-next'); b.href = nx.href; b.innerHTML = `<small>${nx.k}:</small> ${nx.t.length > 26 ? nx.t.slice(0, 25) + '…' : nx.t} →`;
+}
+
+/* ---------- cabecera de cada módulo (estilo ficha) ---------- */
+function decorateHeads() {
+  $$('.module').forEach(sec => {
+    const m = sec.dataset.mod, head = $(':scope > .mod-head', sec); if (!head || m === 'inicio') return;
+    const g = groupOf(m), meta = GROUP_META[g], k = $('.kicker', head), h2 = $('h2', head);
+    if (k) k.innerHTML = (ACADEMY.includes(g) ? `<span class="gchip">${GROUP_NAME[g]}</span>` : '') + (MODINFO[m] && /^\d+$/.test(MODINFO[m].num) ? `Módulo ${MODINFO[m].num}` : 'Referencia');
+    if (h2 && !h2.parentElement.classList.contains('mod-title')) {
+      const wrap = document.createElement('div'); wrap.className = 'mod-title';
+      const ic = document.createElement('div'); ic.className = 'mod-icon';
+      const c = meta ? meta.col : ['#5b6474', '#3d4452'];
+      ic.style.background = `linear-gradient(135deg,${c[0]},${c[1]})`; ic.textContent = MODINFO[m] && /^\d+$/.test(MODINFO[m].num) ? MODINFO[m].num : 'Aa';
+      h2.replaceWith(wrap); wrap.append(ic, h2);
+    }
+    if (!$('.facts', head)) { const f = document.createElement('div'); f.className = 'facts'; const lead = $('.lead', head); (lead || head).after(f); }
+    const toc = $('nav.toc', head);
+    if (toc) { toc.classList.add('tabs-row'); head.after(toc); }
+    $$('article.lesson[id]', sec).forEach(a => { if (!$(':scope > .rd-sentinel', a)) { const s = document.createElement('div'); s.className = 'rd-sentinel'; s.dataset.l = a.id; a.appendChild(s); } });
+  });
+}
+/* lecciones leídas: cuando se ve el final del artículo */
+function watchReading() {
+  if (!('IntersectionObserver' in window)) return;
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting && e.target.offsetParent) PROG.lesson(e.target.dataset.l); }), { rootMargin: '0px 0px -12% 0px' });
+  $$('.rd-sentinel').forEach(s => io.observe(s));
+}
+/* pestaña y lección activas según el scroll */
+let spyRaf = 0;
+function scrollSpy() {
+  spyRaf = 0;
+  const sec = document.getElementById('m-' + curMod); if (!sec) return;
+  const items = $$('article.lesson[id], .quiz[id]', sec); let cur = null;
+  items.forEach(a => { if (a.getBoundingClientRect().top < 150) cur = a.id; });
+  if (!cur && items.length && window.scrollY > 200) cur = items[0].id;
+  if (cur === curLesson) return;
+  curLesson = cur;
+  $$('nav.toc.tabs-row a', sec).forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + cur));
+  const on = $(`nav.toc.tabs-row a[href="#${cur}"]`, sec);
+  if (on) { const row = on.parentElement; row.scrollTo({ left: on.offsetLeft - row.clientWidth / 2 + on.offsetWidth / 2, behavior: 'smooth' }); }
+  $$('#side-nav .sl a').forEach(a => a.classList.toggle('cur', a.dataset.l === cur));
+  $$('#rail .consensus span').forEach((s, i) => { const l = MODINFO[curMod] && MODINFO[curMod].lessons[i]; if (l && !s.classList.contains('read')) s.classList.toggle('cur', l.id === cur); });
+}
+window.addEventListener('scroll', () => { if (!spyRaf) spyRaf = requestAnimationFrame(scrollSpy); }, { passive: true });
+
+/* ---------- sesión en vivo (chip) ---------- */
+function sessInfo(now) {
+  const nyW = wall('America/New_York', now), dow = new Date(Date.UTC(nyW.y, nyW.mo - 1, nyW.d)).getUTCDay();
+  const weekend = dow === 6 || (dow === 5 && nyW.h >= 17) || (dow === 0 && nyW.h < 17);
+  if (weekend) {
+    const add = dow === 5 ? 2 : dow === 6 ? 1 : 0, dd = new Date(Date.UTC(nyW.y, nyW.mo - 1, nyW.d + add));
+    return { closed: true, label: 'Mercado cerrado', next: { t: zonedToUtc('America/New_York', dd.getUTCFullYear(), dd.getUTCMonth() + 1, dd.getUTCDate(), 17, 0), l: 'abre' } };
+  }
+  const open = [], ev = [];
+  SESS.forEach(s => {
+    const w = wall(s.tz, now);
+    for (let k = -1; k <= 4; k++) {
+      const dd = new Date(Date.UTC(w.y, w.mo - 1, w.d + k)), wd = dd.getUTCDay(); if (wd === 0 || wd === 6) continue;
+      const Y = dd.getUTCFullYear(), M = dd.getUTCMonth() + 1, D = dd.getUTCDate();
+      const o = zonedToUtc(s.tz, Y, M, D, s.o, 0), c = zonedToUtc(s.tz, Y, M, D, s.c, 0);
+      if (now >= o && now < c && !open.includes(s.n)) open.push(s.n);
+      if (o > now) ev.push({ t: o, l: 'abre ' + s.n }); if (c > now) ev.push({ t: c, l: 'cierra ' + s.n });
+    }
+  });
+  ev.sort((a, b) => a.t - b.t);
+  const h = nyW.h + nyW.mi / 60, kz = KZ.find(([, a, b]) => h >= a && h < b);
+  return { closed: false, label: open.length ? open.join(' + ') : 'Entre sesiones', open, next: ev[0], kz: kz ? kz[0] : null };
+}
+const fmtDur = ms => { const s = Math.max(0, Math.round(ms / 1000)), h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), x = s % 60; return (h ? h + ':' + String(m).padStart(2, '0') : m) + ':' + String(x).padStart(2, '0'); };
+function tickSession() {
+  const now = Date.now(), S = sessInfo(now), html = `<span class="dot"></span><span class="sn">${S.label}${S.kz ? ' · KZ ' + S.kz : ''}</span>` + (S.next ? `<span class="cd">${S.next.l} en ${fmtDur(S.next.t - now)}</span>` : '');
+  $$('.sess-live').forEach(c => { c.classList.toggle('closed', S.closed || !S.open.length); c.innerHTML = html; c.title = 'Sesión de mercado en este momento (forex). Clic para ver el reloj de sesiones.'; });
+}
+
+/* ---------- tema ---------- */
+const themeNow = () => document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+function paintThemeBtns() { const t = themeNow(); $$('.js-theme').forEach(b => { b.innerHTML = t === 'light' ? '☾<span class="lbl-hide"> Oscuro</span>' : '☀<span class="lbl-hide"> Claro</span>'; b.setAttribute('aria-label', t === 'light' ? 'Cambiar a tema oscuro' : 'Cambiar a tema claro'); }); }
+function setTheme(t) {
+  document.documentElement.dataset.theme = t;
+  try { localStorage.setItem('lt.theme', t); } catch (e) { /* sin almacenamiento */ }
+  const mt = $('meta[name="theme-color"]'); if (mt) mt.content = t === 'light' ? '#f5f6f7' : '#0b0e14';
+  paintThemeBtns(); rerenderAll(); renderHome();
+  if ($('#mc-viz') && mc.cards[mc.i]) safe('mc-viz', () => MV[mc.cards[mc.i].id]($('#mc-viz')));
+}
+
+/* ---------- portada ---------- */
+function artSVG(g, seed) {
+  const c = (GROUP_META[g] || GROUP_META.prac).col, r = mulberry32(seed || 3), id = 'ga' + g + (seed || 0);
+  let s = `<svg viewBox="0 0 300 120" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c[0]}"/><stop offset="1" stop-color="${c[1]}"/></linearGradient></defs><rect width="300" height="120" fill="url(#${id})"/>`;
+  s += '<g opacity=".18" stroke="#fff">' + [30, 60, 90].map(y => `<line x1="0" x2="300" y1="${y}" y2="${y}"/>`).join('') + '</g>';
+  if (g === 'fund' || g === 'prac') {
+    let p = 70; for (let i = 0; i < 16; i++) { const o = p, cl = p + (r() - 0.45) * 22, hi = Math.min(o, cl) - r() * 10, lo = Math.max(o, cl) + r() * 10, x = 22 + i * 17, up = cl < o; s += `<line x1="${x}" x2="${x}" y1="${hi}" y2="${lo}" stroke="#fff" stroke-width="1.5" opacity=".85"/><rect x="${x - 5}" y="${Math.min(o, cl)}" width="10" height="${Math.max(2, Math.abs(cl - o))}" rx="1.5" fill="${up ? '#fff' : 'none'}" stroke="#fff" stroke-width="1.5"/>`; p = Math.max(25, Math.min(95, cl)); }
+    if (g === 'prac') s += '<circle cx="250" cy="60" r="26" fill="rgba(255,255,255,.22)"/><path d="M242 46 L264 60 L242 74 Z" fill="#fff"/>';
+  } else if (g === 'ind') {
+    let d = 'M0 70', d2 = 'M0 100'; for (let x = 0; x <= 300; x += 10) { d += ` L${x} ${55 + Math.sin(x / 28) * 18 + Math.sin(x / 9) * 5}`; d2 += ` L${x} ${100 + Math.sin(x / 28 + 1) * 10}`; }
+    s += `<path d="${d}" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><path d="${d2}" fill="none" stroke="#fff" stroke-width="2" opacity=".7"/><line x1="0" x2="300" y1="92" y2="92" stroke="#fff" stroke-dasharray="4 4" opacity=".6"/>`;
+  } else if (g === 'smc') {
+    s += '<line x1="20" x2="280" y1="38" y2="38" stroke="#fff" stroke-width="2" stroke-dasharray="6 5"/><rect x="150" y="62" width="110" height="22" fill="rgba(255,255,255,.25)" stroke="#fff"/>';
+    s += '<path d="M20 90 L60 52 L90 70 L130 40 L150 30 L165 70 L200 95 L240 60 L280 20" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>';
+    for (let i = 0; i < 6; i++) s += `<path d="M${40 + i * 16} 32 l5 -7 l5 7z" fill="#fff" opacity=".8"/>`;
+  } else {
+    let d = 'M10 95'; let v = 95; for (let x = 10; x <= 290; x += 14) { v = Math.max(18, Math.min(105, v - 4 + (r() - 0.5) * 16)); d += ` L${x} ${v}`; }
+    s += `<path d="${d} L290 120 L10 120 Z" fill="rgba(255,255,255,.18)"/><path d="${d}" fill="none" stroke="#fff" stroke-width="3" stroke-linejoin="round"/>`;
+    s += '<path d="M245 22 l20 7 v14 c0 12 -9 20 -20 24 c-11 -4 -20 -12 -20 -24 v-14z" fill="rgba(255,255,255,.3)" stroke="#fff" stroke-width="2"/>';
+  }
+  return s + '</svg>';
+}
+function renderHome() {
+  const sec = $('#m-inicio'); if (!sec || !MODINFO.mercados) return;
+  const st = PROG.get(), am = academyMods(), tot = am.reduce((s, m) => s + modProg(m).p, 0) / am.length;
+  const c = lastVisited(), cp = modProg(c), nx = nextStep(c), g = groupOf(c);
+  $('#home-cont').innerHTML = `<div class="art">${artSVG(g, 5)}</div><small>${st.visited[c] ? 'Continúa donde lo dejaste' : 'Empieza por aquí'} · ${GROUP_NAME[g] || ''}</small><b>${MOD_NAME[c]}</b>` +
+    `<div class="bar"><div style="width:${Math.round(cp.p * 100)}%"></div></div><small>${Math.round(cp.p * 100)}% completado · ${nx.k}: ${nx.t}</small><a class="btn primary" href="${st.visited[c] ? nx.href : '#' + c}">▶ ${st.visited[c] ? 'Continuar' : 'Empezar'}</a>`;
+  const lessonsRead = Object.keys(st.lessons).length, lessonsTot = am.reduce((s, m) => s + MODINFO[m].lessons.length, 0);
+  const qmods = am.filter(m => MODINFO[m].hasQuiz), qok = qmods.filter(m => modProg(m).qok).length;
+  $('#home-stats').innerHTML = [['Academia', Math.round(tot * 100) + '%'], ['Lecciones leídas', `${lessonsRead}/${lessonsTot}`], ['Quizzes aprobados', `${qok}/${qmods.length}`], ['Racha', '🔥 ' + PROG.streak() + ' d'], ['Estrellas', '★ ' + (st.micro.stars || 0)], ['Examen', st.exam ? Math.round(st.exam.pct * 100) + '%' : '—']]
+    .map(([k, v]) => `<div><small>${k}</small><b>${v}</b></div>`).join('');
+  $('#home-courses').innerHTML = ACADEMY.map((gg, i) => {
+    const mods = MODS.filter(m => groupOf(m) === gg && m !== 'glosario'), p = mods.reduce((s, m) => s + modProg(m).p, 0) / mods.length, first = mods.find(m => modProg(m).p < 1) || mods[0];
+    return `<a class="course" href="#${first}"><div class="art">${artSVG(gg, i + 11)}<span class="lvl">${GROUP_META[gg].lvl}</span></div><div class="body"><b>${GROUP_NAME[gg]}</b><p>${GROUP_META[gg].d}</p>` +
+      `<div class="bar"><div style="width:${Math.round(p * 100)}%"></div></div><div class="meta"><span>${mods.length} módulos · ${mods.reduce((s, m) => s + MODINFO[m].lessons.length, 0)} lecciones</span><span>${Math.round(p * 100)}%</span></div></div></a>`;
+  }).join('');
+  const sug = suggestNext(); let k = 0;
+  $('#home-path').innerHTML = ACADEMY.map(gg => {
+    const mods = MODS.filter(m => groupOf(m) === gg && m !== 'glosario'), dn = mods.filter(m => modProg(m).p >= 1).length;
+    return `<div class="path-sec"><span>${GROUP_NAME[gg]}<small>${dn}/${mods.length}</small></span></div>` + mods.map(m => {
+      const P = modProg(m), off = Math.round(Math.sin(k++ * 0.9) * 110), cls = P.p >= 1 ? 'done' : m === sug ? 'next' : '';
+      return `<a class="pnode ${cls}${off < 0 ? ' left' : ''}" href="#${m}" style="transform:translateX(${off}px)"><span class="disc" style="--p:${Math.round(P.p * 100)}"><i>${P.p >= 1 ? '✓' : MODINFO[m].num}</i></span><span class="lab"><b>${MOD_NAME[m]}</b>${P.steps ? `${P.done}/${P.steps} pasos` : ''}</span>${m === sug ? '<span class="pop">Empieza aquí</span>' : ''}</a>`;
+    }).join('');
+  }).join('');
+  const hist = rpLoadHist();
+  $('#home-quick').innerHTML = [
+    ['#repaso', '⚡', 'Repaso rápido', `Tarjetas de 1 minuto · ★ ${st.micro.stars || 0} estrellas`],
+    ['#replay', '▶', 'Simulador', hist.length ? `${hist.length} sesiones · última ${hist[0].exp >= 0 ? '+' : ''}${hist[0].exp.toFixed(2)}R` : 'Opera un mercado vela a vela'],
+    ['#examen', '✎', 'Examen final', st.exam ? `Mejor nota ${Math.round(st.exam.pct * 100)}%` : `${QUIZ_BANK.length} preguntas de todos los módulos`],
+    ['#ses-reloj', '◷', 'Sesiones en vivo', '<span class="sess-live sess-chip" style="margin-top:4px"></span>']
+  ].map(([h, ic, t, s]) => `<a class="qcard" href="${h}"><span class="ic">${ic}</span><b>${t}</b><small>${s}</small></a>`).join('');
+  tickSession();
+}
+
+/* ---------- pintar todo ---------- */
+function shellPaint() { if (!MODINFO.mercados) return; renderSide(); renderRail(); renderDock(); if (curMod === 'inicio') renderHome(); }
+function shellRoute(mod) {
+  curMod = mod; curLesson = null;
+  const g = groupOf(mod); if (ACADEMY.includes(g)) { openGroups.clear(); openGroups.add(g); }
+  renderCrumbs(); PROG.paint();
+  $('#app').classList.remove('nav-open');
+  requestAnimationFrame(scrollSpy);
+}
+function initShell() {
+  buildModInfo(); decorateHeads(); watchReading();
+  $('#hamb').addEventListener('click', () => $('#app').classList.toggle('nav-open'));
+  $('#scrim').addEventListener('click', () => $('#app').classList.remove('nav-open'));
+  $('#top-search').addEventListener('click', paletteOpen);
+  $('#dock-ask').addEventListener('click', paletteOpen);
+  $$('.js-theme').forEach(b => b.addEventListener('click', () => setTheme(themeNow() === 'light' ? 'dark' : 'light')));
+  paintThemeBtns();
+  tickSession(); setInterval(tickSession, 1000);
+}
+/* =====================================================================
    NAVEGACIÓN E INICIO
    ===================================================================== */
 const MODS = $$('.tabs .mods a').map(a => a.dataset.mod);
@@ -6943,6 +7957,7 @@ function route() {
   $$('.tabs .mods a').forEach(a => a.classList.toggle('active', a.dataset.mod === mod));
   showGroup($(`.tabs .mods a[data-mod="${mod}"]`).dataset.group);
   PROG.visit(mod);
+  if (typeof shellRoute === 'function' && MODINFO.mercados) shellRoute(mod);
   const tabA = $('.tabs .mods a[data-mod="' + mod + '"]'), row = tabA.parentElement;
   row.scrollTo({ left: tabA.offsetLeft - row.offsetLeft - (row.clientWidth - tabA.offsetWidth) / 2, behavior: 'smooth' });
   document.title = MOD_NAME[mod] + ' · Laboratorio de Trading';
@@ -6969,9 +7984,9 @@ function rerenderAll() { refreshColors(); FIGS.forEach(f => safe('render', f)); 
 $('#pref-hollow').addEventListener('change', e => { document.body.classList.toggle('hollow', e.target.checked); rerenderAll(); });
 [['mercados', 'initMercados'], ['velas', 'initVelas'], ['patrones', 'initPatrones'], ['sr', 'initSR'], ['estructura', 'initEstructura'], ['trendlines', 'initTrendlines'], ['fibo', 'initFibo'], ['sesiones', 'initSesiones'], ['volumen', 'initVolumen'],
  ['emas', 'initEMAs'], ['rsi', 'initRSI'], ['estocastico', 'initEstocastico'], ['momentum', 'initMomentum'], ['volat', 'initVolat'],
- ['liquidez', 'initLiq'], ['smc', 'initSMC'], ['crt', 'initCRT'], ['smt', 'initSMT'], ['ordenes', 'initOrdenes'], ['riesgo', 'initRiesgo'], ['todo', 'initTodo'], ['glosario', 'initGlosario'], ['replay', 'initReplay'], ['examen', 'initExamen'], ['buscador', 'initSearch']]
+ ['liquidez', 'initLiq'], ['smc', 'initSMC'], ['crt', 'initCRT'], ['smt', 'initSMT'], ['ordenes', 'initOrdenes'], ['riesgo', 'initRiesgo'], ['todo', 'initTodo'], ['glosario', 'initGlosario'], ['replay', 'initReplay'], ['examen', 'initExamen'], ['buscador', 'initSearch'], ['repaso', 'initRepaso'], ['shell', 'initShell']]
   .forEach(([name, fn]) => { if (typeof window[fn] === 'function') safe(name, window[fn]); });
-$('#n-mods').textContent = MODS.filter(m => m !== 'glosario').length;
+$('#n-mods').textContent = MODS.filter(m => m !== 'glosario' && m !== 'inicio').length;
 route();
 PROG.paint();
 </script>
