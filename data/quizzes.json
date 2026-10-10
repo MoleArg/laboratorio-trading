@@ -1,0 +1,1133 @@
+{
+ "velas": {
+  "title": "Práctica: velas",
+  "qs": [
+   {
+    "q": "Una vela abre en 100, sube hasta 108, baja hasta 97 y cierra en 99. ¿Cómo es?",
+    "o": [
+     "Alcista con mecha inferior larga",
+     "Bajista con mecha superior larga",
+     "Alcista sin mechas"
+    ],
+    "a": 1,
+    "why": "Cierra (99) por debajo de la apertura (100): bajista. Llegó a 108 y lo devolvió: mecha superior larga (rechazo de precios altos)."
+   },
+   {
+    "q": "¿Qué representa una mecha?",
+    "o": [
+     "Precios que se aceptaron y donde cerró la vela",
+     "Precios que se visitaron pero se rechazaron",
+     "El volumen negociado"
+    ],
+    "a": 1,
+    "why": "La mecha es territorio visitado y abandonado; el cuerpo es lo que se aceptó."
+   },
+   {
+    "q": "Una vela de 4H se forma con 4 velas de 1H. Su máximo es…",
+    "o": [
+     "El máximo de la primera vela de 1H",
+     "El mayor de los 4 máximos de 1H",
+     "El cierre de la última vela"
+    ],
+    "a": 1,
+    "why": "Máximo y mínimo de la vela grande son los extremos de todas sus velas pequeñas; apertura de la primera y cierre de la última."
+   },
+   {
+    "q": "Un martillo aparece en mitad de un rango, lejos de cualquier máximo o mínimo importante. ¿Qué valor tiene?",
+    "o": [
+     "Señal de compra fuerte siempre",
+     "Poco: la forma importa menos que el lugar donde aparece",
+     "Indica que el precio caerá"
+    ],
+    "a": 1,
+    "why": "El contexto manda. Una mecha que rechaza un nivel relevante (con liquidez) dice mucho más."
+   }
+  ]
+ },
+ "rsi": {
+  "title": "Práctica: RSI",
+  "qs": [
+   {
+    "q": "Si la ganancia media es igual a la pérdida media, el RSI vale…",
+    "o": [
+     "0",
+     "50",
+     "70",
+     "100"
+    ],
+    "a": 1,
+    "why": "RSI = 100 × GM / (GM + PM) = 100 × 1/2 = 50."
+   },
+   {
+    "q": "En una tendencia alcista fuerte, el RSI lleva 10 velas por encima de 70. ¿Qué significa?",
+    "o": [
+     "Hay que vender ya",
+     "El impulso alcista es fuerte; la sobrecompra puede durar",
+     "El precio caerá con seguridad"
+    ],
+    "a": 1,
+    "why": "Sobrecompra describe fuerza. En tendencia, el RSI puede quedarse en la zona alta mucho tiempo."
+   },
+   {
+    "q": "El precio hace un máximo más alto y el RSI un máximo más bajo. Es una…",
+    "o": [
+     "Divergencia regular bajista",
+     "Divergencia regular alcista",
+     "Divergencia oculta alcista"
+    ],
+    "a": 0,
+    "why": "Máximos que divergen al alza en precio y a la baja en RSI = pérdida de impulso alcista."
+   },
+   {
+    "q": "Con RSI(14) = 30, la pérdida media es aproximadamente…",
+    "o": [
+     "Igual a la ganancia media",
+     "2,3 veces la ganancia media",
+     "30 veces la ganancia media"
+    ],
+    "a": 1,
+    "why": "30 = 100 × GM/(GM+PM) → PM = GM × 70/30 ≈ 2,33 × GM."
+   },
+   {
+    "q": "En el suavizado de Wilder con periodo 14, la nueva ganancia media es…",
+    "o": [
+     "(GM anterior + ganancia actual) / 2",
+     "(GM anterior × 13 + ganancia actual) / 14",
+     "La suma de las últimas 14 ganancias"
+    ],
+    "a": 1,
+    "why": "Es una media exponencial con α = 1/14: pesa 13/14 el promedio anterior y 1/14 el dato nuevo."
+   },
+   {
+    "q": "En un failure swing de techo, la señal bajista llega cuando el RSI…",
+    "o": [
+     "Toca 70",
+     "Rompe por debajo del valle intermedio tras no superar su pico anterior",
+     "Cruza 50 hacia arriba"
+    ],
+    "a": 1,
+    "why": "Wilder: pico sobre 70, valle, pico más bajo, y ruptura del valle (punto de fallo)."
+   }
+  ]
+ },
+ "liquidez": {
+  "title": "Práctica: liquidez",
+  "qs": [
+   {
+    "q": "¿Qué hay típicamente justo por encima de un máximo obvio?",
+    "o": [
+     "Stops de los que están comprados",
+     "Stops de los que están vendidos y compras por ruptura (BSL)",
+     "Nada en particular"
+    ],
+    "a": 1,
+    "why": "Los cortos protegen con buy stops encima del máximo y los traders de ruptura compran ahí: órdenes de compra = liquidez del lado comprador."
+   },
+   {
+    "q": "El precio supera un mínimo con la mecha y la vela cierra de vuelta por encima. Es…",
+    "o": [
+     "Un barrido (rechazo)",
+     "Una ruptura (aceptación)",
+     "Un FVG"
+    ],
+    "a": 0,
+    "why": "La clave es el cierre: si vuelve dentro, el mercado rechazó esos precios."
+   },
+   {
+    "q": "En un FVG alcista…",
+    "o": [
+     "El mínimo de la vela 3 queda por encima del máximo de la vela 1",
+     "La vela 2 tiene mechas largas",
+     "El máximo de la vela 3 queda por debajo del mínimo de la vela 1"
+    ],
+    "a": 0,
+    "why": "El hueco entre el máximo de la vela 1 y el mínimo de la vela 3 es el FVG alcista."
+   },
+   {
+    "q": "Según ICT, el order block alcista es…",
+    "o": [
+     "Cualquier vela verde grande",
+     "La última vela bajista antes del impulso alcista que rompe estructura",
+     "El máximo del día anterior"
+    ],
+    "a": 1,
+    "why": "Es la vela opuesta previa al desplazamiento: donde se habrían colocado las órdenes que iniciaron el movimiento."
+   },
+   {
+    "q": "Con sesgo alcista, ¿dónde se prefieren las compras dentro de un rango?",
+    "o": [
+     "En premium (sobre el 50%)",
+     "En descuento (bajo el 50%)",
+     "Justo en el máximo del rango"
+    ],
+    "a": 1,
+    "why": "Comprar barato (descuento) deja más recorrido hasta la liquidez externa de arriba y mejora el riesgo/beneficio."
+   }
+  ]
+ },
+ "crt": {
+  "title": "Práctica: CRT",
+  "qs": [
+   {
+    "q": "En un CRT alcista, la vela 2…",
+    "o": [
+     "Supera el máximo de la vela 1 y cierra por encima",
+     "Barre el mínimo de la vela 1 y cierra dentro de su rango",
+     "Queda completamente dentro de la vela 1"
+    ],
+    "a": 1,
+    "why": "Barrido del CRT Low (SSL) + cierre dentro = rechazo de esos precios. Objetivo: el CRT High."
+   },
+   {
+    "q": "La vela 2 supera el máximo de la vela 1 y cierra por encima. ¿Qué es?",
+    "o": [
+     "Un CRT bajista",
+     "Aceptación / ruptura: no es CRT",
+     "Un CRT alcista"
+    ],
+    "a": 1,
+    "why": "Sin cierre de vuelta dentro no hay rechazo. Lo esperable es continuación."
+   },
+   {
+    "q": "¿Cuál es el objetivo principal de un CRT?",
+    "o": [
+     "El extremo opuesto del rango de la vela 1",
+     "El extremo que se barrió",
+     "Siempre 2 veces el riesgo"
+    ],
+    "a": 0,
+    "why": "De liquidez a liquidez: tras barrer un extremo, el precio busca el otro. El 50% es un objetivo parcial habitual."
+   },
+   {
+    "q": "¿Dónde se coloca normalmente el stop?",
+    "o": [
+     "En el 50% del rango",
+     "Más allá del extremo marcado por el barrido de la vela 2",
+     "Justo en el CRT Low"
+    ],
+    "a": 1,
+    "why": "Si el precio supera el extremo del barrido, la idea queda invalidada."
+   },
+   {
+    "q": "Un CISD alcista ocurre cuando…",
+    "o": [
+     "Una mecha toca el FVG",
+     "Un cuerpo cierra por encima de la apertura de la serie de velas bajistas que hizo el mínimo",
+     "El RSI cruza 50"
+    ],
+    "a": 1,
+    "why": "Solo cuentan los cierres: indica que el precio pasó a \"entregarse\" al alza."
+   },
+   {
+    "q": "Muchos practicantes de CRT vigilan las velas de 4H que abren (hora de Nueva York) a las…",
+    "o": [
+     "00:00, 08:00 y 16:00",
+     "1:00, 5:00 y 9:00",
+     "12:00 y 18:00"
+    ],
+    "a": 1,
+    "why": "Coinciden con los relevos de sesión (Asia → Londres → Nueva York). Verifica la zona horaria de tu gráfico."
+   }
+  ]
+ },
+ "smt": {
+  "title": "Práctica: SMT",
+  "qs": [
+   {
+    "q": "¿Qué compara una divergencia SMT?",
+    "o": [
+     "El precio contra el RSI",
+     "El precio de dos activos correlacionados",
+     "El volumen de dos sesiones"
+    ],
+    "a": 1,
+    "why": "Precio contra precio: busca una \"grieta\" en la correlación."
+   },
+   {
+    "q": "SMT alcista con EUR/USD y GBP/USD:",
+    "o": [
+     "Ambos hacen mínimos más bajos",
+     "EUR/USD hace un mínimo más bajo y GBP/USD un mínimo más alto",
+     "Ambos hacen máximos más altos"
+    ],
+    "a": 1,
+    "why": "Uno barre la liquidez y el otro no lo confirma."
+   },
+   {
+    "q": "Con correlación inversa (EUR/USD vs DXY), SMT alcista en EUR/USD significa…",
+    "o": [
+     "El DXY hace un máximo más alto",
+     "El EUR/USD hace un mínimo más bajo pero el DXY no hace un máximo más alto",
+     "Ambos suben"
+    ],
+    "a": 1,
+    "why": "En inversa se compara el mínimo de uno con el máximo del otro."
+   },
+   {
+    "q": "¿Dónde tiene más valor una SMT?",
+    "o": [
+     "En mitad de un rango",
+     "En un nivel con liquidez relevante (PDL, CRT Low, extremo de sesión)",
+     "En cualquier vela de 1 minuto"
+    ],
+    "a": 1,
+    "why": "La SMT confirma barridos en niveles importantes; fuera de contexto es ruido."
+   },
+   {
+    "q": "Sale un dato económico del Reino Unido y el GBP/USD se separa del EUR/USD. ¿Es una SMT fiable?",
+    "o": [
+     "Sí, siempre",
+     "No: la divergencia tiene una causa fundamental de un solo activo",
+     "Solo si el RSI está en 70"
+    ],
+    "a": 1,
+    "why": "Las noticias de un solo activo rompen la correlación por motivos que no tienen que ver con la liquidez."
+   }
+  ]
+ },
+ "patrones": {
+  "title": "Práctica: patrones de velas",
+  "qs": [
+   {
+    "q": "Martillo y hombre colgado tienen la misma forma. ¿Qué los diferencia?",
+    "o": [
+     "El color de la vela",
+     "La tendencia previa: el martillo aparece tras una caída y el hombre colgado tras una subida",
+     "El volumen"
+    ],
+    "a": 1,
+    "why": "La forma es igual; el contexto cambia el significado."
+   },
+   {
+    "q": "En un envolvente alcista…",
+    "o": [
+     "El cuerpo alcista de la vela 2 cubre el cuerpo bajista de la vela 1",
+     "La vela 2 queda dentro de la vela 1",
+     "Las dos velas tienen el mismo mínimo"
+    ],
+    "a": 0,
+    "why": "El cuerpo de la segunda \"envuelve\" al de la primera. Si quedara dentro, sería un harami."
+   },
+   {
+    "q": "La estrella de la tarde se forma con…",
+    "o": [
+     "Vela alcista grande, vela pequeña arriba y vela bajista que cierra bajo la mitad de la primera",
+     "Tres velas bajistas seguidas",
+     "Dos velas con máximos iguales"
+    ],
+    "a": 0,
+    "why": "Subida → indecisión → toma de control vendedora."
+   },
+   {
+    "q": "¿Qué es lo más importante para operar un patrón?",
+    "o": [
+     "Memorizar el nombre exacto",
+     "El contexto (tendencia y nivel), la confirmación y el nivel de invalidación",
+     "Que tenga mechas largas"
+    ],
+    "a": 1,
+    "why": "Sin contexto, los patrones se comportan casi como el azar."
+   },
+   {
+    "q": "Unas pinzas de techo (máximos iguales) también indican…",
+    "o": [
+     "Que no hay liquidez",
+     "Liquidez acumulada encima (BSL) que el precio podría barrer",
+     "Una tendencia alcista asegurada"
+    ],
+    "a": 1,
+    "why": "Los máximos iguales atraen stops: pueden ser resistencia… o un imán de liquidez."
+   }
+  ]
+ },
+ "estructura": {
+  "title": "Práctica: estructura de mercado",
+  "qs": [
+   {
+    "q": "Una tendencia alcista, por estructura, es una secuencia de…",
+    "o": [
+     "LH y LL",
+     "HH y HL",
+     "Máximos y mínimos iguales"
+    ],
+    "a": 1,
+    "why": "Máximos más altos y mínimos más altos."
+   },
+   {
+    "q": "En tendencia alcista, el precio cierra por debajo del último mínimo más alto (HL). Es…",
+    "o": [
+     "Un BOS alcista",
+     "Un CHoCH (posible cambio de tendencia)",
+     "Nada relevante"
+    ],
+    "a": 1,
+    "why": "Es la primera ruptura en contra de la tendencia: cambio de carácter."
+   },
+   {
+    "q": "Una mecha supera el último máximo y la vela cierra por debajo. ¿Es un BOS?",
+    "o": [
+     "Sí",
+     "No: es un barrido de liquidez; el BOS se confirma con el cierre",
+     "Solo en 4H"
+    ],
+    "a": 1,
+    "why": "Sin cierre más allá del nivel no hay ruptura de estructura."
+   },
+   {
+    "q": "En tendencia alcista, el \"mínimo fuerte\" es…",
+    "o": [
+     "Cualquier mínimo",
+     "El mínimo del que salió el impulso que rompió el máximo",
+     "El mínimo más reciente de 1 minuto"
+    ],
+    "a": 1,
+    "why": "Es el nivel que protege la tendencia: si se pierde, hay CHoCH."
+   },
+   {
+    "q": "Si aumentas N (velas a cada lado del swing)…",
+    "o": [
+     "Ves más swings",
+     "Ves menos swings, solo los más importantes",
+     "No cambia nada"
+    ],
+    "a": 1,
+    "why": "Un N mayor filtra el ruido y muestra la estructura principal."
+   }
+  ]
+ },
+ "trendlines": {
+  "title": "Práctica: líneas de tendencia",
+  "qs": [
+   {
+    "q": "Una línea de tendencia alcista une…",
+    "o": [
+     "Máximos decrecientes",
+     "Mínimos crecientes",
+     "Cierres al azar"
+    ],
+    "a": 1,
+    "why": "Queda por debajo del precio, apoyada en los mínimos que van subiendo."
+   },
+   {
+    "q": "¿Cuántos toques validan una línea?",
+    "o": [
+     "1",
+     "2 la definen; el 3.º la valida",
+     "10 como mínimo"
+    ],
+    "a": 1,
+    "why": "Con dos puntos siempre se puede trazar una línea; el tercer toque demuestra que el mercado la respeta."
+   },
+   {
+    "q": "El precio cierra por debajo de la línea alcista. ¿Qué significa?",
+    "o": [
+     "La tendencia terminó con seguridad",
+     "Cambió el ritmo; la confirmación de cambio de tendencia llega con la estructura (CHoCH)",
+     "Nada"
+    ],
+    "a": 1,
+    "why": "Una ruptura de línea no siempre es un cambio de tendencia."
+   },
+   {
+    "q": "Tras romper la línea, el precio vuelve a ella desde abajo y la rechaza. Es…",
+    "o": [
+     "Un retesteo: el antiguo soporte actúa como resistencia",
+     "Un doji",
+     "Un FVG"
+    ],
+    "a": 0,
+    "why": "El cambio de polaridad (soporte ↔ resistencia) es típico tras la ruptura."
+   },
+   {
+    "q": "¿Por qué una línea con muchos toques puede terminar barrida?",
+    "o": [
+     "Porque acumula stops debajo (liquidez)",
+     "Porque las líneas siempre fallan",
+     "Por el volumen"
+    ],
+    "a": 0,
+    "why": "Cada toque deja compradores con stops debajo: es un imán de liquidez."
+   }
+  ]
+ },
+ "sesiones": {
+  "title": "Práctica: sesiones",
+  "qs": [
+   {
+    "q": "¿Cuál es normalmente el tramo más líquido del día en forex?",
+    "o": [
+     "La sesión de Sídney",
+     "El solapamiento Londres–Nueva York",
+     "El domingo por la tarde"
+    ],
+    "a": 1,
+    "why": "Coinciden los dos mayores centros financieros: más volumen y movimiento."
+   },
+   {
+    "q": "En el patrón típico del día, ¿qué suele hacer Londres con el rango de Asia?",
+    "o": [
+     "Nada",
+     "Barrer uno de sus extremos y a menudo girar",
+     "Cerrar el mercado"
+    ],
+    "a": 1,
+    "why": "Es la \"manipulación\" (Judas swing) del Power of 3."
+   },
+   {
+    "q": "¿Por qué los horarios relativos entre sesiones cambian algunas semanas al año?",
+    "o": [
+     "Porque cada país cambia la hora de verano en fechas distintas",
+     "Por las noticias",
+     "No cambian nunca"
+    ],
+    "a": 0,
+    "why": "EE. UU., Reino Unido y Australia ajustan sus relojes en fechas diferentes; Japón no los ajusta."
+   },
+   {
+    "q": "La killzone más consensuada (apertura de Londres) en hora de Nueva York es…",
+    "o": [
+     "02:00–05:00",
+     "12:00–15:00",
+     "18:00–20:00"
+    ],
+    "a": 0,
+    "why": "Aunque las fuentes varían en otras ventanas, la de Londres 2–5 AM NY es la más citada."
+   },
+   {
+    "q": "¿A qué hora (NY) se publican la mayoría de los datos de EE. UU. como el empleo o la inflación?",
+    "o": [
+     "8:30",
+     "3:00",
+     "20:00"
+    ],
+    "a": 0,
+    "why": "Los datos clave salen a las 8:30 NY; la Fed comunica sus decisiones a las 14:00."
+   }
+  ]
+ },
+ "volumen": {
+  "title": "Práctica: volumen",
+  "qs": [
+   {
+    "q": "¿Qué volumen muestran normalmente las plataformas de forex spot?",
+    "o": [
+     "El volumen centralizado de la bolsa",
+     "El volumen de ticks (cambios de precio por vela)",
+     "Ninguno"
+    ],
+    "a": 1,
+    "why": "El forex spot no tiene una bolsa central; el volumen de ticks es una aproximación de la actividad."
+   },
+   {
+    "q": "Una ruptura de rango con volumen muy bajo suele…",
+    "o": [
+     "Tener mucha continuidad",
+     "Ser sospechosa: a menudo falla y vuelve al rango",
+     "No significar nada"
+    ],
+    "a": 1,
+    "why": "Sin participación, la ruptura no tiene \"combustible\"."
+   },
+   {
+    "q": "En el OBV, una vela que cierra por debajo del cierre anterior…",
+    "o": [
+     "Suma su volumen",
+     "Resta su volumen",
+     "No cambia el OBV"
+    ],
+    "a": 1,
+    "why": "Se resta el volumen de las velas que cierran más abajo."
+   },
+   {
+    "q": "El POC del perfil de volumen es…",
+    "o": [
+     "El precio de cierre",
+     "El nivel de precio con más volumen negociado",
+     "El máximo del día"
+    ],
+    "a": 1,
+    "why": "Es el \"point of control\": el precio más aceptado."
+   },
+   {
+    "q": "El precio cotiza por encima del VWAP de la sesión. ¿Qué sugiere?",
+    "o": [
+     "Compradores en control en la sesión",
+     "Vendedores en control",
+     "Que el mercado está cerrado"
+    ],
+    "a": 0,
+    "why": "El VWAP es el precio medio ponderado: estar por encima indica que los compradores dominan."
+   }
+  ]
+ },
+ "emas": {
+  "title": "Práctica: medias móviles",
+  "qs": [
+   {
+    "q": "¿Qué diferencia principal hay entre una EMA y una SMA del mismo periodo?",
+    "o": [
+     "La EMA pesa más las velas recientes y reacciona antes",
+     "La SMA no tiene retraso",
+     "Son idénticas"
+    ],
+    "a": 0,
+    "why": "La EMA usa α = 2/(N+1) y pondera exponencialmente lo reciente."
+   },
+   {
+    "q": "Para una EMA de 20 periodos, α vale…",
+    "o": [
+     "1/20 = 0,050",
+     "2/21 ≈ 0,095",
+     "20"
+    ],
+    "a": 1,
+    "why": "α = 2/(N+1)."
+   },
+   {
+    "q": "En un mercado lateral, los cruces de medias suelen…",
+    "o": [
+     "Ser muy fiables",
+     "Dar muchas señales falsas (\"latigazos\")",
+     "No producirse"
+    ],
+    "a": 1,
+    "why": "Las medias se entrelazan cuando no hay tendencia."
+   },
+   {
+    "q": "El \"cruce dorado\" clásico es…",
+    "o": [
+     "La media 50 cruza por encima de la 200",
+     "La EMA 9 cruza la 21 hacia abajo",
+     "El precio toca la media 20"
+    ],
+    "a": 0,
+    "why": "Golden cross: 50 sobre 200 (y death cross, por debajo)."
+   },
+   {
+    "q": "¿Por qué las medias móviles llegan \"tarde\" a los giros?",
+    "o": [
+     "Porque se calculan con precios pasados (suavizan)",
+     "Porque tienen errores",
+     "Por el volumen"
+    ],
+    "a": 0,
+    "why": "Suavizar implica retraso: confirman, no anticipan."
+   }
+  ]
+ },
+ "estocastico": {
+  "title": "Práctica: estocástico",
+  "qs": [
+   {
+    "q": "Con N = 14, si el cierre está justo en el máximo de las últimas 14 velas, %K vale…",
+    "o": [
+     "0",
+     "50",
+     "100"
+    ],
+    "a": 2,
+    "why": "(Cierre − Mínimo) / (Máximo − Mínimo) = 1 → 100."
+   },
+   {
+    "q": "El %D es…",
+    "o": [
+     "Una media (normalmente de 3) del %K",
+     "El volumen",
+     "El RSI del %K"
+    ],
+    "a": 0,
+    "why": "Es la línea de señal: suaviza el %K."
+   },
+   {
+    "q": "En la notación 14, 3, 3, el primer número es…",
+    "o": [
+     "El periodo del rango (N)",
+     "El nivel de sobrecompra",
+     "El número de señales"
+    ],
+    "a": 0,
+    "why": "N = velas para el máximo/mínimo; luego suavizado del %K y periodo del %D."
+   },
+   {
+    "q": "En una tendencia alcista fuerte, el estocástico se queda sobre 80 muchas velas. ¿Qué indica?",
+    "o": [
+     "Que hay que vender ya",
+     "Fuerza: los cierres se mantienen en la parte alta del rango",
+     "Que el indicador falla"
+    ],
+    "a": 1,
+    "why": "Igual que el RSI, la sobrecompra en tendencia es fuerza."
+   },
+   {
+    "q": "Comparado con el RSI, el estocástico suele ser…",
+    "o": [
+     "Más sensible: más señales y más ruido",
+     "Más lento",
+     "Idéntico"
+    ],
+    "a": 0,
+    "why": "Reacciona a la posición del cierre en el rango, que cambia rápido."
+   }
+  ]
+ },
+ "momentum": {
+  "title": "Práctica: momentum y MACD",
+  "qs": [
+   {
+    "q": "Momentum (10) = 2,5 significa que…",
+    "o": [
+     "El cierre está 2,5 por encima del de hace 10 velas",
+     "El precio subirá 2,5",
+     "El RSI vale 2,5"
+    ],
+    "a": 0,
+    "why": "Momentum = cierre actual − cierre de hace N velas."
+   },
+   {
+    "q": "El precio sigue subiendo pero el momentum baja. ¿Qué indica?",
+    "o": [
+     "Que la subida se acelera",
+     "Que la subida pierde velocidad: posible agotamiento",
+     "Nada"
+    ],
+    "a": 1,
+    "why": "Es la desaceleración que suele preceder a los giros."
+   },
+   {
+    "q": "La línea MACD se calcula como…",
+    "o": [
+     "EMA 12 − EMA 26",
+     "SMA 50 − SMA 200",
+     "RSI − 50"
+    ],
+    "a": 0,
+    "why": "Diferencia entre una EMA rápida y una lenta; la señal es su EMA 9."
+   },
+   {
+    "q": "Un histograma del MACD que se encoge mientras el precio sube indica…",
+    "o": [
+     "Momentum alcista que se frena",
+     "Momentum que se acelera",
+     "Volumen bajo"
+    ],
+    "a": 0,
+    "why": "El histograma mide la distancia entre MACD y su señal: si se encoge, el impulso pierde fuerza."
+   },
+   {
+    "q": "¿Por qué el momentum da señales \"adelantadas\" pero también falsas?",
+    "o": [
+     "Porque se frena antes del giro, pero muchas frenadas son solo retrocesos",
+     "Porque usa el volumen",
+     "Porque nunca se equivoca"
+    ],
+    "a": 0,
+    "why": "Hay que confirmarlo con estructura y niveles."
+   }
+  ]
+ },
+ "smc": {
+  "title": "Práctica: Smart Money Concepts",
+  "qs": [
+   {
+    "q": "¿Qué es un inducement?",
+    "o": [
+     "Un mínimo/máximo menor y evidente, previo al POI real, cuya liquidez suele ser barrida",
+     "Un tipo de media móvil",
+     "La apertura del día"
+    ],
+    "a": 0,
+    "why": "Es el \"cebo\": atrae entradas tempranas cuyos stops alimentan el movimiento hacia la zona real."
+   },
+   {
+    "q": "La diferencia clave entre un breaker y un mitigation block es…",
+    "o": [
+     "El color de las velas",
+     "Si hubo barrido de liquidez antes de la ruptura (breaker sí, mitigation no)",
+     "El volumen"
+    ],
+    "a": 1,
+    "why": "Breaker: mínimo más bajo que barre SSL y luego rompe la zona. Mitigation: falla sin barrer."
+   },
+   {
+    "q": "La zona OTE de ICT está entre los retrocesos…",
+    "o": [
+     "20% y 40%",
+     "62% y 79% (70,5% como centro)",
+     "100% y 127%"
+    ],
+    "a": 1,
+    "why": "Descuento profundo con buen riesgo/beneficio."
+   },
+   {
+    "q": "En el Power of 3 de un día alcista, la \"manipulación\" suele…",
+    "o": [
+     "Llevar el precio por debajo de la apertura y formar la mecha inferior",
+     "Formar el cuerpo de la vela",
+     "Ocurrir al cierre"
+    ],
+    "a": 0,
+    "why": "Primero se mueve en contra (barre liquidez) y luego expande en la dirección real."
+   },
+   {
+    "q": "En el flujo SMC, ¿qué va primero?",
+    "o": [
+     "La entrada en 1 minuto",
+     "El sesgo de temporalidad mayor y el objetivo de liquidez",
+     "El tamaño de la posición"
+    ],
+    "a": 1,
+    "why": "De arriba hacia abajo: sesgo HTF → liquidez objetivo → POI → tiempo → confirmación → entrada."
+   }
+  ]
+ },
+ "sr": {
+  "title": "Práctica: soportes, resistencias y figuras",
+  "qs": [
+   {
+    "q": "Los soportes y resistencias se entienden mejor como…",
+    "o": [
+     "Líneas exactas al pip",
+     "Zonas donde el precio reaccionó antes",
+     "Medias móviles"
+    ],
+    "a": 1,
+    "why": "El precio reacciona en áreas; las mechas suelen atravesarlas un poco."
+   },
+   {
+    "q": "El precio rompe una resistencia, vuelve a ella desde arriba y rebota. ¿Qué pasó?",
+    "o": [
+     "Cambio de polaridad: la resistencia ahora actúa como soporte",
+     "Nada",
+     "Un doble techo"
+    ],
+    "a": 0,
+    "why": "Es el retesteo clásico tras una ruptura."
+   },
+   {
+    "q": "¿Cuándo se confirma un doble techo?",
+    "o": [
+     "Al formarse el segundo techo",
+     "Con un cierre por debajo de la línea de cuello",
+     "Cuando el RSI marca 70"
+    ],
+    "a": 1,
+    "why": "Antes de romper el cuello, es solo un rango."
+   },
+   {
+    "q": "En un hombro-cabeza-hombro, el objetivo por proyección es…",
+    "o": [
+     "La distancia de la cabeza a la línea de cuello, proyectada desde la ruptura",
+     "El doble del hombro derecho",
+     "El máximo de la cabeza"
+    ],
+    "a": 0,
+    "why": "Se proyecta la altura de la figura desde el punto de ruptura (orientativo)."
+   },
+   {
+    "q": "Un nivel con muchos toques…",
+    "o": [
+     "Es imposible de romper",
+     "Es más visible, pero también acumula stops y puede ser barrido",
+     "No tiene importancia"
+    ],
+    "a": 1,
+    "why": "Visibilidad y liquidez van juntas: soporte y objetivo a la vez."
+   }
+  ]
+ },
+ "volat": {
+  "title": "Práctica: volatilidad",
+  "qs": [
+   {
+    "q": "El True Range de una vela es…",
+    "o": [
+     "Siempre el máximo menos el mínimo",
+     "El mayor entre (H − L), |H − cierre anterior| y |L − cierre anterior|",
+     "El cierre menos la apertura"
+    ],
+    "a": 1,
+    "why": "Así no se ignoran los huecos entre velas."
+   },
+   {
+    "q": "Un ATR alto significa que…",
+    "o": [
+     "El precio va a subir",
+     "Las velas se están moviendo mucho: más volatilidad, sin indicar dirección",
+     "Hay que comprar"
+    ],
+    "a": 1,
+    "why": "El ATR mide amplitud, no dirección."
+   },
+   {
+    "q": "Con $100 de riesgo y un stop de 2 × ATR, con ATR = 1,25, el tamaño es…",
+    "o": [
+     "40 unidades",
+     "80 unidades",
+     "250 unidades"
+    ],
+    "a": 0,
+    "why": "100 / (2 × 1,25) = 100 / 2,5 = 40."
+   },
+   {
+    "q": "Un \"squeeze\" de Bollinger indica…",
+    "o": [
+     "Que el precio subirá",
+     "Volatilidad comprimida que suele preceder a una expansión, sin indicar la dirección",
+     "Sobrecompra"
+    ],
+    "a": 1,
+    "why": "Espera la ruptura para conocer la dirección."
+   },
+   {
+    "q": "En una tendencia alcista fuerte, varios cierres por encima de la banda superior…",
+    "o": [
+     "Son una señal segura de venta",
+     "Son normales: el precio puede \"caminar\" por la banda",
+     "Invalidan las bandas"
+    ],
+    "a": 1,
+    "why": "Primero determina si hay tendencia o rango."
+   }
+  ]
+ },
+ "ordenes": {
+  "title": "Práctica: órdenes y costos",
+  "qs": [
+   {
+    "q": "Quieres comprar si el precio retrocede hasta un soporte por debajo del precio actual. Usas…",
+    "o": [
+     "Buy stop",
+     "Buy limit",
+     "Sell stop"
+    ],
+    "a": 1,
+    "why": "Las órdenes límite compran por debajo (o venden por encima) del precio actual."
+   },
+   {
+    "q": "Un buy stop por encima de un máximo sirve para…",
+    "o": [
+     "Comprar la ruptura, o como stop loss de una venta en corto",
+     "Comprar más barato",
+     "Cerrar una compra"
+    ],
+    "a": 0,
+    "why": "Se activa al subir el precio: por eso se acumulan sobre los máximos (BSL)."
+   },
+   {
+    "q": "Compras EUR/USD con un spread de 1,2 pips. Nada más entrar…",
+    "o": [
+     "Estás en cero",
+     "Vas perdiendo 1,2 pips",
+     "Vas ganando 1,2 pips"
+    ],
+    "a": 1,
+    "why": "Compras al ask y tu posición se valora al bid."
+   },
+   {
+    "q": "Con 0,5 lotes de EUR/USD, ¿cuánto vale 1 pip?",
+    "o": [
+     "$0,50",
+     "$5",
+     "$50"
+    ],
+    "a": 1,
+    "why": "1 lote = $10 por pip en pares XXX/USD; 0,5 lotes = $5."
+   },
+   {
+    "q": "¿Qué cambia el apalancamiento?",
+    "o": [
+     "El valor de cada pip para un tamaño dado",
+     "El margen bloqueado y el tamaño máximo que puedes abrir",
+     "El spread"
+    ],
+    "a": 1,
+    "why": "El riesgo real lo decide el tamaño; el apalancamiento solo permite abrir posiciones más grandes."
+   }
+  ]
+ },
+ "riesgo": {
+  "title": "Práctica: gestión del riesgo",
+  "qs": [
+   {
+    "q": "Aciertas el 40% con un R:B de 1:2. ¿Cuál es la expectativa por operación?",
+    "o": [
+     "−0,2R",
+     "+0,2R",
+     "+0,8R"
+    ],
+    "a": 1,
+    "why": "0,4 × 2 − 0,6 × 1 = 0,8 − 0,6 = +0,2R."
+   },
+   {
+    "q": "Con R:B 1:1 (sin costos), ¿qué porcentaje de acierto necesitas para no perder?",
+    "o": [
+     "Más del 33%",
+     "Más del 50%",
+     "Más del 66%"
+    ],
+    "a": 1,
+    "why": "Acierto mínimo = 1 / (1 + R:B) = 1/2."
+   },
+   {
+    "q": "Si pierdes el 50% de la cuenta, ¿cuánto necesitas ganar para recuperarte?",
+    "o": [
+     "+50%",
+     "+100%",
+     "+75%"
+    ],
+    "a": 1,
+    "why": "De 50 a 100 hay que duplicar: +100%."
+   },
+   {
+    "q": "¿Por qué conviene arriesgar el 1% y no el 10% por operación, aunque la estrategia sea ganadora?",
+    "o": [
+     "Porque con 10% la expectativa baja",
+     "Porque las rachas perdedoras normales provocarían drawdowns enormes y riesgo de ruina",
+     "No hay diferencia"
+    ],
+    "a": 1,
+    "why": "El tamaño no cambia la expectativa en R; amplifica la varianza."
+   },
+   {
+    "q": "La martingala (doblar el tamaño tras cada pérdida)…",
+    "o": [
+     "Garantiza ganancias",
+     "Acelera la ruina en una racha perdedora",
+     "Reduce el riesgo"
+    ],
+    "a": 1,
+    "why": "Una racha normal de pérdidas con tamaño creciente vacía la cuenta."
+   }
+  ]
+ },
+ "mercados": {
+  "title": "Práctica: los mercados",
+  "qs": [
+   {
+    "q": "¿Cuál es el mercado más grande por volumen diario?",
+    "o": [
+     "Acciones",
+     "Forex",
+     "Criptomonedas"
+    ],
+    "a": 1,
+    "why": "Según el BIS, el forex movía unos 9,6 billones de dólares diarios en abril de 2025."
+   },
+   {
+    "q": "¿Por qué el forex al contado no tiene un volumen único y centralizado?",
+    "o": [
+     "Porque es OTC: cada banco o broker tiene su propio precio y flujo",
+     "Porque no hay compradores",
+     "Por regulación"
+    ],
+    "a": 0,
+    "why": "Sin una bolsa central, cada proveedor ve solo su parte; por eso se usa el volumen de ticks."
+   },
+   {
+    "q": "Un futuro es…",
+    "o": [
+     "Un contrato estandarizado de bolsa con vencimiento",
+     "Una acción de una empresa nueva",
+     "Un CFD sin apalancamiento"
+    ],
+    "a": 0,
+    "why": "Tiene tamaño, tick y vencimiento definidos por la bolsa."
+   },
+   {
+    "q": "En un mercado poco líquido, una orden grande a mercado…",
+    "o": [
+     "Se ejecuta al mejor precio siempre",
+     "Barre varios niveles del libro y se ejecuta peor (deslizamiento)",
+     "No se ejecuta nunca"
+    ],
+    "a": 1,
+    "why": "Poca profundidad = cada nivel tiene poco tamaño."
+   },
+   {
+    "q": "En el futuro ES (S&P 500 E-mini), 1 punto de movimiento vale…",
+    "o": [
+     "$12,50",
+     "$50",
+     "$5"
+    ],
+    "a": 1,
+    "why": "Multiplicador de $50; el tick mínimo (0,25 puntos) vale $12,50."
+   },
+   {
+    "q": "¿Qué mercado opera 24 horas los 7 días de la semana?",
+    "o": [
+     "Forex",
+     "Acciones de EE. UU.",
+     "Criptomonedas"
+    ],
+    "a": 2,
+    "why": "El forex cierra el fin de semana; las acciones tienen horario de sesión."
+   }
+  ]
+ },
+ "fibo": {
+  "title": "Práctica: Fibonacci",
+  "qs": [
+   {
+    "q": "En un impulso alcista, ¿dónde van el 1 y el 0?",
+    "o": [
+     "1 en el máximo, 0 en el mínimo",
+     "1 en el mínimo (inicio) y 0 en el máximo (final)",
+     "Da igual el orden"
+    ],
+    "a": 1,
+    "why": "Se traza en la dirección del impulso: del inicio (1) al final (0). Así los retrocesos quedan por debajo del máximo."
+   },
+   {
+    "q": "¿Cuál de estos niveles NO sale de la sucesión de Fibonacci, aunque se usa siempre?",
+    "o": [
+     "0,618",
+     "0,382",
+     "0,5"
+    ],
+    "a": 2,
+    "why": "El 0,5 es simplemente la mitad del movimiento (el equilibrio). Se incluye porque muchos lo vigilan."
+   },
+   {
+    "q": "El precio retrocede el 30% de un impulso alcista. Comprar ahí es comprar en…",
+    "o": [
+     "Descuento",
+     "Premium",
+     "Equilibrio"
+    ],
+    "a": 1,
+    "why": "Por encima del 50% del rango es premium: el stop queda lejos y el R:B empeora."
+   },
+   {
+    "q": "¿Para qué sirven las extensiones (−0,272, −0,618)?",
+    "o": [
+     "Para poner el stop",
+     "Para proyectar objetivos más allá del final del impulso",
+     "Para medir el volumen"
+    ],
+    "a": 1,
+    "why": "Son proyecciones del impulso: objetivos para tomar ganancias."
+   },
+   {
+    "q": "El precio retrocede el 95% del impulso. ¿Qué indica?",
+    "o": [
+     "La mejor entrada posible",
+     "El impulso perdió validez: casi devolvió todo el movimiento",
+     "Que hay que ampliar el stop"
+    ],
+    "a": 1,
+    "why": "Más allá del 78,6% la estructura que justificaba el impulso está en duda."
+   },
+   {
+    "q": "¿Qué hace más fiable un nivel de Fibonacci?",
+    "o": [
+     "Que tenga muchos decimales",
+     "La confluencia con otro nivel (S/R, EMA, FVG, OB) y una confirmación del precio",
+     "Trazarlo en temporalidad de 1 minuto"
+    ],
+    "a": 1,
+    "why": "Un nivel aislado es una línea más; la confluencia y la reacción del precio le dan peso."
+   }
+  ]
+ }
+}
