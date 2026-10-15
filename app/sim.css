@@ -1,0 +1,80 @@
+/* Estética de simulador: paneles con brillo neón, ventanas "SIM" para cada gráfico y teoría plegable. */
+:root{--neon:#00d4ff;--neon-2:#00ff88;--neon-3:#b39dff;--glow:rgba(0,212,255,.28);--accent:#00b4dc;--bg:#0a0c1d;--card:#10142a;--side-bg:#0b0e1f;--surface:#0b0f1c}
+html[data-theme=light]{--neon:#0091b8;--neon-2:#08a36a;--neon-3:#6a4fd8;--glow:rgba(0,145,184,.22);--accent:#0091b8;--side-bg:#fbfbfc}
+html:not([data-theme=light]) body{background:radial-gradient(1200px 600px at 10% -10%,rgba(0,212,255,.10),transparent 60%),radial-gradient(900px 500px at 100% 0%,rgba(157,78,221,.14),transparent 60%),linear-gradient(160deg,#0a0c1d,#0d1124 45%,#0a0e1a) fixed}
+.btn.primary{background:linear-gradient(90deg,#00a8cc,#7b2cbf);border-color:transparent;box-shadow:0 0 12px var(--glow)}
+.seg button.on{background:linear-gradient(90deg,rgba(0,212,255,.25),rgba(157,78,221,.25))}
+input[type=range]{accent-color:var(--neon)}
+
+/* barra lateral y superior */
+.side{border-right-color:color-mix(in srgb,var(--neon) 20%,transparent)}
+.side-brand b{background:linear-gradient(90deg,var(--neon),var(--neon-2) 50%,var(--neon-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.side-brand small{font-family:var(--mono);letter-spacing:.04em}
+.side-search{border-color:color-mix(in srgb,var(--neon) 35%,transparent)}
+.side-label{color:var(--neon);font-family:var(--mono);letter-spacing:.14em}
+.sm .no{margin-left:0;width:18px;text-align:center;font-size:.9rem;font-family:inherit;color:inherit}
+.sm{gap:7px}
+.sm.on,.side-link.on{background:color-mix(in srgb,var(--neon) 12%,transparent);box-shadow:inset 2px 0 0 var(--neon)}
+.prog-bar div,.dock-bar div{background:linear-gradient(90deg,var(--neon),var(--neon-2))}
+.topbar{border-bottom-color:color-mix(in srgb,var(--neon) 20%,transparent)}
+
+/* cabecera del simulador */
+.mod-head{margin-top:20px;padding:18px 20px;border:1px solid color-mix(in srgb,var(--neon) 25%,transparent);border-radius:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--neon) 9%,transparent),color-mix(in srgb,var(--neon-3) 9%,transparent))}
+.mod-title{margin-top:0}
+.mod-icon{font-family:inherit;font-size:1.5rem;box-shadow:0 0 18px var(--glow)}
+.mod-title .gchip{display:inline-block;font-size:.74rem;font-family:var(--mono);color:var(--neon);letter-spacing:.06em;text-transform:uppercase}
+.mod-title h2{font-size:1.75rem;line-height:1.15}
+.sim-meter{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:.8rem;color:var(--muted);font-family:var(--mono)}
+.sim-meter .bar{flex:0 1 220px;height:8px}
+.sim-meter .bar div{background:linear-gradient(90deg,var(--neon),var(--neon-2))}
+.sim-meter b{color:var(--neon-2)}
+nav.toc.tabs-row a.on{color:var(--neon);border-bottom-color:var(--neon)}
+
+/* lecciones como paneles, sin numeración */
+.lesson>h3 .ln{display:none}
+.lesson>h3::before{content:"▸ ";color:var(--neon)}
+.lesson{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:border-color .2s,box-shadow .2s}
+.lesson:hover{border-color:color-mix(in srgb,var(--neon) 30%,transparent);box-shadow:0 0 24px color-mix(in srgb,var(--neon) 7%,transparent)}
+
+/* cada gráfico es una ventana de simulador */
+.fig{position:relative;border:1px solid color-mix(in srgb,var(--neon) 28%,transparent);border-radius:12px;padding:30px 14px 14px;box-shadow:inset 0 0 40px color-mix(in srgb,var(--neon) 4%,transparent)}
+.fig::before{content:"● ● ●";position:absolute;top:8px;left:12px;font-size:9px;letter-spacing:3px;color:#3a4566}
+.fig::after{content:"SIM";position:absolute;top:7px;right:12px;font:700 10px var(--mono);letter-spacing:.15em;color:var(--neon);opacity:.7}
+.stat{border-color:color-mix(in srgb,var(--neon) 20%,transparent)}
+.stat .v{color:var(--neon-2)}
+html[data-theme=light] .stat .v{color:var(--strong)}
+.hint{color:var(--text-2);font-size:.92rem;margin:4px 0 8px}
+.hint p::before{content:"👆 "}
+details.howto{margin-top:12px;border:1px dashed color-mix(in srgb,var(--neon) 35%,transparent);border-radius:10px;padding:8px 14px;background:color-mix(in srgb,var(--surface-2) 50%,transparent)}
+details.howto>summary{cursor:pointer;color:var(--neon);font-weight:600;list-style:none}
+details.howto>summary::-webkit-details-marker{display:none}
+details.howto>summary::before{content:"📘 "}
+details.howto>summary::after{content:" ▾";opacity:.6}
+details.howto[open]>summary{margin-bottom:6px}
+details.howto[open]>summary::after{content:" ▴"}
+
+/* desafíos */
+.quiz{background:linear-gradient(135deg,color-mix(in srgb,var(--neon-2) 7%,transparent),color-mix(in srgb,var(--neon) 6%,transparent));border:1px solid color-mix(in srgb,var(--neon-2) 32%,transparent)}
+
+/* panel derecho, dock y buscador */
+.rail-card{background:var(--card)}
+.dock{border-color:color-mix(in srgb,var(--neon) 35%,transparent);box-shadow:var(--shadow),0 0 24px var(--glow)}
+.dock-ask:hover,.side-search:hover{border-color:var(--neon)}
+.pal-box{border-color:color-mix(in srgb,var(--neon) 45%,transparent);box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 30px var(--glow)}
+.pal-item.on{background:color-mix(in srgb,var(--neon) 14%,transparent)}
+
+/* portada */
+.home-hero .kicker{font-family:var(--mono);color:var(--neon-2);letter-spacing:.08em}
+.home-hero h2{background:linear-gradient(90deg,var(--neon),var(--neon-2) 45%,var(--neon-3));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.home-stats{background:var(--card);border-color:color-mix(in srgb,var(--neon) 22%,transparent)}
+.home-stats small{font-family:var(--mono)}
+.home-stats b{color:var(--neon-2)}
+html[data-theme=light] .home-stats b{color:var(--strong)}
+.cont-card,.course,.path,.qcard{background:var(--card)}
+.cont-card{border-color:color-mix(in srgb,var(--neon) 30%,transparent);box-shadow:0 0 30px color-mix(in srgb,var(--neon) 8%,transparent)}
+.course:hover,.qcard:hover{border-color:var(--neon);box-shadow:0 0 20px var(--glow)}
+.course .lvl{font-family:var(--mono)}
+.pnode .disc i{font-family:inherit;font-size:1.35rem}
+.pnode.next .disc i{background:linear-gradient(135deg,#00a8cc,#7b2cbf)}
+.pnode .pop{background:linear-gradient(90deg,#00a8cc,#7b2cbf)}
+.pnode .pop::before{background:#3d6acb}

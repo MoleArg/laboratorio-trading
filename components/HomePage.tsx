@@ -1,8 +1,8 @@
 'use client';
-// Portada: continuar, métricas, cursos por grupo, camino de módulos y accesos de práctica.
+// Portada: continuar, métricas, zonas por grupo, mapa de simuladores y accesos de práctica.
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ACADEMY, BY_ID, GROUP_META, GROUP_NAME, MODULES, academyMods, lastVisited, modHref, modProg, nextStep, replaySessions, suggestNext } from '@/lib/site';
+import { ACADEMY, BY_ID, GICONS, GROUP_META, GROUP_NAME, ICONS, MODULES, academyMods, lastVisited, modHref, modProg, nextStep, replaySessions, suggestNext } from '@/lib/site';
 import { streakOf } from '@/lib/progress';
 import quizzes from '@/data/quizzes.json';
 import SessionChip from './SessionChip';
@@ -59,12 +59,12 @@ export default function HomePage() {
     <section className="module active" id="m-inicio" data-mod="inicio">
       <div className="home-hero">
         <div>
-          <div className="kicker">Academia · Laboratorio de Trading</div>
-          <h2>Aprende a leer el mercado con gráficos que puedes tocar.</h2>
-          <p className="lead">{nMods} módulos interactivos: mercados, velas, soportes, estructura, Fibonacci, sesiones, volumen, medias móviles, RSI, estocástico, MACD, ATR y Bollinger, liquidez, Smart Money, CRT, SMT, órdenes, costos y gestión del riesgo. Practica con tarjetas de repaso, un simulador vela a vela y un examen final. Todos los datos son simulados con fines educativos.</p>
+          <div className="kicker">● SIM ONLINE · datos simulados</div>
+          <h2>Toca el mercado: mueve, reproduce y mira qué pasa.</h2>
+          <p className="lead">{nMods} simuladores: mercados, velas, soportes, estructura, Fibonacci, sesiones, volumen, medias móviles, RSI, estocástico, MACD, ATR y Bollinger, liquidez, Smart Money, CRT, SMT, órdenes, costos y gestión del riesgo. Cada uno trae su gráfico en vivo, desafíos y la teoría en un desplegable para cuando la necesites.</p>
           <div className="home-stats">
-            {[['Academia', Math.round(tot * 100) + '%'], ['Lecciones leídas', `${lessonsRead}/${lessonsTot}`], ['Quizzes aprobados', `${qok}/${qmods.length}`],
-              ['Racha', '🔥 ' + streakOf(st) + ' d'], ['Estrellas', '★ ' + (st.micro.stars || 0)], ['Examen', st.exam ? Math.round(st.exam.pct * 100) + '%' : '—']]
+            {[['Explorado', Math.round(tot * 100) + '%'], ['Pasos', `${lessonsRead}/${lessonsTot}`], ['Desafíos', `${qok}/${qmods.length}`],
+              ['Racha', '🔥 ' + streakOf(st) + ' d'], ['Estrellas', '★ ' + (st.micro.stars || 0)], ['Examen final', st.exam ? Math.round(st.exam.pct * 100) + '%' : '—']]
               .map(([a, b]) => <div key={a}><small>{a}</small><b>{b}</b></div>)}
           </div>
         </div>
@@ -78,7 +78,7 @@ export default function HomePage() {
         </div>
       </div>
 
-      <h3 className="home-h">Cursos <small>cinco recorridos, de lo básico a la práctica</small></h3>
+      <h3 className="home-h">🎛️ Zonas <small>elige por dónde entrar</small></h3>
       <div className="courses">
         {ACADEMY.map((g, i) => {
           const mods = am.filter(m => m.group === g), p = mods.reduce((s, m) => s + modProg(m.id, st).p, 0) / mods.length, first = mods.find(m => modProg(m.id, st).p < 1) || mods[0];
@@ -86,16 +86,16 @@ export default function HomePage() {
             <Link key={g} className="course" href={modHref(first.id)}>
               <div style={{ position: 'relative' }}><Art g={g} seed={i + 11} /><span className="lvl">{GROUP_META[g].lvl}</span></div>
               <div className="body">
-                <b>{GROUP_NAME[g]}</b><p>{GROUP_META[g].d}</p>
+                <b>{GICONS[g]} {GROUP_NAME[g]}</b><p>{GROUP_META[g].d}</p>
                 <div className="bar"><div style={{ width: Math.round(p * 100) + '%' }} /></div>
-                <div className="meta"><span>{mods.length} módulos · {mods.reduce((s, m) => s + m.lessons.length, 0)} lecciones</span><span>{Math.round(p * 100)}%</span></div>
+                <div className="meta"><span>{mods.length} simuladores</span><span>{Math.round(p * 100)}%</span></div>
               </div>
             </Link>
           );
         })}
       </div>
 
-      <h3 className="home-h">Tu camino <small>el orden recomendado; el anillo muestra tu avance en cada módulo</small></h3>
+      <h3 className="home-h">🗺️ Mapa <small>el anillo muestra tu avance en cada simulador</small></h3>
       <div className="path">
         {ACADEMY.map(g => {
           const mods = am.filter(m => m.group === g), dn = mods.filter(m => modProg(m.id, st).p >= 1).length;
@@ -106,9 +106,9 @@ export default function HomePage() {
                 const P = modProg(m.id, st), off = Math.round(Math.sin(k++ * 0.9) * 110), cls = P.p >= 1 ? 'done' : m.id === sug ? 'next' : '';
                 return (
                   <Link key={m.id} className={`pnode ${cls}${off < 0 ? ' left' : ''}`} href={modHref(m.id)} style={{ transform: `translateX(${off}px)` }}>
-                    <span className="disc" style={{ '--p': Math.round(P.p * 100) } as React.CSSProperties}><i>{P.p >= 1 ? '✓' : m.num}</i></span>
+                    <span className="disc" style={{ '--p': Math.round(P.p * 100) } as React.CSSProperties}><i>{P.p >= 1 ? '✓' : ICONS[m.id] || '•'}</i></span>
                     <span className="lab"><b>{m.name}</b>{P.steps ? `${P.done}/${P.steps} pasos` : ''}</span>
-                    {m.id === sug && <span className="pop">Empieza aquí</span>}
+                    {m.id === sug && <span className="pop">▶ Siguiente</span>}
                   </Link>
                 );
               })}
@@ -117,7 +117,7 @@ export default function HomePage() {
         })}
       </div>
 
-      <h3 className="home-h">Practica</h3>
+      <h3 className="home-h">🕹️ Modo práctica</h3>
       <div className="quick">
         <Link className="qcard" href="/repaso/"><span className="ic">⚡</span><b>Repaso rápido</b><small>Tarjetas de 1 minuto · ★ {st.micro.stars || 0} estrellas</small></Link>
         <Link className="qcard" href="/replay/"><span className="ic">▶</span><b>Simulador</b><small>{sessions.length ? `${sessions.length} sesiones · última ${sessions[0].exp >= 0 ? '+' : ''}${sessions[0].exp.toFixed(2)}R` : 'Opera un mercado vela a vela'}</small></Link>

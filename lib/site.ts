@@ -23,6 +23,9 @@ export const GROUP_META: Record<string, { lvl: string; col: [string, string]; d:
   prac: { lvl: 'Aplicado', col: ['#e5484d', '#7c5cf0'], d: 'Escenario completo, repaso rápido, simulador vela a vela y examen final.' }
 };
 export const ACADEMY = ['fund', 'ind', 'smc', 'ges', 'prac'];
+// Ícono de cada simulador y de cada grupo (en lugar de números de módulo).
+export const ICONS: Record<string, string> = { inicio: '🏠', mercados: '🌍', velas: '🕯️', patrones: '🧩', sr: '🧱', estructura: '📐', trendlines: '📈', fibo: '🌀', sesiones: '🕒', volumen: '📊', emas: '〰️', rsi: '⚡', estocastico: '🎚️', momentum: '🚀', volat: '🌊', liquidez: '💧', smc: '🧠', crt: '🎯', smt: '🔀', ordenes: '🧾', riesgo: '🛡️', todo: '🕹️', repaso: '⚡', replay: '▶️', examen: '🏁', glosario: '🔎' };
+export const GICONS: Record<string, string> = { fund: '🧭', ind: '📟', smc: '🧠', ges: '🛡️', prac: '🕹️' };
 export const academyMods = () => MODULES.filter(m => ACADEMY.includes(m.group) && m.id !== 'glosario');
 export const modHref = (id: string) => (id === 'inicio' ? '/' : `/${id}/`);
 export const isNumbered = (m: ModuleInfo) => /^\d+$/.test(m.num);
@@ -50,11 +53,11 @@ export function nextStep(id: string, st: ProgressState): { href: string; t: stri
   const I = BY_ID[id];
   if (I) {
     const l = I.lessons.find(x => !st.lessons[x.id]);
-    if (l) return { href: `${modHref(id)}#${l.id}`, t: l.t, k: 'Siguiente lección' };
-    if (I.quizId && !modProg(id, st).qok) return { href: `${modHref(id)}#${I.quizId}`, t: 'Práctica de ' + I.name, k: 'Falta la práctica' };
+    if (l) return { href: `${modHref(id)}#${l.id}`, t: l.t, k: 'Siguiente paso' };
+    if (I.quizId && !modProg(id, st).qok) return { href: `${modHref(id)}#${I.quizId}`, t: 'Desafío de ' + I.name, k: 'Falta el desafío' };
   }
   const i = MODULES.findIndex(m => m.id === id), nx = MODULES.slice(i + 1).find(m => m.id !== 'glosario') || BY_ID.examen;
-  return { href: modHref(nx.id), t: nx.name, k: 'Siguiente módulo' };
+  return { href: modHref(nx.id), t: nx.name, k: 'Siguiente simulador' };
 }
 export const suggestNext = (st: ProgressState) => (academyMods().find(m => modProg(m.id, st).p < 1) || BY_ID.examen).id;
 export function lastVisited(st: ProgressState) {

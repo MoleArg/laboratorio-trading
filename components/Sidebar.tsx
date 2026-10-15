@@ -1,8 +1,8 @@
 'use client';
-// Barra lateral estilo academia: árbol de cursos con el avance de cada módulo y las lecciones del módulo abierto.
+// Barra lateral: árbol de simuladores con el avance de cada módulo y las lecciones del módulo abierto.
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { ACADEMY, BY_ID, GROUP_NAME, MODULES, modHref, modProg } from '@/lib/site';
+import { ACADEMY, BY_ID, GICONS, GROUP_NAME, ICONS, MODULES, modHref, modProg } from '@/lib/site';
 import { PROG, streakOf, type ProgressState } from '@/lib/progress';
 import { setHollow, setTheme, useUI } from '@/lib/ui';
 
@@ -42,20 +42,20 @@ export default function Sidebar({ mod, st, lesson, onSearch }: { mod: string; st
     <Link className={'side-link' + (mod === id ? ' on' : '')} href={modHref(id)}><span className="ic">{ic}</span>{label}{badge && <span className="badge">{badge}</span>}</Link>
   );
   return (
-    <aside className="side" id="side" aria-label="Navegación de la academia">
-      <Link className="side-brand" href="/">{LOGO}<span><b>Laboratorio de Trading</b><small>Academia interactiva</small></span></Link>
+    <aside className="side" id="side" aria-label="Navegación">
+      <Link className="side-brand" href="/">{LOGO}<span><b>Laboratorio de Trading</b><small>Simulador interactivo</small></span></Link>
       <button className="side-search" type="button" onClick={onSearch}>🔎 Buscar…<kbd>Ctrl K</kbd></button>
       <nav id="side-nav">
         {link('inicio', '⌂', 'Inicio')}
         {link('repaso', '⚡', 'Repaso rápido', '★ ' + (st.micro.stars || 0))}
         {link('replay', '▶', 'Simulador')}
         {link('glosario', 'Aa', 'Glosario')}
-        <div className="side-label">Academia</div>
+        <div className="side-label">Simuladores</div>
         {ACADEMY.map(g => {
           const gm = mods.filter(m => m.group === g), done = gm.filter(m => modProg(m.id, st).p >= 1).length;
           return (
             <div key={g} className={'sg' + (open.has(g) ? ' open' : '')}>
-              <button className="sg-head" type="button" onClick={() => toggle(g)}><span className="chev">▶</span>{GROUP_NAME[g]}<span className="cnt">{done}/{gm.length}</span></button>
+              <button className="sg-head" type="button" onClick={() => toggle(g)}><span className="chev">▶</span>{GICONS[g]} {GROUP_NAME[g]}<span className="cnt">{done}/{gm.length}</span></button>
               <div className="sg-body">
                 {gm.map(m => {
                   const P = modProg(m.id, st), on = m.id === mod;
@@ -63,14 +63,14 @@ export default function Sidebar({ mod, st, lesson, onSearch }: { mod: string; st
                     <div key={m.id}>
                       <Link className={'sm' + (on ? ' on' : '')} href={modHref(m.id)}>
                         <span className={'st' + (P.p >= 1 ? ' done' : '')} style={{ '--p': Math.round(P.p * 100) } as React.CSSProperties} />
-                        <span>{m.name}</span><span className="no">{m.num}</span>
+                        <span className="no">{ICONS[m.id] || '•'}</span><span>{m.name}</span>
                       </Link>
                       {on && (m.lessons.length > 0 || m.quizId) && (
                         <div className="sl">
                           {m.lessons.map(l => (
                             <a key={l.id} href={'#' + l.id} className={l.id === lesson ? 'cur' : ''}><span className={'lst' + (st.lessons[l.id] ? ' read' : '')} />{l.t}</a>
                           ))}
-                          {m.quizId && <a href={'#' + m.quizId} className={m.quizId === lesson ? 'cur' : ''}><span className={'lst' + (P.qok ? ' read' : '')} />Práctica · {m.qn} preguntas</a>}
+                          {m.quizId && <a href={'#' + m.quizId} className={m.quizId === lesson ? 'cur' : ''}><span className={'lst' + (P.qok ? ' read' : '')} />🎯 Desafío · {m.qn} preguntas</a>}
                         </div>
                       )}
                     </div>
@@ -84,7 +84,7 @@ export default function Sidebar({ mod, st, lesson, onSearch }: { mod: string; st
       <div className="side-foot">
         <div id="prog">
           <div className="prog-bar"><div style={{ width: (pct * 100).toFixed(1) + '%' }} /></div>
-          <span>{seen}/{visible.length} módulos vistos · {passed}/{qmods.length} quizzes aprobados (≥80%){st.exam ? ` · examen: mejor ${Math.round(st.exam.pct * 100)}%` : ''}</span>
+          <span>{seen}/{visible.length} simuladores explorados · {passed}/{qmods.length} desafíos superados (≥80%){st.exam ? ` · examen: mejor ${Math.round(st.exam.pct * 100)}%` : ''}</span>
           <button className="linkish" type="button" onClick={() => { if (confirm('¿Borrar tu progreso (módulos vistos, lecciones, quizzes, racha y examen)?')) PROG.reset(); }}>Reiniciar</button>
         </div>
         <div className="side-row">

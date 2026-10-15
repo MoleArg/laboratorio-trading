@@ -1,7 +1,7 @@
 'use client';
-// Cabecera tipo ficha del módulo, pestañas por lección (scroll-spy) y registro de lecciones leídas.
+// Cabecera del simulador, pestañas por lección (scroll-spy) y registro de lecciones leídas.
 import { useEffect, useRef, useState } from 'react';
-import { BY_ID, GROUP_META, GROUP_NAME, ACADEMY, isNumbered, modProg } from '@/lib/site';
+import { BY_ID, GROUP_META, GROUP_NAME, GICONS, ICONS, ACADEMY, modProg } from '@/lib/site';
 import { PROG } from '@/lib/progress';
 import { setLesson } from '@/lib/ui';
 import { useProgress } from './useProgress';
@@ -44,20 +44,16 @@ export default function ModuleHead({ mod }: { mod: string }) {
   return (
     <>
       <div className="mod-head">
-        <div className="kicker">
-          {ACADEMY.includes(m.group) && <span className="gchip">{GROUP_NAME[m.group]}</span>}
-          {isNumbered(m) ? `Módulo ${m.num}` : 'Referencia'}
-        </div>
         <div className="mod-title">
-          <div className="mod-icon" style={{ background: `linear-gradient(135deg,${col[0]},${col[1]})` }}>{isNumbered(m) ? m.num : 'Aa'}</div>
-          <h2>{m.title}</h2>
+          <div className="mod-icon" style={{ background: `linear-gradient(135deg,${col[0]},${col[1]})` }}>{ICONS[mod] || '•'}</div>
+          <div>
+            {ACADEMY.includes(m.group) && <span className="gchip">{GICONS[m.group]} {GROUP_NAME[m.group]}</span>}
+            <h2>{m.title}</h2>
+          </div>
         </div>
         {m.lead && <p className="lead" dangerouslySetInnerHTML={{ __html: m.lead }} />}
-        {m.id !== 'glosario' && (
-          <div className="facts">
-            <span>Nivel<b>{meta?.lvl || '—'}</b></span><span>Lecciones<b>{m.lessons.length}</b></span><span>Lectura<b>~{m.min} min</b></span>
-            <span>Gráficos<b>{m.charts}</b></span><span>Progreso<b>{Math.round(P.p * 100)}%</b></span>
-          </div>
+        {P.steps > 0 && m.id !== 'glosario' && (
+          <div className="sim-meter"><span>{P.done}/{P.steps} pasos</span><div className="bar"><div style={{ width: Math.round(P.p * 100) + '%' }} /></div><b>{Math.round(P.p * 100)}%</b></div>
         )}
       </div>
       {m.toc.length > 0 && (
