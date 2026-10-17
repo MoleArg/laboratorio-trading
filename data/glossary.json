@@ -603,5 +603,240 @@
   "t": "Replay",
   "en": "Bar replay",
   "d": "Práctica en la que el gráfico se revela vela a vela para decidir sin ver el futuro."
+ },
+ {
+  "t": "ADX",
+  "en": "Average Directional Index",
+  "d": "Indicador de Wilder que mide la fuerza de la tendencia (no su dirección). Bajo 20 = sin tendencia; sobre 25 = tendencia."
+ },
+ {
+  "t": "+DI / −DI",
+  "en": "Directional Indicators (DMI)",
+  "d": "Miden la presión compradora (+DI) y vendedora (−DI). Cuál está arriba indica la dirección; el ADX, la fuerza."
+ },
+ {
+  "t": "Ichimoku",
+  "en": "Ichimoku Kinko Hyo",
+  "d": "Sistema japonés de tendencia con cinco líneas: Tenkan, Kijun, Senkou A y B (la nube) y Chikou."
+ },
+ {
+  "t": "Kumo (nube)",
+  "en": "Ichimoku cloud",
+  "d": "Zona entre Senkou A y Senkou B, proyectada 26 velas adelante. Precio sobre la nube = sesgo alcista; debajo, bajista."
+ },
+ {
+  "t": "Tenkan / Kijun",
+  "en": "Conversion / base line",
+  "d": "Puntos medios de 9 y 26 velas en Ichimoku. Su cruce (TK cross) es una señal de cambio de impulso."
+ },
+ {
+  "t": "Punto pivote",
+  "en": "Pivot point",
+  "d": "Nivel calculado con el máximo, mínimo y cierre del día anterior: P = (H + L + C) / 3, con resistencias R1–R3 y soportes S1–S3."
+ },
+ {
+  "t": "Wyckoff",
+  "en": "Wyckoff method",
+  "d": "Método de lectura de precio y volumen: acumulación, markup, distribución y markdown, con fases A–E."
+ },
+ {
+  "t": "Spring / UTAD",
+  "en": "Spring / Upthrust after distribution",
+  "d": "Perforación falsa del suelo (spring) o del techo (UTAD) de un rango de Wyckoff que barre liquidez y vuelve a entrar."
+ },
+ {
+  "t": "SC / BC",
+  "en": "Selling / buying climax",
+  "d": "Clímax de venta o de compra: vela con volumen extremo que marca el inicio de un rango de acumulación o distribución."
+ },
+ {
+  "t": "SOS / SOW",
+  "en": "Sign of strength / weakness",
+  "d": "Ruptura del rango con volumen que confirma la salida de una acumulación (SOS) o distribución (SOW)."
+ },
+ {
+  "t": "LPS / LPSY",
+  "en": "Last point of support / supply",
+  "d": "Retroceso con poco volumen al borde del rango roto: la entrada clásica de Wyckoff."
+ },
+ {
+  "t": "Esfuerzo y resultado",
+  "en": "Effort vs result",
+  "d": "Ley de Wyckoff: compara el volumen (esfuerzo) con el movimiento del precio (resultado). Si no cuadran, alguien está absorbiendo."
+ },
+ {
+  "t": "Absorción",
+  "en": "Absorption",
+  "d": "Mucho volumen agresivo en una dirección sin que el precio avance: órdenes límite del otro lado lo están absorbiendo."
+ },
+ {
+  "t": "Delta",
+  "en": "Volume delta",
+  "d": "Compras agresivas (en el ask) menos ventas agresivas (en el bid) en una vela."
+ },
+ {
+  "t": "CVD",
+  "en": "Cumulative volume delta",
+  "d": "Delta acumulado vela a vela. Sus divergencias con el precio muestran agotamiento."
+ },
+ {
+  "t": "Footprint",
+  "en": "Footprint chart",
+  "d": "Gráfico que muestra el volumen en el bid y en el ask de cada nivel de precio dentro de cada vela."
+ },
+ {
+  "t": "IFVG",
+  "en": "Inversion fair value gap",
+  "d": "FVG que el precio atraviesa con un cierre y que pasa a funcionar en sentido contrario (de soporte a resistencia o al revés)."
+ },
+ {
+  "t": "Volume imbalance",
+  "en": "Volume imbalance",
+  "d": "Hueco entre los cuerpos de dos velas consecutivas cuyas mechas sí se solapan."
+ },
+ {
+  "t": "Liquidity void",
+  "en": "Liquidity void",
+  "d": "Tramo de velas grandes en una dirección, casi sin solapamiento, que el precio tiende a volver a recorrer."
+ },
+ {
+  "t": "NWOG / NDOG",
+  "en": "New week / day opening gap",
+  "d": "Hueco entre el cierre y la reapertura del mercado (semanal o diario) en futuros. Su 50% (CE) es un nivel de referencia."
+ },
+ {
+  "t": "Silver Bullet",
+  "en": "ICT Silver Bullet",
+  "d": "Modelo de ICT en ventanas de una hora (3–4, 10–11 y 14–15 de Nueva York): barrido, FVG y entrada en el FVG."
+ },
+ {
+  "t": "Market Maker Model",
+  "en": "Market maker buy / sell model",
+  "d": "Ciclo de ICT: escalones en una dirección, giro en un PD array de temporalidad mayor (SMR) y vuelta por los mismos niveles."
+ },
+ {
+  "t": "PD array",
+  "en": "Premium / discount array",
+  "d": "Cualquier zona de reacción en la terminología ICT: order block, FVG, breaker, IFVG, gaps de apertura…"
+ },
+ {
+  "t": "Consenso",
+  "en": "Consensus / forecast",
+  "d": "Mediana de lo que esperan los analistas para un dato económico. El precio reacciona a la diferencia entre el dato y el consenso."
+ },
+ {
+  "t": "IPC / CPI",
+  "en": "Consumer price index",
+  "d": "Índice de precios al consumo: el dato de inflación que más mueve a los bancos centrales y al dólar."
+ },
+ {
+  "t": "NFP",
+  "en": "Non-farm payrolls",
+  "d": "Empleo no agrícola de EE. UU., publicado el primer viernes de cada mes a las 8:30 de Nueva York."
+ },
+ {
+  "t": "FOMC",
+  "en": "Federal Open Market Committee",
+  "d": "Comité de la Reserva Federal que decide las tasas de interés de EE. UU. ocho veces al año."
+ },
+ {
+  "t": "Hawkish / dovish",
+  "en": "Hawkish / dovish",
+  "d": "Tono duro (favorable a tasas altas) o blando (favorable a bajarlas) de un banco central."
+ },
+ {
+  "t": "Opción",
+  "en": "Option",
+  "d": "Derecho, no obligación, a comprar (call) o vender (put) un activo a un precio fijado (strike) hasta una fecha, a cambio de una prima."
+ },
+ {
+  "t": "Strike / prima",
+  "en": "Strike / premium",
+  "d": "Precio de ejercicio de una opción y el precio que se paga por ella."
+ },
+ {
+  "t": "CFD",
+  "en": "Contract for difference",
+  "d": "Contrato con el broker que replica el precio de un activo sin poseerlo. Permite apalancamiento y operar en corto."
+ },
+ {
+  "t": "Prop firm",
+  "en": "Proprietary trading firm",
+  "d": "Empresa de fondeo: cobra una evaluación y, si la apruebas, te deja operar su capital a cambio de repartir ganancias."
+ },
+ {
+  "t": "Drawdown diario / trailing",
+  "en": "Daily / trailing drawdown",
+  "d": "Reglas de las prop firms: pérdida máxima en un día y pérdida máxima total, fija o que sube con tu máximo de capital."
+ },
+ {
+  "t": "Segregación de fondos",
+  "en": "Segregated accounts",
+  "d": "El dinero de los clientes se guarda separado del de la empresa, para que no se use si el broker quiebra."
+ },
+ {
+  "t": "Break-even",
+  "en": "Break-even",
+  "d": "Mover el stop al precio de entrada para que la operación ya no pueda perder."
+ },
+ {
+  "t": "Cierre parcial",
+  "en": "Partial close",
+  "d": "Cerrar una parte de la posición en un objetivo intermedio y dejar correr el resto."
+ },
+ {
+  "t": "Trailing stop",
+  "en": "Trailing stop",
+  "d": "Stop que sigue al precio a favor (por ATR, por estructura o por distancia fija) y nunca retrocede."
+ },
+ {
+  "t": "Salida por tiempo",
+  "en": "Time stop",
+  "d": "Cerrar la operación si no funciona en el tiempo previsto, aunque no haya tocado stop ni objetivo."
+ },
+ {
+  "t": "Sobreajuste",
+  "en": "Overfitting",
+  "d": "Ajustar los parámetros de una estrategia al ruido del pasado. Brilla en el backtest y falla en datos nuevos."
+ },
+ {
+  "t": "Fuera de muestra",
+  "en": "Out-of-sample",
+  "d": "Datos que no se usaron para diseñar ni ajustar la estrategia. La única prueba honesta."
+ },
+ {
+  "t": "Walk-forward",
+  "en": "Walk-forward analysis",
+  "d": "Optimizar en una ventana de datos, probar en la siguiente y repetir desplazando la ventana."
+ },
+ {
+  "t": "Sesgo de supervivencia",
+  "en": "Survivorship bias",
+  "d": "Probar solo con lo que sobrevivió (acciones que siguen cotizando, traders que siguen activos) y olvidar lo que desapareció."
+ },
+ {
+  "t": "Look-ahead",
+  "en": "Look-ahead bias",
+  "d": "Usar en un backtest información que en ese momento todavía no existía."
+ },
+ {
+  "t": "Efecto disposición",
+  "en": "Disposition effect",
+  "d": "Tendencia a cerrar pronto las ganadoras y aguantar las perdedoras."
+ },
+ {
+  "t": "Tilt / revenge trading",
+  "en": "Tilt / revenge trading",
+  "d": "Operar con la emoción al mando tras pérdidas, para recuperar rápido: más operaciones, más tamaño, peores setups."
+ },
+ {
+  "t": "FOMO",
+  "en": "Fear of missing out",
+  "d": "Miedo a quedarse fuera: entrar tarde persiguiendo un movimiento que ya ocurrió."
+ },
+ {
+  "t": "Plan de trading",
+  "en": "Trading plan",
+  "d": "Reglas escritas de qué, cuándo y cuánto operar, y cuándo parar. Se escribe antes de operar."
  }
 ]

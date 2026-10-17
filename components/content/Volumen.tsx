@@ -10,6 +10,27 @@ export default function Volumen() {
       <article className="lesson" id="vol-obv">{" "}<h3><span className="ln">{"8.4"}</span>{"OBV (On-Balance Volume)"}</h3>{" "}<div className="prose">{" "}<p>{"Popularizado por Joseph Granville (1963). Es un total acumulado: si la vela cierra por encima del cierre anterior se "}<strong>{"suma"}</strong>{" su volumen; si cierra por debajo, se "}<strong>{"resta"}</strong>{". La idea: el volumen precede al precio. Se usa para confirmar tendencias (OBV y precio subiendo juntos) y detectar divergencias (precio con máximo más alto y OBV sin superarlo). Actívalo en el laboratorio."}</p>{" "}</div>{" "}<div className="rd-sentinel" data-l="vol-obv" /></article>
       <article className="lesson" id="vol-vwap">{" "}<h3><span className="ln">{"8.5"}</span>{"VWAP (precio medio ponderado por volumen)"}</h3>{" "}<div className="prose">{" "}<p><span className="mono">{"VWAP = Σ(precio típico × volumen) / Σ volumen"}</span>{", con precio típico = (máximo + mínimo + cierre) / 3, acumulado desde el inicio de la sesión (o desde una vela elegida: "}<strong>{"VWAP anclado"}</strong>{"). Es el \"precio justo\" del día para muchos institucionales: precio por encima del VWAP = compradores en control; por debajo = vendedores. Las bandas (desviaciones) marcan zonas estiradas."}</p>{" "}</div>{" "}<div className="rd-sentinel" data-l="vol-vwap" /></article>
       <article className="lesson" id="vol-perfil">{" "}<h3><span className="ln">{"8.6"}</span>{"Perfil de volumen: POC y área de valor"}</h3>{" "}<div className="prose">{" "}<ul><li>{"El perfil reparte el volumen "}<strong>{"por niveles de precio"}</strong>{" (barras horizontales) en lugar de por tiempo."}</li><li><strong>{"POC"}</strong>{" (point of control): el precio con más volumen negociado. Actúa como imán."}</li><li><strong>{"Área de valor:"}</strong>{" el rango donde se negoció cerca del "}<strong>{"70%"}</strong>{" del volumen (algunos usan 68%). Sus bordes son "}<strong>{"VAH"}</strong>{" y "}<strong>{"VAL"}</strong>{"; fuera de ella el precio está \"caro\" o \"barato\"."}</li><li><strong>{"Nodos de alto/bajo volumen"}</strong>{" (HVN/LVN): el precio se frena en los altos y atraviesa rápido los bajos."}</li></ul>{" "}<p>{"Activa \"Perfil de volumen\" en el laboratorio y mueve el porcentaje del área de valor."}</p>{" "}</div>{" "}<div className="rd-sentinel" data-l="vol-perfil" /></article>
+      <article className="lesson" id="vol-flow">
+        <h3><span className="ln">{"8.7"}</span>Order flow: delta, CVD y footprint</h3>
+        <div className="prose">
+          <p>El volumen dice <em>cuánto</em> se negoció. El <strong>order flow</strong> separa <em>quién</em> fue agresivo: cada operación se cruza con una orden a mercado (que &quot;paga&quot; el spread) contra una orden límite (que espera). Si la orden a mercado es una compra se ejecuta en el <strong>ask</strong>; si es una venta, en el <strong>bid</strong>.</p>
+          <ul>
+            <li><strong>Delta</strong> = compras agresivas − ventas agresivas en una vela.</li>
+            <li><strong>CVD</strong> (cumulative volume delta) = el delta acumulado vela a vela. Se lee como el OBV, pero con órdenes reales.</li>
+            <li><strong>Footprint</strong> = el delta desglosado por precio dentro de cada vela. Un nivel con 3 veces más compras que ventas (o al revés) es un <strong>desequilibrio</strong> (imbalance).</li>
+          </ul>
+          <p>Necesita datos reales de compraventa: existe en futuros y acciones (bolsas centralizadas) y en cripto. En forex al contado no hay una cinta central: el &quot;volumen&quot; es de ticks y el delta es una aproximación.</p>
+        </div>
+        <div className="fig">
+          <div className="controls"><div className="seg" data-key="of"><button className="on" data-v="sano">Tendencia sana</button><button data-v="absorb">Absorción</button><button data-v="div">Divergencia de CVD</button></div></div>
+          <div className="chart-host" id="fig-vol-flow" />
+          <div className="explain" id="of-explain" />
+          <div className="fig-title" style={{ marginTop: '12px' }}>Footprint de la vela seleccionada</div>
+          <p className="fig-sub">Haz clic en cualquier vela del gráfico. Los recuadros marcados son desequilibrios de 3 a 1.</p>
+          <div className="chart-host" id="fig-vol-fp" style={{ maxWidth: '560px' }} />
+        </div>
+        <div className="rd-sentinel" data-l="vol-flow" />
+      </article>
       <div id="volumen-quiz" />
     </>
   );

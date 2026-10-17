@@ -8,7 +8,8 @@
     "build": "next build",
     "preview": "pnpm dlx serve out",
     "typecheck": "tsc --noEmit",
-    "port-legacy": "node scripts/port-legacy.mjs"
+    "port-legacy": "node scripts/port-legacy.mjs",
+    "sync": "node scripts/sync-manifest.mjs"
   },
   "dependencies": {
     "next": "^16.4.0",

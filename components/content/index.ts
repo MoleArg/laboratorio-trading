@@ -25,6 +25,13 @@ import Volat from './Volat';
 import Ordenes from './Ordenes';
 import Riesgo from './Riesgo';
 import Mercados from './Mercados';
+import Psicologia from './Psicologia';
+import Backtest from './Backtest';
+import Gestion from './Gestion';
+import Brokers from './Brokers';
+import Wyckoff from './Wyckoff';
+import Adx from './Adx';
+import Macro from './Macro';
 
 export const CONTENT: Record<string, ComponentType> = {
   "velas": Velas,
@@ -51,5 +58,12 @@ export const CONTENT: Record<string, ComponentType> = {
   "volat": Volat,
   "ordenes": Ordenes,
   "riesgo": Riesgo,
-  "mercados": Mercados
+  "mercados": Mercados,
+  "gestion": Gestion,
+  "backtest": Backtest,
+  "psicologia": Psicologia,
+  "macro": Macro,
+  "adx": Adx,
+  "wyckoff": Wyckoff,
+  "brokers": Brokers
 };

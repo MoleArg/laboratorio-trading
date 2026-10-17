@@ -1129,5 +1129,445 @@
     "why": "Un nivel aislado es una línea más; la confluencia y la reacción del precio le dan peso."
    }
   ]
+ },
+ "gestion": {
+  "title": "Práctica: gestión del trade abierto",
+  "qs": [
+   {
+    "q": "En un mercado sin ventaja (precio aleatorio), mover el stop a break-even en +1R…",
+    "o": [
+     "Convierte la estrategia en ganadora",
+     "Cambia el % de ganadoras y el tamaño de cada una, pero la expectativa sigue cerca de 0R",
+     "Siempre empeora la expectativa"
+    ],
+    "a": 1,
+    "why": "La gestión cambia la forma de la distribución de resultados; la ventaja viene de la entrada."
+   },
+   {
+    "q": "Cierras el 50% en +1R y el resto llega a +3R. ¿Cuántos R ganaste en total?",
+    "o": [
+     "+2R",
+     "+3R",
+     "+4R"
+    ],
+    "a": 0,
+    "why": "0,5 × 1 + 0,5 × 3 = 2R."
+   },
+   {
+    "q": "¿Cuándo suele restar valor un cierre parcial?",
+    "o": [
+     "Cuando la mayoría de las operaciones que llegan al primer objetivo siguen hasta el final",
+     "Cuando muchas operaciones se dan la vuelta a mitad de camino",
+     "Nunca resta"
+    ],
+    "a": 0,
+    "why": "Si casi todas siguen, recortarlas cuesta más de lo que protege."
+   },
+   {
+    "q": "Un trailing stop chandelier de 3 × ATR…",
+    "o": [
+     "Queda 3 ATR por debajo del máximo alcanzado y solo sube",
+     "Queda 3 ATR por debajo de la entrada para siempre",
+     "Baja si el ATR sube"
+    ],
+    "a": 0,
+    "why": "Sigue al máximo desde la entrada a una distancia de k × ATR y nunca retrocede."
+   },
+   {
+    "q": "¿Cuál es una razón válida para cerrar antes del stop o del objetivo?",
+    "o": [
+     "Las dos operaciones anteriores perdieron",
+     "La estructura se rompió en contra en tu temporalidad de entrada",
+     "Ya ganas un poco y te da miedo devolverlo"
+    ],
+    "a": 1,
+    "why": "Cerrar por invalidación de la idea es coherente; cerrar por miedo o por resultados anteriores no."
+   }
+  ]
+ },
+ "backtest": {
+  "title": "Práctica: backtesting y validación",
+  "qs": [
+   {
+    "q": "Tu backtest de 25 operaciones da +0,6R por operación. ¿Qué conclusión es razonable?",
+    "o": [
+     "La estrategia está validada",
+     "Es una muestra demasiado corta: el resultado real puede estar muy lejos",
+     "Hay que duplicar el riesgo"
+    ],
+    "a": 1,
+    "why": "Con 25 operaciones el intervalo de la expectativa medida es enorme."
+   },
+   {
+    "q": "Para reducir a la mitad el margen de error de tu estimación necesitas…",
+    "o": [
+     "El doble de operaciones",
+     "Cuatro veces más operaciones",
+     "Diez operaciones más"
+    ],
+    "a": 1,
+    "why": "El error se reduce con la raíz cuadrada de la muestra: √4 = 2."
+   },
+   {
+    "q": "Pruebas 200 combinaciones de parámetros y eliges la mejor. ¿Qué pasará probablemente en datos nuevos?",
+    "o": [
+     "Rendirá igual que en el backtest",
+     "Rendirá peor, más cerca de la ventaja real (que puede ser cero)",
+     "Rendirá mejor"
+    ],
+    "a": 1,
+    "why": "La mejor de muchas es en parte la más afortunada: sobreajuste."
+   },
+   {
+    "q": "En un walk-forward, ¿qué tramos cuentan para el resultado final?",
+    "o": [
+     "Los de optimización",
+     "Solo los de prueba, que la optimización no vio",
+     "Todos"
+    ],
+    "a": 1,
+    "why": "La idea es medir solo en datos no usados para ajustar."
+   },
+   {
+    "q": "Profit factor de 1,1 sin incluir costos. ¿Qué te preocupa?",
+    "o": [
+     "Nada, es ganador",
+     "Que spread y comisiones probablemente lo vuelvan perdedor",
+     "Que es demasiado alto"
+    ],
+    "a": 1,
+    "why": "Con un margen tan fino, los costos reales pueden borrar la ventaja."
+   }
+  ]
+ },
+ "psicologia": {
+  "title": "Práctica: psicología y plan de trading",
+  "qs": [
+   {
+    "q": "Cerrar rápido las ganadoras y dejar correr las perdedoras se llama…",
+    "o": [
+     "Efecto disposición",
+     "Sesgo de supervivencia",
+     "Martingala"
+    ],
+    "a": 0,
+    "why": "Es el efecto disposición: empeora el R medio aunque aciertes mucho."
+   },
+   {
+    "q": "Tras seis pérdidas seguidas piensas que \"ya toca\" ganar. Es…",
+    "o": [
+     "Una lectura correcta de la estadística",
+     "La falacia del jugador",
+     "Exceso de confianza"
+    ],
+    "a": 1,
+    "why": "Cada operación es independiente: la racha no cambia la probabilidad de la siguiente."
+   },
+   {
+    "q": "¿Qué regla limita mejor el daño del revenge trading?",
+    "o": [
+     "Un límite de pérdida diario que obliga a parar",
+     "Subir el tamaño para recuperar antes",
+     "Operar en temporalidades más bajas"
+    ],
+    "a": 0,
+    "why": "No evita la emoción, pero le pone techo a lo que puede costar."
+   },
+   {
+    "q": "Una operación perdedora que siguió todas las reglas del plan es…",
+    "o": [
+     "Un error que hay que corregir",
+     "Una buena operación: el resultado individual es ruido",
+     "Motivo para cambiar de estrategia"
+    ],
+    "a": 1,
+    "why": "Se evalúa la ejecución del plan; el resultado de una sola operación es varianza."
+   },
+   {
+    "q": "¿Qué debería incluir siempre un plan de trading?",
+    "o": [
+     "Solo los setups",
+     "Setups, riesgo por operación, límites de pérdida y cuándo no operar",
+     "El objetivo de ganancia mensual"
+    ],
+    "a": 1,
+    "why": "Los límites y las condiciones para no operar son lo que te protege en los días malos."
+   }
+  ]
+ },
+ "macro": {
+  "title": "Práctica: macro y calendario económico",
+  "qs": [
+   {
+    "q": "El IPC de EE. UU. sale en 3,2% con un consenso de 3,2%. ¿Qué es lo más probable?",
+    "o": [
+     "Una gran tendencia alcista del dólar",
+     "Movimiento corto en ambas direcciones y poca tendencia",
+     "Que el mercado cierre"
+    ],
+    "a": 1,
+    "why": "Sin sorpresa no hay información nueva: suele haber latigazos y poco desplazamiento."
+   },
+   {
+    "q": "La inflación sale más alta de lo esperado. Reacción típica del EUR/USD:",
+    "o": [
+     "Sube",
+     "Baja, porque el dólar se fortalece ante tasas más altas",
+     "No se mueve"
+    ],
+    "a": 1,
+    "why": "Más inflación → tasas más altas por más tiempo → dólar más fuerte → EUR/USD a la baja."
+   },
+   {
+    "q": "¿Por qué un stop puede ejecutarse peor que su precio en una noticia?",
+    "o": [
+     "Porque el broker siempre hace trampa",
+     "Porque el precio salta niveles y el spread se abre: el stop se ejecuta al siguiente precio disponible",
+     "No puede pasar"
+    ],
+    "a": 1,
+    "why": "Una orden stop se vuelve orden a mercado; sin liquidez, se ejecuta donde haya precio."
+   },
+   {
+    "q": "En un shock de pánico (risk-off), ¿qué suele pasar?",
+    "o": [
+     "Suben índices y cripto",
+     "Suben refugios como dólar, yen y oro; caen los activos de riesgo",
+     "Todo sube"
+    ],
+    "a": 1,
+    "why": "El dinero huye del riesgo hacia activos considerados seguros."
+   },
+   {
+    "q": "El banco central sube las tasas 0,25 puntos pero el mercado esperaba 0,50. La moneda probablemente…",
+    "o": [
+     "Sube porque subieron las tasas",
+     "Baja, porque la decisión fue menos dura de lo esperado",
+     "No reacciona"
+    ],
+    "a": 1,
+    "why": "Se opera la diferencia con lo esperado, no el dato en sí."
+   }
+  ]
+ },
+ "adx": {
+  "title": "Práctica: ADX e Ichimoku",
+  "qs": [
+   {
+    "q": "El ADX está en 40 y subiendo. ¿Qué te dice?",
+    "o": [
+     "Que el mercado es alcista",
+     "Que hay una tendencia fuerte, alcista o bajista",
+     "Que está sobrecomprado"
+    ],
+    "a": 1,
+    "why": "El ADX mide fuerza, no dirección. La dirección la dan +DI y −DI."
+   },
+   {
+    "q": "Con ADX por debajo de 20, ¿qué tipo de estrategia suele funcionar mejor?",
+    "o": [
+     "Comprar rupturas",
+     "Operar el rango: soportes, resistencias y osciladores",
+     "Seguir la tendencia con trailing amplio"
+    ],
+    "a": 1,
+    "why": "ADX bajo indica ausencia de tendencia: las rupturas fallan más."
+   },
+   {
+    "q": "−DI por encima de +DI con ADX en 30 indica…",
+    "o": [
+     "Tendencia bajista con fuerza",
+     "Tendencia alcista débil",
+     "Rango"
+    ],
+    "a": 0,
+    "why": "−DI manda (presión vendedora) y el ADX confirma que hay tendencia."
+   },
+   {
+    "q": "En Ichimoku, la nube (kumo) se dibuja…",
+    "o": [
+     "Sobre las velas actuales",
+     "Proyectada 26 velas hacia adelante",
+     "26 velas hacia atrás"
+    ],
+    "a": 1,
+    "why": "Senkou A y B se desplazan 26 periodos al futuro."
+   },
+   {
+    "q": "Precio por encima de la nube, Tenkan sobre Kijun y nube futura verde. Es…",
+    "o": [
+     "Un contexto alcista según Ichimoku",
+     "Un contexto bajista",
+     "Una señal de venta"
+    ],
+    "a": 0,
+    "why": "Los tres elementos coinciden en sesgo alcista."
+   }
+  ]
+ },
+ "wyckoff": {
+  "title": "Práctica: Wyckoff",
+  "qs": [
+   {
+    "q": "En una acumulación, el spring es…",
+    "o": [
+     "La ruptura del techo del rango con volumen",
+     "Una perforación del suelo del rango que vuelve a entrar: trampa para vendedores",
+     "El primer rebote tras el clímax"
+    ],
+    "a": 1,
+    "why": "Es el barrido de la liquidez bajo el rango antes de la subida."
+   },
+   {
+    "q": "Volumen enorme en una vela bajista que cierra lejos de su mínimo, tras una caída larga, sugiere…",
+    "o": [
+     "Continuación bajista segura",
+     "Un clímax de venta: la oferta está siendo absorbida",
+     "Nada, el volumen no importa"
+    ],
+    "a": 1,
+    "why": "Mucho esfuerzo y poco resultado: alguien compra todo lo que se vende."
+   },
+   {
+    "q": "La ley de causa y efecto dice que…",
+    "o": [
+     "Un rango largo de acumulación prepara un movimiento proporcional",
+     "El precio siempre vuelve a su media",
+     "Cada noticia causa una tendencia"
+    ],
+    "a": 0,
+    "why": "La duración de la causa (el rango) da una idea del tamaño del efecto."
+   },
+   {
+    "q": "¿Cuál es el equivalente SMC del SOS (sign of strength)?",
+    "o": [
+     "Un inducement",
+     "Un desplazamiento que rompe estructura (BOS)",
+     "Un order block"
+    ],
+    "a": 1,
+    "why": "Ruptura con intención y volumen: desplazamiento / BOS."
+   },
+   {
+    "q": "El UTAD aparece en…",
+    "o": [
+     "Una acumulación",
+     "Una distribución, como barrido sobre el techo del rango",
+     "Una tendencia alcista sana"
+    ],
+    "a": 1,
+    "why": "Upthrust after distribution: trampa para compradores antes de la caída."
+   }
+  ]
+ },
+ "brokers": {
+  "title": "Práctica: brokers, prop firms y estafas",
+  "qs": [
+   {
+    "q": "¿Dónde verificas que un broker está regulado?",
+    "o": [
+     "En su propia web",
+     "En el registro oficial del regulador, con el número de licencia",
+     "En reseñas de redes sociales"
+    ],
+    "a": 1,
+    "why": "Los clones copian los datos de brokers reales en su web."
+   },
+   {
+    "q": "Un broker \"sin comisiones\" frente a uno con comisión y spread bajo…",
+    "o": [
+     "Siempre es más barato",
+     "Puede ser más caro: el costo suele estar en un spread más ancho",
+     "Nunca cobra swap"
+    ],
+    "a": 1,
+    "why": "Hay que comparar el costo total por operación."
+   },
+   {
+    "q": "En una evaluación con drawdown trailing, el límite de pérdida…",
+    "o": [
+     "Queda fijo desde el inicio",
+     "Sube con tu máximo de capital",
+     "Desaparece al ganar"
+    ],
+    "a": 1,
+    "why": "El suelo sigue a tu equity máxima, así que las primeras ganancias no dan colchón."
+   },
+   {
+    "q": "Para retirar tus ganancias te piden pagar antes un \"impuesto de liberación\". Es…",
+    "o": [
+     "Normal en brokers regulados",
+     "Una señal clara de estafa",
+     "Un trámite fiscal obligatorio"
+    ],
+    "a": 1,
+    "why": "Nadie legítimo cobra para devolverte tu dinero."
+   },
+   {
+    "q": "Arriesgar 3% por operación para pasar rápido una evaluación con límite diario de 5%…",
+    "o": [
+     "Aumenta la probabilidad de aprobar siempre",
+     "Acerca el objetivo pero hace muy probable romper el límite diario o el máximo",
+     "No cambia nada"
+    ],
+    "a": 1,
+    "why": "Dos pérdidas seguidas en el día ya rozan el límite."
+   }
+  ]
+ },
+ "todo": {
+  "title": "Práctica: el escenario completo",
+  "qs": [
+   {
+    "q": "El diario es bajista y el precio rebota. ¿Dónde buscas ventas?",
+    "o": [
+     "En cualquier vela roja",
+     "En una zona de premium de temporalidad mayor (order block, FVG) tras tomar liquidez",
+     "En el mínimo del día"
+    ],
+    "a": 1,
+    "why": "Primero sesgo y zona; la vela de entrada viene después."
+   },
+   {
+    "q": "El precio perfora unos máximos iguales y la vela cierra de nuevo por debajo. ¿Qué es?",
+    "o": [
+     "Una ruptura alcista confirmada",
+     "Un barrido de liquidez: el cierre volvió dentro",
+     "Una señal para comprar"
+    ],
+    "a": 1,
+    "why": "La diferencia entre barrido y ruptura está en el cierre."
+   },
+   {
+    "q": "¿Qué confirma la intención vendedora después del barrido?",
+    "o": [
+     "Un MSS (ruptura del último mínimo más alto) con desplazamiento",
+     "Que el RSI esté en 70",
+     "Que pasen tres velas"
+    ],
+    "a": 0,
+    "why": "El cambio de estructura con desplazamiento muestra que la oferta tomó el control."
+   },
+   {
+    "q": "¿Dónde va el stop en la venta del escenario?",
+    "o": [
+     "Por encima del máximo del barrido",
+     "Justo encima de la entrada",
+     "Por debajo del objetivo"
+    ],
+    "a": 0,
+    "why": "Si el precio supera el barrido, la idea queda invalidada."
+   },
+   {
+    "q": "Faltan dos de los puntos obligatorios de tu checklist. ¿Qué haces?",
+    "o": [
+     "Entro con la mitad de tamaño",
+     "No hay operación",
+     "Entro si el R:B es alto"
+    ],
+    "a": 1,
+    "why": "Los obligatorios son obligatorios: esperar también es operar bien."
+   }
+  ]
  }
 }

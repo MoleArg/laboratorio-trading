@@ -61,7 +61,7 @@ export default function HomePage() {
         <div>
           <div className="kicker">● SIM ONLINE · datos simulados</div>
           <h2>Toca el mercado: mueve, reproduce y mira qué pasa.</h2>
-          <p className="lead">{nMods} simuladores: mercados, velas, soportes, estructura, Fibonacci, sesiones, volumen, medias móviles, RSI, estocástico, MACD, ATR y Bollinger, liquidez, Smart Money, CRT, SMT, órdenes, costos y gestión del riesgo. Cada uno trae su gráfico en vivo, desafíos y la teoría en un desplegable para cuando la necesites.</p>
+          <p className="lead">{nMods} simuladores: mercados, velas, soportes, estructura, Fibonacci, sesiones, volumen, macro, medias móviles, RSI, estocástico, MACD, ADX, Ichimoku, ATR y Bollinger, Wyckoff, liquidez, Smart Money, CRT, SMT, órdenes, brokers, gestión del riesgo y del trade, backtesting y psicología. Cada uno trae su gráfico en vivo, desafíos y la teoría en un desplegable para cuando la necesites.</p>
           <div className="home-stats">
             {[['Explorado', Math.round(tot * 100) + '%'], ['Pasos', `${lessonsRead}/${lessonsTot}`], ['Desafíos', `${qok}/${qmods.length}`],
               ['Racha', '🔥 ' + streakOf(st) + ' d'], ['Estrellas', '★ ' + (st.micro.stars || 0)], ['Examen final', st.exam ? Math.round(st.exam.pct * 100) + '%' : '—']]

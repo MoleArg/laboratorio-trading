@@ -1,6 +1,6 @@
 # Laboratorio de Trading
 
-Academia interactiva de **price action**, **indicadores técnicos** y **Smart Money**: 24 módulos más un glosario, con portada de cursos, repaso rápido con tarjetas, un simulador de trading vela a vela y un examen final. Tema claro y oscuro.
+Academia interactiva de **price action**, **indicadores técnicos** y **Smart Money**: 31 módulos más un glosario, con portada de cursos, repaso rápido con tarjetas, un simulador de trading vela a vela y un examen final. Tema claro y oscuro.
 
 Hecho con **Next.js 16** (App Router) y exportado como sitio estático.
 
@@ -14,6 +14,7 @@ pnpm dev          # http://localhost:3000
 pnpm build        # genera out/ (sitio estático)
 pnpm preview      # sirve out/
 pnpm typecheck
+pnpm sync         # recalcula el manifiesto y numera las lecciones
 ```
 
 ## Rutas
@@ -30,10 +31,10 @@ Los enlaces del sitio anterior (`…/#velas`, `…/#smc-ote`) se redirigen solos
 
 | Grupo | Módulos |
 |---|---|
-| Fundamentos | `mercados` · `velas` · `patrones` · `sr` · `estructura` · `trendlines` · `fibo` · `sesiones` · `volumen` |
-| Indicadores | `emas` · `rsi` · `estocastico` · `momentum` · `volat` |
-| Smart Money / ICT | `liquidez` · `smc` · `crt` · `smt` |
-| Gestión y riesgo | `ordenes` · `riesgo` |
+| Fundamentos | `mercados` · `velas` · `patrones` · `sr` · `estructura` · `trendlines` · `fibo` · `sesiones` · `volumen` · `macro` |
+| Indicadores | `emas` · `rsi` · `estocastico` · `momentum` · `adx` · `volat` |
+| Smart Money / ICT | `wyckoff` · `liquidez` · `smc` · `crt` · `smt` |
+| Gestión y riesgo | `ordenes` · `brokers` · `riesgo` · `gestion` · `backtest` · `psicologia` |
 | Práctica | `todo` · `repaso` · `replay` · `examen` · `glosario` |
 
 ## Estructura
@@ -62,6 +63,7 @@ data/
   quizzes.json · glossary.json
 legacy/index.html       Versión anterior de un solo archivo (fuente del port)
 scripts/port-legacy.mjs Conversor usado para el port
+scripts/sync-manifest.mjs  Recalcula los datos derivados del manifiesto y valida anclas y enlaces
 ```
 
 ### Cómo funciona el motor interactivo
@@ -71,6 +73,15 @@ Los gráficos son SVG dibujados por el motor de `lib/lab/` (sin librerías de gr
 ### Sobre los archivos generados
 
 `components/content/*`, `lib/lab/*` (salvo `index.js` y `shared.js`), `lib/time.js`, `lib/generated/manifest.json` y `data/*.json` salieron de `scripts/port-legacy.mjs` a partir de `legacy/index.html`. Desde el port se editan a mano: si se vuelve a ejecutar el conversor, sobrescribe esos archivos.
+
+Los módulos agregados después (`macro`, `adx`, `wyckoff`, `brokers`, `gestion`, `backtest`, `psicologia`) y las ampliaciones de módulos existentes (`pivotes.js`, `mtf.js`, `orderflow.js`, `derivados.js`, `ict.js`, `escenario.js`) se escribieron a mano; `lib/lab/kit.js` reúne sus utilidades comunes.
+
+### Agregar un módulo o una lección
+
+1. Contenido en `components/content/<Nombre>.tsx`: cada lección es un `<article className="lesson" id="…">` con `<span className="ln">` (el número lo pone el script) y un `<div className="rd-sentinel" data-l="…" />` al final.
+2. Motor en `lib/lab/<modulo>.js` y su `init` en `lib/lab/registry.js`; el componente en `components/content/index.ts`.
+3. Entrada en `lib/generated/manifest.json` con `id`, `name`, `group`, `title`, `lead` y `toc` (en el orden del módulo); quiz en `data/quizzes.json`.
+4. `pnpm sync`: numera módulos y lecciones según el orden del manifiesto, recalcula lecciones, anclas, gráficos, términos y minutos, y falla si hay anclas duplicadas o enlaces rotos.
 
 ## Publicación
 

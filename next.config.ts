@@ -10,6 +10,8 @@ const config: NextConfig = {
   basePath,
   images: { unoptimized: true },
   reactStrictMode: false,
+  // dev server accesible por Tailscale
+  allowedDevOrigins: ['100.88.188.90'],
   turbopack: { root: import.meta.dirname }
 };
 

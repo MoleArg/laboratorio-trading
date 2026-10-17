@@ -16,10 +16,10 @@ export const BY_ID: Record<string, ModuleInfo> = Object.fromEntries(MODULES.map(
 
 export const GROUP_NAME: Record<string, string> = { home: 'Inicio', fund: 'Fundamentos', ind: 'Indicadores', smc: 'Smart Money / ICT', ges: 'Gestión y riesgo', prac: 'Práctica' };
 export const GROUP_META: Record<string, { lvl: string; col: [string, string]; d: string }> = {
-  fund: { lvl: 'Básico', col: ['#2f6fd6', '#1fa38a'], d: 'Mercados, velas, soportes, estructura, líneas de tendencia, Fibonacci, sesiones y volumen: aprender a leer un gráfico.' },
-  ind: { lvl: 'Intermedio', col: ['#7c5cf0', '#2f6fd6'], d: 'Medias móviles, RSI, estocástico, MACD, ATR y Bollinger: qué mide cada indicador y cuándo engaña.' },
-  smc: { lvl: 'Avanzado', col: ['#d18a00', '#e5484d'], d: 'Liquidez, order blocks, FVG, CRT y SMT: cómo se mueve el precio entre zonas de stops.' },
-  ges: { lvl: 'Esencial', col: ['#089981', '#2f6fd6'], d: 'Órdenes, costos, apalancamiento, expectativa y drawdown: lo que decide si sobrevives.' },
+  fund: { lvl: 'Básico', col: ['#2f6fd6', '#1fa38a'], d: 'Mercados, velas, soportes, estructura, líneas de tendencia, Fibonacci, sesiones, volumen y macro: aprender a leer un gráfico y su contexto.' },
+  ind: { lvl: 'Intermedio', col: ['#7c5cf0', '#2f6fd6'], d: 'Medias móviles, RSI, estocástico, MACD, ADX, Ichimoku, ATR y Bollinger: qué mide cada indicador y cuándo engaña.' },
+  smc: { lvl: 'Avanzado', col: ['#d18a00', '#e5484d'], d: 'Wyckoff, liquidez, order blocks, FVG, CRT y SMT: cómo se mueve el precio entre zonas de stops.' },
+  ges: { lvl: 'Esencial', col: ['#089981', '#2f6fd6'], d: 'Órdenes, brokers, costos, riesgo, gestión del trade, backtesting y psicología: lo que decide si sobrevives.' },
   prac: { lvl: 'Aplicado', col: ['#e5484d', '#7c5cf0'], d: 'Escenario completo, repaso rápido, simulador vela a vela y examen final.' }
 };
 export const ACADEMY = ['fund', 'ind', 'smc', 'ges', 'prac'];

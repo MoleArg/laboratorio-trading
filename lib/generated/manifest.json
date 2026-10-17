@@ -42,6 +42,14 @@
      "label": "Cómo se relacionan"
     },
     {
+     "id": "mk-opciones",
+     "label": "Opciones"
+    },
+    {
+     "id": "mk-perp",
+     "label": "Perpetuos"
+    },
+    {
      "id": "mercados-quiz",
      "label": "Práctica"
     }
@@ -80,17 +88,26 @@
      "t": "Cómo se relacionan los mercados"
     },
     {
+     "id": "mk-opciones",
+     "t": "Opciones: lo básico"
+    },
+    {
+     "id": "mk-perp",
+     "t": "Perpetuos de cripto y la tasa de funding"
+    },
+    {
      "id": "mk-errores",
      "t": "Errores comunes"
     }
    ],
    "quizId": "mercados-quiz",
    "qn": 6,
-   "min": 17,
-   "charts": 3,
+   "min": 22,
+   "charts": 4,
    "terms": [
     "RSI",
     "Liquidez",
+    "Barrido",
     "SMT",
     "DXY",
     "Volumen de ticks",
@@ -99,8 +116,7 @@
     "Apalancamiento / margen",
     "Deslizamiento",
     "Spot (contado)",
-    "OTC",
-    "ECN / STP"
+    "OTC"
    ]
   },
   {
@@ -161,7 +177,7 @@
    ],
    "quizId": "velas-quiz",
    "qn": 4,
-   "min": 9,
+   "min": 10,
    "charts": 4,
    "terms": [
     "OHLC",
@@ -262,6 +278,10 @@
      "label": "Figuras chartistas"
     },
     {
+     "id": "sr-pivot",
+     "label": "Pivotes"
+    },
+    {
      "id": "sr-errores",
      "label": "Errores comunes"
     },
@@ -288,23 +308,30 @@
      "t": "Figuras chartistas"
     },
     {
+     "id": "sr-pivot",
+     "t": "Puntos pivote: niveles calculados"
+    },
+    {
      "id": "sr-errores",
      "t": "Errores comunes"
     }
    ],
    "quizId": "sr-quiz",
    "qn": 5,
-   "min": 9,
-   "charts": 2,
+   "min": 11,
+   "charts": 3,
    "terms": [
     "Liquidez",
     "BSL",
     "Barrido",
+    "FVG",
     "Retesteo",
     "Soporte / resistencia",
+    "Cambio de polaridad",
     "Línea de cuello",
     "Objetivo por proyección",
-    "Pip"
+    "Pip",
+    "Fibonacci (retroceso)"
    ]
   },
   {
@@ -337,6 +364,10 @@
      "label": "Fuertes y débiles"
     },
     {
+     "id": "est-mtf",
+     "label": "Multi-temporal"
+    },
+    {
      "id": "est-errores",
      "label": "Errores comunes"
     },
@@ -367,14 +398,18 @@
      "t": "Máximos y mínimos fuertes y débiles"
     },
     {
+     "id": "est-mtf",
+     "t": "Análisis multi-temporal: de arriba hacia abajo"
+    },
+    {
      "id": "est-errores",
      "t": "Errores comunes"
     }
    ],
    "quizId": "estructura-quiz",
    "qn": 5,
-   "min": 11,
-   "charts": 1,
+   "min": 13,
+   "charts": 2,
    "terms": [
     "Mecha (sombra)",
     "Liquidez",
@@ -444,7 +479,7 @@
    ],
    "quizId": "trendlines-quiz",
    "qn": 5,
-   "min": 10,
+   "min": 9,
    "charts": 1,
    "terms": [
     "Liquidez",
@@ -595,7 +630,7 @@
    ],
    "quizId": "sesiones-quiz",
    "qn": 5,
-   "min": 9,
+   "min": 10,
    "charts": 2,
    "terms": [
     "Liquidez",
@@ -603,8 +638,11 @@
     "Power of 3 (AMD)",
     "CRT",
     "Sesión",
+    "Killzone",
     "Judas swing",
-    "Spread"
+    "Spread",
+    "NFP",
+    "FOMC"
    ]
   },
   {
@@ -641,6 +679,10 @@
      "label": "Perfil de volumen"
     },
     {
+     "id": "vol-flow",
+     "label": "Order flow"
+    },
+    {
      "id": "volumen-quiz",
      "label": "Práctica"
     }
@@ -669,12 +711,16 @@
     {
      "id": "vol-perfil",
      "t": "Perfil de volumen: POC y área de valor"
+    },
+    {
+     "id": "vol-flow",
+     "t": "Order flow: delta, CVD y footprint"
     }
    ],
    "quizId": "volumen-quiz",
    "qn": 5,
-   "min": 11,
-   "charts": 1,
+   "min": 14,
+   "charts": 3,
    "terms": [
     "Mecha (sombra)",
     "Liquidez",
@@ -684,14 +730,86 @@
     "VWAP",
     "POC",
     "Área de valor",
-    "Spot (contado)",
-    "Futuro"
+    "Orden límite",
+    "Bid / ask",
+    "Spread",
+    "Spot (contado)"
+   ]
+  },
+  {
+   "id": "macro",
+   "name": "Macro",
+   "num": "9",
+   "group": "fund",
+   "title": "Macro y calendario económico",
+   "lead": "Las tendencias grandes las mueven las <strong>tasas de interés, la inflación y el apetito de riesgo</strong>, y los saltos bruscos llegan a hora fija con el calendario. Aprende qué datos importan y por qué el precio reacciona a la sorpresa, no al dato.",
+   "leadText": "Las tendencias grandes las mueven las tasas de interés, la inflación y el apetito de riesgo, y los saltos bruscos llegan a hora fija con el calendario. Aprende qué datos importan y por qué el precio reacciona a la sorpresa, no al dato.",
+   "toc": [
+    {
+     "id": "mc-que",
+     "label": "Qué mueve el mercado"
+    },
+    {
+     "id": "mc-cal",
+     "label": "Calendario"
+    },
+    {
+     "id": "mc-sorpresa",
+     "label": "La sorpresa"
+    },
+    {
+     "id": "mc-dxy",
+     "label": "Tasas y dólar"
+    },
+    {
+     "id": "mc-evento",
+     "label": "Operar noticias"
+    },
+    {
+     "id": "macro-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "mc-que",
+     "t": "Qué mueve un mercado a largo plazo"
+    },
+    {
+     "id": "mc-cal",
+     "t": "El calendario económico: qué datos importan"
+    },
+    {
+     "id": "mc-sorpresa",
+     "t": "Lo que mueve el precio es la sorpresa"
+    },
+    {
+     "id": "mc-dxy",
+     "t": "La cadena: tasas → dólar → todo lo demás"
+    },
+    {
+     "id": "mc-evento",
+     "t": "Operar alrededor de una noticia (o no operar)"
+    }
+   ],
+   "quizId": "macro-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "Barrido",
+    "Spread",
+    "Risk-on / risk-off",
+    "Consenso",
+    "IPC / CPI",
+    "Break-even"
    ]
   },
   {
    "id": "emas",
    "name": "EMAs",
-   "num": "9",
+   "num": "10",
    "group": "ind",
    "title": "Medias móviles: SMA y EMA",
    "lead": "Una media móvil \"suaviza\" el precio para ver su dirección. La <strong>EMA</strong> (exponencial) da más peso a las velas recientes que la <strong>SMA</strong> (simple), así que reacciona antes. Son la base de muchos otros indicadores, como el MACD.",
@@ -760,7 +878,7 @@
   {
    "id": "rsi",
    "name": "RSI",
-   "num": "10",
+   "num": "11",
    "group": "ind",
    "title": "RSI — Índice de Fuerza Relativa",
    "lead": "Creado por J. Welles Wilder Jr. y publicado en 1978 en <em>New Concepts in Technical Trading Systems</em>. Responde a una pregunta: en los últimos N periodos, ¿qué parte del movimiento fue de subida y qué parte de bajada?",
@@ -839,7 +957,7 @@
    ],
    "quizId": "rsi-quiz",
    "qn": 6,
-   "min": 16,
+   "min": 17,
    "charts": 6,
    "terms": [
     "RSI",
@@ -858,7 +976,7 @@
   {
    "id": "estocastico",
    "name": "Estocástico",
-   "num": "11",
+   "num": "12",
    "group": "ind",
    "title": "Oscilador estocástico",
    "lead": "Creado por George Lane a finales de los años 50. Responde a una pregunta muy simple: <strong>¿dónde cerró el precio dentro del rango de las últimas N velas?</strong> Cerca del máximo del rango → lectura alta; cerca del mínimo → lectura baja.",
@@ -918,13 +1036,14 @@
    "terms": [
     "RSI",
     "Sobrecompra / sobreventa",
-    "Estocástico"
+    "Estocástico",
+    "Momentum"
    ]
   },
   {
    "id": "momentum",
    "name": "Momentum y MACD",
-   "num": "12",
+   "num": "13",
    "group": "ind",
    "title": "Momentum, ROC y MACD",
    "lead": "El momentum mide la <strong>velocidad</strong> del precio. Un precio que sigue subiendo pero cada vez más despacio está perdiendo momentum: es la primera pista de que el movimiento se agota, antes de que el precio gire.",
@@ -982,9 +1101,82 @@
    ]
   },
   {
+   "id": "adx",
+   "name": "ADX e Ichimoku",
+   "num": "14",
+   "group": "ind",
+   "title": "Fuerza de tendencia: ADX/DMI e Ichimoku",
+   "lead": "Antes de elegir estrategia hay que saber si el mercado <strong>tiene tendencia o está en rango</strong>. El ADX mide la fuerza de la tendencia y el DMI su dirección; Ichimoku resume tendencia, soporte y momentum en un solo gráfico.",
+   "leadText": "Antes de elegir estrategia hay que saber si el mercado tiene tendencia o está en rango. El ADX mide la fuerza de la tendencia y el DMI su dirección; Ichimoku resume tendencia, soporte y momentum en un solo gráfico.",
+   "toc": [
+    {
+     "id": "adx-que",
+     "label": "ADX y DMI"
+    },
+    {
+     "id": "adx-lab",
+     "label": "Laboratorio"
+    },
+    {
+     "id": "adx-uso",
+     "label": "Cómo se usa"
+    },
+    {
+     "id": "ichi-que",
+     "label": "Ichimoku"
+    },
+    {
+     "id": "ichi-uso",
+     "label": "Señales"
+    },
+    {
+     "id": "adx-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "adx-que",
+     "t": "ADX y DMI: ¿hay tendencia o no?"
+    },
+    {
+     "id": "adx-lab",
+     "t": "Laboratorio de ADX"
+    },
+    {
+     "id": "adx-uso",
+     "t": "Cómo se usa el ADX"
+    },
+    {
+     "id": "ichi-que",
+     "t": "Ichimoku: el gráfico \"de un vistazo\""
+    },
+    {
+     "id": "ichi-uso",
+     "t": "Señales de Ichimoku (y sus límites)"
+    }
+   ],
+   "quizId": "adx-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 2,
+   "terms": [
+    "RSI",
+    "Sesgo",
+    "Momentum",
+    "Soporte / resistencia",
+    "ATR",
+    "ADX",
+    "+DI / −DI",
+    "Ichimoku",
+    "Kumo (nube)",
+    "Tenkan / Kijun"
+   ]
+  },
+  {
    "id": "volat",
    "name": "ATR y Bollinger",
-   "num": "13",
+   "num": "15",
    "group": "ind",
    "title": "Volatilidad: ATR y Bandas de Bollinger",
    "lead": "La volatilidad dice <strong>cuánto</strong> se mueve el precio, no hacia dónde. Es clave para algo muy práctico: dónde poner el stop y cuánto comprar o vender.",
@@ -1052,9 +1244,84 @@
    ]
   },
   {
+   "id": "wyckoff",
+   "name": "Wyckoff",
+   "num": "16",
+   "group": "smc",
+   "title": "Wyckoff: acumulación y distribución",
+   "lead": "Cien años antes de Smart Money, Richard Wyckoff ya leía <strong>precio y volumen</strong> para seguir a los grandes operadores. Spring, clímax y fases explican de dónde salen los barridos, el desplazamiento y el Power of 3.",
+   "leadText": "Cien años antes de Smart Money, Richard Wyckoff ya leía precio y volumen para seguir a los grandes operadores. Spring, clímax y fases explican de dónde salen los barridos, el desplazamiento y el Power of 3.",
+   "toc": [
+    {
+     "id": "wy-leyes",
+     "label": "Las tres leyes"
+    },
+    {
+     "id": "wy-acum",
+     "label": "Esquema"
+    },
+    {
+     "id": "wy-er",
+     "label": "Esfuerzo y resultado"
+    },
+    {
+     "id": "wy-smc",
+     "label": "Wyckoff y SMC"
+    },
+    {
+     "id": "wy-errores",
+     "label": "Errores"
+    },
+    {
+     "id": "wyckoff-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "wy-leyes",
+     "t": "Las tres leyes y el \"operador compuesto\""
+    },
+    {
+     "id": "wy-acum",
+     "t": "El esquema de acumulación, paso a paso"
+    },
+    {
+     "id": "wy-er",
+     "t": "Esfuerzo contra resultado"
+    },
+    {
+     "id": "wy-smc",
+     "t": "Wyckoff y Smart Money: el mismo mapa con otros nombres"
+    },
+    {
+     "id": "wy-errores",
+     "t": "Errores comunes"
+    }
+   ],
+   "quizId": "wyckoff-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "BSL",
+    "SSL",
+    "Barrido",
+    "Desplazamiento",
+    "FVG",
+    "Order block",
+    "BOS",
+    "MSS / CHoCH",
+    "Power of 3 (AMD)",
+    "CRT",
+    "Retesteo"
+   ]
+  },
+  {
    "id": "liquidez",
    "name": "Liquidez",
-   "num": "14",
+   "num": "17",
    "group": "smc",
    "title": "Teoría de liquidez",
    "lead": "El precio no se mueve al azar entre niveles: tiende a viajar hacia donde hay <strong>órdenes esperando</strong>. Entender dónde están esas órdenes (y por qué) es la base de la CRT y de la SMT.",
@@ -1131,7 +1398,7 @@
      "t": "Errores comunes"
     }
    ],
-   "quizId": "liquidez-quiz",
+   "quizId": "liq-quiz",
    "qn": 5,
    "min": 17,
    "charts": 7,
@@ -1153,7 +1420,7 @@
   {
    "id": "smc",
    "name": "Smart Money Concepts",
-   "num": "15",
+   "num": "18",
    "group": "smc",
    "title": "Smart Money Concepts (SMC)",
    "lead": "SMC es un marco de lectura del precio, popularizado por ICT (Michael Huddleston) y su comunidad, que interpreta el gráfico como la huella de las órdenes de los grandes participantes: <strong>estructura, liquidez, zonas de interés (POI), premium/descuento y tiempo</strong>. Aquí se juntan todas las piezas.",
@@ -1182,6 +1449,22 @@
     {
      "id": "smc-po3",
      "label": "Power of 3"
+    },
+    {
+     "id": "smc-pd",
+     "label": "IFVG y vacíos"
+    },
+    {
+     "id": "smc-gaps",
+     "label": "NWOG / NDOG"
+    },
+    {
+     "id": "smc-sb",
+     "label": "Silver Bullet"
+    },
+    {
+     "id": "smc-mmm",
+     "label": "Market Maker Model"
     },
     {
      "id": "smc-errores",
@@ -1218,14 +1501,30 @@
      "t": "Power of 3 (AMD) en la vela diaria"
     },
     {
+     "id": "smc-pd",
+     "t": "Más PD arrays: IFVG, volume imbalance y liquidity void"
+    },
+    {
+     "id": "smc-gaps",
+     "t": "Gaps de apertura: NWOG y NDOG"
+    },
+    {
+     "id": "smc-sb",
+     "t": "Silver Bullet: una ventana de una hora"
+    },
+    {
+     "id": "smc-mmm",
+     "t": "Market Maker Model: la curva completa"
+    },
+    {
      "id": "smc-errores",
      "t": "Errores comunes"
     }
    ],
    "quizId": "smc-quiz",
    "qn": 5,
-   "min": 13,
-   "charts": 5,
+   "min": 21,
+   "charts": 9,
    "terms": [
     "Mecha (sombra)",
     "Liquidez",
@@ -1244,7 +1543,7 @@
   {
    "id": "crt",
    "name": "CRT",
-   "num": "16",
+   "num": "19",
    "group": "smc",
    "title": "CRT — Candle Range Theory (Teoría del Rango de la Vela)",
    "lead": "Idea central: <strong>cada vela, en cualquier temporalidad, es un rango</strong> con un máximo y un mínimo llenos de liquidez. La CRT busca el momento en que una vela <strong>barre un extremo</strong> de la vela anterior, <strong>cierra de vuelta dentro</strong> de su rango y entonces viaja hacia el <strong>extremo opuesto</strong>.",
@@ -1315,7 +1614,7 @@
    ],
    "quizId": "crt-quiz",
    "qn": 6,
-   "min": 14,
+   "min": 15,
    "charts": 2,
    "terms": [
     "Mecha (sombra)",
@@ -1335,7 +1634,7 @@
   {
    "id": "smt",
    "name": "SMT",
-   "num": "17",
+   "num": "20",
    "group": "smc",
    "title": "SMT — Divergencia entre activos correlacionados",
    "lead": "<strong>SMT</strong> (Smart Money Technique) compara dos activos que normalmente se mueven juntos. Si en un punto clave uno hace un nuevo extremo y el otro <strong>no lo confirma</strong>, aparece una \"grieta en la correlación\": el barrido de liquidez del primero no está respaldado y el movimiento puede girar.",
@@ -1409,7 +1708,7 @@
   {
    "id": "ordenes",
    "name": "Órdenes y costos",
-   "num": "18",
+   "num": "21",
    "group": "ges",
    "title": "Órdenes, spread, lotes, apalancamiento y costos",
    "lead": "Antes de cualquier estrategia: cómo se ejecuta realmente una operación, cuánto vale cada movimiento y cuánto cuesta operar. Aquí se pierde mucho dinero por desconocimiento, no por mal análisis.",
@@ -1464,27 +1763,102 @@
    ],
    "quizId": "ordenes-quiz",
    "qn": 5,
-   "min": 9,
+   "min": 10,
    "charts": 3,
    "terms": [
     "Liquidez",
     "FVG",
     "Premium / descuento",
     "Soporte / resistencia",
+    "OCO",
     "Bid / ask",
     "Spread",
     "Pip",
     "Lote",
     "Apalancamiento / margen",
     "Margin call / stop out",
+    "Swap"
+   ]
+  },
+  {
+   "id": "brokers",
+   "name": "Brokers y fondeo",
+   "num": "22",
+   "group": "ges",
+   "title": "Brokers, prop firms y estafas",
+   "lead": "Antes de la primera operación hay una decisión que puede costar más que cualquier stop: <strong>con quién operas</strong>. Cómo elegir broker, cuánto cuesta de verdad, cómo funcionan las cuentas de fondeo y cómo reconocer una estafa.",
+   "leadText": "Antes de la primera operación hay una decisión que puede costar más que cualquier stop: con quién operas. Cómo elegir broker, cuánto cuesta de verdad, cómo funcionan las cuentas de fondeo y cómo reconocer una estafa.",
+   "toc": [
+    {
+     "id": "br-tipos",
+     "label": "Tipos de broker"
+    },
+    {
+     "id": "br-regul",
+     "label": "¿Es confiable?"
+    },
+    {
+     "id": "br-costos",
+     "label": "Costos"
+    },
+    {
+     "id": "br-prop",
+     "label": "Prop firms"
+    },
+    {
+     "id": "br-estafas",
+     "label": "Estafas"
+    },
+    {
+     "id": "brokers-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "br-tipos",
+     "t": "Quién está del otro lado de tu orden"
+    },
+    {
+     "id": "br-regul",
+     "t": "¿Es confiable? Una checklist antes de depositar"
+    },
+    {
+     "id": "br-costos",
+     "t": "El costo real: compara dos brokers"
+    },
+    {
+     "id": "br-prop",
+     "t": "Prop firms: cómo funciona una evaluación"
+    },
+    {
+     "id": "br-estafas",
+     "t": "Estafas frecuentes"
+    }
+   ],
+   "quizId": "brokers-quiz",
+   "qn": 5,
+   "min": 10,
+   "charts": 2,
+   "terms": [
+    "Liquidez",
+    "R:B",
+    "Spread",
+    "Pip",
+    "Lote",
+    "Apalancamiento / margen",
     "Swap",
-    "Deslizamiento"
+    "Drawdown",
+    "ECN / STP",
+    "Creador de mercado",
+    "ETF",
+    "Rendimiento (yield)"
    ]
   },
   {
    "id": "riesgo",
    "name": "Gestión del riesgo",
-   "num": "19",
+   "num": "23",
    "group": "ges",
    "title": "Gestión del riesgo y estadística del trading",
    "lead": "Ninguna estrategia gana siempre. Lo que decide si sobrevives es la combinación de <strong>expectativa</strong> (cuánto ganas de media por operación) y <strong>tamaño del riesgo</strong> (cuánto arriesgas en cada una). Este módulo te deja ver los números en vez de imaginarlos.",
@@ -1544,14 +1918,235 @@
    "terms": [
     "R:B",
     "Expectativa",
+    "Drawdown",
     "Monte Carlo",
     "Martingala"
    ]
   },
   {
+   "id": "gestion",
+   "name": "Gestión del trade",
+   "num": "24",
+   "group": "ges",
+   "title": "Gestión del trade abierto",
+   "lead": "Entre la entrada y la salida pasan las decisiones que más cuestan: mover el stop, cerrar una parte, dejar correr o salir antes. Aquí ves con simulaciones <strong>qué cambia cada regla y qué no puede cambiar</strong>.",
+   "leadText": "Entre la entrada y la salida pasan las decisiones que más cuestan: mover el stop, cerrar una parte, dejar correr o salir antes. Aquí ves con simulaciones qué cambia cada regla y qué no puede cambiar.",
+   "toc": [
+    {
+     "id": "gt-plan",
+     "label": "Plan de salida"
+    },
+    {
+     "id": "gt-lab",
+     "label": "Reglas de salida"
+    },
+    {
+     "id": "gt-parcial",
+     "label": "Parciales"
+    },
+    {
+     "id": "gt-trail",
+     "label": "Trailing stop"
+    },
+    {
+     "id": "gt-cerrar",
+     "label": "Cerrar antes"
+    },
+    {
+     "id": "gestion-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "gt-plan",
+     "t": "La salida se decide antes de entrar"
+    },
+    {
+     "id": "gt-lab",
+     "t": "Laboratorio de reglas de salida"
+    },
+    {
+     "id": "gt-parcial",
+     "t": "Cierres parciales: cuándo suman"
+    },
+    {
+     "id": "gt-trail",
+     "t": "Trailing stop: por ATR o por estructura"
+    },
+    {
+     "id": "gt-cerrar",
+     "t": "Cuándo cerrar antes (y cuándo no)"
+    }
+   ],
+   "quizId": "gestion-quiz",
+   "qn": 5,
+   "min": 11,
+   "charts": 3,
+   "terms": [
+    "Liquidez",
+    "BSL",
+    "Barrido",
+    "FVG",
+    "Order block",
+    "Sesión",
+    "ATR",
+    "Swap",
+    "Break-even",
+    "Trailing stop",
+    "Salida por tiempo",
+    "Efecto disposición"
+   ]
+  },
+  {
+   "id": "backtest",
+   "name": "Backtesting",
+   "num": "25",
+   "group": "ges",
+   "title": "Backtesting y validación",
+   "lead": "Un backtest bonito no prueba nada si la muestra es corta, los parámetros se ajustaron al pasado o faltan los costos. Aprende a <strong>medir una estrategia sin engañarte</strong> y a leer tus propios resultados.",
+   "leadText": "Un backtest bonito no prueba nada si la muestra es corta, los parámetros se ajustaron al pasado o faltan los costos. Aprende a medir una estrategia sin engañarte y a leer tus propios resultados.",
+   "toc": [
+    {
+     "id": "bt-que",
+     "label": "Tipos de prueba"
+    },
+    {
+     "id": "bt-muestra",
+     "label": "Tamaño de muestra"
+    },
+    {
+     "id": "bt-overfit",
+     "label": "Sobreajuste"
+    },
+    {
+     "id": "bt-wf",
+     "label": "Walk-forward"
+    },
+    {
+     "id": "bt-sesgos",
+     "label": "Sesgos"
+    },
+    {
+     "id": "bt-metricas",
+     "label": "Tus métricas"
+    },
+    {
+     "id": "backtest-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "bt-que",
+     "t": "Tres formas de probar una estrategia"
+    },
+    {
+     "id": "bt-muestra",
+     "t": "¿Cuántas operaciones necesitas?"
+    },
+    {
+     "id": "bt-overfit",
+     "t": "Sobreajuste: cuando el backtest se aprende el pasado"
+    },
+    {
+     "id": "bt-wf",
+     "t": "Walk-forward: optimizar y probar por tramos"
+    },
+    {
+     "id": "bt-sesgos",
+     "t": "Sesgos que inflan un backtest"
+    },
+    {
+     "id": "bt-metricas",
+     "t": "Lee tus resultados"
+    }
+   ],
+   "quizId": "backtest-quiz",
+   "qn": 5,
+   "min": 12,
+   "charts": 4,
+   "terms": [
+    "Barrido",
+    "R:B",
+    "Sesgo",
+    "EMA",
+    "ATR",
+    "Spread",
+    "Swap",
+    "Deslizamiento",
+    "Expectativa",
+    "Drawdown",
+    "Futuro",
+    "MFE"
+   ]
+  },
+  {
+   "id": "psicologia",
+   "name": "Psicología y plan",
+   "num": "26",
+   "group": "ges",
+   "title": "Psicología y plan de trading",
+   "lead": "La misma estrategia da resultados opuestos en manos distintas. Sesgos, tilt y sobreoperar se controlan con <strong>reglas escritas antes de operar</strong>: aquí armas tu plan y tu rutina.",
+   "leadText": "La misma estrategia da resultados opuestos en manos distintas. Sesgos, tilt y sobreoperar se controlan con reglas escritas antes de operar: aquí armas tu plan y tu rutina.",
+   "toc": [
+    {
+     "id": "ps-sesgos",
+     "label": "Sesgos"
+    },
+    {
+     "id": "ps-tilt",
+     "label": "Tilt y revenge"
+    },
+    {
+     "id": "ps-plan",
+     "label": "Tu plan"
+    },
+    {
+     "id": "ps-rutina",
+     "label": "Rutina"
+    },
+    {
+     "id": "psicologia-quiz",
+     "label": "Práctica"
+    }
+   ],
+   "lessons": [
+    {
+     "id": "ps-sesgos",
+     "t": "Sesgos: el cerebro no está hecho para esto"
+    },
+    {
+     "id": "ps-tilt",
+     "t": "Tilt, FOMO y revenge trading"
+    },
+    {
+     "id": "ps-plan",
+     "t": "Escribe tu plan de trading"
+    },
+    {
+     "id": "ps-rutina",
+     "t": "Rutina: antes, durante y después"
+    }
+   ],
+   "quizId": "psicologia-quiz",
+   "qn": 5,
+   "min": 8,
+   "charts": 1,
+   "terms": [
+    "PDH / PDL",
+    "Sesgo",
+    "Sesión",
+    "Efecto disposición",
+    "Tilt / revenge trading",
+    "FOMO",
+    "Plan de trading"
+   ]
+  },
+  {
    "id": "todo",
    "name": "Todo junto",
-   "num": "20",
+   "num": "27",
    "group": "prac",
    "title": "Todo junto: un escenario completo, paso a paso",
    "lead": "Cada herramienta responde una pregunta distinta. <strong>Liquidez:</strong> ¿hacia dónde quiere ir el precio? <strong>CRT:</strong> ¿cuál es el rango y qué extremo se barrió? <strong>SMT:</strong> ¿el barrido está confirmado por el activo correlacionado? <strong>RSI:</strong> ¿el impulso acompaña o se agota? <strong>Estructura (CISD/FVG):</strong> ¿dónde entro exactamente?",
@@ -1562,18 +2157,30 @@
      "label": "Simulación guiada"
     },
     {
+     "id": "todo-bear",
+     "label": "Escenario bajista"
+    },
+    {
      "id": "todo-check",
      "label": "Checklist"
     },
     {
      "id": "todo-riesgo",
      "label": "Gestión del riesgo"
+    },
+    {
+     "id": "todo-quiz",
+     "label": "Práctica"
     }
    ],
    "lessons": [
     {
      "id": "todo-sim",
      "t": "Simulación guiada: CRT alcista en EUR/USD con SMT y RSI"
+    },
+    {
+     "id": "todo-bear",
+     "t": "Segundo escenario: venta con SMC en premium"
     },
     {
      "id": "todo-check",
@@ -1584,24 +2191,28 @@
      "t": "Gestión del riesgo: tamaño de posición"
     }
    ],
-   "quizId": null,
-   "qn": 0,
-   "min": 5,
-   "charts": 1,
+   "quizId": "todo-quiz",
+   "qn": 5,
+   "min": 7,
+   "charts": 2,
    "terms": [
     "RSI",
     "Liquidez",
     "Barrido",
     "FVG",
+    "Order block",
     "CISD",
+    "Premium / descuento",
     "CRT",
-    "SMT"
+    "SMT",
+    "Sesgo",
+    "SMC"
    ]
   },
   {
    "id": "repaso",
    "name": "Repaso rápido",
-   "num": "21",
+   "num": "28",
    "group": "prac",
    "title": "Repaso rápido",
    "lead": "Tarjetas de un minuto: un concepto, un gráfico y una pregunta. Ideal para repasar todos los días: cada respuesta correcta suma una <strong>estrella</strong>, las seguidas encadenan un <strong>combo</strong> y practicar a diario mantiene tu <strong>racha</strong>.",
@@ -1617,7 +2228,7 @@
   {
    "id": "replay",
    "name": "Simulador",
-   "num": "22",
+   "num": "29",
    "group": "prac",
    "title": "Simulador de trading: replay vela a vela",
    "lead": "Leer sobre trading no alcanza: hay que decidir <strong>sin ver el futuro</strong>. Este simulador genera un mercado (con tendencias, rangos y cambios de volatilidad) y lo revela vela a vela. Tú abres y cierras operaciones con stop y objetivo, y la página lleva la contabilidad: balance, R, acierto, expectativa, drawdown y un diario de cada operación.",
@@ -1676,19 +2287,19 @@
     "Sesión",
     "EMA",
     "ATR",
+    "Spread",
     "Deslizamiento",
     "Expectativa",
     "Drawdown",
     "Futuro",
     "MFE",
-    "MAE",
-    "Replay"
+    "MAE"
    ]
   },
   {
    "id": "examen",
    "name": "Examen final",
-   "num": "23",
+   "num": "30",
    "group": "prac",
    "title": "Examen final",
    "lead": "Preguntas al azar de <strong>todos los módulos</strong>, con las opciones mezcladas. Al terminar ves tu nota por módulo y un enlace para repasar lo que falló. Tu mejor resultado queda guardado en este navegador.",
@@ -1725,6 +2336,49 @@
   "home-courses": "inicio",
   "home-path": "inicio",
   "home-quick": "inicio",
+  "mk-que": "mercados",
+  "mk-mapa": "mercados",
+  "mk-cards": "mercados",
+  "mk-detail": "mercados",
+  "mk-tipos": "mercados",
+  "mk-libro": "mercados",
+  "lb-q": "mercados",
+  "lb-q-v": "mercados",
+  "fig-book": "mercados",
+  "lb-out": "mercados",
+  "lb-explain": "mercados",
+  "mk-horarios": "mercados",
+  "fig-mk-week": "mercados",
+  "mk-week-now": "mercados",
+  "mk-vol": "mercados",
+  "mk-vol-ctrl": "mercados",
+  "fig-mk-vol": "mercados",
+  "mk-vol-legend": "mercados",
+  "mk-vol-table": "mercados",
+  "mk-vol-new": "mercados",
+  "mk-futuros": "mercados",
+  "fu-c": "mercados",
+  "fu-mv": "mercados",
+  "fu-n": "mercados",
+  "fu-out": "mercados",
+  "mk-relacion": "mercados",
+  "mk-opciones": "mercados",
+  "op-k": "mercados",
+  "op-k-v": "mercados",
+  "op-p": "mercados",
+  "op-p-v": "mercados",
+  "fig-mk-opt": "mercados",
+  "op-out": "mercados",
+  "op-explain": "mercados",
+  "mk-perp": "mercados",
+  "fd-size": "mercados",
+  "fd-lev": "mercados",
+  "fd-rate": "mercados",
+  "fd-days": "mercados",
+  "mk-fund-out": "mercados",
+  "fd-explain": "mercados",
+  "mk-errores": "mercados",
+  "mercados-quiz": "mercados",
   "velas-anatomia": "velas",
   "fig-anatomy": "velas",
   "anatomy-explain": "velas",
@@ -1752,197 +2406,6 @@
   "velas-galeria": "velas",
   "gallery": "velas",
   "velas-quiz": "velas",
-  "rsi-que": "rsi",
-  "bal-g": "rsi",
-  "bal-g-v": "rsi",
-  "bal-l": "rsi",
-  "bal-l-v": "rsi",
-  "fig-balance": "rsi",
-  "balance-explain": "rsi",
-  "rsi-calculo": "rsi",
-  "calc-in": "rsi",
-  "calc-n": "rsi",
-  "calc-go": "rsi",
-  "calc-explain": "rsi",
-  "fig-calc": "rsi",
-  "calc-table": "rsi",
-  "rsi-lab": "rsi",
-  "lab-n": "rsi",
-  "lab-n-v": "rsi",
-  "lab-sig": "rsi",
-  "lab-div": "rsi",
-  "lab-play": "rsi",
-  "lab-new": "rsi",
-  "fig-rsi-lab": "rsi",
-  "lab-stats": "rsi",
-  "lab-explain": "rsi",
-  "lab-data": "rsi",
-  "rsi-niveles": "rsi",
-  "fig-ranges": "rsi",
-  "ranges-new": "rsi",
-  "rsi-div": "rsi",
-  "fig-div": "rsi",
-  "div-explain": "rsi",
-  "rsi-fs": "rsi",
-  "fs-play": "rsi",
-  "fig-fs": "rsi",
-  "fs-explain": "rsi",
-  "rsi-params": "rsi",
-  "rsi-errores": "rsi",
-  "rsi-quiz": "rsi",
-  "liq-que": "liquidez",
-  "fig-stops": "liquidez",
-  "liq-barrido": "liquidez",
-  "sweep-play": "liquidez",
-  "sweep-new": "liquidez",
-  "fig-sweep": "liquidez",
-  "sweep-stats": "liquidez",
-  "sweep-explain": "liquidez",
-  "liq-pools": "liquidez",
-  "map-new": "liquidez",
-  "fig-map": "liquidez",
-  "liq-svb": "liquidez",
-  "svb-play": "liquidez",
-  "fig-svb": "liquidez",
-  "svb-explain": "liquidez",
-  "liq-fvg": "liquidez",
-  "fvg-force": "liquidez",
-  "fvg-ret": "liquidez",
-  "fvg-play": "liquidez",
-  "fig-fvg": "liquidez",
-  "fvg-explain": "liquidez",
-  "liq-ob": "liquidez",
-  "ob-prev": "liquidez",
-  "ob-dots": "liquidez",
-  "ob-next": "liquidez",
-  "fig-ob": "liquidez",
-  "ob-step": "liquidez",
-  "liq-pd": "liquidez",
-  "pd-p": "liquidez",
-  "pd-v": "liquidez",
-  "fig-pd": "liquidez",
-  "pd-explain": "liquidez",
-  "liq-errores": "liquidez",
-  "liq-quiz": "liquidez",
-  "crt-idea": "crt",
-  "crt-modelo": "crt",
-  "crt-depth": "crt",
-  "crt3-prev": "crt",
-  "crt3-dots": "crt",
-  "crt3-next": "crt",
-  "crt3-all": "crt",
-  "fig-crt3": "crt",
-  "crt3-stats": "crt",
-  "crt3-step": "crt",
-  "crt-reglas": "crt",
-  "crt-cases": "crt",
-  "crt-cases-score": "crt",
-  "crt-mtf": "crt",
-  "mtf-play": "crt",
-  "mtf-end": "crt",
-  "mtf-new": "crt",
-  "mtf-speed": "crt",
-  "fig-crt-mtf": "crt",
-  "mtf-stats": "crt",
-  "mtf-explain": "crt",
-  "mtf-data": "crt",
-  "crt-entradas": "crt",
-  "crt-tf": "crt",
-  "crt-calidad": "crt",
-  "crt-quiz": "crt",
-  "smt-que": "smt",
-  "smt-play": "smt",
-  "smt-new": "smt",
-  "fig-smt": "smt",
-  "smt-explain": "smt",
-  "smt-tipos": "smt",
-  "smt-reglas": "smt",
-  "smt-crt": "smt",
-  "fig-smt-crt": "smt",
-  "smt-crt-explain": "smt",
-  "smt-errores": "smt",
-  "smt-quiz": "smt",
-  "todo-sim": "todo",
-  "todo-prev": "todo",
-  "todo-dots": "todo",
-  "todo-next": "todo",
-  "todo-new": "todo",
-  "todo-step": "todo",
-  "fig-todo": "todo",
-  "todo-stats": "todo",
-  "todo-check": "todo",
-  "checklist": "todo",
-  "check-meter": "todo",
-  "check-explain": "todo",
-  "todo-riesgo": "todo",
-  "rk-cap": "todo",
-  "rk-pct": "todo",
-  "rk-entry": "todo",
-  "rk-stop": "todo",
-  "rk-tp": "todo",
-  "rk-out": "todo",
-  "rk-explain": "todo",
-  "mc-decks": "repaso",
-  "mc-stage": "repaso",
-  "rp-como": "replay",
-  "rp-sim": "replay",
-  "rp-fig": "replay",
-  "rp-new": "replay",
-  "rp-ema": "replay",
-  "rp-bb": "replay",
-  "rp-rsi": "replay",
-  "rp-vol": "replay",
-  "rp-reset": "replay",
-  "rp-play": "replay",
-  "rp-step": "replay",
-  "rp-speed": "replay",
-  "rp-skip": "replay",
-  "rp-clock": "replay",
-  "fig-rp": "replay",
-  "rp-risk": "replay",
-  "rp-sl": "replay",
-  "rp-sl-v": "replay",
-  "rp-tp": "replay",
-  "rp-tp-v": "replay",
-  "rp-buy": "replay",
-  "rp-sell": "replay",
-  "rp-be": "replay",
-  "rp-close": "replay",
-  "rp-stats": "replay",
-  "rp-explain": "replay",
-  "rp-diario": "replay",
-  "fig-rp-eq": "replay",
-  "fig-rp-dist": "replay",
-  "rp-analysis": "replay",
-  "rp-csv": "replay",
-  "rp-log": "replay",
-  "rp-sesiones": "replay",
-  "rp-hist": "replay",
-  "rp-hist-clear": "replay",
-  "rp-consejos": "replay",
-  "ex-config": "examen",
-  "ex-groups": "examen",
-  "ex-timer": "examen",
-  "ex-start": "examen",
-  "ex-best": "examen",
-  "ex-run": "examen",
-  "ex-count": "examen",
-  "ex-mod": "examen",
-  "ex-combo": "examen",
-  "ex-score": "examen",
-  "ex-meter": "examen",
-  "ex-tbar": "examen",
-  "ex-q": "examen",
-  "ex-quit": "examen",
-  "ex-next": "examen",
-  "ex-res": "examen",
-  "ex-res-stats": "examen",
-  "ex-res-explain": "examen",
-  "ex-res-table": "examen",
-  "ex-again": "examen",
-  "ex-wrong": "examen",
-  "gloss-q": "glosario",
-  "gloss": "glosario",
   "pat-leer": "patrones",
   "pat-explorador": "patrones",
   "pat-list": "patrones",
@@ -1957,6 +2420,34 @@
   "ps-data": "patrones",
   "pat-errores": "patrones",
   "patrones-quiz": "patrones",
+  "sr-que": "sr",
+  "sr-zonas": "sr",
+  "sr-n": "sr",
+  "sr-n-v": "sr",
+  "sr-tol": "sr",
+  "sr-tol-v": "sr",
+  "sr-min": "sr",
+  "sr-min-v": "sr",
+  "sr-new": "sr",
+  "fig-sr": "sr",
+  "sr-stats": "sr",
+  "sr-explain": "sr",
+  "sr-polaridad": "sr",
+  "sr-figuras": "sr",
+  "cp-list": "sr",
+  "fig-cp": "sr",
+  "cp-info": "sr",
+  "cp-rules": "sr",
+  "sr-pivot": "sr",
+  "pv-h": "sr",
+  "pv-l": "sr",
+  "pv-c": "sr",
+  "pv-new": "sr",
+  "fig-sr-pivot": "sr",
+  "pv-t": "sr",
+  "pv-explain": "sr",
+  "sr-errores": "sr",
+  "sr-quiz": "sr",
   "est-swings": "estructura",
   "est-tendencia": "estructura",
   "est-bos": "estructura",
@@ -1968,6 +2459,13 @@
   "est-stats": "estructura",
   "est-explain": "estructura",
   "est-fuerte": "estructura",
+  "est-mtf": "estructura",
+  "mtf-prev": "estructura",
+  "mtf-dots": "estructura",
+  "mtf-next": "estructura",
+  "mtf-rr": "estructura",
+  "mtf-step": "estructura",
+  "fig-est-mtf": "estructura",
   "est-errores": "estructura",
   "estructura-quiz": "estructura",
   "tl-trazar": "trendlines",
@@ -2030,7 +2528,38 @@
   "vol-obv": "volumen",
   "vol-vwap": "volumen",
   "vol-perfil": "volumen",
+  "vol-flow": "volumen",
+  "fig-vol-flow": "volumen",
+  "of-explain": "volumen",
+  "fig-vol-fp": "volumen",
   "volumen-quiz": "volumen",
+  "mc-que": "macro",
+  "mc-cal": "macro",
+  "mc-cal-tz": "macro",
+  "mc-cal-t": "macro",
+  "mc-sorpresa": "macro",
+  "ms-c": "macro",
+  "ms-c-v": "macro",
+  "ms-r": "macro",
+  "ms-r-v": "macro",
+  "ms-p": "macro",
+  "fig-mc-sur": "macro",
+  "ms-out": "macro",
+  "ms-explain": "macro",
+  "mc-dxy": "macro",
+  "mc-chain-t": "macro",
+  "mc-chain-explain": "macro",
+  "mc-evento": "macro",
+  "slp-d": "macro",
+  "slp-d-v": "macro",
+  "slp-g": "macro",
+  "slp-g-v": "macro",
+  "slp-s": "macro",
+  "slp-s-v": "macro",
+  "fig-mc-slip": "macro",
+  "slp-out": "macro",
+  "slp-explain": "macro",
+  "macro-quiz": "macro",
   "ema-formula": "emas",
   "ew-n": "emas",
   "ew-n-v": "emas",
@@ -2049,6 +2578,44 @@
   "ema-periodos": "emas",
   "ema-errores": "emas",
   "emas-quiz": "emas",
+  "rsi-que": "rsi",
+  "bal-g": "rsi",
+  "bal-g-v": "rsi",
+  "bal-l": "rsi",
+  "bal-l-v": "rsi",
+  "fig-balance": "rsi",
+  "balance-explain": "rsi",
+  "rsi-calculo": "rsi",
+  "calc-in": "rsi",
+  "calc-n": "rsi",
+  "calc-go": "rsi",
+  "calc-explain": "rsi",
+  "fig-calc": "rsi",
+  "calc-table": "rsi",
+  "rsi-lab": "rsi",
+  "lab-n": "rsi",
+  "lab-n-v": "rsi",
+  "lab-sig": "rsi",
+  "lab-div": "rsi",
+  "lab-play": "rsi",
+  "lab-new": "rsi",
+  "fig-rsi-lab": "rsi",
+  "lab-stats": "rsi",
+  "lab-explain": "rsi",
+  "lab-data": "rsi",
+  "rsi-niveles": "rsi",
+  "fig-ranges": "rsi",
+  "ranges-new": "rsi",
+  "rsi-div": "rsi",
+  "fig-div": "rsi",
+  "div-explain": "rsi",
+  "rsi-fs": "rsi",
+  "fs-play": "rsi",
+  "fig-fs": "rsi",
+  "fs-explain": "rsi",
+  "rsi-params": "rsi",
+  "rsi-errores": "rsi",
+  "rsi-quiz": "rsi",
   "sto-que": "estocastico",
   "sb-c": "estocastico",
   "fig-sto-box": "estocastico",
@@ -2082,51 +2649,23 @@
   "mom-macd": "momentum",
   "mom-uso": "momentum",
   "momentum-quiz": "momentum",
-  "smc-que": "smc",
-  "smc-flujo": "smc",
-  "fig-smc-flow": "smc",
-  "smc-ind": "smc",
-  "ind-prev": "smc",
-  "ind-dots": "smc",
-  "ind-next": "smc",
-  "fig-smc-ind": "smc",
-  "ind-step": "smc",
-  "smc-bk": "smc",
-  "fig-smc-bk": "smc",
-  "bk-explain": "smc",
-  "smc-ote": "smc",
-  "ote-r": "smc",
-  "ote-r-v": "smc",
-  "ote-cont": "smc",
-  "fig-smc-ote": "smc",
-  "ote-stats": "smc",
-  "ote-explain": "smc",
-  "smc-po3": "smc",
-  "po3-play": "smc",
-  "fig-smc-po3": "smc",
-  "po3-explain": "smc",
-  "smc-errores": "smc",
-  "smc-quiz": "smc",
-  "sr-que": "sr",
-  "sr-zonas": "sr",
-  "sr-n": "sr",
-  "sr-n-v": "sr",
-  "sr-tol": "sr",
-  "sr-tol-v": "sr",
-  "sr-min": "sr",
-  "sr-min-v": "sr",
-  "sr-new": "sr",
-  "fig-sr": "sr",
-  "sr-stats": "sr",
-  "sr-explain": "sr",
-  "sr-polaridad": "sr",
-  "sr-figuras": "sr",
-  "cp-list": "sr",
-  "fig-cp": "sr",
-  "cp-info": "sr",
-  "cp-rules": "sr",
-  "sr-errores": "sr",
-  "sr-quiz": "sr",
+  "adx-que": "adx",
+  "adx-lab": "adx",
+  "adx-n": "adx",
+  "adx-n-v": "adx",
+  "adx-new": "adx",
+  "fig-adx": "adx",
+  "adx-explain": "adx",
+  "adx-i": "adx",
+  "adx-i-v": "adx",
+  "adx-step-t": "adx",
+  "adx-uso": "adx",
+  "ichi-que": "adx",
+  "ichi-new": "adx",
+  "fig-ichi": "adx",
+  "ichi-explain": "adx",
+  "ichi-uso": "adx",
+  "adx-quiz": "adx",
   "vo-tr": "volat",
   "tr-pc": "volat",
   "tr-h": "volat",
@@ -2162,6 +2701,126 @@
   "bb-explain": "volat",
   "vo-uso": "volat",
   "volat-quiz": "volat",
+  "wy-leyes": "wyckoff",
+  "wy-acum": "wyckoff",
+  "wy-prev": "wyckoff",
+  "wy-dots": "wyckoff",
+  "wy-next": "wyckoff",
+  "fig-wy": "wyckoff",
+  "wy-step": "wyckoff",
+  "wy-er": "wyckoff",
+  "fig-wy-er": "wyckoff",
+  "wy-er-explain": "wyckoff",
+  "wy-smc": "wyckoff",
+  "wy-errores": "wyckoff",
+  "wyckoff-quiz": "wyckoff",
+  "liq-que": "liquidez",
+  "fig-stops": "liquidez",
+  "liq-barrido": "liquidez",
+  "sweep-play": "liquidez",
+  "sweep-new": "liquidez",
+  "fig-sweep": "liquidez",
+  "sweep-stats": "liquidez",
+  "sweep-explain": "liquidez",
+  "liq-pools": "liquidez",
+  "map-new": "liquidez",
+  "fig-map": "liquidez",
+  "liq-svb": "liquidez",
+  "svb-play": "liquidez",
+  "fig-svb": "liquidez",
+  "svb-explain": "liquidez",
+  "liq-fvg": "liquidez",
+  "fvg-force": "liquidez",
+  "fvg-ret": "liquidez",
+  "fvg-play": "liquidez",
+  "fig-fvg": "liquidez",
+  "fvg-explain": "liquidez",
+  "liq-ob": "liquidez",
+  "ob-prev": "liquidez",
+  "ob-dots": "liquidez",
+  "ob-next": "liquidez",
+  "fig-ob": "liquidez",
+  "ob-step": "liquidez",
+  "liq-pd": "liquidez",
+  "pd-p": "liquidez",
+  "pd-v": "liquidez",
+  "fig-pd": "liquidez",
+  "pd-explain": "liquidez",
+  "liq-errores": "liquidez",
+  "liq-quiz": "liquidez",
+  "smc-que": "smc",
+  "smc-flujo": "smc",
+  "fig-smc-flow": "smc",
+  "smc-ind": "smc",
+  "ind-prev": "smc",
+  "ind-dots": "smc",
+  "ind-next": "smc",
+  "fig-smc-ind": "smc",
+  "ind-step": "smc",
+  "smc-bk": "smc",
+  "fig-smc-bk": "smc",
+  "bk-explain": "smc",
+  "smc-ote": "smc",
+  "ote-r": "smc",
+  "ote-r-v": "smc",
+  "ote-cont": "smc",
+  "fig-smc-ote": "smc",
+  "ote-stats": "smc",
+  "ote-explain": "smc",
+  "smc-po3": "smc",
+  "po3-play": "smc",
+  "fig-smc-po3": "smc",
+  "po3-explain": "smc",
+  "smc-pd": "smc",
+  "fig-smc-pd": "smc",
+  "pda-explain": "smc",
+  "smc-gaps": "smc",
+  "fig-smc-gap": "smc",
+  "smc-sb": "smc",
+  "sb-times": "smc",
+  "fig-smc-sb": "smc",
+  "smc-mmm": "smc",
+  "fig-smc-mmm": "smc",
+  "smc-errores": "smc",
+  "smc-quiz": "smc",
+  "crt-idea": "crt",
+  "crt-modelo": "crt",
+  "crt-depth": "crt",
+  "crt3-prev": "crt",
+  "crt3-dots": "crt",
+  "crt3-next": "crt",
+  "crt3-all": "crt",
+  "fig-crt3": "crt",
+  "crt3-stats": "crt",
+  "crt3-step": "crt",
+  "crt-reglas": "crt",
+  "crt-cases": "crt",
+  "crt-cases-score": "crt",
+  "crt-mtf": "crt",
+  "mtf-play": "crt",
+  "mtf-end": "crt",
+  "mtf-new": "crt",
+  "mtf-speed": "crt",
+  "fig-crt-mtf": "crt",
+  "mtf-stats": "crt",
+  "mtf-explain": "crt",
+  "mtf-data": "crt",
+  "crt-entradas": "crt",
+  "crt-tf": "crt",
+  "crt-calidad": "crt",
+  "crt-quiz": "crt",
+  "smt-que": "smt",
+  "smt-play": "smt",
+  "smt-new": "smt",
+  "fig-smt": "smt",
+  "smt-explain": "smt",
+  "smt-tipos": "smt",
+  "smt-reglas": "smt",
+  "smt-crt": "smt",
+  "fig-smt-crt": "smt",
+  "smt-crt-explain": "smt",
+  "smt-errores": "smt",
+  "smt-quiz": "smt",
   "ord-tipos": "ordenes",
   "ord-lvl": "ordenes",
   "ord-lvl-v": "ordenes",
@@ -2202,6 +2861,44 @@
   "ct-out": "ordenes",
   "ct-explain": "ordenes",
   "ordenes-quiz": "ordenes",
+  "br-tipos": "brokers",
+  "br-regul": "brokers",
+  "br-check": "brokers",
+  "br-meter": "brokers",
+  "br-flags": "brokers",
+  "br-explain": "brokers",
+  "br-costos": "brokers",
+  "bc-n": "brokers",
+  "bc-lots": "brokers",
+  "bc-risk": "brokers",
+  "fig-br-cost": "brokers",
+  "bc-out": "brokers",
+  "bc-explain": "brokers",
+  "br-prop": "brokers",
+  "pf-fee": "brokers",
+  "pf-fee-v": "brokers",
+  "pf-new": "brokers",
+  "pf-tg": "brokers",
+  "pf-tg-v": "brokers",
+  "pf-dd": "brokers",
+  "pf-dd-v": "brokers",
+  "pf-mx": "brokers",
+  "pf-mx-v": "brokers",
+  "pf-dy": "brokers",
+  "pf-dy-v": "brokers",
+  "pf-rk": "brokers",
+  "pf-rk-v": "brokers",
+  "pf-wr": "brokers",
+  "pf-wr-v": "brokers",
+  "pf-rr": "brokers",
+  "pf-rr-v": "brokers",
+  "pf-pd": "brokers",
+  "pf-pd-v": "brokers",
+  "fig-br-prop": "brokers",
+  "pf-out": "brokers",
+  "pf-explain": "brokers",
+  "br-estafas": "brokers",
+  "brokers-quiz": "brokers",
   "rg-exp": "riesgo",
   "ex-wr": "riesgo",
   "ex-wr-v": "riesgo",
@@ -2233,33 +2930,182 @@
   "rg-tbl-explain": "riesgo",
   "rg-reglas": "riesgo",
   "riesgo-quiz": "riesgo",
-  "mk-que": "mercados",
-  "mk-mapa": "mercados",
-  "mk-cards": "mercados",
-  "mk-detail": "mercados",
-  "mk-tipos": "mercados",
-  "mk-libro": "mercados",
-  "lb-q": "mercados",
-  "lb-q-v": "mercados",
-  "fig-book": "mercados",
-  "lb-out": "mercados",
-  "lb-explain": "mercados",
-  "mk-horarios": "mercados",
-  "fig-mk-week": "mercados",
-  "mk-week-now": "mercados",
-  "mk-vol": "mercados",
-  "mk-vol-ctrl": "mercados",
-  "fig-mk-vol": "mercados",
-  "mk-vol-legend": "mercados",
-  "mk-vol-table": "mercados",
-  "mk-vol-new": "mercados",
-  "mk-futuros": "mercados",
-  "fu-c": "mercados",
-  "fu-mv": "mercados",
-  "fu-n": "mercados",
-  "fu-out": "mercados",
-  "mk-relacion": "mercados",
-  "mk-errores": "mercados",
-  "mercados-quiz": "mercados"
+  "gt-plan": "gestion",
+  "gt-lab": "gestion",
+  "gt-mu": "gestion",
+  "gt-mu-v": "gestion",
+  "gt-new": "gestion",
+  "gt-t": "gestion",
+  "gt-t-v": "gestion",
+  "gt-b": "gestion",
+  "gt-b-v": "gestion",
+  "gt-k": "gestion",
+  "gt-k-v": "gestion",
+  "fig-gt-rules": "gestion",
+  "gt-table": "gestion",
+  "gt-explain": "gestion",
+  "gt-parcial": "gestion",
+  "gp-p": "gestion",
+  "gp-p-v": "gestion",
+  "gp-t1": "gestion",
+  "gp-t1-v": "gestion",
+  "gp-t2": "gestion",
+  "gp-t2-v": "gestion",
+  "gp-a": "gestion",
+  "gp-a-v": "gestion",
+  "gp-q": "gestion",
+  "gp-q-v": "gestion",
+  "fig-gt-parcial": "gestion",
+  "gp-out": "gestion",
+  "gp-explain": "gestion",
+  "gt-trail": "gestion",
+  "gtr-k": "gestion",
+  "gtr-k-v": "gestion",
+  "gtr-new": "gestion",
+  "fig-gt-trail": "gestion",
+  "gtr-out": "gestion",
+  "gtr-explain": "gestion",
+  "gt-cerrar": "gestion",
+  "gestion-quiz": "gestion",
+  "bt-que": "backtest",
+  "bt-muestra": "backtest",
+  "bn-wr": "backtest",
+  "bn-wr-v": "backtest",
+  "bn-rr": "backtest",
+  "bn-rr-v": "backtest",
+  "bn-n": "backtest",
+  "bn-n-v": "backtest",
+  "bn-new": "backtest",
+  "fig-bt-n": "backtest",
+  "bn-out": "backtest",
+  "bn-explain": "backtest",
+  "bt-overfit": "backtest",
+  "bo-k": "backtest",
+  "bo-k-v": "backtest",
+  "bo-e": "backtest",
+  "bo-e-v": "backtest",
+  "bo-new": "backtest",
+  "fig-bt-of": "backtest",
+  "bo-out": "backtest",
+  "bo-explain": "backtest",
+  "bt-wf": "backtest",
+  "fig-bt-wf": "backtest",
+  "bt-sesgos": "backtest",
+  "bt-metricas": "backtest",
+  "bt-rs": "backtest",
+  "bt-sample": "backtest",
+  "fig-bt-eq": "backtest",
+  "bt-out": "backtest",
+  "bt-explain": "backtest",
+  "backtest-quiz": "backtest",
+  "ps-sesgos": "psicologia",
+  "ps-bias": "psicologia",
+  "ps-tilt": "psicologia",
+  "pt-l": "psicologia",
+  "pt-l-v": "psicologia",
+  "pt-m": "psicologia",
+  "pt-m-v": "psicologia",
+  "pt-d": "psicologia",
+  "pt-d-v": "psicologia",
+  "pt-new": "psicologia",
+  "fig-ps-tilt": "psicologia",
+  "pt-out": "psicologia",
+  "pt-explain": "psicologia",
+  "ps-plan": "psicologia",
+  "pl-explain": "psicologia",
+  "pl-copy": "psicologia",
+  "pl-dl": "psicologia",
+  "pl-reset": "psicologia",
+  "pl-out": "psicologia",
+  "ps-rutina": "psicologia",
+  "psicologia-quiz": "psicologia",
+  "todo-sim": "todo",
+  "todo-prev": "todo",
+  "todo-dots": "todo",
+  "todo-next": "todo",
+  "todo-new": "todo",
+  "todo-step": "todo",
+  "fig-todo": "todo",
+  "todo-stats": "todo",
+  "todo-bear": "todo",
+  "bear-prev": "todo",
+  "bear-dots": "todo",
+  "bear-next": "todo",
+  "bear-step": "todo",
+  "fig-todo-bear": "todo",
+  "todo-check": "todo",
+  "checklist": "todo",
+  "check-meter": "todo",
+  "check-explain": "todo",
+  "todo-riesgo": "todo",
+  "rk-cap": "todo",
+  "rk-pct": "todo",
+  "rk-entry": "todo",
+  "rk-stop": "todo",
+  "rk-tp": "todo",
+  "rk-out": "todo",
+  "rk-explain": "todo",
+  "todo-quiz": "todo",
+  "mc-decks": "repaso",
+  "mc-stage": "repaso",
+  "rp-como": "replay",
+  "rp-sim": "replay",
+  "rp-fig": "replay",
+  "rp-new": "replay",
+  "rp-ema": "replay",
+  "rp-bb": "replay",
+  "rp-rsi": "replay",
+  "rp-vol": "replay",
+  "rp-reset": "replay",
+  "rp-play": "replay",
+  "rp-step": "replay",
+  "rp-speed": "replay",
+  "rp-skip": "replay",
+  "rp-clock": "replay",
+  "fig-rp": "replay",
+  "rp-risk": "replay",
+  "rp-sl": "replay",
+  "rp-sl-v": "replay",
+  "rp-tp": "replay",
+  "rp-tp-v": "replay",
+  "rp-buy": "replay",
+  "rp-sell": "replay",
+  "rp-be": "replay",
+  "rp-close": "replay",
+  "rp-stats": "replay",
+  "rp-explain": "replay",
+  "rp-diario": "replay",
+  "fig-rp-eq": "replay",
+  "fig-rp-dist": "replay",
+  "rp-analysis": "replay",
+  "rp-csv": "replay",
+  "rp-log": "replay",
+  "rp-sesiones": "replay",
+  "rp-hist": "replay",
+  "rp-hist-clear": "replay",
+  "rp-consejos": "replay",
+  "ex-config": "examen",
+  "ex-groups": "examen",
+  "ex-timer": "examen",
+  "ex-start": "examen",
+  "ex-best": "examen",
+  "ex-run": "examen",
+  "ex-count": "examen",
+  "ex-mod": "examen",
+  "ex-combo": "examen",
+  "ex-score": "examen",
+  "ex-meter": "examen",
+  "ex-tbar": "examen",
+  "ex-q": "examen",
+  "ex-quit": "examen",
+  "ex-next": "examen",
+  "ex-res": "examen",
+  "ex-res-stats": "examen",
+  "ex-res-explain": "examen",
+  "ex-res-table": "examen",
+  "ex-again": "examen",
+  "ex-wrong": "examen",
+  "gloss-q": "glosario",
+  "gloss": "glosario"
  }
 }
